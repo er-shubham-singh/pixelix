@@ -8,6 +8,10 @@ const seedData = async () => {
   try {
     await connectDB();
 
+    if (mongoose.connection.readyState !== 1) {
+      throw new Error('MongoDB is not connected. Make sure your IP is whitelisted on MongoDB Atlas (Network Access -> 0.0.0.0/0 or your current IP).');
+    }
+
     console.log('🌱 Seeding Pixelix database with services and portfolio...');
     await Service.deleteMany({});
     await Project.deleteMany({});

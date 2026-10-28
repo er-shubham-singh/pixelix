@@ -1,7 +1,8 @@
 import { ENV } from '../config/env';
 
 export async function apiRequest(endpoint, options = {}) {
-  const url = `${ENV.API_URL}${endpoint}`;
+  const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${ENV.API_URL}${formattedEndpoint}`;
   const config = {
     headers: {
       'Content-Type': 'application/json',
