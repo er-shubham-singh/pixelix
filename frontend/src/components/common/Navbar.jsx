@@ -75,7 +75,7 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               <PixelixLogo size="md" variant={isDark ? 'white' : 'full'} />
             </button>
 
-            {/* Desktop Nav Items */}
+            {/* Desktop Nav Items (visible on lg: >=1024px) */}
             <nav className="hidden lg:flex items-center gap-1 glass-card px-4 py-1.5 rounded-full shadow-sm">
               {navLinks.map((link) => (
                 <button
@@ -92,10 +92,9 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               ))}
             </nav>
 
-            {/* Right Action Bar */}
-            <div className="hidden md:flex items-center gap-3">
-              
-              {/* Mode Switch (Icon Only) */}
+            {/* Right Action Controls (Adaptive across mobile, tablet, and desktop) */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Theme Mode Switch (Icon Only) */}
               <button
                 onClick={toggleTheme}
                 className="w-9 h-9 rounded-full flex items-center justify-center transition-all border cursor-pointer shadow-sm bg-cream-200/80 hover:bg-cream-300 text-espresso-800 border-terracotta-200/60 dark:bg-espresso-800 dark:hover:bg-espresso-700 dark:text-cream-100 dark:border-white/15"
@@ -109,28 +108,19 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
                 )}
               </button>
 
-              {/* Consultation CTA */}
+              {/* Consultation CTA (Visible on sm and up) */}
               <button
                 onClick={onOpenInquiry}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white bg-sunset-gradient shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white bg-sunset-gradient shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <span>Start a Project</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
-            </div>
 
-            {/* Mobile Header Actions */}
-            <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full bg-cream-200 dark:bg-espresso-800 text-espresso-800 dark:text-cream-100 cursor-pointer border border-terracotta-200/50 dark:border-white/10"
-                title={isDark ? "Switch to Normal Mode" : "Switch to Dark Mode"}
-              >
-                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-terracotta-600" />}
-              </button>
+              {/* Mobile/Tablet Menu Hamburger Button (Always visible on all screens < 1024px) */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-xl text-espresso-800 dark:text-cream-100 hover:bg-cream-200 dark:hover:bg-espresso-800 transition-colors cursor-pointer"
+                className="lg:hidden p-2 rounded-xl text-espresso-800 dark:text-cream-100 hover:bg-cream-200/80 dark:hover:bg-espresso-800 border border-terracotta-200/50 dark:border-white/10 transition-colors cursor-pointer flex items-center justify-center"
                 aria-label="Open Navigation Menu"
               >
                 <Menu className="w-6 h-6" />
@@ -141,18 +131,18 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
         </div>
       </header>
 
-      {/* Mobile Drawer Backdrop */}
+      {/* Mobile/Tablet Drawer Backdrop */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-espresso-900/60 dark:bg-black/80 backdrop-blur-sm z-50 transition-opacity animate-in fade-in duration-300 md:hidden"
+          className="fixed inset-0 bg-espresso-900/60 dark:bg-black/80 backdrop-blur-sm z-50 transition-opacity animate-in fade-in duration-300 lg:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
-      {/* Mobile Fixed-Height Side Drawer (Opens Left-to-Right) */}
+      {/* Mobile/Tablet Fixed-Height Side Drawer (Opens Left-to-Right) */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-cream-50 dark:bg-darkbg-surface border-r border-cream-300 dark:border-white/10 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-in-out md:hidden ${
-          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-cream-50 dark:bg-darkbg-surface border-r border-cream-300 dark:border-white/10 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
+          mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
         }`}
         aria-label="Mobile Navigation Drawer"
       >
@@ -199,14 +189,14 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
             </div>
             <button
               onClick={toggleTheme}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-white/10 text-xs font-bold text-espresso-800 dark:text-cream-100 cursor-pointer shadow-sm"
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-white/10 text-xs font-bold text-espresso-800 dark:text-cream-100 cursor-pointer shadow-sm hover:border-terracotta-400 transition-colors"
             >
               <span className="flex items-center gap-2">
                 {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-terracotta-600" />}
-                <span>{isDark ? 'Normal Mode' : 'Dark Mode'}</span>
+                <span>{isDark ? 'Dark Theme (Active)' : 'Warm Cream (Active)'}</span>
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-cream-200 dark:bg-white/10 text-terracotta-600 dark:text-terracotta-400">
-                {isDark ? 'Active' : 'Light'}
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-cream-200 dark:bg-white/10 text-terracotta-600 dark:text-terracotta-400 font-semibold">
+                Switch
               </span>
             </button>
           </div>

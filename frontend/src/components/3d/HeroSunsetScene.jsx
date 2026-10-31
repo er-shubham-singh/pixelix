@@ -205,7 +205,7 @@ export default function HeroSunsetScene() {
   }, []);
 
   return (
-    <div className="relative w-full h-[460px] md:h-[560px] flex items-center justify-center">
+    <div className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] lg:h-[480px] flex items-center justify-center">
       {/* Background radial glow */}
       <div className="absolute inset-0 bg-radial from-terracotta-400/20 via-gold-sun/10 to-transparent blur-3xl pointer-events-none -z-10" />
       
