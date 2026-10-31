@@ -76,15 +76,15 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
             </button>
 
             {/* Desktop Nav Items (visible on lg: >=1024px) */}
-            <nav className="hidden lg:flex items-center gap-1 glass-card px-4 py-1.5 rounded-full shadow-sm">
+            <nav className="hidden lg:flex items-center gap-1 ios-glass px-4 py-1.5 rounded-full shadow-sm">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
                   className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
                     activePage === link.id
-                      ? 'bg-terracotta-500 text-white shadow-sm'
-                      : 'text-espresso-800 dark:text-cream-200 hover:text-terracotta-600 dark:hover:text-terracotta-400 hover:bg-cream-200/60 dark:hover:bg-white/10'
+                      ? 'bg-sunset-gradient text-white shadow-sunset'
+                      : 'text-espresso-800 dark:text-cream-200 hover:text-terracotta-600 dark:hover:text-terracotta-400 hover:bg-white/40 dark:hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -139,9 +139,9 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
         />
       )}
 
-      {/* Mobile/Tablet Fixed-Height Side Drawer (Opens Left-to-Right) */}
+      {/* Mobile/Tablet Fixed-Height Side Drawer (Opens Left-to-Right with iOS Frosted Glass) */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-cream-50 dark:bg-darkbg-surface border-r border-cream-300 dark:border-white/10 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-cream-50/92 dark:bg-darkbg-surface/92 backdrop-blur-2xl border-r border-white/50 dark:border-white/10 shadow-[0_20px_50px_rgba(28,25,23,0.35)] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
         }`}
         aria-label="Mobile Navigation Drawer"

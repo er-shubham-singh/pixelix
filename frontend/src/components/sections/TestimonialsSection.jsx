@@ -106,7 +106,7 @@ export default function TestimonialsSection({ onOpenInquiry }) {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="p-5 sm:p-6 rounded-3xl bg-white/85 dark:bg-darkbg-card border border-cream-300 dark:border-white/10 shadow-soft hover:shadow-sunset/20 hover:border-terracotta-400/60 transition-all flex flex-col justify-between group space-y-4"
+              className="p-5 sm:p-6 rounded-3xl ios-glass-card border border-cream-300/80 dark:border-white/10 hover:shadow-sunset/25 hover:border-terracotta-400/60 transition-all flex flex-col justify-between group space-y-4"
             >
               <div className="space-y-3">
                 {/* Header: Photo, Name, Rating, Badge */}

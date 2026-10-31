@@ -22,44 +22,100 @@
 }
 
 @layer utilities {
-  .glass-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  /* iOS Ultra-Frosted Glass System (Terracotta & Warm Cream / Dark Espresso Theme) */
+  .glass-card,
+  .ios-glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 10px 30px -5px rgba(28, 25, 23, 0.04), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+    box-shadow: 
+      0 12px 34px -8px rgba(28, 25, 23, 0.06),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 1px 0 rgba(200, 69, 35, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dark .glass-card,
+  html.dark .glass-card,
+  .dark .ios-glass-card,
+  html.dark .ios-glass-card {
+    background: rgba(24, 20, 18, 0.74);
+    backdrop-filter: blur(32px) saturate(190%);
+    -webkit-backdrop-filter: blur(32px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 16px 42px -10px rgba(0, 0, 0, 0.65),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 1px 0 rgba(200, 69, 35, 0.12);
+  }
+
+  .ios-glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 
+      0 14px 38px -10px rgba(28, 25, 23, 0.07),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  .dark .ios-glass {
+    background: rgba(22, 18, 16, 0.72);
+    backdrop-filter: blur(34px) saturate(190%);
+    -webkit-backdrop-filter: blur(34px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 18px 45px -12px rgba(0, 0, 0, 0.7),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.16);
+  }
+
+  /* iOS Terracotta Frosted Glass Accent */
+  .ios-glass-terracotta {
+    background: linear-gradient(135deg, rgba(200, 69, 35, 0.88) 0%, rgba(217, 83, 47, 0.85) 50%, rgba(244, 162, 97, 0.82) 100%);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+      0 14px 35px -8px rgba(200, 69, 35, 0.4),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.55);
+    color: #FFFFFF;
+  }
+
+  /* iOS Frosted Navigation Bar */
+  .glass-nav,
+  .ios-glass-nav {
+    background: rgba(250, 246, 238, 0.75);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-bottom: 1px solid rgba(200, 69, 35, 0.08);
+    box-shadow: 
+      0 4px 25px -4px rgba(28, 25, 23, 0.05),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.6);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .dark .glass-card, html.dark .glass-card {
-    background: rgba(26, 23, 21, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+  .dark .glass-nav,
+  html.dark .glass-nav,
+  .dark .ios-glass-nav,
+  html.dark .ios-glass-nav {
+    background: rgba(18, 16, 14, 0.78);
+    backdrop-filter: blur(32px) saturate(190%);
+    -webkit-backdrop-filter: blur(32px) saturate(190%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 
+      0 6px 28px -4px rgba(0, 0, 0, 0.6),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.08);
   }
 
   .glass-card-dark {
-    background: rgba(28, 25, 23, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-  }
-
-  .glass-nav {
-    background: rgba(250, 246, 238, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(200, 69, 35, 0.08);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  .dark .glass-nav, html.dark .glass-nav {
-    background: rgba(18, 16, 14, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(24, 20, 18, 0.78);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 18px 45px -12px rgba(0, 0, 0, 0.6),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .text-gradient-sunset {
@@ -104,6 +160,71 @@
   .preserve-3d {
     transform-style: preserve-3d;
   }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+@keyframes float-subtle-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-subtle-2 {
+  0%, 100% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+@keyframes float-subtle-3 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes float-subtle-4 {
+  0%, 100% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-float-1 {
+  animation: float-subtle-1 4.2s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-subtle-2 4.9s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-subtle-3 4.5s ease-in-out infinite;
+}
+
+.animate-float-4 {
+  animation: float-subtle-4 5.4s ease-in-out infinite;
 }
 
 /* Custom subtle scrollbar */

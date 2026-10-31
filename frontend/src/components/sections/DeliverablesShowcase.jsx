@@ -35,7 +35,7 @@ export default function DeliverablesShowcase({ onOpenInquiry }) {
   ];
 
   return (
-    <section id="deliverables" className="py-24 bg-white dark:bg-darkbg-base relative overflow-hidden transition-colors">
+    <section id="deliverables" className="py-16 sm:py-20 bg-white dark:bg-darkbg-base relative overflow-hidden transition-colors">
       {/* Background ambient accents */}
       <div className="absolute top-10 right-10 w-96 h-96 bg-terracotta-100/60 dark:bg-terracotta-900/20 rounded-full blur-[130px] pointer-events-none" />
 

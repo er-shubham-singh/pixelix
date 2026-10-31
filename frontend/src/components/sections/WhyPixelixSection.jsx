@@ -41,7 +41,7 @@ export default function WhyPixelixSection({ onOpenInquiry }) {
   ];
 
   return (
-    <section className="py-24 bg-espresso-900 text-cream-100 relative overflow-hidden">
+    <section className="py-16 sm:py-20 bg-espresso-900 text-cream-100 relative overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-terracotta-700/15 rounded-full blur-[160px] pointer-events-none" />
 

@@ -87,7 +87,7 @@ export default function ServicesSection({
   }, [services, selectedCategory, searchQuery, isFeaturedOnly, maxDisplay]);
 
   return (
-    <section id="services" className={`py-20 relative transition-colors ${isFeaturedOnly ? 'bg-cream-100/60 dark:bg-darkbg-base' : 'bg-cream-50 dark:bg-darkbg-surface'}`}>
+    <section id="services" className={`py-14 sm:py-16 relative transition-colors ${isFeaturedOnly ? 'bg-cream-100/60 dark:bg-darkbg-base' : 'bg-cream-50 dark:bg-darkbg-surface'}`}>
       {/* Decorative ambient lights */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-terracotta-400/10 dark:bg-terracotta-600/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-gold/15 dark:bg-gold/5 rounded-full blur-[110px] pointer-events-none" />
