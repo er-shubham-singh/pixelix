@@ -18,13 +18,13 @@ export default function ServicesPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
           <Badge variant="terracotta" className="text-xs">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>All 10 Core Services</span>
+            <span>Complete Services Catalog ({services.length})</span>
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
-            Full Spectrum Digital & Growth Services
+            Full-Spectrum Digital, E-Commerce & Growth Solutions
           </h1>
           <p className="text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Browse our complete catalog of 10 specialized services. Filter by domain, inspect deliverables, and request custom proposals directly.
+            Browse our complete catalog of {services.length} services across E-Commerce operations, order creation & dispatch, marketplace growth, web & mobile engineering, AI, and brand identity.
           </p>
         </div>
       </section>

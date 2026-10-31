@@ -33,7 +33,8 @@ const serviceSchema = new mongoose.Schema({
       'product-visuals',
       'campaigns',
       'content-systems',
-      'ai-solutions'
+      'ai-solutions',
+      'ecom-operations'
     ]
   },
   shortDescription: {

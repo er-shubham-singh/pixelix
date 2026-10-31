@@ -384,6 +384,264 @@ export const initialServices = [
     technologies: ['Figma', 'Photoshop', 'After Effects', 'Canva', 'Social Buffer'],
     featured: true,
     order: 10
+  },
+  {
+    slug: 'order-creation-processing',
+    title: 'Order Creation & Processing',
+    titleHi: 'ऑर्डर क्रिएशन और प्रोसेसिंग',
+    category: 'ecom-operations',
+    shortDescription: 'High-speed multi-channel order capture, automated GST invoice generation, packaging slip printing, and SKU mapping across Amazon, Flipkart, Meesho & Shopify.',
+    shortDescriptionHi: 'अमेज़न, फ्लिपकार्ट, मीशो और शॉपिफाई के लिए सटीक और तेज़ ऑर्डर प्रोसेसिंग।',
+    fullDescription: 'Pixelix manages your daily e-commerce order flow from the moment a customer clicks Buy to the final pack. We handle bulk order fetching, batch GST tax invoice generation, shipping label printing, SKU bundling, address validation, and marketplace status confirmation with zero fulfillment delays.',
+    badge: 'E-Com Core',
+    iconName: 'PackageCheck',
+    deliverables: [
+      'Multi-marketplace automated order pulling & validation',
+      'Batch GST tax invoice & packing slip generation',
+      'Combo & virtual bundle SKU mapping to physical warehouse inventory',
+      'Address hygiene & COD customer confirmation follow-up',
+      'Marketplace fulfillment status auto-updates (Amazon Easy Ship, Flipkart Smart, Meesho Direct)'
+    ],
+    deliverablesHi: [
+      'मल्टी-प्लेटफ़ॉर्म ऑटोमेटेड ऑर्डर सिंक व सत्यापन',
+      'बैच GST टैक्स इनवॉइस और पैकिंग स्लिप जनरेशन',
+      'COD कन्फर्मेशन व एड्रेस वेरिफिकेशन'
+    ],
+    features: [
+      {
+        title: 'Zero Latency Order Dispatch',
+        titleHi: 'शून्य देरी',
+        description: 'Processes bulk orders within 2 hours of arrival to maintain top seller tier badges.'
+      },
+      {
+        title: 'Error-Free SKU Mapping',
+        titleHi: 'सटीक इन्वेंट्री मैपिंग',
+        description: 'Translates complex combo listings into exact individual warehouse pick items.'
+      },
+      {
+        title: 'COD Verification',
+        titleHi: 'COD पुष्टि',
+        description: 'Filters bogus cash-on-delivery orders before dispatch to slash return-to-origin rates.'
+      }
+    ],
+    technologies: ['Amazon Seller Central', 'Flipkart Seller Hub', 'Meesho Supplier Panel', 'Shopify Plus', 'Unicommerce', 'EasyEcom'],
+    featured: true,
+    order: 11
+  },
+  {
+    slug: 'product-listing-cataloging',
+    title: 'Product Listing & Cataloging',
+    titleHi: 'प्रोडक्ट लिस्टिंग और कैटलॉगिंग',
+    category: 'marketplace-growth',
+    shortDescription: 'Algorithm-optimized product listings, parent-child variation setups, keyword-dense bullet points, and high-converting A+ Content / EBC for online marketplaces.',
+    shortDescriptionHi: 'अमेज़न, फ्लिपकार्ट और मीशो पर आकर्षक और SEO-अनुकूलित प्रोडक्ट लिस्टिंग।',
+    fullDescription: 'Win search visibility and click-through rates across Amazon, Flipkart, Meesho, Shopify, and Myntra. We build high-ranking product titles, bullet points engineered around customer pain points, backend search term indexing, and visually stunning A+ Content / Enhanced Brand Content (EBC) that turns browsers into buyers.',
+    badge: 'High Conversion',
+    iconName: 'FileSpreadsheet',
+    deliverables: [
+      'Parent-child multi-variant matrix setup (Size, Color, Material, Pack combinations)',
+      'High-intent search keyword integration in Titles, Bullet Points & Backend Terms',
+      'A+ Content (Enhanced Brand Content) modules, banner layouts & comparison charts',
+      'Brand Registry, GTIN/UPC exemption & category ungating documentation',
+      'Multi-marketplace catalog syndication (Amazon, Flipkart, Meesho, Shopify, Blinkit, Zepto)'
+    ],
+    deliverablesHi: [
+      'मल्टी-वेरिएंट लिस्टिंग और पैरेंट-चाइल्ड सेटअप',
+      'उच्च सर्च वॉल्यूम वाले कीवर्ड्स और बुलेट पॉइंट्स',
+      'A+ कंटेंट / EBC बैनर डिज़ाइन व ब्रांड रजिस्ट्री सपोर्ट'
+    ],
+    features: [
+      {
+        title: 'Marketplace Search Optimization',
+        titleHi: 'सर्च ऑप्टिमाइज़ेशन',
+        description: 'In-depth keyword extraction from Helium 10 and Jungle Scout for top organic ranking.'
+      },
+      {
+        title: 'A+ Visual Conversion Storytelling',
+        titleHi: 'A+ कंटेंट डिज़ाइन',
+        description: 'Rich graphic modules that boost listing conversion rates by up to 28%.'
+      },
+      {
+        title: 'Zero Category Rejection',
+        titleHi: 'कैटेगरी अप्रूवल',
+        description: '100% compliant with strict marketplace attributes and mandatory compliance values.'
+      }
+    ],
+    technologies: ['Helium 10', 'Jungle Scout', 'Photoshop', 'Amazon Brand Registry', 'Flipkart Assured', 'Shopify'],
+    featured: true,
+    order: 12
+  },
+  {
+    slug: 'dispatch-logistics-management',
+    title: 'Dispatch & Logistics Management',
+    titleHi: 'डिस्पैच और लॉजिस्टिक्स ऑपरेशन्स',
+    category: 'ecom-operations',
+    shortDescription: 'Warehouse packaging coordination, multi-courier partner allocation, manifest creation, SLA-driven pickup handover, and transit tracking.',
+    shortDescriptionHi: 'समय पर सुरक्षित पैकिंग, कूरियर हैंडओवर और रियल-टाइम ट्रैकिंग।',
+    fullDescription: 'Pixelix ensures your packed orders leave the warehouse swiftly, securely, and strictly within marketplace shipping SLAs. We coordinate multi-courier partner allocations, automate manifest generation, monitor carrier pickup handoffs, and proactively track parcels to deliver stellar customer satisfaction and 99.8%+ on-time dispatch metrics.',
+    badge: 'Operational SLA',
+    iconName: 'Truck',
+    deliverables: [
+      'Multi-carrier shipping integration (Shiprocket, Delhivery, BlueDart, Ecom Express, Xpressbees)',
+      'Batch manifest printing and physical courier pickup handover sign-offs',
+      'Late-dispatch alert prevention & SLA breach safeguards',
+      'Packaging spec compliance (fragile taping, bubble wrap specs, corrugated box sizing)',
+      'Proof of Delivery (POD) archiving and transit tracking'
+    ],
+    deliverablesHi: [
+      'मल्टी-कूरियर इंटीग्रेशन और सबसे तेज़ रूटिंग',
+      'बैच मैनिफेस्ट जनरेशन और कूरियर हैंडओवर',
+      'पैकेजिंग स्पेसिफिकेशन और सुरक्षित पारगमन'
+    ],
+    features: [
+      {
+        title: 'Carrier Rate Optimization',
+        titleHi: 'कूरियर दर अनुकूलन',
+        description: 'Dynamically routes orders to the lowest-cost, highest-reliability carrier per pin code.'
+      },
+      {
+        title: '99.8% On-Time SLA',
+        titleHi: 'SLA अनुपालन',
+        description: 'Protects your seller rating and avoids marketplace late-shipment penalty fees.'
+      },
+      {
+        title: 'Manifest Audit Trail',
+        titleHi: 'मैनिफेस्ट रिकॉर्ड',
+        description: 'Counters courier misplacement claims with signed digital & paper manifests.'
+      }
+    ],
+    technologies: ['Shiprocket', 'Delhivery One', 'BlueDart', 'Ecom Express', 'Amazon Easy Ship', 'Smart Pack'],
+    featured: true,
+    order: 13
+  },
+  {
+    slug: 'returns-rto-claims',
+    title: 'Returns & Claims Management (RTO)',
+    titleHi: 'रिटर्न और सेफ-टी क्लेम रिकवरी (RTO)',
+    category: 'ecom-operations',
+    shortDescription: 'Aggressive RTO reduction strategies, physical returns unboxing audit, and recovery of lost/damaged funds via Amazon Safe-T and Flipkart SPF claims.',
+    shortDescriptionHi: 'RTO नुकसान कम करें और डैमेज पार्सल पर शत-प्रतिशत क्लेम रिकवरी पाएं।',
+    fullDescription: 'Unmonitored returns and RTOs (Return to Origin) drain e-commerce profitability. Pixelix deploys automated NDR IVR/WhatsApp customer verification to save in-transit deliveries, runs a meticulous return inspection audit with video/photo evidence upon arrival, and relentlessly files Safe-T claims and SPF claims to recover money for damaged or switched inventory.',
+    badge: 'Profit Recovery',
+    iconName: 'RotateCcw',
+    deliverables: [
+      'Automated NDR (Non-Delivery Report) customer WhatsApp & IVR outreach',
+      'Physical return package unboxing inspection with high-res photo/video evidence',
+      'Amazon Safe-T claim & Flipkart SPF claim filing with 90%+ recovery success rate',
+      'Courier return transit monitoring to prevent lost in transit (LIT) inventory leaks',
+      'Bi-weekly damage reimbursement audit report'
+    ],
+    deliverablesHi: [
+      'व्हाट्सएप और IVR द्वारा NDR फॉलो-अप (RTO में कमी)',
+      'अमेज़न Safe-T क्लेम और फ्लिपकार्ट SPF क्लेम फाइलिंग',
+      'वीडियो साक्ष्य के साथ रिटर्न पार्सल अनबॉक्सिंग ऑडिट'
+    ],
+    features: [
+      {
+        title: 'Up to 35% RTO Reduction',
+        titleHi: 'RTO में भारी कमी',
+        description: 'Proactively corrects flawed addresses and re-attempts deliveries before courier return.'
+      },
+      {
+        title: 'Maximum Claim Payouts',
+        titleHi: 'अधिकतम क्लेम रिकवरी',
+        description: 'Recovers hundreds of thousands of rupees annually in wrongful return reimbursements.'
+      },
+      {
+        title: 'Fraud Buyer Blacklisting',
+        titleHi: 'धोखाधड़ी से बचाव',
+        description: 'Maintains internal database of chronic return abusers to block future losses.'
+      }
+    ],
+    technologies: ['Safe-T Portal', 'Flipkart SPF', 'WhatsApp Business API', 'WMS Returns Desk', 'Excel Claims Tracker'],
+    featured: true,
+    order: 14
+  },
+  {
+    slug: 'inventory-stock-sync',
+    title: 'Inventory & Stock Management',
+    titleHi: 'इन्वेंट्री और स्टॉक सिंक्रोनाइज़ेशन',
+    category: 'ecom-operations',
+    shortDescription: 'Centralized multi-channel stock allocation across FBA, Flipkart Assured/Lite, Meesho, and self-ship warehouses to prevent stockouts and high cancel penalties.',
+    shortDescriptionHi: 'मल्टी-प्लेटफ़ॉर्म स्टॉक सिंक, FBA इनबाउंडिंग और स्टॉकआउट रोकथाम।',
+    fullDescription: 'Stop overselling and out-of-stock cancellations. Pixelix synchronizes your inventory pool across Amazon, Flipkart, Meesho, Shopify, and local hubs in real time. We manage low-stock threshold alerts, forecast seasonal reorder quantities, create FBA/Fulfillment Center inbounds, and optimize stock velocity across all regional nodes.',
+    badge: 'Stock Protection',
+    iconName: 'Boxes',
+    deliverables: [
+      'Centralized multi-channel stock sync pool across all selling channels',
+      'Low-stock threshold triggers and supplier reorder lead-time forecasting',
+      'Amazon FBA & Flipkart warehouse inbound shipment creation (box labeling, pallet prep)',
+      'Dead stock and aging inventory velocity reports to minimize storage fees',
+      'Virtual bundle inventory allocation with auto-adjusting child counts'
+    ],
+    deliverablesHi: [
+      'सभी ई-कॉमर्स प्लेटफ़ॉर्म पर एक साथ रियल-टाइम स्टॉक सिंक',
+      'अमेज़न FBA और फ्लिपकार्ट वेयरहाउस इनबाउंड शिपमेंट',
+      'री-ऑर्डर पूर्वानुमान और डेड स्टॉक रिपोर्ट'
+    ],
+    features: [
+      {
+        title: 'Zero Cancellation Penalties',
+        titleHi: 'शून्य कैंसिलेशन',
+        description: 'Real-time multi-channel inventory locking stops duplicate sales on identical stock.'
+      },
+      {
+        title: 'FBA & FC Inbounding',
+        titleHi: 'FBA इनबाउंडिंग',
+        description: 'End-to-end appointment scheduling, barcode labeling, and shipment manifests.'
+      },
+      {
+        title: 'Aging Stock Liquidation',
+        titleHi: 'स्टोरेज शुल्क बचत',
+        description: 'Identifies slow-moving SKUs before expensive long-term storage fees kick in.'
+      }
+    ],
+    technologies: ['Amazon FBA', 'Flipkart Assured', 'Meesho Inventory Hub', 'Unicommerce', 'Vinculum', 'Excel WMS'],
+    featured: true,
+    order: 15
+  },
+  {
+    slug: 'ecom-account-management',
+    title: 'End-to-End E-Commerce Account Management',
+    titleHi: 'फुल ई-कॉमर्स अकाउंट मैनेजमेंट',
+    category: 'marketplace-growth',
+    shortDescription: 'Dedicated operational team managing daily seller central health, Buy Box retention, festival promotion campaigns, and aggressive sales growth.',
+    shortDescriptionHi: 'अमेज़न, फ्लिपकार्ट और मीशो पर आपके ब्रांड का सम्पूर्ण दैनिक संचालन और ग्रोथ।',
+    fullDescription: 'Focus on manufacturing and product sourcing while Pixelix runs your complete e-commerce enterprise. From maintaining green account health metrics (ODR, LSR, VTR) and winning the Buy Box to managing festival mega-sales (Great Indian Festival, Big Billion Days) and running precision PPC ad campaigns, we are your dedicated digital commerce workforce.',
+    badge: 'Flagship Retainer',
+    iconName: 'Store',
+    deliverables: [
+      'Dedicated E-Commerce Operations Lead managing Seller Central & Supplier Hubs',
+      'Daily account health maintenance (ODR, Late Dispatch, Cancellation Rate safeguards)',
+      'Festival sale deal registration (Lightning Deals, 7-Day Deals, Price Drops, Coupons)',
+      'Buy Box price parity monitoring and automated competitor repricing',
+      'Weekly unit economics, gross merchandise value (GMV), and P&L financial reports'
+    ],
+    deliverablesHi: [
+      'समर्पित ई-कॉमर्स ऑपरेशन्स मैनेजर और दैनिक अकाउंट मॉनिटरिंग',
+      'फेस्टिवल सेल (Big Billion Days, GIF) डील रजिस्ट्रेशन',
+      'बाय बॉक्स (Buy Box) सुरक्षा और साप्ताहिक P&L रिपोर्ट'
+    ],
+    features: [
+      {
+        title: 'Proactive Policy Guardian',
+        titleHi: 'पॉलिसी सुरक्षा',
+        description: 'Quick resolution of listing suppressions, trademark claims, and performance flags.'
+      },
+      {
+        title: 'Festival Event Scaling',
+        titleHi: 'फेस्टिवल सेल तैयारी',
+        description: 'Pre-stocks inventory and optimizes bids to capture 5x-10x sales surges during festive seasons.'
+      },
+      {
+        title: 'Transparent Unit Economics',
+        titleHi: 'पारदर्शी लाभ रिपोर्ट',
+        description: 'Tracks net margins after commission, shipping fees, ads, and GST deductions.'
+      }
+    ],
+    technologies: ['Amazon Seller Central', 'Flipkart Seller Hub', 'Meesho Supplier Panel', 'Shopify Admin', 'Helium 10', 'PowerBI'],
+    featured: true,
+    order: 16
   }
 ];
 

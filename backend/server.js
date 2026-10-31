@@ -3,16 +3,22 @@ import cors from 'cors';
 import morgan from 'morgan';
 import { ENV } from './config/env.js';
 import { connectDB, getDBStatus } from './config/db.js';
+import { ensureDefaultAccounts } from './config/seedOwner.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import inquiryRoutes from './routes/inquiryRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import newsletterRoutes from './routes/newsletterRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import employeeRoutes from './routes/employeeRoutes.js';
+import ownerRoutes from './routes/ownerRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
 
-// Database Connection
-connectDB();
+// Database Connection & Account Seeding
+connectDB().then(() => {
+  ensureDefaultAccounts();
+});
 
 // Middleware
 app.use(cors({
@@ -43,6 +49,9 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/inquiries', inquiryRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/newsletter', newsletterRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/employee', employeeRoutes);
+app.use('/api/owner', ownerRoutes);
 
 // Error Handling
 app.use(notFound);
@@ -53,4 +62,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Pixelix Backend Server running on port ${PORT} in ${ENV.NODE_ENV} mode`);
   console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
   console.log(`💼 Services API: http://localhost:${PORT}/api/services`);
+  console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
+  console.log(`👥 Employee API: http://localhost:${PORT}/api/employee`);
+  console.log(`👑 Owner API: http://localhost:${PORT}/api/owner`);
 });

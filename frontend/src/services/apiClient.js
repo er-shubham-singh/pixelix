@@ -2,21 +2,49 @@ import { ENV } from '../config/env';
 
 export async function apiRequest(endpoint, options = {}) {
   const formattedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-  const url = `${ENV.API_URL}${formattedEndpoint}`;
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers
-    },
-    ...options
+
+  const headers = {
+    'Content-Type': 'application/json',
+    ...options.headers
   };
 
+  const config = {
+    ...options,
+    headers
+  };
+
+  const primaryUrl = `${ENV.API_URL}${formattedEndpoint}`;
+
   try {
-    const response = await fetch(url, config);
-    const data = await response.json();
-    return { ok: response.ok, status: response.status, data };
+    const response = await fetch(primaryUrl, config);
+    const data = await response.json().catch(() => null);
+
+    if (response.ok) {
+      return { ok: true, status: response.status, data };
+    }
+
+    // Local fallback if running on localhost and primary server cold-starting
+    if (window.location.hostname === 'localhost' && !ENV.API_URL.includes('localhost:5000')) {
+      try {
+        const localUrl = `http://localhost:5000/api${formattedEndpoint}`;
+        const localRes = await fetch(localUrl, config);
+        const localData = await localRes.json().catch(() => null);
+        return { ok: localRes.ok, status: localRes.status, data: localData };
+      } catch (e) {}
+    }
+
+    return { ok: false, status: response.status, data };
   } catch (err) {
-    console.warn(`API request to ${url} failed, using local handling:`, err.message);
+    if (window.location.hostname === 'localhost' && !ENV.API_URL.includes('localhost:5000')) {
+      try {
+        const localUrl = `http://localhost:5000/api${formattedEndpoint}`;
+        const localRes = await fetch(localUrl, config);
+        const localData = await localRes.json().catch(() => null);
+        return { ok: localRes.ok, status: localRes.status, data: localData };
+      } catch (e) {}
+    }
+
+    console.warn(`API request to ${primaryUrl} failed:`, err.message);
     return { ok: false, error: err.message };
   }
 }

@@ -15,11 +15,20 @@ import { LanguageProvider } from './context/LanguageContext';
 import { fetchServices } from './services/serviceApi';
 import { FALLBACK_SERVICES } from './services/serviceDataFallback';
 
+const VALID_PAGES = [
+  'home',
+  'services',
+  'deliverables',
+  'portfolio',
+  'estimator',
+  'about',
+  'contact'
+];
+
 export default function App() {
   const [activePage, setActivePage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'services', 'deliverables', 'portfolio', 'estimator', 'about', 'contact'];
-    return validPages.includes(hash) ? hash : 'home';
+    return VALID_PAGES.includes(hash) ? hash : 'home';
   });
 
   const [services, setServices] = useState(FALLBACK_SERVICES);
@@ -35,8 +44,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'services', 'deliverables', 'portfolio', 'estimator', 'about', 'contact'];
-      if (validPages.includes(hash)) {
+      if (VALID_PAGES.includes(hash)) {
         setActivePage(hash);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

@@ -14,7 +14,14 @@ import {
   Share2,
   Search,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  PackageCheck,
+  FileSpreadsheet,
+  Truck,
+  RotateCcw,
+  Boxes,
+  Store,
+  Receipt
 } from 'lucide-react';
 
 const iconMap = {
@@ -27,7 +34,14 @@ const iconMap = {
   ShoppingBag,
   Image,
   Megaphone,
-  Share2
+  Share2,
+  PackageCheck,
+  FileSpreadsheet,
+  Truck,
+  RotateCcw,
+  Boxes,
+  Store,
+  Receipt
 };
 
 export default function ServicesSection({
@@ -43,11 +57,12 @@ export default function ServicesSection({
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
-    { id: 'all', label: 'All Services (10)' },
+    { id: 'all', label: `All Services (${services.length || 16})` },
+    { id: 'ecom-operations', label: 'E-Com Operations & Logistics' },
+    { id: 'marketplace-growth', label: 'Marketplace Growth' },
     { id: 'digital-products', label: 'Digital Products' },
     { id: 'ai-solutions', label: 'AI & Chatbots' },
     { id: 'brand-identity', label: 'Brand Identity' },
-    { id: 'marketplace-growth', label: 'Marketplace Growth' },
     { id: 'product-visuals', label: 'Product Visuals' },
     { id: 'campaigns', label: 'Campaigns' },
     { id: 'content-systems', label: 'Content Systems' },

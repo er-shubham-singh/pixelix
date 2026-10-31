@@ -94,7 +94,7 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
             </h4>
             <ul className="space-y-2 text-xs text-cream-300">
               <li><button onClick={() => handleNav('home')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Home Overview</button></li>
-              <li><button onClick={() => handleNav('services')} className="hover:text-terracotta-400 transition-colors cursor-pointer">All 10 Services Catalog</button></li>
+              <li><button onClick={() => handleNav('services')} className="hover:text-terracotta-400 transition-colors cursor-pointer">All 16 Services & E-Com Catalog</button></li>
               <li><button onClick={() => handleNav('deliverables')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Deliverables & 5 Logo Themes</button></li>
               <li><button onClick={() => handleNav('portfolio')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Case Studies & Metrics</button></li>
               <li><button onClick={() => handleNav('estimator')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Scope & Pricing Calculator</button></li>

@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import PixelixLogo from './PixelixLogo';
 import { useThemeMode } from '../../context/ThemeContext';
-import { Menu, X, Sun, Moon, PhoneCall, ArrowUpRight, MessageCircle, ChevronRight } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  PhoneCall,
+  ArrowUpRight,
+  MessageCircle,
+  ChevronRight
+} from 'lucide-react';
 import { CONTACT_INFO } from '../../config/contact';
 
 export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePage }) {
@@ -50,9 +59,11 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'glass-nav py-3 shadow-soft' : 'bg-transparent py-5'
-      }`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'glass-nav py-3 shadow-soft' : 'bg-transparent py-5'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
@@ -173,7 +184,11 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               }`}
             >
               <span>{link.label}</span>
-              <ChevronRight className={`w-4 h-4 transition-transform ${activePage === link.id ? 'translate-x-1 text-white' : 'text-espresso-400 dark:text-cream-400'}`} />
+              <ChevronRight
+                className={`w-4 h-4 transition-transform ${
+                  activePage === link.id ? 'translate-x-1 text-white' : 'text-espresso-400 dark:text-cream-400'
+                }`}
+              />
             </button>
           ))}
 
