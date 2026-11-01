@@ -6,10 +6,14 @@ import ServicesPage from './pages/ServicesPage';
 import DeliverablesPage from './pages/DeliverablesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import EstimatorPage from './pages/EstimatorPage';
+import VirtualToursPage from './pages/VirtualToursPage';
+import DigitalAdvertisingPage from './pages/DigitalAdvertisingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import InquiryModal from './components/common/InquiryModal';
 import ServiceDetailModal from './components/common/ServiceDetailModal';
+import FloatingWhatsAppButton from './components/common/FloatingWhatsAppButton';
+import SmartAIChatbot from './components/common/SmartAIChatbot';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { fetchServices } from './services/serviceApi';
@@ -21,6 +25,9 @@ const VALID_PAGES = [
   'deliverables',
   'portfolio',
   'estimator',
+  'real-estate-calculator',
+  'virtual-tours',
+  'digital-advertising',
   'about',
   'contact'
 ];
@@ -132,8 +139,24 @@ export default function App() {
 
             {activePage === 'estimator' && (
               <EstimatorPage
+                initialMode="construction"
                 onBookWithEstimator={handleBookWithEstimator}
               />
+            )}
+
+            {activePage === 'real-estate-calculator' && (
+              <EstimatorPage
+                initialMode="construction"
+                onBookWithEstimator={handleBookWithEstimator}
+              />
+            )}
+
+            {activePage === 'virtual-tours' && (
+              <VirtualToursPage />
+            )}
+
+            {activePage === 'digital-advertising' && (
+              <DigitalAdvertisingPage />
             )}
 
             {activePage === 'about' && (
@@ -179,6 +202,10 @@ export default function App() {
             service={activeServiceDetail}
             onBookService={handleOpenInquiry}
           />
+
+          {/* Floating Smart Widgets: WhatsApp Quick Chat & AI Advisor */}
+          <FloatingWhatsAppButton activePage={activePage} />
+          <SmartAIChatbot activePage={activePage} />
 
         </div>
       </LanguageProvider>

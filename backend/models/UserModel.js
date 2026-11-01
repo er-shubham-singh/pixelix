@@ -65,6 +65,15 @@ const userSchema = new mongoose.Schema(
       trim: true,
       default: ''
     },
+    employmentType: {
+      type: String,
+      enum: ['full_time', 'part_time'],
+      default: 'full_time'
+    },
+    shiftHours: {
+      type: Number,
+      default: 8 // 8 for full-time, 4 for part-time
+    },
     status: {
       type: String,
       enum: ['active', 'inactive', 'on_leave'],

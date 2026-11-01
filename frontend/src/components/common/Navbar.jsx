@@ -41,9 +41,11 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
+    { id: 'estimator', label: 'Cost Calculator' },
+    { id: 'virtual-tours', label: '3D Tours' },
+    { id: 'digital-advertising', label: 'Ads & Leads' },
     { id: 'deliverables', label: 'Deliverables' },
     { id: 'portfolio', label: 'Portfolio' },
-    { id: 'estimator', label: 'Estimator' },
     { id: 'about', label: 'Why Pixelix' },
     { id: 'contact', label: 'Contact' },
   ];

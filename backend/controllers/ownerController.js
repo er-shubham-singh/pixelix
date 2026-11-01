@@ -36,7 +36,7 @@ function getDateRangeArray(startDateStr, endDateStr) {
  */
 export async function createEmployee(req, res) {
   try {
-    const { name, email, password, domain, phone } = req.body;
+    const { name, email, password, domain, phone, employmentType = 'full_time', shiftHours = 8 } = req.body;
 
     if (!name || !email || !password || !domain) {
       return res.status(400).json({
@@ -68,6 +68,8 @@ export async function createEmployee(req, res) {
       role: 'employee',
       employeeId,
       phone: phone || '',
+      employmentType,
+      shiftHours: employmentType === 'part_time' ? 4 : (Number(shiftHours) || 8),
       status: 'active'
     });
 
@@ -84,7 +86,7 @@ export async function createEmployee(req, res) {
 
     return res.status(201).json({
       success: true,
-      message: `Employee ${newEmployee.name} created successfully and credentials dispatched via email.`,
+      message: `Employee ${newEmployee.name} created successfully (${newEmployee.employmentType === 'part_time' ? '4h Part-Time' : '8h Full-Time'}). Credentials dispatched via email.`,
       emailDelivered: emailResult.success,
       simulatedEmail: emailResult.simulated || false,
       employee: {
@@ -94,6 +96,8 @@ export async function createEmployee(req, res) {
         domain: newEmployee.domain,
         employeeId: newEmployee.employeeId,
         phone: newEmployee.phone,
+        employmentType: newEmployee.employmentType,
+        shiftHours: newEmployee.shiftHours,
         status: newEmployee.status,
         joinedDate: newEmployee.joinedDate
       }
@@ -138,6 +142,8 @@ export async function getEmployees(req, res) {
         domain: emp.domain,
         employeeId: emp.employeeId,
         phone: emp.phone,
+        employmentType: emp.employmentType || 'full_time',
+        shiftHours: emp.shiftHours || (emp.employmentType === 'part_time' ? 4 : 8),
         status: emp.status,
         joinedDate: emp.joinedDate,
         createdAt: emp.createdAt,
@@ -145,7 +151,11 @@ export async function getEmployees(req, res) {
           presentDays: presentCount,
           leaveDays: leaveCount,
           todayStatus: todayRecord ? todayRecord.status : 'not_logged',
-          todayWorkSummary: todayRecord ? todayRecord.workSummary : ''
+          todayWorkSummary: todayRecord ? todayRecord.workSummary : '',
+          todayClockInTime: todayRecord ? todayRecord.clockInTime : null,
+          todayClockOutTime: todayRecord ? todayRecord.clockOutTime : null,
+          todayTotalHours: todayRecord ? todayRecord.totalHours : 0,
+          todayStage: todayRecord ? todayRecord.attendanceStage : 'not_started'
         }
       };
     });
@@ -168,7 +178,7 @@ export async function getEmployees(req, res) {
  */
 export async function updateEmployee(req, res) {
   try {
-    const { name, domain, phone, status, password } = req.body;
+    const { name, domain, phone, status, password, employmentType, shiftHours } = req.body;
     const employee = await User.findById(req.params.id);
 
     if (!employee) {
@@ -179,6 +189,11 @@ export async function updateEmployee(req, res) {
     if (domain) employee.domain = domain;
     if (phone !== undefined) employee.phone = phone;
     if (status) employee.status = status;
+    if (employmentType) {
+      employee.employmentType = employmentType;
+      employee.shiftHours = employmentType === 'part_time' ? 4 : 8;
+    }
+    if (shiftHours) employee.shiftHours = Number(shiftHours);
     if (password && password.length >= 6) {
       employee.password = password; // pre-save will rehash
     }
@@ -195,6 +210,8 @@ export async function updateEmployee(req, res) {
         domain: employee.domain,
         employeeId: employee.employeeId,
         phone: employee.phone,
+        employmentType: employee.employmentType,
+        shiftHours: employee.shiftHours,
         status: employee.status
       }
     });
@@ -346,7 +363,7 @@ export async function getDailyAttendanceOversight(req, res) {
   try {
     const selectedDate = req.query.date || getLocalDateString();
 
-    const employees = await User.find({ role: 'employee' }).select('name email domain employeeId status');
+    const employees = await User.find({ role: 'employee' }).select('name email domain employeeId status employmentType shiftHours');
     const records = await Attendance.find({ date: selectedDate });
 
     const oversight = employees.map(emp => {
@@ -356,7 +373,12 @@ export async function getDailyAttendanceOversight(req, res) {
         hasLogged: !!rec,
         status: rec ? rec.status : 'not_logged',
         workSummary: rec ? rec.workSummary : '',
+        morningNotes: rec ? rec.morningNotes : '',
         clockInTime: rec ? rec.clockInTime : null,
+        clockOutTime: rec ? rec.clockOutTime : null,
+        totalHours: rec ? rec.totalHours : 0,
+        shiftType: rec?.shiftType || emp.employmentType || 'full_time',
+        attendanceStage: rec?.attendanceStage || (rec ? 'clocked_out' : 'not_started'),
         updatedAt: rec ? rec.updatedAt : null
       };
     });

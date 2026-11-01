@@ -1,44 +1,55 @@
 import React from 'react';
+import { useThemeMode } from '../../context/ThemeContext';
 
 export default function PixelixLogo({
-  variant = 'full', // 'full' | 'mark' | 'white'
-  size = 'md',     // 'sm' | 'md' | 'lg'
-  className = ''
+  variant = 'full', // 'full' | 'mark' | 'white' | 'dark' | 'light'
+  size = 'md',     // 'sm' | 'md' | 'lg' | 'xl'
+  className = '',
+  isDark: propIsDark
 }) {
-  const sizeMap = {
-    sm: { icon: 'w-7 h-7', text: 'text-lg', sub: 'text-[9px]' },
-    md: { icon: 'w-9 h-9', text: 'text-2xl', sub: 'text-[10px]' },
-    lg: { icon: 'w-12 h-12', text: 'text-3xl', sub: 'text-xs' },
+  let isDarkMode = false;
+  try {
+    const theme = useThemeMode();
+    isDarkMode = theme?.isDark ?? false;
+  } catch (e) {
+    isDarkMode = false;
+  }
+
+  if (propIsDark !== undefined) {
+    isDarkMode = propIsDark;
+  } else if (variant === 'white' || variant === 'dark') {
+    isDarkMode = true;
+  } else if (variant === 'light') {
+    isDarkMode = false;
+  }
+
+  const sizeClasses = {
+    sm: 'h-8 sm:h-9',
+    md: 'h-9 sm:h-11',
+    lg: 'h-12 sm:h-14',
+    xl: 'h-14 sm:h-18'
   };
 
-  const currentSize = sizeMap[size] || sizeMap.md;
+  const chosenHeight = sizeClasses[size] || sizeClasses.md;
+  const logoSrc = isDarkMode ? '/dark-mode-logo.png' : '/light-mode-logo.png';
 
   return (
-    <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      {/* Sunset Pixel 3D Mark (Logo 01 from theme.pdf) */}
-      <div className={`relative ${currentSize.icon} rounded-xl bg-gradient-to-br from-[#F4A261] via-[#E07A5F] to-[#C84523] p-[2px] shadow-sunset flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300`}>
-        {/* Soft dimensional inner bevel */}
-        <div className="w-full h-full rounded-[10px] bg-gradient-to-tr from-[#C84523] to-[#FCE7DF] flex items-center justify-center relative">
-          <span className="font-display font-extrabold text-white text-[13px] tracking-tighter drop-shadow-sm">
-            PX
-          </span>
-          {/* Subtle light refraction corner */}
-          <div className="absolute top-0 right-0 w-3 h-3 bg-white/40 rounded-bl-full pointer-events-none" />
-        </div>
-      </div>
-
-      {variant !== 'mark' && (
-        <div className="flex flex-col">
-          <span className={`font-display font-bold tracking-tight leading-none ${
-            variant === 'white' ? 'text-white' : 'text-espresso-900'
-          } ${currentSize.text}`}>
-            Pixelix
-          </span>
-          <span className={`font-sans tracking-widest uppercase font-semibold text-terracotta-600 ${currentSize.sub}`}>
-            Creative Partner
-          </span>
-        </div>
-      )}
+    <div className={`inline-flex items-center select-none ${className}`}>
+      <img
+        src={logoSrc}
+        alt="Pixelix"
+        className={`${chosenHeight} w-auto object-contain transition-opacity duration-200 hover:opacity-90`}
+        draggable={false}
+        onError={(e) => {
+          if (isDarkMode && !e.target.dataset.tried) {
+            e.target.dataset.tried = 'true';
+            e.target.src = '/dark mode logo.png';
+          } else if (!isDarkMode && !e.target.dataset.tried) {
+            e.target.dataset.tried = 'true';
+            e.target.src = '/light mode logo.png';
+          }
+        }}
+      />
     </div>
   );
 }

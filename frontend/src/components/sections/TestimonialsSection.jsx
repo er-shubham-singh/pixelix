@@ -35,82 +35,96 @@ export default function TestimonialsSection({ onOpenInquiry }) {
   const reviews = TESTIMONIALS_DATA[activeTopic] || TESTIMONIALS_DATA.ecom;
 
   return (
-    <section id="reviews" className="py-20 bg-cream-100/60 dark:bg-darkbg-base border-t border-b border-cream-200 dark:border-white/10 transition-colors">
+    <section id="reviews" className="py-16 sm:py-20 bg-cream-100/60 dark:bg-darkbg-base border-t border-b border-cream-200 dark:border-white/10 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2">
-            <Badge variant="terracotta" className="px-3.5 py-1.5 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-terracotta-600 dark:text-terracotta-400" />
-              <span className="font-bold tracking-wide uppercase text-[11px]">
-                Proven Track Record · 85+ Happy Founders
-              </span>
-            </Badge>
-          </div>
+        {/* Glow Container (Directly Matching Reference Image 4: Nexora "What Our Clients Say") */}
+        <div className="p-6 sm:p-10 md:p-12 rounded-[2.5rem] bg-gradient-to-b from-espresso-950/90 via-espresso-900/95 to-espresso-950/90 text-white border border-emerald-500/25 shadow-[0_0_60px_-15px_rgba(16,185,129,0.2)] dark:shadow-[0_0_80px_-20px_rgba(16,185,129,0.25)] relative overflow-hidden">
+          
+          {/* Subtle Ambient Glow Orbs */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-emerald-500/15 rounded-full blur-[90px] pointer-events-none" />
+          <div className="absolute -bottom-24 right-10 w-80 h-48 bg-terracotta-500/15 rounded-full blur-[90px] pointer-events-none" />
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso-900 dark:text-white font-display tracking-tight">
-            See How Brands <span className="text-gradient-sunset">Scale with Pixelix.</span>
-          </h2>
+          {/* Section Header (Image 4 Style) */}
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase tracking-widest">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Testimonials</span>
+            </div>
 
-          <p className="text-sm sm:text-base text-espresso-700/90 dark:text-cream-200/90 max-w-2xl mx-auto leading-relaxed">
-            Real feedback and verified business results from Indian D2C brands, manufacturing exporters, enterprise startups, and retail leaders.
-          </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight">
+              What Our Clients Say
+            </h2>
 
-          {/* Social Proof Rating Pill */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs font-bold text-espresso-900 dark:text-white shadow-soft">
-              <div className="flex text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
+            <p className="text-xs sm:text-sm text-cream-200/80 max-w-2xl mx-auto leading-relaxed">
+              Discover how Pixelix has scaled businesses across India and beyond. Hear directly from verified founders about their measurable growth and transformation.
+            </p>
+
+            {/* Social Proof Rating Pill */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold text-white border border-white/10 shadow-soft">
+                <div className="flex text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
+                </div>
+                <span>4.9 / 5.0 Star Rating</span>
+                <span className="text-white/30">•</span>
+                <span className="text-emerald-400">85+ Verified Brands</span>
               </div>
-              <span>4.9 / 5.0 Star Rating</span>
-              <span className="text-cream-400 dark:text-white/20">•</span>
-              <span className="text-terracotta-600 dark:text-terracotta-400">100% Client Satisfaction</span>
             </div>
           </div>
-        </div>
 
-        {/* 5 Domain Switcher Tabs */}
-        <div className="flex items-center justify-center gap-2.5 overflow-x-auto pb-4 mb-8 no-scrollbar">
-          {TESTIMONIAL_TOPICS.map((topic) => {
-            const Icon = TOPIC_ICONS[topic.icon] || Store;
-            const isActive = activeTopic === topic.id;
-            return (
-              <button
-                key={topic.id}
-                onClick={() => setActiveTopic(topic.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                  isActive
-                    ? 'bg-sunset-gradient text-white shadow-sunset scale-105'
-                    : 'bg-white/80 dark:bg-white/5 border border-terracotta-200/50 dark:border-white/10 text-espresso-800 dark:text-cream-200 hover:border-terracotta-300 hover:bg-cream-100 dark:hover:bg-white/10'
-                }`}
-              >
-                <Icon className="w-4 h-4" />
-                <span>{topic.shortLabel}</span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-cream-200 dark:bg-white/10 text-espresso-600 dark:text-cream-300'
+          {/* 5 Domain Switcher Tabs */}
+          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar relative z-10">
+            {TESTIMONIAL_TOPICS.map((topic) => {
+              const Icon = TOPIC_ICONS[topic.icon] || Store;
+              const isActive = activeTopic === topic.id;
+              return (
+                <button
+                  key={topic.id}
+                  onClick={() => setActiveTopic(topic.id)}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                    isActive
+                      ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-[0_0_20px_rgba(16,185,129,0.35)] scale-105'
+                      : 'bg-white/5 border border-white/10 text-cream-200 hover:border-emerald-500/40 hover:bg-white/10'
                   }`}
                 >
-                  {topic.count} Clients
-                </span>
-              </button>
-            );
-          })}
-        </div>
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{topic.shortLabel}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full ${
+                      isActive ? 'bg-white/20 text-white' : 'bg-white/10 text-cream-300'
+                    }`}
+                  >
+                    {topic.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
 
-        {/* Reviews Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((rev) => (
-            <div
-              key={rev.id}
-              className="p-5 sm:p-6 rounded-3xl ios-glass-card border border-cream-300/80 dark:border-white/10 hover:shadow-sunset/25 hover:border-terracotta-400/60 transition-all flex flex-col justify-between group space-y-4"
-            >
-              <div className="space-y-3">
-                {/* Header: Photo, Name, Rating, Badge */}
-                <div className="flex items-start justify-between gap-3">
+          {/* Reviews Cards Grid (Directly Matching Reference Image 4) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
+            {reviews.slice(0, 3).map((rev) => (
+              <div
+                key={rev.id}
+                className="p-6 rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all flex flex-col justify-between group space-y-4"
+              >
+                <div className="space-y-3.5">
+                  {/* Highlight Quote (Image 4 Signature) */}
+                  <div className="text-base sm:text-lg font-bold text-white font-display leading-snug">
+                    "<span className="text-emerald-400 font-extrabold">{rev.company}</span>'s {rev.serviceUsed.toLowerCase()} transformation."
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-xs sm:text-[13px] text-cream-200/80 leading-relaxed italic">
+                    "{rev.review}"
+                  </p>
+                </div>
+
+                {/* Client Profile Footer (Image 4 Style) */}
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <img
                       src={rev.avatar}
@@ -118,103 +132,60 @@ export default function TestimonialsSection({ onOpenInquiry }) {
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}
-                      className="w-12 h-12 rounded-2xl object-cover border-2 border-terracotta-200/80 dark:border-white/10 shadow-sm shrink-0"
+                      className="w-10 h-10 rounded-full object-cover border border-emerald-500/40 shrink-0 shadow-sm"
                     />
                     <div>
-                      <div className="text-sm font-extrabold text-espresso-900 dark:text-white flex items-center gap-1.5">
+                      <div className="text-xs font-extrabold text-white flex items-center gap-1.5">
                         <span>{rev.name}</span>
-                        <ShieldCheck className="w-4 h-4 text-terracotta-500 shrink-0" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                       </div>
-                      <div className="text-xs text-espresso-600 dark:text-cream-400 leading-tight">
-                        {rev.role} · <strong className="text-espresso-800 dark:text-cream-200">{rev.company}</strong>
-                      </div>
-                      <div className="text-[10px] text-espresso-400 dark:text-cream-500 mt-0.5">
-                        {rev.location}
+                      <div className="text-[11px] text-cream-300/80 leading-tight">
+                        {rev.role}, <strong className="text-cream-100">{rev.company}</strong>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Stars and Metric Banner */}
-                <div className="flex items-center justify-between pt-1">
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-400 border border-terracotta-200/60 dark:border-white/10">
+                  <span className="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 shrink-0">
                     {rev.metric}
                   </span>
                 </div>
-
-                {/* Review Text */}
-                <p className="text-xs sm:text-[13px] text-espresso-700 dark:text-cream-200/90 leading-relaxed italic bg-cream-50/70 dark:bg-white/5 p-3 rounded-2xl border border-cream-200/60 dark:border-white/5">
-                  "{rev.review}"
-                </p>
               </div>
+            ))}
+          </div>
 
-              {/* Footer Scope */}
-              <div className="pt-3 border-t border-cream-200 dark:border-white/5 flex items-center justify-between text-xs text-espresso-500 dark:text-cream-400">
-                <span className="truncate pr-2">
-                  Scope: <strong className="text-espresso-800 dark:text-cream-200">{rev.serviceUsed}</strong>
-                </span>
-                <span className="text-terracotta-500 font-bold shrink-0 text-[10px] uppercase tracking-wide">
-                  Verified
-                </span>
+          {/* Bottom Callout & Founders Direct Connect inside Glow Container */}
+          <div className="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left relative z-10">
+            <div>
+              <div className="text-sm font-extrabold text-white flex items-center justify-center md:justify-start gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Ready for similar verified outcomes?</span>
               </div>
+              <p className="text-xs text-cream-200/70 mt-0.5">
+                Speak directly with Founders Vikas (+91 7056063863) & Shubham (+91 95595 06650)
+              </p>
             </div>
-          ))}
-        </div>
 
-        {/* Bottom Callout & Founders Direct Connect */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/90 via-cream-50/90 to-terracotta-50/50 dark:from-darkbg-card dark:to-darkbg-base border border-terracotta-200/80 dark:border-white/10 shadow-soft text-center space-y-5">
-          <div className="space-y-2 max-w-xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-terracotta-400">
-              READY FOR SIMILAR MEASURABLE GROWTH?
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-espresso-900 dark:text-white font-display">
-              Talk Directly with Founders Vikas & Shubham
-            </h3>
-            <p className="text-xs sm:text-sm text-espresso-600 dark:text-cream-300">
-              Get an honest appraisal of your catalog, website, or marketing needs without sales fluff.
-            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <a
+                href="https://wa.me/917056063863?text=Hi%20Pixelix%20Team,%20I%20would%20like%20to%20discuss%20my%20business%20growth%20requirements."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-soft transition-all hover:scale-105 active:scale-95"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>WhatsApp Founders</span>
+              </a>
+
+              <button
+                onClick={() => onOpenInquiry && onOpenInquiry(currentTopicMeta.label)}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs transition-all cursor-pointer"
+              >
+                <span>Explore All {reviews.length} Reviews & Inquiry</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={CONTACT_INFO.founders[0].telHref}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-white/5 border border-terracotta-200 dark:border-white/10 text-espresso-900 dark:text-white hover:text-terracotta-600 hover:border-terracotta-400 font-bold text-xs shadow-xs transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 text-terracotta-500" />
-              <span>Call Vikas ({CONTACT_INFO.founders[0].phone})</span>
-            </a>
-
-            <a
-              href={CONTACT_INFO.founders[1].telHref}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-white/5 border border-terracotta-200 dark:border-white/10 text-espresso-900 dark:text-white hover:text-terracotta-600 hover:border-terracotta-400 font-bold text-xs shadow-xs transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 text-terracotta-500" />
-              <span>Call Shubham ({CONTACT_INFO.founders[1].phone})</span>
-            </a>
-
-            <a
-              href="https://wa.me/917056063863?text=Hi%20Pixelix%20Team,%20I%20would%20like%20to%20discuss%20my%20business%20growth%20requirements."
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-green-500 hover:bg-green-600 text-white font-bold text-xs shadow-soft transition-all hover:scale-105 active:scale-95"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Founders</span>
-            </a>
-
-            <button
-              onClick={() => onOpenInquiry && onOpenInquiry(currentTopicMeta.label)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sunset-gradient text-white font-bold text-xs shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
-            >
-              <span>Explore All Verified Reviews & Inquiry</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
         </div>
 
       </div>

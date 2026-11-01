@@ -4,7 +4,9 @@ import {
   getTodayLog,
   getMonthlyAttendance,
   applyLeave,
-  getMyLeaves
+  getMyLeaves,
+  clockIn,
+  clockOut
 } from '../controllers/employeeController.js';
 import { protect, employeeOrOwner } from '../middleware/authMiddleware.js';
 
@@ -13,6 +15,8 @@ const router = express.Router();
 // Apply auth protection to all employee routes
 router.use(protect, employeeOrOwner);
 
+router.post('/clock-in', clockIn);
+router.post('/clock-out', clockOut);
 router.post('/work-log', submitDailyWorkLog);
 router.get('/work-log/today', getTodayLog);
 router.get('/attendance', getMonthlyAttendance);

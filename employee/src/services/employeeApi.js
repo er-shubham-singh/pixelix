@@ -1,5 +1,29 @@
 import { apiRequest } from './apiClient';
 
+export async function clockIn({ clockInTime, customTime, morningNotes, description } = {}) {
+  const result = await apiRequest('/employee/clock-in', {
+    method: 'POST',
+    body: JSON.stringify({ clockInTime, customTime, morningNotes, description })
+  });
+  return {
+    ok: result.ok,
+    message: result.data?.message || (result.ok ? 'Clocked in successfully' : 'Clock in failed'),
+    data: result.data?.data
+  };
+}
+
+export async function clockOut({ clockOutTime, customTime, workSummary, description } = {}) {
+  const result = await apiRequest('/employee/clock-out', {
+    method: 'POST',
+    body: JSON.stringify({ clockOutTime, customTime, workSummary, description })
+  });
+  return {
+    ok: result.ok,
+    message: result.data?.message || (result.ok ? 'Clocked out successfully' : 'Clock out failed'),
+    data: result.data?.data
+  };
+}
+
 export async function submitDailyWorkLog({ date, workSummary, status = 'present' }) {
   const result = await apiRequest('/employee/work-log', {
     method: 'POST',

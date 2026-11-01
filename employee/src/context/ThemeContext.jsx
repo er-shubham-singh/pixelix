@@ -18,6 +18,11 @@ export function ThemeProvider({ children }) {
       root.classList.remove('dark');
       localStorage.setItem('pixelix_theme', 'light');
     }
+
+    const favicon = document.querySelector("link[rel*='icon']");
+    if (favicon) {
+      favicon.href = isDark ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+    }
   }, [isDark]);
 
   const toggleTheme = () => setIsDark(prev => !prev);
@@ -36,4 +41,7 @@ export function useThemeMode() {
   }
   return context;
 }
+
+export const useTheme = useThemeMode;
+export default ThemeContext;
 

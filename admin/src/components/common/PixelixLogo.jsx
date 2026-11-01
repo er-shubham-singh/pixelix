@@ -1,34 +1,39 @@
 import React from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
-export default function PixelixLogo({ size = 'md', variant = 'full' }) {
+export default function PixelixLogo({ size = 'md', variant = 'full', className = '' }) {
+  let isDarkMode = false;
+  try {
+    const theme = useTheme();
+    isDarkMode = theme?.isDark ?? false;
+  } catch (e) {
+    isDarkMode = false;
+  }
+
+  if (variant === 'white' || variant === 'dark') {
+    isDarkMode = true;
+  } else if (variant === 'light') {
+    isDarkMode = false;
+  }
+
   const sizeClasses = {
-    sm: 'text-xl',
-    md: 'text-2xl',
-    lg: 'text-3xl',
-    xl: 'text-4xl'
+    sm: 'h-7 sm:h-8',
+    md: 'h-8 sm:h-9',
+    lg: 'h-10 sm:h-12',
+    xl: 'h-12 sm:h-14'
   };
 
-  const isWhite = variant === 'white';
+  const chosenHeight = sizeClasses[size] || sizeClasses.md;
+  const logoSrc = isDarkMode ? '/dark-mode-logo.png' : '/light-mode-logo.png';
 
   return (
-    <div className="flex items-center gap-2 select-none group">
-      <div className="relative w-8 h-8 rounded-xl bg-gradient-to-tr from-terracotta-700 via-terracotta-500 to-amber-500 p-0.5 shadow-md shadow-terracotta-500/20 group-hover:scale-105 transition-transform duration-300">
-        <div className="w-full h-full bg-cream-100 dark:bg-darkbg-surface rounded-[10px] flex items-center justify-center">
-          <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-tr from-terracotta-600 to-amber-500 text-base font-serif">
-            P
-          </span>
-        </div>
-      </div>
-
-      <div className="flex flex-col">
-        <span className={`font-extrabold tracking-tight font-serif ${sizeClasses[size]} ${isWhite ? 'text-white' : 'text-espresso-900 dark:text-cream-100'}`}>
-          PIXELIX
-        </span>
-        <span className="text-[9px] font-bold tracking-widest uppercase text-amber-500 -mt-1">
-          Executive
-        </span>
-      </div>
+    <div className={`inline-flex items-center select-none ${className}`}>
+      <img
+        src={logoSrc}
+        alt="Pixelix"
+        className={`${chosenHeight} w-auto object-contain transition-opacity duration-200 hover:opacity-90`}
+        draggable={false}
+      />
     </div>
   );
 }
-

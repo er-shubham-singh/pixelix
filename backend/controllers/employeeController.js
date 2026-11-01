@@ -9,6 +9,162 @@ export function getLocalDateString(d = new Date()) {
   return `${year}-${month}-${day}`;
 }
 
+// Helper to parse time string like "09:30 AM", "9:30 AM", "18:30", "6:30 PM" to Date
+export function parseTimeStringToDate(timeStr, baseDateStr) {
+  if (!timeStr) return null;
+  const trimmed = timeStr.trim().toUpperCase();
+  const isPM = trimmed.includes('PM');
+  const isAM = trimmed.includes('AM');
+  const clean = trimmed.replace('AM', '').replace('PM', '').trim();
+  const parts = clean.split(':');
+  if (parts.length >= 2) {
+    let hours = parseInt(parts[0], 10);
+    const minutes = parseInt(parts[1], 10);
+    if (!isNaN(hours) && !isNaN(minutes)) {
+      if (isPM && hours < 12) hours += 12;
+      if (isAM && hours === 12) hours = 0;
+      const [y, m, d] = (baseDateStr || getLocalDateString()).split('-').map(Number);
+      const date = new Date(y, m - 1, d, hours, minutes, 0, 0);
+      if (!isNaN(date.getTime())) return date;
+    }
+  }
+  return null;
+}
+
+/**
+ * @desc   Clock In (Morning Check-in)
+ * @route  POST /api/employee/clock-in
+ * @access Private (Employee)
+ */
+export async function clockIn(req, res) {
+  try {
+    const { customTime, clockInTime: reqClockInTime, morningNotes, description } = req.body;
+    const userId = req.user._id;
+    const today = getLocalDateString();
+    const now = new Date();
+    const rawTime = (customTime || reqClockInTime || '').trim();
+    const parsedDate = rawTime ? parseTimeStringToDate(rawTime, today) : null;
+    const clockInTimeStr = rawTime || now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const clockInTimestamp = parsedDate || now;
+    const shiftType = req.user.employmentType || 'full_time';
+    const notes = (morningNotes || description || '').trim();
+
+    let record = await Attendance.findOne({ user: userId, date: today });
+
+    if (!record) {
+      record = await Attendance.create({
+        user: userId,
+        date: today,
+        clockInTime: clockInTimeStr,
+        clockInTimestamp,
+        morningNotes: notes,
+        shiftType,
+        attendanceStage: 'clocked_in',
+        status: 'present'
+      });
+    } else {
+      record.clockInTime = clockInTimeStr;
+      record.clockInTimestamp = clockInTimestamp;
+      if (notes) record.morningNotes = notes;
+      record.attendanceStage = 'clocked_in';
+      record.shiftType = shiftType;
+      await record.save();
+    }
+
+    return res.json({
+      success: true,
+      message: `Good morning! Clocked in successfully at ${clockInTimeStr}. You are now eligible for evening punch-out!`,
+      data: record
+    });
+  } catch (error) {
+    console.error('Clock-in error:', error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+}
+
+/**
+ * @desc   Clock Out (Evening Checkout) & Calculate Hours
+ * @route  POST /api/employee/clock-out
+ * @access Private (Employee)
+ */
+export async function clockOut(req, res) {
+  try {
+    const { workSummary, description, customTime, clockOutTime: reqClockOutTime } = req.body;
+    const summary = (workSummary || description || '').trim();
+    const userId = req.user._id;
+    const today = getLocalDateString();
+    const now = new Date();
+    const rawOutTime = (customTime || reqClockOutTime || '').trim();
+    const parsedOutDate = rawOutTime ? parseTimeStringToDate(rawOutTime, today) : null;
+    const clockOutTimeStr = rawOutTime || now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const clockOutTimestamp = parsedOutDate || now;
+    const shiftType = req.user.employmentType || 'full_time';
+
+    let record = await Attendance.findOne({ user: userId, date: today });
+
+    if (!record) {
+      const defaultIn = new Date(clockOutTimestamp.getTime() - (shiftType === 'part_time' ? 4 : 8) * 3600000);
+      record = new Attendance({
+        user: userId,
+        date: today,
+        clockInTime: defaultIn.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+        clockInTimestamp: defaultIn,
+        shiftType
+      });
+    }
+
+    // Calculate worked hours from clockIn to clockOut
+    let inTime = record.clockInTimestamp ? new Date(record.clockInTimestamp) : null;
+    if (!inTime && record.clockInTime) {
+      inTime = parseTimeStringToDate(record.clockInTime, today);
+    }
+    if (!inTime) {
+      inTime = new Date(clockOutTimestamp.getTime() - (shiftType === 'part_time' ? 4 : 8) * 3600000);
+    }
+
+    const diffMs = clockOutTimestamp.getTime() - inTime.getTime();
+    const diffHours = Math.max(0.1, diffMs / (1000 * 60 * 60));
+    const totalHours = Math.round(diffHours * 100) / 100;
+
+    record.clockOutTime = clockOutTimeStr;
+    record.clockOutTimestamp = clockOutTimestamp;
+    record.totalHours = totalHours;
+    record.attendanceStage = 'clocked_out';
+    if (summary) {
+      record.workSummary = summary;
+    }
+
+    // Automated Present / Half Day determination based on shift type:
+    // Full time needs 7.5h for full day; Part time needs 3.5h for full day
+    if (shiftType === 'part_time') {
+      if (totalHours >= 3.5) {
+        record.status = 'present';
+      } else {
+        record.status = 'half_day';
+      }
+    } else {
+      if (totalHours >= 7.5) {
+        record.status = 'present';
+      } else if (totalHours >= 3.5) {
+        record.status = 'half_day';
+      } else {
+        record.status = 'half_day';
+      }
+    }
+
+    await record.save();
+
+    return res.json({
+      success: true,
+      message: `Clocked out successfully at ${clockOutTimeStr}! Completed ${totalHours} hours. Status: ${record.status === 'present' ? 'Present (Full Day)' : 'Half Day'}.`,
+      data: record
+    });
+  } catch (error) {
+    console.error('Clock-out error:', error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+}
+
 /**
  * @desc   Log or Update Daily Attendance & Work Description
  * @route  POST /api/employee/work-log
@@ -19,6 +175,9 @@ export async function submitDailyWorkLog(req, res) {
     const { date, workSummary, status = 'present' } = req.body;
     const userId = req.user._id;
     const today = getLocalDateString();
+    const now = new Date();
+    const nowTimeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const shiftType = req.user.employmentType || 'full_time';
 
     if (!date) {
       return res.status(400).json({
@@ -55,8 +214,17 @@ export async function submitDailyWorkLog(req, res) {
     let record = await Attendance.findOne({ user: userId, date });
 
     if (record) {
-      // If today's record already exists, allow editing the description
       record.workSummary = workSummary.trim();
+      if (!record.clockOutTime) {
+        record.clockOutTime = nowTimeStr;
+        record.clockOutTimestamp = now;
+      }
+      if (record.clockInTimestamp) {
+        const inTime = new Date(record.clockInTimestamp);
+        const diffHours = Math.max(0.1, (now.getTime() - inTime.getTime()) / (1000 * 60 * 60));
+        record.totalHours = Math.round(diffHours * 100) / 100;
+      }
+      record.attendanceStage = 'clocked_out';
       if (status) record.status = status;
       await record.save();
 
@@ -71,6 +239,13 @@ export async function submitDailyWorkLog(req, res) {
         user: userId,
         date,
         workSummary: workSummary.trim(),
+        clockInTime: '09:30 AM',
+        clockOutTime: nowTimeStr,
+        clockInTimestamp: new Date(now.getTime() - (shiftType === 'part_time' ? 4 : 8) * 3600000),
+        clockOutTimestamp: now,
+        totalHours: shiftType === 'part_time' ? 4 : 8,
+        shiftType,
+        attendanceStage: 'clocked_out',
         status
       });
 
@@ -104,6 +279,8 @@ export async function getTodayLog(req, res) {
       success: true,
       today,
       isEditable: true,
+      employmentType: req.user.employmentType || 'full_time',
+      shiftHours: req.user.shiftHours || (req.user.employmentType === 'part_time' ? 4 : 8),
       record: record || null
     });
   } catch (error) {

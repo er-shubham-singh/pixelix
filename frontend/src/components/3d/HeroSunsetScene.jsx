@@ -10,13 +10,14 @@ export default function HeroSunsetScene() {
 
     // Scene setup
     const scene = new THREE.Scene();
+    const isMobile = currentMount.clientWidth < 420;
     const camera = new THREE.PerspectiveCamera(
       45,
       currentMount.clientWidth / currentMount.clientHeight,
       0.1,
       1000
     );
-    camera.position.z = 5.8;
+    camera.position.z = isMobile ? 6.4 : 5.6;
 
     // High performance WebGL renderer
     const renderer = new THREE.WebGLRenderer({
@@ -226,6 +227,7 @@ export default function HeroSunsetScene() {
       const width = currentMount.clientWidth;
       const height = currentMount.clientHeight;
       camera.aspect = width / height;
+      camera.position.z = width < 420 ? 6.4 : 5.6;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };
@@ -301,7 +303,7 @@ export default function HeroSunsetScene() {
   }, []);
 
   return (
-    <div className="relative w-full h-[260px] sm:h-[320px] md:h-[350px] lg:h-[420px] flex items-center justify-center">
+    <div className="relative w-full h-[220px] xs:h-[250px] sm:h-[280px] md:h-[330px] lg:h-[380px] flex items-center justify-center">
       {/* Background radial glow */}
       <div className="absolute inset-0 bg-radial from-terracotta-400/25 via-gold-sun/15 to-transparent blur-3xl pointer-events-none -z-10" />
       

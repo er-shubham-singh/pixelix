@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react';
-import Badge from '../common/Badge';
 import { Calculator, Check, ArrowRight, Sparkles, Clock, Layers } from 'lucide-react';
 
 export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
@@ -42,23 +41,9 @@ export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
   }, [selectedIds]);
 
   return (
-    <section id="estimator" className="py-24 bg-cream-100 dark:bg-darkbg-base relative overflow-hidden transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full relative transition-colors">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <Badge variant="terracotta" className="text-xs">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>Interactive Scope Calculator</span>
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
-            Estimate Your Project Scope & Timeline
-          </h2>
-          <p className="text-sm sm:text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Select your required deliverables below for an instant, transparent estimate tailored to your growth goals.
-          </p>
-        </div>
-
         {/* 2 Column Interactive Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
@@ -160,6 +145,6 @@ export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 }

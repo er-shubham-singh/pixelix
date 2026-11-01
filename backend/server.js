@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import { ENV } from './config/env.js';
 import { connectDB, getDBStatus } from './config/db.js';
 import { ensureDefaultAccounts } from './config/seedOwner.js';
+import { ensureDefaultModulesSeed } from './config/seedModules.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import inquiryRoutes from './routes/inquiryRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
@@ -11,6 +12,10 @@ import newsletterRoutes from './routes/newsletterRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import employeeRoutes from './routes/employeeRoutes.js';
 import ownerRoutes from './routes/ownerRoutes.js';
+import realEstateRoutes from './routes/realEstateRoutes.js';
+import advertisingRoutes from './routes/advertisingRoutes.js';
+import chatbotRoutes from './routes/chatbotRoutes.js';
+import leadRoutes from './routes/leadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -18,6 +23,7 @@ const app = express();
 // Database Connection & Account Seeding
 connectDB().then(() => {
   ensureDefaultAccounts();
+  ensureDefaultModulesSeed();
 });
 
 // Middleware
@@ -56,6 +62,10 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/employee', employeeRoutes);
 app.use('/api/owner', ownerRoutes);
+app.use('/api/real-estate', realEstateRoutes);
+app.use('/api/advertising', advertisingRoutes);
+app.use('/api/chatbot', chatbotRoutes);
+app.use('/api/leads', leadRoutes);
 
 // Error Handling
 app.use(notFound);

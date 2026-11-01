@@ -97,7 +97,9 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
               <li><button onClick={() => handleNav('services')} className="hover:text-terracotta-400 transition-colors cursor-pointer">All 16 Services & E-Com Catalog</button></li>
               <li><button onClick={() => handleNav('deliverables')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Deliverables & 5 Logo Themes</button></li>
               <li><button onClick={() => handleNav('portfolio')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Case Studies & Metrics</button></li>
-              <li><button onClick={() => handleNav('estimator')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Scope & Pricing Calculator</button></li>
+              <li><button onClick={() => handleNav('estimator')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Construction & Scope Calculator</button></li>
+              <li><button onClick={() => handleNav('virtual-tours')} className="hover:text-terracotta-400 transition-colors cursor-pointer">3D Virtual Property Tours</button></li>
+              <li><button onClick={() => handleNav('digital-advertising')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Digital & Real Estate Ads</button></li>
               <li><button onClick={() => handleNav('about')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Why Pixelix & Founders</button></li>
               <li><button onClick={() => handleNav('contact')} className="hover:text-terracotta-400 transition-colors cursor-pointer">Direct Contact & Form</button></li>
             </ul>

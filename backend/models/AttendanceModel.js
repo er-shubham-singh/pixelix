@@ -18,6 +18,11 @@ const attendanceSchema = new mongoose.Schema(
       trim: true,
       default: ''
     },
+    morningNotes: {
+      type: String,
+      trim: true,
+      default: ''
+    },
     status: {
       type: String,
       enum: ['present', 'leave', 'half_day', 'holiday'],
@@ -31,6 +36,32 @@ const attendanceSchema = new mongoose.Schema(
     clockInTime: {
       type: String,
       default: () => new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    },
+    clockOutTime: {
+      type: String,
+      default: ''
+    },
+    clockInTimestamp: {
+      type: Date,
+      default: null
+    },
+    clockOutTimestamp: {
+      type: Date,
+      default: null
+    },
+    totalHours: {
+      type: Number, // e.g. 8.5, 4.2
+      default: 0
+    },
+    shiftType: {
+      type: String,
+      enum: ['full_time', 'part_time'],
+      default: 'full_time'
+    },
+    attendanceStage: {
+      type: String,
+      enum: ['not_started', 'clocked_in', 'clocked_out'],
+      default: 'not_started'
     }
   },
   {

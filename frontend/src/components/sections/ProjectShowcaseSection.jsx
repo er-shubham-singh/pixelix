@@ -37,12 +37,12 @@ export default function ProjectShowcaseSection({ onOpenInquiry }) {
           </button>
         </div>
 
-        {/* 2x2 Editorial Portfolio Grid (Matching Reference Image 3) */}
+        {/* 2x2 Editorial Portfolio Grid (Matching Reference Image 2 & 3) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {FALLBACK_PROJECTS.map((project) => (
             <Floating3DCard key={project.id} intensity={6} className="h-full">
               <div
-                onClick={onOpenInquiry}
+                onClick={() => onOpenInquiry && onOpenInquiry(project.title)}
                 className="h-full rounded-3xl bg-cream-50/90 dark:bg-darkbg-card border border-cream-300 dark:border-white/10 overflow-hidden flex flex-col justify-between hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 shadow-soft hover:shadow-sunset/20 transition-all duration-300 group cursor-pointer"
               >
                 {/* Image Container with Warm Sunset Vignette */}

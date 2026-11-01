@@ -5,7 +5,7 @@ import ServicesSection from '../components/sections/ServicesSection';
 import WhyPixelixSection from '../components/sections/WhyPixelixSection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
 import Badge from '../components/common/Badge';
-import { ArrowRight, Calculator, FileCheck, Award, Sparkles } from 'lucide-react';
+import { ArrowRight, Calculator, FileCheck, Award, Sparkles, Compass, Building2 } from 'lucide-react';
 
 export default function HomePage({
   services,
@@ -60,71 +60,93 @@ export default function HomePage({
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Teaser 1: Deliverables & 5 Logo Themes */}
             <div
               onClick={() => onNavigatePage('deliverables')}
-              className="glass-card p-7 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
+              className="glass-card p-6 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
-                  <FileCheck className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-2xl bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 dark:text-terracotta-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
+                  <FileCheck className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
-                  Deliverables & 5 Logo Themes
+                <h3 className="text-lg font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
+                  Deliverables & Logos
                 </h3>
                 <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
-                  5 Custom Vector Logos in PDF, 5 Print Collaterals, and 5 Social Media PDFs extracted from our theme specs.
+                  5 Custom Vector Logos, 5 Print Collaterals, and Social Media PDF kits.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
-                <span>View All Deliverable Kits</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-3 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
+                <span>View Deliverables</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
-            {/* Teaser 2: Interactive Project Estimator */}
+            {/* Teaser 2: Construction & Tech Cost Calculator */}
             <div
               onClick={() => onNavigatePage('estimator')}
-              className="glass-card p-7 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
+              className="glass-card p-6 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between ring-1 ring-terracotta-500/30"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-gold-light/50 dark:bg-amber-950/40 text-gold-dark dark:text-amber-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
-                  <Calculator className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-2xl bg-gold-light/50 dark:bg-amber-950/40 text-gold-dark dark:text-amber-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
+                  <Calculator className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
-                  Interactive Scope Estimator
+                <h3 className="text-lg font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
+                  House Cost Calculator
                 </h3>
                 <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
-                  Pick and bundle custom websites, apps, logos, or marketplace listings for instant cost and turnaround calculation.
+                  Calculate house construction (bricks, cement, steel, labour) or switch to tech & web scope.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
-                <span>Calculate Project Scope</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-3 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
+                <span>Calculate Cost & Bricks</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
-            {/* Teaser 3: Proven Portfolio / Case Studies */}
+            {/* Teaser 3: Virtual 3D Property Tours */}
             <div
-              onClick={() => onNavigatePage('portfolio')}
-              className="glass-card p-7 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
+              onClick={() => onNavigatePage('virtual-tours')}
+              className="glass-card p-6 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
             >
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-sage-light/50 dark:bg-emerald-950/40 text-sage-dark dark:text-emerald-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
-                  <Award className="w-6 h-6" />
+                <div className="w-11 h-11 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
+                  <Compass className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
+                <h3 className="text-lg font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
+                  Virtual 3D Tours
+                </h3>
+                <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
+                  Interactive 3D model flat walkthroughs, 360° panoramas, and commercial architectural renders.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
+                <span>Launch 3D Tours</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+
+            {/* Teaser 4: Proven Portfolio / Case Studies */}
+            <div
+              onClick={() => onNavigatePage('portfolio')}
+              className="glass-card p-6 rounded-3xl cursor-pointer hover:border-terracotta-400/60 dark:hover:border-terracotta-400/50 hover:shadow-sunset transition-all group flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <div className="w-11 h-11 rounded-2xl bg-sage-light/50 dark:bg-emerald-950/40 text-sage-dark dark:text-emerald-400 flex items-center justify-center group-hover:bg-sunset-gradient group-hover:text-white transition-all shadow-inner">
+                  <Award className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-espresso-900 dark:text-white group-hover:text-terracotta-600 dark:group-hover:text-terracotta-400 transition-colors font-display">
                   Case Studies & Metrics
                 </h3>
                 <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
-                  Real client success stories in D2C e-commerce, restaurant hospitality launch campaigns, and AI chatbots.
+                  Real client success stories in D2C e-commerce, real estate leads, and AI chatbots.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
+              <div className="mt-5 pt-3 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-terracotta-600 dark:text-terracotta-400">
                 <span>Explore Client Work</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 

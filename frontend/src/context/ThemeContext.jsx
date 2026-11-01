@@ -15,6 +15,12 @@ export const ThemeProvider = ({ children }) => {
       root.classList.remove('dark');
     }
     localStorage.setItem('pixelix_theme_mode', themeMode);
+
+    // Synchronize Chrome browser tab favicon with active theme
+    const favicon = document.querySelector("link[rel*='icon']");
+    if (favicon) {
+      favicon.href = themeMode === 'dark' ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+    }
   }, [themeMode]);
 
   const toggleTheme = () => {
@@ -37,3 +43,9 @@ export const useThemeMode = () => {
   }
   return context;
 };
+
+export const useTheme = () => {
+  return useThemeMode();
+};
+
+export default ThemeContext;
