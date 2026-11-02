@@ -124,8 +124,8 @@ export default function EmployeeDashboardPage({
   const [leaveForm, setLeaveForm] = useState({
     startDate: todayStr,
     endDate: todayStr,
-    reason: '',
-    type: 'casual'
+    reason: 'Weekly Off (1 Day per Week Allowance)',
+    type: 'weekly_off'
   });
   const [isSubmittingLeave, setIsSubmittingLeave] = useState(false);
   const [leaveMessage, setLeaveMessage] = useState({ text: '', type: '' });
@@ -1018,6 +1018,15 @@ export default function EmployeeDashboardPage({
             leavesList={leavesList || []}
             shiftType={shiftType}
             targetHours={shiftHours}
+            onRequestLeaveDate={(dateStr) => {
+              setLeaveForm({
+                startDate: dateStr,
+                endDate: dateStr,
+                type: 'weekly_off',
+                reason: 'Weekly Off (1 Day per Week Allowance)'
+              });
+              setIsLeaveModalOpen(true);
+            }}
           />
 
           {/* Calendar Day-by-Day Table */}
@@ -1134,7 +1143,16 @@ export default function EmployeeDashboardPage({
           </div>
 
           {/* Leave Quota Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-5 rounded-3xl bg-violet-50/70 dark:bg-violet-950/30 border-2 border-violet-300 dark:border-violet-700 shadow-xs">
+              <span className="text-[11px] uppercase font-bold text-violet-700 dark:text-violet-300 block mb-1">
+                Weekly Off Allowance
+              </span>
+              <span className="text-2xl font-extrabold text-violet-950 dark:text-violet-100 font-mono">
+                1 Day / Week
+              </span>
+              <p className="text-xs text-violet-800/80 dark:text-violet-300/80 mt-1">Flexible off on any day upon advance request</p>
+            </div>
             <div className="p-5 rounded-3xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border shadow-xs">
               <span className="text-[11px] uppercase font-bold text-espresso-500 block mb-1">
                 Casual Leave Quota
@@ -1404,10 +1422,17 @@ export default function EmployeeDashboardPage({
 
           {/* 2026 Holiday Calendar Card */}
           <div className="p-6 rounded-3xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border shadow-xs space-y-3">
-            <h4 className="font-bold text-sm text-espresso-900 dark:text-cream-100 flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-terracotta-500" />
-              Official 2026 National & Festival Holiday List
-            </h4>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h4 className="font-bold text-sm text-espresso-900 dark:text-cream-100 flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-terracotta-500" />
+                  National & Festival Reference Dates
+                </h4>
+                <p className="text-xs text-espresso-500 dark:text-cream-400">
+                  Pixelix operates daily 365 days/year with flexible 1 weekly off. Apply in advance to schedule your weekly off on festival dates.
+                </p>
+              </div>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
               {[
                 { name: 'Republic Day', date: 'Jan 26, 2026', day: 'Monday' },
@@ -1591,6 +1616,7 @@ export default function EmployeeDashboardPage({
                   onChange={(e) => setLeaveForm({ ...leaveForm, type: e.target.value })}
                   className="w-full p-2.5 rounded-xl border border-cream-300 dark:border-darkbg-border bg-cream-50 dark:bg-darkbg-base text-xs font-semibold text-espresso-900 dark:text-cream-100 focus:outline-none"
                 >
+                  <option value="weekly_off">Weekly Off (1 Day / Week Allowance)</option>
                   <option value="casual">Casual Leave</option>
                   <option value="sick">Sick / Medical Leave</option>
                   <option value="emergency">Emergency Absence</option>

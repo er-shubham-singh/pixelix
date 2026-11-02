@@ -320,18 +320,11 @@ export async function getMonthlyAttendance(req, res) {
     const leaveDays = records.filter(r => r.status === 'leave').length;
     const halfDays = records.filter(r => r.status === 'half_day').length;
 
-    // Working days estimate excluding Sundays
-    let totalWorkingDays = 0;
-    for (let d = 1; d <= elapsedDays; d++) {
-      const dayOfWeek = new Date(year, month - 1, d).getDay();
-      if (dayOfWeek !== 0) { // not Sunday
-        totalWorkingDays++;
-      }
-    }
-
-    const effectivePresent = presentDays + (halfDays * 0.5);
+    // 7-day daily company operations (all days active; 1 flexible weekly off allowed per week)
+    const totalWorkingDays = elapsedDays;
+    const effectiveAttendance = presentDays + (halfDays * 0.5) + leaveDays;
     const attendancePercentage = totalWorkingDays > 0
-      ? Math.min(100, Math.round((effectivePresent / totalWorkingDays) * 100))
+      ? Math.min(100, Math.round((effectiveAttendance / totalWorkingDays) * 100))
       : 0;
 
     return res.json({

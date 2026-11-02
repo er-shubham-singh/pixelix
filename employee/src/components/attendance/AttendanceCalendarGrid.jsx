@@ -12,7 +12,11 @@ import {
   FileText,
   ShieldCheck,
   Coffee,
-  Sparkles
+  Sparkles,
+  XCircle,
+  PlusCircle,
+  ArrowRight,
+  Info
 } from 'lucide-react';
 
 export default function AttendanceCalendarGrid({
@@ -21,7 +25,8 @@ export default function AttendanceCalendarGrid({
   records = [],
   leavesList = [],
   shiftType = 'full_time',
-  targetHours = 8
+  targetHours = 8,
+  onRequestLeaveDate
 }) {
   // Format helpers
   const getTodayStr = () => {
@@ -89,20 +94,17 @@ export default function AttendanceCalendarGrid({
     return isNaN(y) ? 2026 : y;
   }
 
-  // Parse calendar days
+  // Parse calendar days (All 7 days Mon-Sun are enabled active working days; no hardcoded holidays)
   const calendarCells = useMemo(() => {
     if (!selectedMonth) return [];
     const [year, month] = selectedMonth.split('-').map(Number);
     const daysInMonth = new Date(year, month, 0).getDate();
 
-    // Day of week for the 1st of this month
-    // 0 = Sun, 1 = Mon, ..., 6 = Sat
-    // We want Monday = 0, Tuesday = 1, ..., Sunday = 6
+    // Day of week for the 1st of this month (Monday = 0, Tuesday = 1, ..., Sunday = 6)
     const firstDay = new Date(year, month - 1, 1).getDay();
     const startPadding = (firstDay + 6) % 7; // Number of days from previous month
 
     const prevMonthDays = new Date(year, month - 1, 0).getDate();
-
     const cells = [];
 
     // 1. Previous Month Padding Cells
@@ -146,10 +148,6 @@ export default function AttendanceCalendarGrid({
 
     // Annotate each cell with attendance, leave, and status info
     return cells.map((cell) => {
-      const dateObj = new Date(cell.dateStr + 'T00:00:00');
-      const dayOfWeek = dateObj.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
-      const isSunday = dayOfWeek === 0;
-      const isWeekend = isSunday; // Only Sunday is weekly off (Saturdays are active working days)
       const isToday = cell.dateStr === todayStr;
       const isPast = cell.dateStr < todayStr;
       const isFuture = cell.dateStr > todayStr;
@@ -169,23 +167,27 @@ export default function AttendanceCalendarGrid({
         return cell.dateStr >= l.startDate && cell.dateStr <= l.endDate;
       });
 
-      // Determine state
+      // Determine state (Pixelix operates 7 days a week; every day is active unless on approved leave)
       let state = 'future';
-      let stateLabel = 'Upcoming';
+      let stateLabel = 'Working Day';
       let hoursWorked = 0;
 
       if (approvedLeave) {
         state = 'approved_leave';
-        stateLabel = `Approved Leave (${approvedLeave.type || 'Casual'})`;
+        const typeLabel = approvedLeave.type === 'weekly_off' ? 'Weekly Off' : (approvedLeave.type || 'Leave');
+        stateLabel = `Approved Leave (${typeLabel})`;
       } else if (record) {
         hoursWorked = record.totalHours || 0;
         const hasClockOut = Boolean(record.clockOutTime && (record.attendanceStage === 'clocked_out' || record.clockOutTime));
         const hasClockInOnly = Boolean(record.clockInTime && !hasClockOut);
 
-        if (hasClockOut) {
+        if (record.status === 'leave') {
+          state = 'approved_leave';
+          stateLabel = 'Approved Leave';
+        } else if (hasClockOut) {
           if (record.status === 'half_day') {
             state = 'half_day';
-            stateLabel = 'Half Day';
+            stateLabel = 'Half Day (4h)';
           } else {
             state = 'present';
             stateLabel = 'Present (Full Day)';
@@ -193,30 +195,23 @@ export default function AttendanceCalendarGrid({
         } else if (hasClockInOnly) {
           state = 'on_duty';
           stateLabel = 'Active On-Duty';
-        } else if (record.status === 'leave') {
-          state = 'approved_leave';
-          stateLabel = 'Leave';
         } else {
           state = record.status || 'present';
           stateLabel = record.status === 'half_day' ? 'Half Day' : 'Present';
         }
       } else if (pendingLeave) {
         state = 'pending_leave';
-        stateLabel = 'Pending Leave';
-      } else if (isSunday) {
-        state = 'weekend';
-        stateLabel = 'Sunday Off';
+        stateLabel = 'Leave Applied (Pending Review)';
       } else if (isPast) {
         state = 'absent';
-        stateLabel = 'Not Logged';
+        stateLabel = 'Absent / Not Logged';
       } else {
         state = 'future';
-        stateLabel = 'Upcoming';
+        stateLabel = isToday ? "Today's Work Day" : 'Upcoming Work Day';
       }
 
       return {
         ...cell,
-        isWeekend,
         isToday,
         isPast,
         isFuture,
@@ -230,12 +225,12 @@ export default function AttendanceCalendarGrid({
     });
   }, [selectedMonth, records, leavesList, todayStr]);
 
-  // Aggregate monthly counts
+  // Aggregate monthly counts (Daily operations with 1 flexible leave per week)
   const monthStats = useMemo(() => {
     let presentCount = 0;
     let halfDayCount = 0;
     let approvedLeaveCount = 0;
-    let weekendCount = 0;
+    let absentCount = 0;
     let totalWorkingDaysElapsed = 0;
 
     calendarCells.forEach((c) => {
@@ -243,11 +238,11 @@ export default function AttendanceCalendarGrid({
       if (c.state === 'present') presentCount++;
       if (c.state === 'half_day') halfDayCount++;
       if (c.state === 'approved_leave') approvedLeaveCount++;
-      if (c.isWeekend) weekendCount++;
-      if (c.isPast && !c.isWeekend) totalWorkingDaysElapsed++;
+      if (c.state === 'absent') absentCount++;
+      if (c.isPast || c.isToday) totalWorkingDaysElapsed++;
     });
 
-    const effectivePresent = presentCount + (halfDayCount * 0.5);
+    const effectivePresent = presentCount + (halfDayCount * 0.5) + approvedLeaveCount;
     const turnoutRate = totalWorkingDaysElapsed > 0
       ? Math.min(100, Math.round((effectivePresent / totalWorkingDaysElapsed) * 100))
       : 100;
@@ -256,7 +251,8 @@ export default function AttendanceCalendarGrid({
       presentCount,
       halfDayCount,
       approvedLeaveCount,
-      weekendCount,
+      absentCount,
+      totalWorkingDaysElapsed,
       turnoutRate
     };
   }, [calendarCells]);
@@ -266,37 +262,99 @@ export default function AttendanceCalendarGrid({
     return calendarCells.find((c) => c.dateStr === inspectedDateStr) || null;
   }, [calendarCells, inspectedDateStr]);
 
-  // Styling helper for square box based on state
+  // Styling helper for square box based on state with rich, vibrant backgrounds and borders
   const getSquareStyles = (cell) => {
     const isSelected = cell.dateStr === inspectedDateStr;
     const baseSelectedRing = isSelected
-      ? 'ring-2 ring-terracotta-500 shadow-md scale-[1.02] z-10'
-      : 'hover:shadow-sm hover:scale-[1.01]';
+      ? 'ring-4 ring-terracotta-500 ring-offset-2 dark:ring-offset-darkbg-card shadow-lg scale-[1.03] z-20'
+      : 'hover:shadow-md hover:scale-[1.01]';
 
     if (!cell.isCurrentMonth) {
-      return `bg-cream-100/30 dark:bg-darkbg-base/20 border-cream-200/60 dark:border-darkbg-border/40 opacity-40 ${baseSelectedRing}`;
+      return `bg-cream-100/30 dark:bg-darkbg-base/20 border border-cream-200/50 dark:border-darkbg-border/30 opacity-35 ${baseSelectedRing}`;
     }
 
     switch (cell.state) {
       case 'present':
-        return `bg-emerald-50 dark:bg-emerald-950/60 border-2 border-emerald-500 text-emerald-950 dark:text-emerald-100 shadow-2xs ${baseSelectedRing}`;
-      case 'half_day':
-        return `bg-orange-50 dark:bg-orange-950/60 border-2 border-orange-500 text-orange-950 dark:text-orange-100 shadow-2xs ${baseSelectedRing}`;
-      case 'on_duty':
-        return `bg-sky-50 dark:bg-sky-950/60 border-2 border-sky-400 text-sky-950 dark:text-sky-100 shadow-2xs ${baseSelectedRing}`;
-      case 'approved_leave':
-        return `bg-amber-100/90 dark:bg-amber-950/70 border-2 border-amber-500 text-amber-950 dark:text-amber-100 shadow-2xs ${baseSelectedRing}`;
-      case 'pending_leave':
-        return `bg-amber-500/5 dark:bg-amber-950/20 border-dashed border-amber-300 text-amber-800 dark:text-amber-300 ${baseSelectedRing}`;
-      case 'weekend':
-        return `bg-cream-100/60 dark:bg-darkbg-base/50 border-cream-200 dark:border-darkbg-border text-espresso-400 dark:text-cream-400 ${baseSelectedRing}`;
+        return `bg-emerald-50/90 dark:bg-emerald-950/60 border-2 border-emerald-500 dark:border-emerald-400 text-emerald-950 dark:text-emerald-100 shadow-xs shadow-emerald-500/10 ${baseSelectedRing}`;
       case 'absent':
-        return `bg-rose-50/25 dark:bg-rose-950/20 border-dashed border-rose-200 dark:border-rose-900/50 text-rose-500 dark:text-rose-400 ${baseSelectedRing}`;
+        return `bg-rose-50/90 dark:bg-rose-950/60 border-2 border-rose-400 dark:border-rose-500 text-rose-950 dark:text-rose-100 shadow-xs shadow-rose-500/10 ${baseSelectedRing}`;
+      case 'approved_leave':
+        return `bg-violet-50/90 dark:bg-violet-950/60 border-2 border-violet-500 dark:border-violet-400 text-violet-950 dark:text-violet-100 shadow-xs shadow-violet-500/10 ${baseSelectedRing}`;
+      case 'pending_leave':
+        return `bg-amber-50/90 dark:bg-amber-950/50 border-2 border-dashed border-amber-500 dark:border-amber-400 text-amber-950 dark:text-amber-100 shadow-xs shadow-amber-500/10 ${baseSelectedRing}`;
+      case 'on_duty':
+        return `bg-sky-50/95 dark:bg-sky-950/65 border-2 border-sky-500 dark:border-sky-400 text-sky-950 dark:text-sky-100 shadow-xs shadow-sky-500/20 animate-pulse ${baseSelectedRing}`;
+      case 'half_day':
+        return `bg-orange-50/90 dark:bg-orange-950/60 border-2 border-orange-500 dark:border-orange-400 text-orange-950 dark:text-orange-100 shadow-xs shadow-orange-500/10 ${baseSelectedRing}`;
+      case 'future':
       default:
-        return `bg-white dark:bg-darkbg-card border-dashed border-cream-200 dark:border-darkbg-border text-espresso-400 dark:text-cream-500/60 ${baseSelectedRing}`;
+        return `bg-cream-50/70 dark:bg-darkbg-elevated/40 hover:bg-white dark:hover:bg-darkbg-elevated border-2 border-cream-200 dark:border-darkbg-border hover:border-terracotta-400 text-espresso-800 dark:text-cream-200 ${baseSelectedRing}`;
     }
   };
 
+  // Day Number Badge styling (colorful circular/rounded tile for every date)
+  const getDayNumberBadge = (cell) => {
+    if (cell.isToday) {
+      return (
+        <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-terracotta-500 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-xs ring-2 ring-terracotta-300">
+          {cell.dayNum}
+        </span>
+      );
+    }
+    if (!cell.isCurrentMonth) {
+      return (
+        <span className="text-xs sm:text-sm font-bold text-espresso-400/50 dark:text-cream-400/40">
+          {cell.dayNum}
+        </span>
+      );
+    }
+    switch (cell.state) {
+      case 'present':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      case 'absent':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      case 'approved_leave':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-violet-600 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      case 'pending_leave':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      case 'on_duty':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      case 'half_day':
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-orange-500 text-white flex items-center justify-center font-black text-xs sm:text-sm shadow-2xs">
+            {cell.dayNum}
+          </span>
+        );
+      default:
+        return (
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-cream-200/90 dark:bg-darkbg-elevated text-espresso-800 dark:text-cream-200 flex items-center justify-center font-black text-xs sm:text-sm border border-cream-300 dark:border-darkbg-border">
+            {cell.dayNum}
+          </span>
+        );
+    }
+  };
+
+  // Status Badge inside cell
   const getPillBadge = (cell) => {
     switch (cell.state) {
       case 'present':
@@ -306,51 +364,54 @@ export default function AttendanceCalendarGrid({
             <span className="truncate">{cell.hoursWorked ? `${cell.hoursWorked}h` : 'Present'}</span>
           </span>
         );
-      case 'half_day':
+      case 'absent':
         return (
-          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-orange-100 text-orange-800 dark:bg-orange-900/60 dark:text-orange-200">
-            <AlertCircle className="w-2.5 h-2.5 flex-shrink-0 text-orange-600 dark:text-orange-400" />
-            <span className="truncate">{cell.hoursWorked ? `${cell.hoursWorked}h` : 'Half'}</span>
-          </span>
-        );
-      case 'on_duty':
-        return (
-          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse" />
-            <span className="truncate">On Duty</span>
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-black bg-rose-500 text-white shadow-2xs">
+            <XCircle className="w-2.5 h-2.5 flex-shrink-0" />
+            <span className="truncate">Absent</span>
           </span>
         );
       case 'approved_leave':
+        const leaveLabel = cell.approvedLeave?.type === 'weekly_off' ? 'Weekly Off' : (cell.approvedLeave?.type || 'Leave');
         return (
-          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-black bg-amber-500 text-white shadow-2xs">
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-black bg-violet-600 text-white shadow-2xs">
             <CalendarCheck2 className="w-2.5 h-2.5 flex-shrink-0" />
-            <span className="truncate capitalize">{cell.approvedLeave?.type || 'Leave'}</span>
+            <span className="truncate capitalize">{leaveLabel}</span>
           </span>
         );
       case 'pending_leave':
         return (
-          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[9px] font-semibold bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300">
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[9px] font-extrabold bg-amber-500 text-white shadow-2xs">
             <Clock className="w-2.5 h-2.5 flex-shrink-0" />
-            <span className="truncate">Pending</span>
+            <span className="truncate">Applied</span>
           </span>
         );
-      case 'weekend':
+      case 'on_duty':
         return (
-          <span className="text-[10px] font-medium text-espresso-400 dark:text-cream-400/70">
-            Sunday Off
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-black bg-sky-600 text-white shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="truncate">On Duty</span>
           </span>
         );
-      case 'absent':
+      case 'half_day':
         return (
-          <span className="text-[9px] font-semibold text-rose-500/80 dark:text-rose-400/80">
-            Missed
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-orange-500 text-white shadow-2xs">
+            <AlertCircle className="w-2.5 h-2.5 flex-shrink-0" />
+            <span className="truncate">{cell.hoursWorked ? `${cell.hoursWorked}h` : 'Half'}</span>
           </span>
         );
+      case 'future':
       default:
-        return null;
+        return (
+          <span className="hidden sm:inline-flex items-center gap-1 text-[9px] font-semibold text-espresso-500 dark:text-cream-400">
+            <Briefcase className="w-2 h-2 flex-shrink-0 text-espresso-400" />
+            <span>Work Day</span>
+          </span>
+        );
     }
   };
 
+  // All 7 days active (Mon-Sun)
   const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   return (
@@ -369,12 +430,12 @@ export default function AttendanceCalendarGrid({
               </h3>
               {selectedMonth === todayStr.slice(0, 7) && (
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-terracotta-100 text-terracotta-700 dark:bg-terracotta-950/70 dark:text-terracotta-300 border border-terracotta-200 dark:border-terracotta-800">
-                  Current
+                  Current Month
                 </span>
               )}
             </div>
             <p className="text-xs text-espresso-500 dark:text-cream-400">
-              Interactive Square Grid • Click any square to view punch-in/out timestamps
+              Interactive 7-Day Operations Calendar • Click any day to inspect details or apply for weekly off
             </p>
           </div>
         </div>
@@ -424,61 +485,80 @@ export default function AttendanceCalendarGrid({
         </div>
       </div>
 
-      {/* 2. Monthly Summary Metrics Ribbon */}
+      {/* 2. Company Operations & 1-Leave/Week Policy Banner */}
+      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-terracotta-500/10 via-amber-500/10 to-violet-500/10 dark:from-terracotta-950/30 dark:via-amber-950/20 dark:to-violet-950/30 border border-terracotta-200 dark:border-terracotta-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex items-start sm:items-center gap-2.5 text-xs text-espresso-800 dark:text-cream-100">
+          <Sparkles className="w-4 h-4 text-terracotta-500 flex-shrink-0 mt-0.5 sm:mt-0" />
+          <span>
+            <strong>Pixelix 7-Day Company Operations:</strong> Our services run daily with no fixed weekend closures. Every employee is permitted <strong>1 flexible leave per week</strong>. Submit your leave application for any day; once approved by management, your date turns to an <strong>Official Approved Leave (Violet)</strong>.
+          </span>
+        </div>
+        {onRequestLeaveDate && (
+          <button
+            onClick={() => onRequestLeaveDate(todayStr)}
+            className="px-3.5 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs flex items-center gap-1.5 self-start sm:self-auto shrink-0 transition-all shadow-xs active:scale-95"
+          >
+            <PlusCircle className="w-3.5 h-3.5" />
+            <span>Apply For Leave</span>
+          </button>
+        )}
+      </div>
+
+      {/* 3. Monthly Summary Metrics Ribbon */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {/* Present Days */}
-        <div className="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
-            <CheckCircle2 className="w-4 h-4" />
+        <div className="p-3.5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 flex items-center gap-3 shadow-2xs">
+          <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
+            <CheckCircle2 className="w-5 h-5" />
           </div>
           <div>
             <div className="text-[11px] font-semibold text-emerald-800 dark:text-emerald-300">
               Present Days
             </div>
             <div className="text-base font-black text-emerald-950 dark:text-emerald-100">
-              {monthStats.presentCount} <span className="text-[10px] font-normal text-emerald-700 dark:text-emerald-400">days</span>
+              {monthStats.presentCount} <span className="text-[10px] font-normal text-emerald-700 dark:text-emerald-400">logged</span>
             </div>
           </div>
         </div>
 
-        {/* Half Days */}
-        <div className="p-3.5 rounded-2xl bg-orange-50/70 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
-            <AlertCircle className="w-4 h-4" />
+        {/* Absent / Missed Days */}
+        <div className="p-3.5 rounded-2xl bg-rose-50/80 dark:bg-rose-950/40 border border-rose-300 dark:border-rose-800 flex items-center gap-3 shadow-2xs">
+          <div className="w-9 h-9 rounded-xl bg-rose-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
+            <XCircle className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[11px] font-semibold text-orange-800 dark:text-orange-300">
-              Half Days
+            <div className="text-[11px] font-semibold text-rose-800 dark:text-rose-300">
+              Absent / Missed
             </div>
-            <div className="text-base font-black text-orange-950 dark:text-orange-100">
-              {monthStats.halfDayCount} <span className="text-[10px] font-normal text-orange-700 dark:text-orange-400">days</span>
+            <div className="text-base font-black text-rose-950 dark:text-rose-100">
+              {monthStats.absentCount} <span className="text-[10px] font-normal text-rose-700 dark:text-rose-400">days</span>
             </div>
           </div>
         </div>
 
-        {/* Approved Leaves */}
-        <div className="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
-            <CalendarCheck2 className="w-4 h-4" />
+        {/* Approved Leaves (including 1 Weekly Off per week) */}
+        <div className="p-3.5 rounded-2xl bg-violet-50/80 dark:bg-violet-950/40 border border-violet-300 dark:border-violet-800 flex items-center gap-3 shadow-2xs">
+          <div className="w-9 h-9 rounded-xl bg-violet-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
+            <CalendarCheck2 className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[11px] font-semibold text-amber-800 dark:text-amber-300">
-              Approved Leaves
+            <div className="text-[11px] font-semibold text-violet-800 dark:text-violet-300">
+              Approved Leaves / Off
             </div>
-            <div className="text-base font-black text-amber-950 dark:text-amber-100">
-              {monthStats.approvedLeaveCount} <span className="text-[10px] font-normal text-amber-700 dark:text-amber-400">days</span>
+            <div className="text-base font-black text-violet-950 dark:text-violet-100">
+              {monthStats.approvedLeaveCount} <span className="text-[10px] font-normal text-violet-700 dark:text-violet-400">days</span>
             </div>
           </div>
         </div>
 
         {/* Turnout Percentage */}
-        <div className="p-3.5 rounded-2xl bg-cream-100/70 dark:bg-darkbg-elevated border border-cream-300 dark:border-darkbg-border flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-terracotta-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
-            <ShieldCheck className="w-4 h-4" />
+        <div className="p-3.5 rounded-2xl bg-cream-100/80 dark:bg-darkbg-elevated border border-cream-300 dark:border-darkbg-border flex items-center gap-3 shadow-2xs">
+          <div className="w-9 h-9 rounded-xl bg-terracotta-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
+            <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
             <div className="text-[11px] font-semibold text-espresso-700 dark:text-cream-300">
-              Turnout Score
+              Attendance Score
             </div>
             <div className="text-base font-black text-espresso-950 dark:text-cream-100">
               {monthStats.turnoutRate}%
@@ -487,18 +567,14 @@ export default function AttendanceCalendarGrid({
         </div>
       </div>
 
-      {/* 3. 7-Day Calendar Grid of Rounded Squares */}
+      {/* 4. 7-Day Calendar Grid of Vibrant Rounded Squares */}
       <div className="space-y-2">
-        {/* Weekday Column Headers */}
+        {/* Weekday Column Headers (All 7 Days Equal and Enabled) */}
         <div className="grid grid-cols-7 gap-1.5 sm:gap-2.5 text-center">
-          {weekdays.map((day, idx) => (
+          {weekdays.map((day) => (
             <div
               key={day}
-              className={`py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl ${
-                idx === 6
-                  ? 'text-espresso-400 dark:text-cream-400 bg-cream-100/50 dark:bg-darkbg-base/30'
-                  : 'text-espresso-700 dark:text-cream-200 bg-cream-100 dark:bg-darkbg-elevated'
-              }`}
+              className="py-2.5 text-[11px] sm:text-xs font-black uppercase tracking-wider rounded-xl text-espresso-800 dark:text-cream-100 bg-cream-100 dark:bg-darkbg-elevated border border-cream-200/80 dark:border-darkbg-border shadow-2xs"
             >
               {day}
             </div>
@@ -514,26 +590,16 @@ export default function AttendanceCalendarGrid({
                 key={cell.dateStr}
                 type="button"
                 onClick={() => setInspectedDateStr(cell.dateStr)}
-                className={`w-full aspect-square min-h-[72px] sm:min-h-[92px] p-1.5 sm:p-2.5 rounded-2xl border text-left flex flex-col justify-between transition-all ${getSquareStyles(
+                className={`w-full aspect-square min-h-[76px] sm:min-h-[96px] p-1.5 sm:p-2.5 rounded-2xl border text-left flex flex-col justify-between transition-all ${getSquareStyles(
                   cell
                 )}`}
               >
-                {/* Top: Day Number + Today/Shift Badge */}
+                {/* Top: Day Number Colorful Badge + Today Label */}
                 <div className="flex items-start justify-between w-full">
-                  <span
-                    className={`font-mono text-xs sm:text-sm font-black ${
-                      cell.isToday
-                        ? 'w-6 h-6 rounded-lg bg-terracotta-500 text-white flex items-center justify-center'
-                        : cell.isCurrentMonth
-                        ? 'text-espresso-900 dark:text-cream-100'
-                        : 'text-espresso-400/60 dark:text-cream-400/40'
-                    }`}
-                  >
-                    {cell.dayNum}
-                  </span>
+                  {getDayNumberBadge(cell)}
 
                   {cell.isToday && (
-                    <span className="hidden sm:inline-block px-1.5 py-0.2 rounded text-[8px] font-black uppercase bg-terracotta-100 text-terracotta-700 dark:bg-terracotta-900/60 dark:text-terracotta-300">
+                    <span className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[8px] font-black uppercase bg-terracotta-500 text-white shadow-2xs">
                       Today
                     </span>
                   )}
@@ -544,15 +610,27 @@ export default function AttendanceCalendarGrid({
                   {cell.isCurrentMonth && getPillBadge(cell)}
                 </div>
 
-                {/* Bottom: Timestamps if logged */}
+                {/* Bottom: Timestamps or Descriptive status note */}
                 <div className="w-full text-[9px] font-mono leading-tight truncate">
                   {cell.record?.clockInTime && cell.record?.clockOutTime ? (
-                    <span className="text-espresso-600 dark:text-cream-300 font-medium hidden sm:inline">
+                    <span className="text-emerald-700 dark:text-emerald-300 font-semibold hidden sm:inline">
                       {cell.record.clockInTime.split(' ')[0]} - {cell.record.clockOutTime.split(' ')[0]}
                     </span>
                   ) : cell.record?.clockInTime ? (
                     <span className="text-sky-600 dark:text-sky-400 font-semibold hidden sm:inline">
                       In {cell.record.clockInTime.split(' ')[0]}
+                    </span>
+                  ) : cell.state === 'approved_leave' ? (
+                    <span className="text-violet-700 dark:text-violet-300 font-medium hidden sm:inline">
+                      Approved Off
+                    </span>
+                  ) : cell.state === 'absent' ? (
+                    <span className="text-rose-600 dark:text-rose-400 font-medium hidden sm:inline">
+                      Unlogged
+                    </span>
+                  ) : cell.state === 'pending_leave' ? (
+                    <span className="text-amber-600 dark:text-amber-400 font-medium hidden sm:inline">
+                      Under Review
                     </span>
                   ) : null}
                 </div>
@@ -562,9 +640,9 @@ export default function AttendanceCalendarGrid({
         </div>
       </div>
 
-      {/* 4. Inspected Date Breakdown Card */}
+      {/* 5. Inspected Date Breakdown Card */}
       {inspectedCell && (
-        <div className="mt-4 p-5 rounded-2xl bg-cream-50 dark:bg-darkbg-elevated border border-cream-300 dark:border-darkbg-border animate-fade-in space-y-4">
+        <div className="mt-4 p-5 rounded-3xl bg-cream-50 dark:bg-darkbg-elevated border border-cream-300 dark:border-darkbg-border animate-fade-in space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-cream-200 dark:border-darkbg-border">
             <div>
               <div className="flex items-center gap-2">
@@ -585,8 +663,8 @@ export default function AttendanceCalendarGrid({
               </h4>
             </div>
 
-            {/* Status Badge */}
-            <div className="flex items-center gap-2">
+            {/* Status Badge & Action */}
+            <div className="flex flex-wrap items-center gap-2">
               <span
                 className={`px-3 py-1 rounded-xl text-xs font-bold border ${
                   inspectedCell.state === 'present'
@@ -596,14 +674,28 @@ export default function AttendanceCalendarGrid({
                     : inspectedCell.state === 'on_duty'
                     ? 'bg-sky-100 text-sky-800 border-sky-300 dark:bg-sky-950/60 dark:text-sky-300'
                     : inspectedCell.state === 'approved_leave'
+                    ? 'bg-violet-100 text-violet-800 border-violet-300 dark:bg-violet-950/60 dark:text-violet-300'
+                    : inspectedCell.state === 'pending_leave'
                     ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300'
-                    : inspectedCell.state === 'weekend'
-                    ? 'bg-cream-200 text-espresso-700 border-cream-300 dark:bg-darkbg-base dark:text-cream-300'
-                    : 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300'
+                    : inspectedCell.state === 'absent'
+                    ? 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950/60 dark:text-rose-300'
+                    : 'bg-cream-200 text-espresso-700 border-cream-300 dark:bg-darkbg-base dark:text-cream-300'
                 }`}
               >
                 {inspectedCell.stateLabel}
               </span>
+
+              {/* Action Button: Apply for Weekly Off on this date if future or today without leave */}
+              {onRequestLeaveDate && (inspectedCell.state === 'future' || inspectedCell.state === 'absent' || (inspectedCell.isToday && inspectedCell.state !== 'approved_leave')) && (
+                <button
+                  type="button"
+                  onClick={() => onRequestLeaveDate(inspectedCell.dateStr)}
+                  className="px-3.5 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-2xs active:scale-95"
+                >
+                  <CalendarCheck2 className="w-3.5 h-3.5" />
+                  <span>Apply for Weekly Off ({inspectedCell.dateStr})</span>
+                </button>
+              )}
             </div>
           </div>
 
@@ -654,22 +746,37 @@ export default function AttendanceCalendarGrid({
 
           {/* Work Summary or Approved Leave Reason */}
           {inspectedCell.approvedLeave && (
-            <div className="p-4 rounded-xl bg-amber-500/10 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700 space-y-1">
+            <div className="p-4 rounded-2xl bg-violet-500/10 dark:bg-violet-950/40 border border-violet-300 dark:border-violet-700 space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-violet-900 dark:text-violet-200">
+                <CalendarCheck2 className="w-4 h-4 text-violet-600" />
+                <span>Official Approved Leave Record</span>
+              </div>
+              <p className="text-xs text-violet-800 dark:text-violet-300">
+                <strong>Reason / Classification:</strong> {inspectedCell.approvedLeave.type === 'weekly_off' ? 'Weekly Off (1 Day per Week Policy)' : inspectedCell.approvedLeave.reason || 'Personal Leave'}
+              </p>
+              <p className="text-[10px] text-violet-700/80 dark:text-violet-400/80">
+                Approved Period: {inspectedCell.approvedLeave.startDate} to {inspectedCell.approvedLeave.endDate}
+              </p>
+            </div>
+          )}
+
+          {inspectedCell.pendingLeave && (
+            <div className="p-4 rounded-2xl bg-amber-500/10 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700 space-y-1">
               <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 dark:text-amber-200">
-                <CalendarCheck2 className="w-4 h-4 text-amber-600" />
-                <span>Approved Leave Record</span>
+                <Clock className="w-4 h-4 text-amber-600" />
+                <span>Leave Application Awaiting Executive Approval</span>
               </div>
               <p className="text-xs text-amber-800 dark:text-amber-300">
-                <strong>Reason:</strong> {inspectedCell.approvedLeave.reason || 'Personal Leave'}
+                <strong>Reason:</strong> {inspectedCell.pendingLeave.reason || 'Weekly Off Application'}
               </p>
               <p className="text-[10px] text-amber-700/80 dark:text-amber-400/80">
-                Period: {inspectedCell.approvedLeave.startDate} to {inspectedCell.approvedLeave.endDate}
+                Submitted on: {inspectedCell.pendingLeave.startDate} to {inspectedCell.pendingLeave.endDate}
               </p>
             </div>
           )}
 
           {inspectedCell.record?.workSummary && (
-            <div className="p-4 rounded-xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border space-y-1.5">
+            <div className="p-4 rounded-2xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border space-y-1.5">
               <div className="flex items-center gap-1.5 text-xs font-bold text-espresso-800 dark:text-cream-200">
                 <FileText className="w-4 h-4 text-terracotta-500" />
                 <span>Submitted Deliverables Summary</span>
@@ -679,50 +786,59 @@ export default function AttendanceCalendarGrid({
               </p>
             </div>
           )}
-
-          {inspectedCell.record?.morningNotes && (
-            <div className="p-4 rounded-xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border space-y-1.5">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-espresso-800 dark:text-cream-200">
-                <Briefcase className="w-4 h-4 text-sky-500" />
-                <span>Morning Plan & Objectives</span>
-              </div>
-              <p className="text-xs text-espresso-700 dark:text-cream-300 whitespace-pre-wrap leading-relaxed">
-                {inspectedCell.record.morningNotes}
-              </p>
-            </div>
-          )}
         </div>
       )}
 
-      {/* 5. Calendar Color Legend */}
-      <div className="pt-4 border-t border-cream-200 dark:border-darkbg-border flex flex-wrap items-center justify-between gap-3 text-xs">
-        <span className="font-bold text-espresso-700 dark:text-cream-300 text-[11px] uppercase tracking-wider">
-          Legend:
+      {/* 6. Comprehensive Calendar Color Legend */}
+      <div className="pt-4 border-t border-cream-200 dark:border-darkbg-border flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+        <span className="font-bold text-espresso-700 dark:text-cream-300 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+          <Info className="w-3.5 h-3.5 text-terracotta-500" />
+          Color Status Key:
         </span>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          {/* Present */}
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-md bg-emerald-500/20 border border-emerald-400 inline-block" />
-            <span className="text-[11px] font-medium text-espresso-800 dark:text-cream-200">Present (Checkout Verified)</span>
+            <span className="w-3.5 h-3.5 rounded-md bg-emerald-600 border border-emerald-500 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">Present</span>
           </div>
+
+          {/* Absent */}
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-md bg-sky-500/20 border border-sky-400 inline-block" />
-            <span className="text-[11px] font-medium text-espresso-800 dark:text-cream-200">Active On-Duty</span>
+            <span className="w-3.5 h-3.5 rounded-md bg-rose-500 border border-rose-400 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">Absent / Missed</span>
           </div>
+
+          {/* Approved Leave */}
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-md bg-orange-500/20 border border-orange-400 inline-block" />
-            <span className="text-[11px] font-medium text-espresso-800 dark:text-cream-200">Half Day</span>
+            <span className="w-3.5 h-3.5 rounded-md bg-violet-600 border border-violet-500 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">Approved Weekly Off</span>
           </div>
+
+          {/* Pending Leave */}
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-md bg-amber-500/25 border border-amber-400 inline-block" />
-            <span className="text-[11px] font-medium text-espresso-800 dark:text-cream-200">Approved Leave</span>
+            <span className="w-3.5 h-3.5 rounded-md bg-amber-500 border border-amber-400 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">Pending Review</span>
           </div>
+
+          {/* On Duty */}
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-md bg-cream-200 border border-cream-300 inline-block" />
-            <span className="text-[11px] font-medium text-espresso-500 dark:text-cream-400">Sunday Off</span>
+            <span className="w-3.5 h-3.5 rounded-md bg-sky-600 border border-sky-500 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">On Duty</span>
+          </div>
+
+          {/* Half Day */}
+          <div className="flex items-center gap-1.5">
+            <span className="w-3.5 h-3.5 rounded-md bg-orange-500 border border-orange-400 inline-block shadow-2xs" />
+            <span className="text-[11px] font-bold text-espresso-800 dark:text-cream-200">Half Day</span>
+          </div>
+
+          {/* Active Work Day */}
+          <div className="flex items-center gap-1.5">
+            <span className="w-3.5 h-3.5 rounded-md bg-cream-200 dark:bg-darkbg-elevated border border-cream-300 dark:border-darkbg-border inline-block" />
+            <span className="text-[11px] font-medium text-espresso-600 dark:text-cream-300">Upcoming Work Day</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
-

@@ -1066,7 +1066,7 @@ export default function AdminDashboardPage({
                       <div className="text-xs text-espresso-600 dark:text-cream-300 flex items-center gap-2">
                         <span><strong>Duration:</strong> {leave.startDate} to {leave.endDate}</span>
                         <span>•</span>
-                        <span><strong>Type:</strong> <span className="capitalize">{leave.type}</span></span>
+                        <span><strong>Type:</strong> <span className="capitalize font-semibold text-violet-700 dark:text-violet-300">{leave.type === 'weekly_off' ? 'Weekly Off (1 Day / Wk)' : leave.type}</span></span>
                       </div>
 
                       <p className="text-xs text-espresso-800 dark:text-cream-200 bg-cream-50 dark:bg-darkbg-base p-3 rounded-2xl border border-cream-200/60 dark:border-darkbg-border">
