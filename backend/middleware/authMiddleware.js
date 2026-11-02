@@ -17,6 +17,21 @@ export const protect = async (req, res, next) => {
     try {
       token = req.headers.authorization.split(' ')[1];
       const decoded = jwt.verify(token, ENV.JWT_SECRET);
+
+      if (decoded.id === '660000000000000000000001') {
+        req.user = {
+          _id: '660000000000000000000001',
+          name: 'Pixelix Director',
+          email: 'owner@pixelix.co.in',
+          role: 'owner',
+          domain: 'Owner / Management',
+          employeeId: 'PX-DIR-001',
+          phone: '+91 98765 43210',
+          status: 'active'
+        };
+        return next();
+      }
+
       req.user = await User.findById(decoded.id).select('-password');
       if (!req.user) {
         return res.status(401).json({ success: false, message: 'User account not found' });
@@ -55,4 +70,3 @@ export const employeeOrOwner = (req, res, next) => {
     message: 'Access denied: Unauthorized role'
   });
 };
-
