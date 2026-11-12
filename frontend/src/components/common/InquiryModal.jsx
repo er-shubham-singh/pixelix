@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Modal from './Modal';
+import PixelixLoader from './PixelixLoader';
 import { submitInquiry } from '../../services/inquiryApi';
 import { CONTACT_INFO } from '../../config/contact';
 import {
@@ -152,7 +153,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
           <div className="pt-2">
             <button
               onClick={handleReset}
-              className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-sunset-gradient shadow-sunset hover:scale-105 transition-all cursor-pointer"
+              className="px-7 py-2.5 rounded-full text-xs font-extrabold text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.35)] hover:scale-105 transition-all cursor-pointer"
             >
               Done & Close
             </button>
@@ -236,7 +237,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                     }}
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-sunset-gradient text-white shadow-sunset'
+                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.35)]'
                         : 'bg-white/80 dark:bg-white/5 border border-terracotta-200/50 dark:border-white/10 text-espresso-800 dark:text-cream-200 hover:border-terracotta-300 hover:bg-cream-100 dark:hover:bg-white/10'
                     }`}
                   >
@@ -488,10 +489,10 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full sm:w-auto px-7 py-3 rounded-full text-xs font-bold text-white bg-sunset-gradient shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3 rounded-full text-xs font-bold text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.3)] hover:shadow-[0_0_25px_rgba(245,212,133,0.45)] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
                   {submitting ? (
-                    <span>Submitting Request...</span>
+                    <PixelixLoader variant="inline" size="xs" text="Submitting Request..." />
                   ) : (
                     <>
                       <span>Request Founder Callback</span>

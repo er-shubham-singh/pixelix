@@ -382,10 +382,10 @@ export default function ServicesSection({
                       </button>
                       <button
                         onClick={() => onViewServiceDetail(service)}
-                        className="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-sunset-gradient shadow-sm hover:shadow-sunset hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer"
+                        className="px-4 py-1.5 rounded-full text-xs font-extrabold text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_15px_rgba(245,212,133,0.3)] hover:shadow-[0_0_22px_rgba(245,212,133,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer"
                       >
                         <span>Learn More</span>
-                        <ArrowRight className="w-3 h-3" />
+                        <ArrowRight className="w-3 h-3 stroke-[2.5]" />
                       </button>
                     </div>
 
@@ -401,7 +401,7 @@ export default function ServicesSection({
           <div className="mt-12 text-center">
             <button
               onClick={onNavigateToAll}
-              className="px-8 py-3.5 rounded-full font-bold text-sm text-white bg-sunset-gradient shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2.5 cursor-pointer"
+              className="px-8 py-3.5 rounded-full font-extrabold text-sm text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_25px_rgba(245,212,133,0.35)] hover:shadow-[0_0_35px_rgba(245,212,133,0.55)] hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2.5 cursor-pointer"
             >
               <span>Explore All 10 Services (Marketplaces, Visuals, Print & More)</span>
               <ArrowRight className="w-4 h-4" />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Badge from '../common/Badge';
+import PixelixLoader from '../common/PixelixLoader';
 import { CONTACT_INFO } from '../../config/contact';
 import { submitInquiry } from '../../services/inquiryApi';
 import confetti from 'canvas-confetti';
@@ -304,10 +305,16 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm text-white bg-sunset-gradient shadow-sunset hover:shadow-sunset-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                    className="px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.3)] hover:shadow-[0_0_25px_rgba(245,212,133,0.45)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
                   >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>{loading ? 'Submitting...' : 'Send Consultation Inquiry'}</span>
+                    {loading ? (
+                      <PixelixLoader variant="inline" size="sm" text="Submitting..." />
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" />
+                        <span>Send Consultation Inquiry</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

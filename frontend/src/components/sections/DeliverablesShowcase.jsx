@@ -179,7 +179,7 @@ export default function DeliverablesShowcase({ onOpenInquiry }) {
                 <div className="pt-3">
                   <button
                     onClick={onOpenInquiry}
-                    className="px-5 py-2.5 rounded-full font-bold text-xs text-white bg-sunset-gradient shadow-sunset hover:scale-105 transition-transform cursor-pointer"
+                    className="px-6 py-2.5 rounded-full font-extrabold text-xs text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.35)] hover:shadow-[0_0_28px_rgba(245,212,133,0.55)] hover:scale-105 transition-transform cursor-pointer"
                   >
                     Select this Theme for My Brand
                   </button>

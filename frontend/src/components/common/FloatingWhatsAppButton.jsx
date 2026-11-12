@@ -28,7 +28,7 @@ export default function FloatingWhatsAppButton({ activePage = 'home' }) {
   return (
     <div className="fixed bottom-6 right-6 z-40 flex items-center group">
       {/* Tooltip Pill on Hover */}
-      <div className="hidden sm:flex items-center mr-3 px-3.5 py-1.5 rounded-full bg-espresso-900/90 text-white text-xs font-semibold shadow-lg backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+      <div className="hidden sm:flex items-center mr-3 px-3.5 py-1.5 rounded-full bg-espresso-900/90 text-white dark:bg-white/95 dark:text-espresso-950 text-xs font-bold shadow-lg backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
         <span>Chat with Pixelix on WhatsApp</span>
       </div>
 

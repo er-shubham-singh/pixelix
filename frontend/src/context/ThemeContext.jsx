@@ -4,7 +4,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [themeMode, setThemeMode] = useState(() => {
-    return localStorage.getItem('pixelix_theme_mode') || 'normal';
+    return localStorage.getItem('pixelix_theme_mode') || 'dark';
   });
 
   useEffect(() => {

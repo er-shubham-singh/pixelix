@@ -41,6 +41,20 @@ export async function deleteEmployee(id) {
   return { ok: result.ok, message: result.data?.message };
 }
 
+export async function resendCredentials(id, password) {
+  const result = await apiRequest(`/owner/employees/${id}/resend-credentials`, {
+    method: 'POST',
+    body: JSON.stringify(password ? { password } : {})
+  });
+  return {
+    ok: result.ok,
+    message: result.data?.message || (result.ok ? 'Credentials dispatched' : 'Dispatch failed'),
+    emailDelivered: result.data?.emailDelivered,
+    simulatedEmail: result.data?.simulatedEmail,
+    temporaryPassword: result.data?.temporaryPassword
+  };
+}
+
 export async function fetchAllLeaves(status) {
   const endpoint = status ? `/owner/leaves?status=${status}` : '/owner/leaves';
   const result = await apiRequest(endpoint);
@@ -235,6 +249,24 @@ export async function deleteAdminLead(id) {
     method: 'DELETE'
   });
   return { ok: result.ok, message: result.data?.message };
+}
+
+export async function checkEmailStatus() {
+  const result = await apiRequest('/owner/email/status');
+  if (result.ok && result.data) return result.data;
+  return { success: false, connected: false };
+}
+
+export async function sendTestEmailPing(to) {
+  const result = await apiRequest('/owner/email/test', {
+    method: 'POST',
+    body: JSON.stringify(to ? { to } : {})
+  });
+  return {
+    ok: result.ok,
+    message: result.data?.message || (result.ok ? 'Test email dispatched' : 'Test failed'),
+    success: result.data?.success
+  };
 }
 
 

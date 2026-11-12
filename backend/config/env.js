@@ -17,9 +17,9 @@ export const ENV = {
   JWT_SECRET: process.env.JWT_SECRET || 'pixelix_super_secret_jwt_key_2026_terracotta',
   SMTP_HOST: process.env.SMTP_HOST || 'smtp.gmail.com',
   SMTP_PORT: parseInt(process.env.SMTP_PORT || '587', 10),
-  SMTP_USER: process.env.SMTP_USER || '',
-  SMTP_PASS: process.env.SMTP_PASS || '',
-  EMAIL_FROM: process.env.EMAIL_FROM || '"Pixelix Systems" <no-reply@pixelix.co.in>',
+  SMTP_USER: process.env.SMTP_USER || 'shubham.singh7985@gmail.com',
+  SMTP_PASS: process.env.SMTP_PASS || 'rwtuvmxvhssnaoyr',
+  EMAIL_FROM: process.env.EMAIL_FROM || '"Pixelix Creative & Digital Systems" <shubham.singh7985@gmail.com>',
   // AI & WhatsApp Integration
   AI_PROVIDER: process.env.AI_PROVIDER || 'none',
   GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',

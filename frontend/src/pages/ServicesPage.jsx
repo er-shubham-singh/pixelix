@@ -50,7 +50,7 @@ export default function ServicesPage({
           </p>
           <button
             onClick={() => onOpenInquiry('Bundled Services Package')}
-            className="px-7 py-3 rounded-full font-bold text-xs text-white bg-sunset-gradient shadow-sunset hover:scale-105 transition-transform inline-flex items-center gap-2 cursor-pointer"
+            className="px-8 py-3.5 rounded-full font-extrabold text-xs sm:text-sm text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_25px_rgba(245,212,133,0.35)] hover:shadow-[0_0_35px_rgba(245,212,133,0.55)] hover:scale-105 transition-transform inline-flex items-center gap-2 cursor-pointer"
           >
             <span>Consult on Bundled Package</span>
             <ArrowRight className="w-3.5 h-3.5" />

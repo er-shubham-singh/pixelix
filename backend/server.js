@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import { ENV } from './config/env.js';
 import { connectDB, getDBStatus } from './config/db.js';
+import { verifyMailConnection, getEmailStatus } from './services/emailService.js';
 import { ensureDefaultAccounts } from './config/seedOwner.js';
 import { ensureDefaultModulesSeed } from './config/seedModules.js';
 import serviceRoutes from './routes/serviceRoutes.js';
@@ -20,10 +21,11 @@ import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
 
-// Database Connection & Account Seeding
+// Database Connection, Account Seeding & SMTP Verification
 connectDB().then(() => {
   ensureDefaultAccounts();
   ensureDefaultModulesSeed();
+  verifyMailConnection();
 });
 
 // Middleware
@@ -50,7 +52,8 @@ app.get('/api/health', (req, res) => {
     brand: 'Pixelix Creative & Digital Systems',
     domain: 'pixelix.co.in',
     timestamp: new Date().toISOString(),
-    db: getDBStatus()
+    db: getDBStatus(),
+    email: getEmailStatus()
   });
 });
 

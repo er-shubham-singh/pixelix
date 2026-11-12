@@ -81,14 +81,24 @@ export async function createEmployee(req, res) {
       password, // plain text password sent to user
       domain: newEmployee.domain,
       employeeId: newEmployee.employeeId,
+      employmentType: newEmployee.employmentType,
+      shiftHours: newEmployee.shiftHours,
       portalUrl: ENV.EMPLOYEE_URL || 'https://employee.pixelix.co.in'
     });
 
+    const isLiveDelivered = Boolean(emailResult.success && !emailResult.simulated);
+    const deliveryNote = isLiveDelivered
+      ? `Official credentials email with company logo delivered to ${cleanEmail}.`
+      : emailResult.simulated
+      ? `Notice: Server is in SMTP simulation mode (credentials logged on server).`
+      : `Notice: Credentials email could not be delivered (${emailResult.error || 'SMTP Error'}).`;
+
     return res.status(201).json({
       success: true,
-      message: `Employee ${newEmployee.name} created successfully (${newEmployee.employmentType === 'part_time' ? '4h Part-Time' : '8h Full-Time'}). Credentials dispatched via email.`,
-      emailDelivered: emailResult.success,
-      simulatedEmail: emailResult.simulated || false,
+      message: `Employee ${newEmployee.name} created successfully (${newEmployee.employmentType === 'part_time' ? '4h Part-Time' : '8h Full-Time'}). ${deliveryNote}`,
+      emailDelivered: isLiveDelivered,
+      simulatedEmail: Boolean(emailResult.simulated),
+      emailError: emailResult.error || null,
       employee: {
         _id: newEmployee._id,
         name: newEmployee.name,
@@ -239,6 +249,63 @@ export async function deleteEmployee(req, res) {
     await User.findByIdAndDelete(req.params.id);
     return res.json({ success: true, message: 'Employee account removed' });
   } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+}
+
+/**
+ * @desc   Resend Credentials Email to Existing Employee (with optional password reset)
+ * @route  POST /api/owner/employees/:id/resend-credentials
+ * @access Private (Owner)
+ */
+export async function resendEmployeeCredentials(req, res) {
+  try {
+    const { password } = req.body;
+    const employee = await User.findById(req.params.id);
+
+    if (!employee || employee.role !== 'employee') {
+      return res.status(404).json({ success: false, message: 'Employee not found' });
+    }
+
+    let passwordToSend = password;
+    if (password && password.trim().length >= 6) {
+      employee.password = password.trim();
+      await employee.save();
+    } else if (!passwordToSend) {
+      // If no password provided, generate a fresh secure temporary password
+      passwordToSend = `Px@${Math.floor(100000 + Math.random() * 900000)}`;
+      employee.password = passwordToSend;
+      await employee.save();
+    }
+
+    const emailResult = await sendEmployeeCredentialsEmail({
+      to: employee.email,
+      name: employee.name,
+      email: employee.email,
+      password: passwordToSend,
+      domain: employee.domain,
+      employeeId: employee.employeeId,
+      employmentType: employee.employmentType,
+      shiftHours: employee.shiftHours,
+      portalUrl: ENV.EMPLOYEE_URL || 'https://employee.pixelix.co.in'
+    });
+
+    const isLiveDelivered = Boolean(emailResult.success && !emailResult.simulated);
+
+    return res.json({
+      success: true,
+      message: isLiveDelivered
+        ? `Official credentials email with company logo successfully delivered to ${employee.email}.`
+        : emailResult.simulated
+        ? `Email simulation active on server. Configure live SMTP to deliver real emails.`
+        : `Email delivery failed: ${emailResult.error || 'SMTP Error'}`,
+      emailDelivered: isLiveDelivered,
+      simulatedEmail: Boolean(emailResult.simulated),
+      emailError: emailResult.error || null,
+      temporaryPassword: passwordToSend
+    });
+  } catch (error) {
+    console.error('Resend credentials error:', error);
     return res.status(500).json({ success: false, message: error.message });
   }
 }

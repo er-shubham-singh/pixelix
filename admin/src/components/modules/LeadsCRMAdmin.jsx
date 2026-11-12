@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PixelixLoader from '../common/PixelixLoader';
 import {
   fetchAdminLeads,
   updateAdminLeadStatus,
@@ -220,7 +221,11 @@ export default function LeadsCRMAdmin() {
               {leads.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="p-8 text-center text-espresso-400 italic">
-                    {loading ? 'Fetching inquiries...' : 'No service leads found matching active filters.'}
+                    {loading ? (
+                      <PixelixLoader variant="inline" size="sm" text="Fetching inquiries..." />
+                    ) : (
+                      'No service leads found matching active filters.'
+                    )}
                   </td>
                 </tr>
               ) : (

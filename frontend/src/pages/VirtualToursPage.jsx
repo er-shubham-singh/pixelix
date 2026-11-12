@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Badge from '../components/common/Badge';
+import PixelixLoader from '../components/common/PixelixLoader';
 import {
   Compass,
   Eye,
@@ -342,9 +343,13 @@ export default function VirtualToursPage() {
                   allow="fullscreen; accelerometer; gyroscope; magnetometer; vr"
                 />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center text-cream-300 p-8 text-center space-y-3">
-                  <RotateCw className="w-10 h-10 text-terracotta-500 animate-spin" />
-                  <p className="text-sm">Connecting to Pixelix 3D Cloud Render...</p>
+                <div className="w-full h-full flex items-center justify-center p-8">
+                  <PixelixLoader
+                    variant="card"
+                    size="md"
+                    text="Connecting to Pixelix 3D Cloud Render"
+                    subtext="Streaming high-fidelity real-time architectural environment..."
+                  />
                 </div>
               )}
             </div>

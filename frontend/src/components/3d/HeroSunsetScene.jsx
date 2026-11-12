@@ -35,27 +35,27 @@ export default function HeroSunsetScene() {
     const mainGroup = new THREE.Group();
     scene.add(mainGroup);
 
-    // 1. Central Core: Luminous Translucent Sunset Orb
+    // 1. Central Core: Glossy Luminous Emerald Orb (Reference Visual)
     const sphereGeo = new THREE.IcosahedronGeometry(1.45, 64);
     const sphereMat = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color(0xD9532F), // Vibrant Terracotta
-      emissive: new THREE.Color(0x9E2A0E),
-      emissiveIntensity: 0.35,
-      roughness: 0.18,
-      metalness: 0.15,
-      clearcoat: 0.9,
-      clearcoatRoughness: 0.15,
-      transmission: 0.3,
+      color: new THREE.Color(0x064E3B), // Deep Emerald
+      emissive: new THREE.Color(0x022C22),
+      emissiveIntensity: 0.45,
+      roughness: 0.16,
+      metalness: 0.2,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1,
+      transmission: 0.25,
       thickness: 1.4,
       reflectivity: 0.95,
     });
     const coreSphere = new THREE.Mesh(sphereGeo, sphereMat);
     mainGroup.add(coreSphere);
 
-    // 2. Inner Glowing 4-Point Star Core (Signature Aperture as in Reference 1)
+    // 2. Inner Glowing 4-Point Star Core (Signature Aperture in Mint Neon)
     const starGeo = new THREE.OctahedronGeometry(0.55, 0);
     const starMat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(0xFFF9EE),
+      color: new THREE.Color(0x00FF87),
       wireframe: false
     });
     const innerStar = new THREE.Mesh(starGeo, starMat);
@@ -64,22 +64,22 @@ export default function HeroSunsetScene() {
     // Secondary subtle star glow wire
     const starWireGeo = new THREE.OctahedronGeometry(0.72, 0);
     const starWireMat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(0xF4A261),
+      color: new THREE.Color(0x00DF82),
       wireframe: true,
       transparent: true,
-      opacity: 0.4
+      opacity: 0.5
     });
     const starWire = new THREE.Mesh(starWireGeo, starWireMat);
     mainGroup.add(starWire);
 
-    // 3. Concentric Orbit Rings (Inspired by Reference 1 & Logo Concept 03)
+    // 3. Concentric Orbit Rings: Polished Champagne Gold & Mint (Reference Visual)
     const ringGeo1 = new THREE.TorusGeometry(2.1, 0.045, 24, 100);
     const ringMat1 = new THREE.MeshStandardMaterial({
-      color: new THREE.Color(0xE9C46A), // Sun gold
-      roughness: 0.25,
-      metalness: 0.8,
-      emissive: new THREE.Color(0x735700),
-      emissiveIntensity: 0.2
+      color: new THREE.Color(0xF5D485), // Champagne Gold
+      roughness: 0.18,
+      metalness: 0.9,
+      emissive: new THREE.Color(0x664B00),
+      emissiveIntensity: 0.25
     });
     const orbitRing1 = new THREE.Mesh(ringGeo1, ringMat1);
     orbitRing1.rotation.x = Math.PI / 3;
@@ -87,11 +87,11 @@ export default function HeroSunsetScene() {
 
     const ringGeo2 = new THREE.TorusGeometry(2.45, 0.035, 24, 100);
     const ringMat2 = new THREE.MeshStandardMaterial({
-      color: new THREE.Color(0x7F9C8D), // Sage accent
-      roughness: 0.3,
-      metalness: 0.6,
+      color: new THREE.Color(0x00DF82), // Mint Emerald accent
+      roughness: 0.25,
+      metalness: 0.7,
       transparent: true,
-      opacity: 0.75
+      opacity: 0.8
     });
     const orbitRing2 = new THREE.Mesh(ringGeo2, ringMat2);
     orbitRing2.rotation.y = Math.PI / 4;
@@ -100,24 +100,24 @@ export default function HeroSunsetScene() {
 
     const ringGeo3 = new THREE.TorusGeometry(1.85, 0.025, 20, 80);
     const ringMat3 = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(0xC84523),
+      color: new THREE.Color(0xFBE29D), // Gold ring
       transparent: true,
-      opacity: 0.5
+      opacity: 0.6
     });
     const orbitRing3 = new THREE.Mesh(ringGeo3, ringMat3);
     orbitRing3.rotation.x = -Math.PI / 4;
     mainGroup.add(orbitRing3);
 
-    // 4. Orbital Satellites / Ecosystem Nodes (Amazon, Shopify, Web, AI, Brand, Campaigns)
+    // 4. Orbital Satellites / Ecosystem Nodes (Gold & Mint Spheres)
     const nodeGroup = new THREE.Group();
     mainGroup.add(nodeGroup);
 
     const nodeColors = [
-      0xF4A261, // Sunset amber (Marketplace)
-      0xE9C46A, // Gold (Brand)
-      0x7F9C8D, // Sage (Web)
-      0xFFFFFF, // Core White (AI)
-      0xD9532F, // Terracotta (Campaigns)
+      0xF5D485, // Champagne Gold sphere
+      0x00DF82, // Mint Green node
+      0xFBE29D, // Sun gold
+      0x10B981, // Emerald node
+      0xFFFFFF, // Core White
     ];
 
     const nodeMeshes = [];
@@ -137,17 +137,17 @@ export default function HeroSunsetScene() {
       nodeMeshes.push(nodeMesh);
     });
 
-    // 5. Golden Bloom Pixel Sparks
+    // 5. Golden & Mint Pixel Sparks
     const particleCount = 100;
     const particleGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
     const warmPalette = [
-      new THREE.Color(0xE9C46A), // Gold
-      new THREE.Color(0xF4A261), // Peach
-      new THREE.Color(0xC84523), // Terracotta
-      new THREE.Color(0xFFF7ED)  // White
+      new THREE.Color(0xF5D485), // Champagne Gold
+      new THREE.Color(0x00FF87), // Neon Mint
+      new THREE.Color(0x00DF82), // Emerald Mint
+      new THREE.Color(0xFFFFFF)  // Starlight White
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -178,19 +178,19 @@ export default function HeroSunsetScene() {
     const particles = new THREE.Points(particleGeo, particleMat);
     mainGroup.add(particles);
 
-    // 6. Balanced Atmospheric Lights
-    const ambientLight = new THREE.AmbientLight(0xFFF7ED, 1.4);
+    // 6. Balanced Atmospheric Lights: Champagne Gold Key & Mint Rim Light
+    const ambientLight = new THREE.AmbientLight(0x064E3B, 1.2);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0xF4A261, 2.6);
+    const keyLight = new THREE.DirectionalLight(0xF5D485, 2.8);
     keyLight.position.set(4, 5, 4);
     scene.add(keyLight);
 
-    const rimLight = new THREE.DirectionalLight(0x7F9C8D, 1.8);
+    const rimLight = new THREE.DirectionalLight(0x00FF87, 2.2);
     rimLight.position.set(-4, -3, -2);
     scene.add(rimLight);
 
-    const pointLight = new THREE.PointLight(0xD9532F, 3.2, 8);
+    const pointLight = new THREE.PointLight(0x00DF82, 3.5, 9);
     pointLight.position.set(0, 0, 1.8);
     scene.add(pointLight);
 

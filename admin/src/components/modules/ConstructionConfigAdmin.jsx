@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PixelixLoader from '../common/PixelixLoader';
 import {
   fetchCalculatorConfig,
   updateCalculatorConfig
@@ -38,9 +39,12 @@ export default function ConstructionConfigAdmin() {
 
   if (loading) {
     return (
-      <div className="p-8 text-center text-espresso-500 dark:text-cream-400">
-        Loading Construction Configuration...
-      </div>
+      <PixelixLoader
+        variant="card"
+        size="md"
+        text="Loading Construction Configuration"
+        subtext="Fetching live material pricing and formula rates..."
+      />
     );
   }
 

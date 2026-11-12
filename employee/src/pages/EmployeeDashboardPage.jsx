@@ -12,6 +12,7 @@ import {
 import CircularGauge from '../components/charts/CircularGauge';
 import AttendanceCalendarGrid from '../components/attendance/AttendanceCalendarGrid';
 import AttendanceBarChart from '../components/charts/AttendanceBarChart';
+import PixelixLoader from '../components/common/PixelixLoader';
 import confetti from 'canvas-confetti';
 import {
   Calendar,
@@ -103,6 +104,7 @@ export default function EmployeeDashboardPage({
   const [shiftHours, setShiftHours] = useState(8);
   const [isClockingIn, setIsClockingIn] = useState(false);
   const [isClockingOut, setIsClockingOut] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
 
   // Monthly stats state
   const currentMonthStr = `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}`;
@@ -191,9 +193,17 @@ export default function EmployeeDashboardPage({
   }, [tasks]);
 
   useEffect(() => {
-    loadTodayLog();
-    loadAttendance(selectedMonth);
-    loadLeaves();
+    let mounted = true;
+    async function init() {
+      await Promise.all([
+        loadTodayLog(),
+        loadAttendance(selectedMonth),
+        loadLeaves()
+      ]);
+      if (mounted) setIsInitialLoading(false);
+    }
+    init();
+    return () => { mounted = false; };
   }, [selectedMonth]);
 
   const loadTodayLog = async () => {
@@ -495,6 +505,17 @@ export default function EmployeeDashboardPage({
   const summary = monthlyData.summary || {};
   const completedTasksCount = tasks.filter(t => t.completed).length;
   const taskProgress = tasks.length > 0 ? Math.round((completedTasksCount / tasks.length) * 100) : 0;
+
+  if (isInitialLoading) {
+    return (
+      <PixelixLoader
+        variant="page"
+        size="lg"
+        text="Loading Employee Workspace"
+        subtext="Synchronizing attendance, clock logs, and monthly timesheets..."
+      />
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -833,7 +854,7 @@ export default function EmployeeDashboardPage({
                     className="w-full py-3 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all active:scale-98 disabled:opacity-50 cursor-pointer"
                   >
                     {isClockingIn ? (
-                      <span>Recording Morning Punch...</span>
+                      <PixelixLoader variant="inline" size="sm" text="Recording Morning Punch..." />
                     ) : (
                       <>
                         <Sun className="w-4 h-4" />
@@ -976,7 +997,7 @@ export default function EmployeeDashboardPage({
                     className="w-full py-3 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all active:scale-98 disabled:opacity-50 cursor-pointer"
                   >
                     {isClockingOut ? (
-                      <span>Recording Evening Punch...</span>
+                      <PixelixLoader variant="inline" size="sm" text="Recording Evening Punch..." />
                     ) : (
                       <>
                         <Moon className="w-4 h-4" />
@@ -1651,7 +1672,11 @@ export default function EmployeeDashboardPage({
                   disabled={isSubmittingLeave}
                   className="px-5 py-2.5 rounded-xl font-bold text-white bg-amber-500 hover:bg-amber-600 text-xs flex items-center gap-1.5 shadow-sm transition-all disabled:opacity-50"
                 >
-                  {isSubmittingLeave ? 'Submitting...' : 'Send Application'}
+                  {isSubmittingLeave ? (
+                    <PixelixLoader variant="inline" size="xs" text="Submitting..." />
+                  ) : (
+                    'Send Application'
+                  )}
                 </button>
               </div>
             </form>

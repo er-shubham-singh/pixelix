@@ -5,6 +5,7 @@ import AdminSidebar from './components/common/AdminSidebar';
 import AdminTopBar from './components/common/AdminTopBar';
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
+import PixelixLoader from './components/common/PixelixLoader';
 
 function AdminAppContent() {
   const { user, isOwner, loading } = useAuth();
@@ -24,12 +25,11 @@ function AdminAppContent() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream-100 dark:bg-darkbg-base">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-3 border-amber-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-xs font-semibold text-espresso-600 dark:text-cream-300">
-            Initializing Owner Master Control...
-          </p>
-        </div>
+        <PixelixLoader
+          size="lg"
+          text="Pixelix Master Control"
+          subtext="Initializing secure executive session..."
+        />
       </div>
     );
   }

@@ -20,36 +20,36 @@ export default function TerracottaOrbitCanvas({ className = "w-48 h-48" }) {
     const group = new THREE.Group();
     scene.add(group);
 
-    // Terracotta C-shaped / Torus Orbit
+    // Emerald C-shaped / Torus Orbit
     const orbitGeometry = new THREE.TorusGeometry(1.4, 0.35, 24, 60, Math.PI * 1.7);
     const orbitMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0xC84523,
-      roughness: 0.25,
-      metalness: 0.1,
-      clearcoat: 0.5,
+      color: 0x059669,
+      roughness: 0.22,
+      metalness: 0.2,
+      clearcoat: 0.8,
       clearcoatRoughness: 0.1
     });
     const orbitMesh = new THREE.Mesh(orbitGeometry, orbitMaterial);
     group.add(orbitMesh);
 
-    // Golden Pixel Spark in the center (Cube with beveled appearance)
+    // Champagne Gold Pixel Spark in the center
     const sparkGeometry = new THREE.BoxGeometry(0.65, 0.65, 0.65);
     const sparkMaterial = new THREE.MeshStandardMaterial({
-      color: 0xE9C46A,
+      color: 0xF5D485,
       roughness: 0.2,
-      metalness: 0.6,
-      emissive: 0xD4A373,
+      metalness: 0.8,
+      emissive: 0xD4A346,
       emissiveIntensity: 0.4
     });
     const sparkMesh = new THREE.Mesh(sparkGeometry, sparkMaterial);
     group.add(sparkMesh);
 
     // Lighting
-    const light1 = new THREE.DirectionalLight(0xFFFBF7, 2.5);
+    const light1 = new THREE.DirectionalLight(0xF5D485, 2.5);
     light1.position.set(4, 5, 5);
     scene.add(light1);
 
-    const light2 = new THREE.PointLight(0xF4A261, 2, 8);
+    const light2 = new THREE.PointLight(0x00DF82, 2.5, 8);
     light2.position.set(-3, -2, 2);
     scene.add(light2);
 

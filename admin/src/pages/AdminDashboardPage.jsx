@@ -6,6 +6,7 @@ import {
   createEmployee,
   updateEmployee,
   deleteEmployee,
+  resendCredentials,
   fetchAllLeaves,
   updateLeaveStatus,
   fetchDailyAttendance,
@@ -16,6 +17,7 @@ import {
 import CircularGauge from '../components/charts/CircularGauge';
 import DonutChart from '../components/charts/DonutChart';
 import Badge from '../components/common/Badge';
+import PixelixLoader from '../components/common/PixelixLoader';
 import EquityOfferLetterTab from '../components/legal/EquityOfferLetterTab';
 import ConstructionConfigAdmin from '../components/modules/ConstructionConfigAdmin';
 import LeadsCRMAdmin from '../components/modules/LeadsCRMAdmin';
@@ -104,6 +106,7 @@ export default function AdminDashboardPage({
   const [oversightDate, setOversightDate] = useState(() => new Date().toISOString().split('T')[0]);
 
   const [actionFeedback, setActionFeedback] = useState({ text: '', type: '' });
+  const [isLoadingData, setIsLoadingData] = useState(true);
 
   // Create Employee Form State
   const [newEmployeeForm, setNewEmployeeForm] = useState({
@@ -258,7 +261,7 @@ export default function AdminDashboardPage({
   });
 
   useEffect(() => {
-    loadAllData();
+    loadAllData(true);
   }, []);
 
   // Sync announcements to localStorage so employee notice board can read them
@@ -271,7 +274,8 @@ export default function AdminDashboardPage({
     localStorage.setItem('pixelix_admin_operations', JSON.stringify(operations));
   }, [operations]);
 
-  const loadAllData = async () => {
+  const loadAllData = async (isInitial = false) => {
+    if (isInitial) setIsLoadingData(true);
     try {
       const [analyticsData, empData, leavesData, inquiriesData, dailyData] = await Promise.all([
         fetchCompanyAnalytics(),
@@ -298,6 +302,8 @@ export default function AdminDashboardPage({
       if (dailyData) setDailyOversight(dailyData);
     } catch (e) {
       console.warn('Dashboard fetch error', e);
+    } finally {
+      if (isInitial) setIsLoadingData(false);
     }
   };
 
@@ -391,6 +397,26 @@ export default function AdminDashboardPage({
     } else {
       setActionFeedback({ text: res.message || 'Failed to delete employee.', type: 'error' });
     }
+  };
+
+  const handleResendCredentials = async (emp) => {
+    if (!window.confirm(`Resend official credentials email with company logo to ${emp.name} (${emp.email})?`)) {
+      return;
+    }
+    setActionFeedback({ text: `Dispatching credentials email to ${emp.email}...`, type: 'info' });
+    const res = await resendCredentials(emp._id);
+    if (res.ok) {
+      setActionFeedback({
+        text: res.message || `Credentials email dispatched to ${emp.email}`,
+        type: res.emailDelivered ? 'success' : 'info'
+      });
+      if (res.emailDelivered) {
+        try { confetti({ particleCount: 35, spread: 50, origin: { y: 0.7 } }); } catch (e) {}
+      }
+    } else {
+      setActionFeedback({ text: res.message || 'Failed to dispatch email', type: 'error' });
+    }
+    setTimeout(() => setActionFeedback({ text: '', type: '' }), 6000);
   };
 
   const handleLeaveDecision = async (leaveId, status, employeeName) => {
@@ -504,6 +530,17 @@ export default function AdminDashboardPage({
       return matchSearch && matchDomain;
     });
   }, [employees, searchTerm, employeeSearch, employeeDomainFilter]);
+
+  if (isLoadingData && !analytics) {
+    return (
+      <PixelixLoader
+        variant="page"
+        size="lg"
+        text="Loading Executive Dashboard"
+        subtext="Aggregating attendance, employee records, and company metrics..."
+      />
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -822,6 +859,13 @@ export default function AdminDashboardPage({
 
                           <td className="p-4 text-right">
                             <div className="flex items-center justify-end gap-1.5">
+                              <button
+                                onClick={() => handleResendCredentials(emp)}
+                                title="Resend Credentials Email with Logo"
+                                className="p-1.5 rounded-lg text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors"
+                              >
+                                <Mail className="w-4 h-4" />
+                              </button>
                               <button
                                 onClick={() => handleOpenEditEmployee(emp)}
                                 title="Edit Profile & Reset Password"
@@ -1662,18 +1706,30 @@ export default function AdminDashboardPage({
 
             {createEmployeeResult && (
               <div
-                className={`mb-4 p-3.5 rounded-xl text-xs font-semibold flex items-center gap-2 ${
+                className={`mb-4 p-4 rounded-2xl text-xs font-semibold flex items-start gap-3 border ${
                   createEmployeeResult.success
-                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300'
-                    : 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300'
+                    ? 'bg-emerald-50 text-emerald-900 border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-200 dark:border-emerald-800'
+                    : 'bg-rose-50 text-rose-900 border-rose-300 dark:bg-rose-950/50 dark:text-rose-200 dark:border-rose-800'
                 }`}
               >
                 {createEmployeeResult.success ? (
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 ) : (
-                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                 )}
-                <span>{createEmployeeResult.message}</span>
+                <div className="space-y-1">
+                  <div className="font-bold text-sm">{createEmployeeResult.message}</div>
+                  {createEmployeeResult.emailDelivered && (
+                    <div className="text-[11px] text-emerald-700 dark:text-emerald-300 font-normal">
+                      ✉️ Official onboarding email featuring Pixelix company logo and login credentials has been sent via Nodemailer.
+                    </div>
+                  )}
+                  {createEmployeeResult.simulatedEmail && (
+                    <div className="text-[11px] text-amber-700 dark:text-amber-300 font-normal">
+                      ℹ️ Terminal simulation mode active (configure live SMTP credentials for remote delivery).
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 
