@@ -137,16 +137,8 @@ export default function App() {
               />
             )}
 
-            {activePage === 'estimator' && (
+            {(activePage === 'estimator' || activePage === 'real-estate-calculator') && (
               <EstimatorPage
-                initialMode="construction"
-                onBookWithEstimator={handleBookWithEstimator}
-              />
-            )}
-
-            {activePage === 'real-estate-calculator' && (
-              <EstimatorPage
-                initialMode="construction"
                 onBookWithEstimator={handleBookWithEstimator}
               />
             )}

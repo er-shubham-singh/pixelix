@@ -19,7 +19,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
     {
       id: 'msg-welcome',
       sender: 'bot',
-      text: 'Namaste! Welcome to CoreCodeX. I can help you calculate house construction costs, explore 3D virtual property walkthroughs, or plan high-ROI digital ad campaigns. How can I assist you today?'
+      text: 'Namaste! Welcome to CoreCodeX. I can help you estimate web & app development costs, marketplace product listing, e-commerce stores, or plan high-ROI digital ad campaigns. How can I assist you today?'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -27,9 +27,9 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
   const messagesEndRef = useRef(null);
 
   const suggestedQuestions = [
-    'How do I calculate building construction costs & bricks?',
-    'What is included in a 3D Virtual Property Tour?',
-    'How do Meta Lead Ads work for real estate?',
+    'How much does a website or landing page cost?',
+    'What is included in e-commerce product listing?',
+    'How do Meta & Google Lead Ads work for business?',
     'Connect directly with CoreCodeX Team on WhatsApp'
   ];
 
@@ -83,7 +83,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
         {
           id: `bot-${Date.now()}`,
           sender: 'bot',
-          text: 'Thank you for your question! We specialize in house construction cost calculation, 3D architectural virtual tours, and performance digital lead generation. Would you like to connect directly on WhatsApp with our team in Vadodara, Gujarat?',
+          text: 'Thank you for your question! We specialize in modern web development, e-commerce stores, product listings, 3D interactive web experiences, and digital lead generation. Would you like to connect directly on WhatsApp with Sahil Prasad in Vadodara, Gujarat?',
           whatsappHandoff: true,
           whatsappNumber: '916354729042'
         }

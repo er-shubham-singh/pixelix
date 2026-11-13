@@ -459,28 +459,28 @@ export async function ensureDefaultModulesSeed() {
       await ChatbotConfig.create({
         isActive: true,
         botName: 'CoreCodeX AI Assistant',
-        welcomeMessage: 'Hello! Welcome to CoreCodeX. I can help you calculate construction costs, explore 3D virtual property tours, launch digital ad campaigns, or connect directly with our founder Sahil Prasad in Vadodara, Gujarat.',
+        welcomeMessage: 'Hello! Welcome to CoreCodeX. I can help you estimate website & e-commerce project scope, explore 3D web experiences, launch digital ad campaigns, or connect directly with our founder Sahil Prasad in Vadodara, Gujarat.',
         whatsappNumber: '916354729042',
         whatsappMessages: {
-          calculator: 'Hello CoreCodeX Team, I just calculated a construction estimate on your website and would like a detailed architectural quotation.',
+          calculator: 'Hello CoreCodeX Team, I just calculated a project scope estimate on your website and would like to discuss next steps.',
           virtual_tours: 'Hello CoreCodeX Team, I am interested in creating interactive 3D Virtual Property Walkthroughs for my real estate project.',
-          digital_advertising: 'Hello CoreCodeX Team, I want to discuss Digital Advertising and Real Estate Lead Generation campaigns for my business.',
-          lead_generation: 'Hello CoreCodeX Team, I want to generate verified buyer inquiries for my real estate/business projects.',
+          digital_advertising: 'Hello CoreCodeX Team, I want to discuss Digital Advertising and Lead Generation campaigns for my business.',
+          lead_generation: 'Hello CoreCodeX Team, I want to generate verified buyer inquiries for my business.',
           general: 'Hello CoreCodeX Team, I reviewed your website and would like to speak directly with founder Sahil Prasad.'
         },
         suggestedQuestions: [
-          'How do I calculate house construction cost?',
-          'Can you create 3D virtual tours for my building?',
+          'How much does a website or e-commerce store cost?',
+          'What is included in marketplace product listings?',
           'What are your Facebook & Google ad packages?',
-          'How does real estate lead generation work?',
+          'How does lead generation work?',
           'I want to speak directly with the founders.'
         ],
         faqs: [
           {
-            topic: 'Construction Calculator',
-            keywords: ['construction', 'calculator', 'cost', 'estimate', 'brick', 'cement', 'steel', 'material', 'sq ft', 'rate', 'plot'],
-            question: 'How does the Real Estate Construction Calculator estimate costs?',
-            answer: 'Our calculator uses your plot area, coverage percentage, and number of floors to calculate total built-up area. It then calculates the exact quantity of bricks (~19/sq ft), cement bags (~0.42/sq ft), and steel (~3.8 kg/sq ft) using live market rates for Basic, Standard, and Premium finishes.'
+            topic: 'Project Scope Estimator',
+            keywords: ['calculator', 'cost', 'estimate', 'website', 'e-commerce', 'landing page', 'price', 'package'],
+            question: 'How does the CoreCodeX Project Estimator calculate costs?',
+            answer: 'Our estimator lets you select transparent modular services tailored for Indian SMBs—starting from ₹4,000 for simple landing pages, ₹15,000 for e-commerce with admin panel, and ₹4,000 for Amazon/Flipkart/Meesho catalog listing. Estimates calculate accurate development timelines and bundles.'
           },
           {
             topic: '3D Property Tours',

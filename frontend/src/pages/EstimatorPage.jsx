@@ -1,97 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import InteractiveEstimatorSection from '../components/sections/InteractiveEstimatorSection';
-import RealEstateConstructionCalculator from '../components/calculator/RealEstateConstructionCalculator';
-import { ShieldCheck, Laptop, Building2 } from 'lucide-react';
+import { ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 
-export default function EstimatorPage({ initialMode = 'construction', onBookWithEstimator }) {
-  // Mode switcher: 'tech' (Digital/Web/3D/Apps) vs 'construction' (House/Bricks/Cement/Steel)
-  const [calculatorMode, setCalculatorMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash || '';
-      if (hash.includes('tech-estimator') || hash.includes('digital-calculator')) return 'tech';
-      if (hash.includes('real-estate') || hash.includes('construction') || hash.includes('calculator')) return 'construction';
-    }
-    return initialMode || 'construction';
-  });
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash || '';
-      if (hash.includes('tech-estimator') || hash.includes('digital-calculator')) {
-        setCalculatorMode('tech');
-      } else if (hash.includes('real-estate') || hash.includes('construction') || hash.includes('calculator')) {
-        setCalculatorMode('construction');
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
+export default function EstimatorPage({ onBookWithEstimator }) {
   return (
     <div className="pt-24 min-h-screen bg-cream-50 dark:bg-darkbg-base space-y-0 transition-colors">
       
-      {/* ========================================================
-          CLEAN MODE SWITCHER (Direct & Minimalist)
-         ======================================================== */}
-      <section className="pt-6 pb-2 px-4 max-w-7xl mx-auto flex justify-center">
-        <div className="inline-flex p-1.5 rounded-2xl bg-white dark:bg-darkbg-surface border border-cream-300 dark:border-white/10 shadow-sm max-w-full">
-          
-          {/* Option 1: Real Estate & Construction Calculator */}
-          <button
-            type="button"
-            onClick={() => setCalculatorMode('construction')}
-            className={`flex items-center gap-2.5 px-5 sm:px-7 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              calculatorMode === 'construction'
-                ? 'bg-terracotta-500 text-white shadow-sm'
-                : 'text-espresso-700 dark:text-cream-300 hover:text-espresso-950 dark:hover:text-white'
-            }`}
-          >
-            <Building2 className="w-4 h-4 shrink-0" />
-            <span>Real Estate Construction & Bricks</span>
-          </button>
+      {/* Header Banner */}
+      <section className="pt-8 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#FAF7F2] dark:bg-[#1C1816] text-[#827060] dark:text-[#D1C7BD] border border-[#EADBCC] dark:border-white/10 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-[#B29F8D]" />
+          <span>INSTANT PROJECT ESTIMATOR</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-[#26211E] dark:text-[#FAF7F2] tracking-tight">
+          Plan Your Project Scope & Investment
+        </h1>
+        <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#827060] dark:text-[#D1C7BD] leading-relaxed">
+          Select the exact services your business needs to get an instant cost and delivery timeline breakdown. Direct founder-led execution by Sahil Prasad.
+        </p>
+      </section>
 
-          {/* Option 2: Tech & Digital Solutions Estimator */}
-          <button
-            type="button"
-            onClick={() => setCalculatorMode('tech')}
-            className={`flex items-center gap-2.5 px-5 sm:px-7 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              calculatorMode === 'tech'
-                ? 'bg-terracotta-500 text-white shadow-sm'
-                : 'text-espresso-700 dark:text-cream-300 hover:text-espresso-950 dark:hover:text-white'
-            }`}
-          >
-            <Laptop className="w-4 h-4 shrink-0" />
-            <span>Tech, Software & 3D Web</span>
-          </button>
+      {/* Main Interactive Estimator */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="animate-fade-in">
+          <InteractiveEstimatorSection onBookWithEstimator={onBookWithEstimator} />
         </div>
       </section>
 
-      {/* Main Content Area Based on Active Switch Mode */}
-      <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {calculatorMode === 'construction' ? (
-          <div className="animate-fade-in">
-            <RealEstateConstructionCalculator
-              onRequestQuote={(calcData) => {
-                if (onBookWithEstimator) onBookWithEstimator(calcData);
-              }}
-            />
-          </div>
-        ) : (
-          <div className="animate-fade-in">
-            <InteractiveEstimatorSection onBookWithEstimator={onBookWithEstimator} />
-          </div>
-        )}
-      </section>
-
       {/* Guarantee & Transparency Footnote */}
-      <section className="py-10 bg-white dark:bg-darkbg-surface border-t border-cream-200 dark:border-white/10 transition-colors">
+      <section className="py-10 bg-white dark:bg-darkbg-surface border-t border-cream-200 dark:border-white/10 transition-colors mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-xs font-bold text-espresso-800 dark:text-cream-200">
-            <ShieldCheck className="w-4 h-4 text-terracotta-600 dark:text-terracotta-400" />
-            <span>Guaranteed Transparency • Configurable Material Indexes • Live WhatsApp Support</span>
+            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span>100% Transparent Indian SMB Pricing • Milestone Deliveries • Direct WhatsApp Support</span>
           </div>
           <p className="text-xs text-espresso-600 dark:text-cream-400">
-            Estimates provide typical execution baselines. For custom architectural drawings, structural approvals, or bespoke software architectures, connect directly with our founders.
+            Estimates provide clear execution baselines. Need a bespoke multi-platform architecture or continuous growth retainer? Connect directly with Sahil Prasad (+91 6354729042 · Vadodara, Gujarat).
           </p>
         </div>
       </section>

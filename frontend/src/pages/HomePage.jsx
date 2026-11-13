@@ -84,7 +84,7 @@ export default function HomePage({
               </div>
             </div>
 
-            {/* Teaser 2: Construction & Tech Cost Calculator */}
+            {/* Teaser 2: Project Scope & Cost Estimator */}
             <div
               onClick={() => onNavigatePage('estimator')}
               className="glass-card p-6 rounded-3xl cursor-pointer hover:border-emerald-500/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.2)] transition-all group flex flex-col justify-between border border-emerald-500/30"
@@ -94,14 +94,14 @@ export default function HomePage({
                   <Calculator className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-espresso-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors font-display">
-                  House Cost Calculator
+                  Project Scope Estimator
                 </h3>
                 <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
-                  Calculate house construction (bricks, cement, steel, labour) or switch to tech & web scope.
+                  Bundle websites, marketplace listings, e-commerce, and marketing with live pricing and timelines.
                 </p>
               </div>
               <div className="mt-5 pt-3 border-t border-cream-200 dark:border-white/10 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                <span>Calculate Cost & Bricks</span>
+                <span>Estimate Project Scope</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>

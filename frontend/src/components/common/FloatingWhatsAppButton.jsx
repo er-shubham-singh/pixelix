@@ -7,7 +7,7 @@ export default function FloatingWhatsAppButton({ activePage = 'home' }) {
     switch (activePage) {
       case 'real-estate-calculator':
       case 'estimator':
-        return 'Hello CoreCodeX! I am on your website and would like to discuss a house construction cost estimate and building materials.';
+        return 'Hello CoreCodeX! I am on your website and would like to discuss a project scope and cost estimate.';
       case 'virtual-tours':
         return 'Hello CoreCodeX! I am interested in creating an interactive 3D Virtual Property Tour / Walkthrough for my real estate project.';
       case 'digital-advertising':

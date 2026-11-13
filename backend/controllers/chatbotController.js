@@ -2,9 +2,9 @@ import ChatbotConfig from '../models/ChatbotConfigModel.js';
 import { ENV } from '../config/env.js';
 
 // Fallback canned responses if knowledge base match doesn't hit
-const GENERAL_FALLBACK_REPLY = `Thank you for reaching out to Pixelix! We specialize in High-Performance Web Architecture, 3D Real Estate Virtual Tours & Architectural Walkthroughs, Meta & Google Real Estate Lead Generation, and House Construction Cost Estimation.
+const GENERAL_FALLBACK_REPLY = `Thank you for reaching out to CoreCodeX! We specialize in Full-Stack Web Development, E-Commerce Stores, Marketplace Product Listings (Amazon, Flipkart, Meesho), 3D Interactive Web Experiences, and High-ROI Digital Advertising.
 
-Would you like to connect directly with our strategic team on WhatsApp or calculate an approximate project quote?`;
+Would you like to connect directly with Founder Sahil Prasad on WhatsApp (+91 6354729042) to discuss your project?`;
 
 /**
  * @desc Get Chatbot Configuration & Quick Suggested Questions
@@ -18,14 +18,14 @@ export async function getChatbotConfig(req, res) {
       config = await ChatbotConfig.findOne();
     }
     const safeConfig = {
-      botName: config?.botName || 'Pixelix AI Advisor',
+      botName: config?.botName || 'CoreCodeX AI Advisor',
       welcomeMessage:
         config?.welcomeMessage ||
-        'Namaste! Welcome to Pixelix Creative & Digital Systems. How can I assist your business or property vision today?',
-      whatsappNumber: config?.whatsappNumber || ENV.WHATSAPP_DEFAULT_NUMBER || '919876543210',
+        'Namaste! Welcome to CoreCodeX. How can I assist your business with web development, marketplace listings, or digital growth today?',
+      whatsappNumber: config?.whatsappNumber || ENV.WHATSAPP_DEFAULT_NUMBER || '916354729042',
       whatsappDefaultMessage:
         config?.whatsappDefaultMessage ||
-        'Hello Pixelix! I visited your website and would like to discuss a project with your team.',
+        'Hello CoreCodeX! I visited your website and would like to discuss a project with Sahil Prasad.',
       serviceSpecificMessages: config?.serviceSpecificMessages || {},
       suggestedQuestions: (config?.knowledgeBase || [])
         .filter((k) => k.category && k.question)
@@ -93,13 +93,14 @@ export async function handleChatMessage(req, res) {
     if (ENV.GEMINI_API_KEY) {
       try {
         const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${ENV.GEMINI_API_KEY}`;
-        const promptSystem = `You are the polite, authoritative, and concise AI Customer Assistant for "Pixelix Creative & Digital Systems" (Pixelix), a premier Indian agency specializing in:
-1. Real Estate Construction Cost & Material Calculator (house estimation, bricks, cement, steel, labour).
-2. 3D Virtual Property Tours, 360-degree Walkthroughs, and Architectural Visualizations.
-3. High-ROI Digital Advertising (Meta / Instagram Lead Ads, Google Search/Display Ads, Real Estate Lead Generation).
-4. Full-Stack Web Development, Three.js 3D Interactive Web Experiences, and E-Commerce Catalogs.
+        const promptSystem = `You are the polite, authoritative, and concise AI Customer Assistant for "CoreCodeX", a premier Indian digital & tech agency founded by Sahil Prasad (+91 6354729042, Vadodara, Gujarat) specializing in:
+1. Full-Stack Web Development, Landing Pages (₹4,000), and E-Commerce Stores with Admin Panels (₹15,000).
+2. Marketplace Product Listings & Operations for Amazon, Flipkart, Meesho (₹4,000).
+3. Monthly Social Media Handling, Creatives & Ad Campaigns (₹4,000).
+4. 3D Interactive Web Experiences & Virtual Walkthroughs.
+5. 24/7 AI WhatsApp / Web Chatbots & Brand Identity Design.
 
-Be helpful, professional, and friendly. Answer in 2-3 clear sentences. If the user wants a quotation or customized deal, recommend connecting directly on WhatsApp.`;
+Be helpful, professional, and friendly. Answer in 2-3 clear sentences. Always emphasize affordable Indian SMB pricing with superior quality. If the user wants a quotation or customized deal, recommend connecting directly with Sahil Prasad on WhatsApp (+91 6354729042).`;
 
         const geminiRes = await fetch(geminiUrl, {
           method: 'POST',

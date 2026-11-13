@@ -131,7 +131,7 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
               <li><button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">All 16 Services & E-Com Catalog</button></li>
               <li><button onClick={() => handleNav('deliverables')} className="hover:text-white transition-colors cursor-pointer">Deliverables & 5 Logo Themes</button></li>
               <li><button onClick={() => handleNav('portfolio')} className="hover:text-white transition-colors cursor-pointer">Case Studies & Metrics</button></li>
-              <li><button onClick={() => handleNav('estimator')} className="hover:text-white transition-colors cursor-pointer">Construction & Scope Calculator</button></li>
+              <li><button onClick={() => handleNav('estimator')} className="hover:text-white transition-colors cursor-pointer">Project Scope & Cost Estimator</button></li>
               <li><button onClick={() => handleNav('virtual-tours')} className="hover:text-white transition-colors cursor-pointer">3D Virtual Property Tours</button></li>
               <li><button onClick={() => handleNav('digital-advertising')} className="hover:text-white transition-colors cursor-pointer">Digital & Real Estate Ads</button></li>
               <li><button onClick={() => handleNav('about')} className="hover:text-white transition-colors cursor-pointer">Why CoreCodeX & Founders</button></li>
