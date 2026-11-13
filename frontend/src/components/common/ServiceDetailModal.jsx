@@ -80,24 +80,13 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onBookSer
                 <div className="space-y-2">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2.5">
-                      <img
-                        src={rev.avatar}
-                        alt={rev.name}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                        className="w-10 h-10 rounded-full object-cover border border-terracotta-200 dark:border-white/10 shrink-0"
-                      />
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-[#DBEAFE] text-[#2563EB] dark:bg-[#172554]/70 dark:text-[#93C5FD] border border-[#BFDBFE] dark:border-[#1E40AF]/50 shrink-0 select-none shadow-xs">
+                        {rev.initial || (rev.name ? rev.name.charAt(0) : 'C')}
+                      </div>
                       <div>
                         <div className="text-xs font-extrabold text-espresso-900 dark:text-white flex items-center gap-1">
                           <span>{rev.name}</span>
                           <ShieldCheck className="w-3.5 h-3.5 text-terracotta-500 shrink-0" />
-                        </div>
-                        <div className="text-[11px] text-espresso-600 dark:text-cream-300">
-                          {rev.role} · <strong className="text-espresso-800 dark:text-cream-200">{rev.company}</strong>
-                        </div>
-                        <div className="text-[10px] text-espresso-400 dark:text-cream-500">
-                          {rev.location}
                         </div>
                       </div>
                     </div>

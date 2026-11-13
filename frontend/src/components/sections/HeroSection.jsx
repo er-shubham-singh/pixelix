@@ -3,7 +3,6 @@ import HeroSunsetScene from '../3d/HeroSunsetScene';
 import { CONTACT_INFO } from '../../config/contact';
 import {
   ArrowRight,
-  CheckCircle2,
   Compass,
   Star,
   ShieldCheck,
@@ -13,22 +12,21 @@ import {
   Bot,
   Boxes,
   PackageCheck,
-  Share2,
-  Calculator
+  Share2
 } from 'lucide-react';
 
 export default function HeroSection({ onOpenInquiry }) {
   return (
-    <section id="top" className="relative pt-16 sm:pt-20 md:pt-24 pb-6 sm:pb-8 overflow-hidden bg-warm-mesh">
+    <section id="top" className="relative pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 overflow-hidden bg-warm-mesh">
       {/* Decorative ambient cashmere lighting beam (Ivory & Taupe Silk aesthetic) */}
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#D8C8B4]/25 via-[#B29F8D]/15 to-transparent blur-[120px] pointer-events-none -rotate-12" />
       <div className="absolute top-1/4 -left-16 w-80 h-80 bg-[#B29F8D]/15 dark:bg-[#B29F8D]/10 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* Left Column: Clean, Spacious Typography & Primary CTAs (7 cols) - Rendered 2nd on mobile, 1st on desktop */}
-          <div className="order-2 md:order-1 md:col-span-7 space-y-5 text-center md:text-left">
+          <div className="order-2 md:order-1 md:col-span-7 space-y-6 text-center md:text-left">
 
             {/* Single Elegant Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full ios-glass-pill border border-[#D6CCC2]/70 dark:border-white/10 shadow-xs">
@@ -38,7 +36,7 @@ export default function HeroSection({ onOpenInquiry }) {
                 ))}
               </div>
               <span className="text-[11px] font-bold text-espresso-900 dark:text-cream-100">
-                4.9 / 5.0 Rated · 85+ Brands Scaled
+                4.9 / 5.0 Rated · 30+ Brands Scaled
               </span>
               <span className="w-1 h-1 rounded-full bg-[#B29F8D]" />
               <span className="text-[11px] text-[#827060] dark:text-[#C7B9A4] font-semibold">
@@ -57,28 +55,8 @@ export default function HeroSection({ onOpenInquiry }) {
               One creative partner for brand identity, high-converting marketplaces (Amazon, Flipkart, Meesho), and modern web & AI engineering — all under one roof.
             </p>
 
-            {/* Clean Horizontal Proof Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5 text-xs font-semibold text-espresso-800 dark:text-cream-200 max-w-lg mx-auto md:mx-0">
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
-                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
-                <span>5 Vector Logo Themes & Brand Kit</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
-                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
-                <span>Amazon, Flipkart & Meesho Operations</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
-                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
-                <span>Modern 3D Web & Mobile Apps</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
-                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
-                <span>AI Automation & Integrations</span>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="pt-1 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3.5">
+            {/* CTAs - Clean, Spacious, Identical to Reference Image */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
               <button
                 onClick={onOpenInquiry}
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-sm text-white bg-[#26211E] hover:bg-[#3D332B] shadow-[0_4px_16px_rgba(38,33,30,0.25)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
@@ -96,26 +74,8 @@ export default function HeroSection({ onOpenInquiry }) {
               </a>
             </div>
 
-            {/* Quick Domain Navigation Pills */}
-            <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-              <a
-                href="#estimator"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#EDE7DD] dark:bg-darkbg-card text-[#5C5046] dark:text-[#D5C9BD] border border-[#DDD4C7] dark:border-white/10 hover:border-[#B29F8D] transition-colors"
-              >
-                <Calculator className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
-                <span>House Cost & Material Calculator (Bricks, Cement, Steel)</span>
-              </a>
-              <a
-                href="#virtual-tours"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#EDE7DD] dark:bg-darkbg-card text-[#5C5046] dark:text-[#D5C9BD] border border-[#DDD4C7] dark:border-white/10 hover:border-[#B29F8D] transition-colors"
-              >
-                <Compass className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
-                <span>3D Virtual Tours & Walkthroughs</span>
-              </a>
-            </div>
-
             {/* Minimalist Founder Involvement Trust Link */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-espresso-700 dark:text-cream-400">
+            <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-espresso-700 dark:text-cream-400">
               <ShieldCheck className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
               <span>Direct founder involvement:</span>
               <a
@@ -237,26 +197,6 @@ export default function HeroSection({ onOpenInquiry }) {
             </div>
           </div>
 
-        </div>
-
-        {/* Bottom Metrics Bar with iOS Frosted Glass */}
-        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#D6CCC2]/60 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
-          <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-[#827060] dark:text-[#C7B9A4]">16+</div>
-            <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Full-Spectrum Capabilities</div>
-          </div>
-          <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-espresso-900 dark:text-white">5 Custom</div>
-            <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Vector Logos & Brand Identity</div>
-          </div>
-          <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-[#A08E7E] dark:text-[#D8C8B4]">Marketplaces</div>
-            <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Amazon, Flipkart, Meesho, Shopify</div>
-          </div>
-          <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-espresso-900 dark:text-white">24/7</div>
-            <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Direct Founder & AI Care</div>
-          </div>
         </div>
 
       </div>

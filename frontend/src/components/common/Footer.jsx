@@ -3,7 +3,7 @@ import PixelixLogo from './PixelixLogo';
 import { CONTACT_INFO } from '../../config/contact';
 import { useLanguage } from '../../context/LanguageContext';
 import { subscribeNewsletter } from '../../services/inquiryApi';
-import { Phone, Mail, Globe, Send, CheckCircle2, ShieldCheck, Heart, MapPin, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, Globe, Send, CheckCircle2, ShieldCheck, Heart, MapPin, ArrowUpRight, MessageCircle } from 'lucide-react';
 
 export default function Footer({ onOpenInquiry, onNavigatePage }) {
   const { isHindi } = useLanguage();
@@ -50,27 +50,44 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
                 : 'From first idea to final asset, CoreCodeX helps you move forward. Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat).'}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+          <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
             <button
               onClick={onOpenInquiry}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-sm text-[#181513] bg-[#FAF7F2] hover:bg-[#EAE2D7] shadow-md hover:scale-105 active:scale-95 transition-all text-center cursor-pointer"
+              className="px-7 py-3.5 rounded-full font-bold text-sm text-[#181513] bg-[#FAF7F2] hover:bg-[#EAE2D7] shadow-md hover:scale-105 active:scale-95 transition-all text-center cursor-pointer"
             >
               {isHindi ? 'बातचीत शुरू करें' : 'Start a Conversation'}
             </button>
+
+            {/* Contact Us - Icon Only (No Text) */}
             <button
               onClick={() => handleNav('contact')}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-full font-bold text-sm text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer"
+              title="Contact Us"
+              aria-label="Contact Us"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
             >
-              <span>Contact Us</span>
-              <ArrowUpRight className="w-4 h-4 text-[#B29F8D]" />
+              <Mail className="w-5 h-5 text-[#FAF7F2]" />
             </button>
+
+            {/* Direct Phone Call - Icon Only (No Text) */}
+            <a
+              href={CONTACT_INFO.founders[0].telHref}
+              title={`Call ${CONTACT_INFO.founders[0].name} (${CONTACT_INFO.founders[0].phone})`}
+              aria-label={`Call ${CONTACT_INFO.founders[0].name}`}
+              className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
+            >
+              <Phone className="w-5 h-5 text-[#FAF7F2]" />
+            </a>
+
+            {/* WhatsApp - Icon Only (No Text) */}
             <a
               href={CONTACT_INFO.founders[0].whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-full font-bold text-sm text-white bg-green-600/90 hover:bg-green-600 border border-green-500/30 transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+              title="Chat on WhatsApp"
+              aria-label="Chat on WhatsApp"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-[#25D366] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-[0_4px_16px_rgba(37,211,102,0.35)] shrink-0"
             >
-              WhatsApp Us
+              <MessageCircle className="w-5 h-5 fill-current" />
             </a>
           </div>
         </div>

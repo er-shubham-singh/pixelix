@@ -81,9 +81,9 @@ Please share campaign packages, verified case studies, and introductory consulta
     {
       id: 'pkg-starter',
       name: 'Launch Accelerator',
-      price: '₹24,999',
+      price: '₹4,999',
       period: '/ month',
-      adSpendReco: 'Recommended Ad Spend: ₹30k - ₹60k/mo',
+      adSpendReco: 'Recommended Ad Spend: ₹10k - ₹25k/mo',
       desc: 'Ideal for single residential project launches or local service businesses seeking verified inquiries.',
       features: [
         'Meta Ads (Facebook & Instagram Feed/Stories)',
@@ -97,9 +97,9 @@ Please share campaign packages, verified case studies, and introductory consulta
     {
       id: 'pkg-growth',
       name: 'Real Estate Growth Engine',
-      price: '₹44,999',
+      price: '₹9,999',
       period: '/ month',
-      adSpendReco: 'Recommended Ad Spend: ₹80k - ₹2.5L/mo',
+      adSpendReco: 'Recommended Ad Spend: ₹25k - ₹60k/mo',
       desc: 'High-volume buyer acquisition designed for builders, high-ticket villa developments, and top consultants.',
       features: [
         'Omnichannel: Meta Lead Ads + Google Search (High-Intent PPC)',
@@ -113,9 +113,9 @@ Please share campaign packages, verified case studies, and introductory consulta
     {
       id: 'pkg-enterprise',
       name: 'Omnichannel Dominance',
-      price: '₹79,999',
+      price: '₹19,999',
       period: '/ month',
-      adSpendReco: 'Recommended Ad Spend: ₹3L+/mo',
+      adSpendReco: 'Recommended Ad Spend: ₹60k+/mo',
       desc: 'Full-scale advertising dominance for multi-tower projects, township launches, or national enterprises.',
       features: [
         'Full Google Suite (Search, Display, YouTube TrueView, Discovery)',
@@ -414,10 +414,10 @@ Please share campaign packages, verified case studies, and introductory consulta
                       onChange={(e) => setLeadForm({ ...leadForm, budget: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 dark:border-white/10 bg-cream-50 dark:bg-darkbg-base text-xs font-semibold text-espresso-900 dark:text-cream-100"
                     >
-                      <option value="₹30k - ₹60k">₹30k - ₹60k / mo</option>
+                      <option value="₹10k - ₹25k">₹10k - ₹25k / mo</option>
+                      <option value="₹25k - ₹60k">₹25k - ₹60k / mo</option>
                       <option value="₹60k - ₹1.5L">₹60k - ₹1.5L / mo</option>
-                      <option value="₹1.5L - ₹3L">₹1.5L - ₹3L / mo</option>
-                      <option value="₹3L+">₹3L+ / mo (Enterprise)</option>
+                      <option value="₹1.5L+">₹1.5L+ / mo (Enterprise)</option>
                     </select>
                   </div>
                 </div>

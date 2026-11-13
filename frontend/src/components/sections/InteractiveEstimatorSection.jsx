@@ -3,22 +3,22 @@ import { Calculator, Check, ArrowRight, Sparkles, Clock, Layers } from 'lucide-r
 
 export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
   const options = [
-    { id: 'web', name: 'Custom Website Development', category: 'Engineering', price: 30000, days: 14 },
-    { id: 'app', name: 'iOS & Android Mobile App', category: 'Engineering', price: 55000, days: 28 },
-    { id: 'ai-chat', name: '24/7 AI WhatsApp/Web Chatbot', category: 'AI', price: 25000, days: 10 },
-    { id: 'brand-kit', name: 'Brand Identity (5 Vector Logos + Kit)', category: 'Design', price: 20000, days: 7 },
-    { id: 'listing-catalog', name: 'Product Listing & A+ Content (Amazon/Flipkart/Meesho)', category: 'E-Com Ops', price: 20000, days: 8 },
-    { id: 'order-process', name: 'Order Creation & Daily Fulfillment Processing', category: 'E-Com Ops', price: 18000, days: 7 },
-    { id: 'dispatch-logistics', name: 'Dispatch & Logistics Carrier Management', category: 'E-Com Ops', price: 16000, days: 6 },
-    { id: 'rto-claims', name: 'Returns, RTO Reduction & Safe-T Claims Recovery', category: 'E-Com Ops', price: 15000, days: 7 },
-    { id: 'inventory-sync', name: 'Multi-Channel Inventory Sync & FBA Inbounding', category: 'E-Com Ops', price: 18000, days: 7 },
-    { id: 'ecom-full', name: 'Full E-Commerce Account Management Retainer', category: 'E-Com Ops', price: 35000, days: 30 },
-    { id: 'visuals', name: 'Product Cut-outs & Retouching (20 Assets)', category: 'Design', price: 15000, days: 5 },
-    { id: 'campaigns', name: '5 Print Flyers, Brochures & Banners', category: 'Marketing', price: 16000, days: 6 },
-    { id: 'social', name: '5 Social Media Creative PDFs & Banners', category: 'Marketing', price: 14000, days: 5 },
+    { id: 'web', name: 'Simple Website / Landing Page', category: 'Engineering', price: 4000, days: 3 },
+    { id: 'ecom-full', name: 'E-Commerce Store + Admin Panel', category: 'Engineering', price: 15000, days: 7 },
+    { id: 'listing-catalog', name: 'Product Listing & Catalog (Amazon / Flipkart / Meesho)', category: 'E-Com Ops', price: 4000, days: 3 },
+    { id: 'social', name: 'Monthly Social Media Handling & Creatives', category: 'Marketing', price: 4000, days: 5 },
+    { id: 'ai-chat', name: '24/7 AI WhatsApp / Web Chatbot', category: 'AI', price: 4000, days: 3 },
+    { id: 'brand-kit', name: 'Brand Identity (5 Vector Logos + Kit)', category: 'Design', price: 3500, days: 3 },
+    { id: 'app', name: 'Custom Mobile App / PWA', category: 'Engineering', price: 18000, days: 12 },
+    { id: 'order-process', name: 'Order Processing & Daily Fulfillment', category: 'E-Com Ops', price: 3500, days: 4 },
+    { id: 'dispatch-logistics', name: 'Dispatch & Logistics Carrier Management', category: 'E-Com Ops', price: 3000, days: 3 },
+    { id: 'rto-claims', name: 'Returns, RTO Reduction & Safe-T Claims Recovery', category: 'E-Com Ops', price: 3000, days: 4 },
+    { id: 'inventory-sync', name: 'Multi-Channel Inventory Sync & FBA Inbound', category: 'E-Com Ops', price: 3500, days: 4 },
+    { id: 'visuals', name: 'Product Cut-outs & Retouching (20 Assets)', category: 'Design', price: 2500, days: 2 },
+    { id: 'campaigns', name: 'Print Flyers, Brochures & Marketing Banners', category: 'Marketing', price: 2500, days: 3 },
   ];
 
-  const [selectedIds, setSelectedIds] = useState(['web', 'brand-kit']);
+  const [selectedIds, setSelectedIds] = useState(['web', 'listing-catalog']);
 
   const toggleOption = (id) => {
     setSelectedIds(prev => 
@@ -49,8 +49,14 @@ export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
           
           {/* Left: Options Selection (7 cols) */}
           <div className="lg:col-span-7 space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-espresso-600 dark:text-cream-400 mb-2">
-              Select Services to Bundle:
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-espresso-600 dark:text-cream-400">
+                Select Services to Bundle:
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
+                <Sparkles className="w-3 h-3" />
+                <span>Affordable Indian SMB Pricing · Less Price, Better Services</span>
+              </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {options.map((opt) => {
@@ -71,7 +77,12 @@ export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
                       {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                     </div>
                     <div className="flex-1">
-                      <div className="text-xs font-bold text-espresso-900 dark:text-white leading-snug">{opt.name}</div>
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="text-xs font-bold text-espresso-900 dark:text-white leading-snug">{opt.name}</div>
+                        <div className="text-xs font-extrabold text-terracotta-600 dark:text-terracotta-400 shrink-0">
+                          ₹{opt.price.toLocaleString('en-IN')}
+                        </div>
+                      </div>
                       <div className="flex items-center gap-2 mt-1.5 text-[11px] text-espresso-500 dark:text-cream-400">
                         <span className="bg-cream-200 dark:bg-white/10 px-1.5 py-0.5 rounded text-[10px] text-espresso-800 dark:text-cream-200">{opt.category}</span>
                         <span>~{opt.days} days</span>

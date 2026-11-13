@@ -47,7 +47,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
     phone: '',
     businessName: '',
     service: '',
-    budget: '₹25,000 - ₹50,000',
+    budget: '₹4,000 - ₹10,000',
     timeline: 'Within 1 Month',
     message: ''
   });
@@ -258,24 +258,13 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                 {/* Review Header: Avatar, Name, Company, Rating */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-2.5">
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                      className="w-10 h-10 rounded-full object-cover border border-terracotta-200 dark:border-white/10 shrink-0"
-                    />
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs bg-[#EDE9FE] text-[#7C3AED] dark:bg-[#2E1065]/70 dark:text-[#C4B5FD] border border-[#DDD6FE] dark:border-[#5B21B6]/50 shrink-0 select-none shadow-xs">
+                      {item.initial || (item.name ? item.name.charAt(0) : 'C')}
+                    </div>
                     <div>
                       <div className="text-xs font-bold text-espresso-900 dark:text-white flex items-center gap-1.5">
                         <span>{item.name}</span>
-                        <ShieldCheck className="w-3.5 h-3.5 text-terracotta-500 shrink-0" title="Verified Pixelix Client" />
-                      </div>
-                      <div className="text-[11px] text-espresso-600 dark:text-cream-400">
-                        {item.role} · <span className="font-semibold text-espresso-800 dark:text-cream-200">{item.company}</span>
-                      </div>
-                      <div className="text-[10px] text-espresso-400 dark:text-cream-500">
-                        {item.location}
+                        <ShieldCheck className="w-3.5 h-3.5 text-terracotta-500 shrink-0" title="Verified Client" />
                       </div>
                     </div>
                   </div>
@@ -444,10 +433,10 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                     onChange={handleChange}
                     className="w-full px-3.5 py-2.5 rounded-xl text-xs bg-white dark:bg-darkbg-base border border-cream-300 dark:border-white/10 focus:outline-none focus:border-terracotta-500 text-espresso-900 dark:text-white"
                   >
-                    <option value="₹15,000 - ₹30,000">₹15,000 - ₹30,000 (Starter / Retainer)</option>
-                    <option value="₹30,000 - ₹60,000">₹30,000 - ₹60,000 (Growth Tier)</option>
-                    <option value="₹60,000 - ₹1,20,000">₹60,000 - ₹1,20,000 (Full-Spectrum)</option>
-                    <option value="₹1,20,000+">₹1,20,000+ (Enterprise Multi-Channel)</option>
+                    <option value="₹4,000 - ₹10,000">₹4,000 - ₹10,000 (Landing Page / Listing / Social)</option>
+                    <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000 (E-Com Store + Admin / Bot)</option>
+                    <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 (Complete Growth Retainer)</option>
+                    <option value="₹50,000+">₹50,000+ (Enterprise Multi-Channel)</option>
                   </select>
                 </div>
               </div>

@@ -1,3 +1,54 @@
+export const PRIMARY_INDIAN_REVIEWS = [
+  {
+    id: 'rev-satyam',
+    name: 'Satyam Rai',
+    initial: 'S',
+    color: 'purple',
+    review:
+      'I approached CoreCodeX for our Amazon and Meesho product listing and simple landing page. The entire process from cataloging to go-live was so smooth and transparent. Our daily dispatches jumped from 15 to 90+ orders with confidence due to CoreCodeX’s support and their approach of Less Price, Better Services.'
+  },
+  {
+    id: 'rev-trupti',
+    name: 'Trupti Chandwani',
+    initial: 'T',
+    color: 'blue',
+    review:
+      'CoreCodeX engineered our complete e-commerce store with admin panel for just ₹15k, which other agencies were quoting ₹60k+ for. The admin dashboard is super intuitive and handling daily orders is effortless. Sahil and the team delivered beyond expectations!'
+  },
+  {
+    id: 'rev-dheeraj',
+    name: 'Dheeraj Maurya',
+    initial: 'D',
+    color: 'green',
+    review:
+      'We hired CoreCodeX for monthly social media handling and 24/7 AI WhatsApp chatbot at ₹4,000/mo. Customer inquiries are now answered instantly and our Instagram engagement skyrocketed. Highly recommended for every Indian business owner!'
+  },
+  {
+    id: 'rev-pooja',
+    name: 'Pooja Patel',
+    initial: 'P',
+    color: 'amber',
+    review:
+      'CoreCodeX handled our Amazon and Meesho cataloging, cut our RTO returns, and recovered Safe-T claims within days. For ₹4,000 product listing, the value delivered is unmatched anywhere in India. Sahil Prasad is always accessible on call.'
+  },
+  {
+    id: 'rev-rajesh',
+    name: 'Rajesh Singhania',
+    initial: 'R',
+    color: 'rose',
+    review:
+      'They designed our brand kit with 5 vector logos and managed our monthly social media creatives for just ₹4,000. True high-end agency quality at honest SMB prices. Sahil and his team run operations like clockwork.'
+  },
+  {
+    id: 'rev-kunal',
+    name: 'Kunal Malhotra',
+    initial: 'K',
+    color: 'taupe',
+    review:
+      'From parent-child SKU variations to Shiprocket multi-carrier manifests, CoreCodeX runs our operations like clockwork. Our festival sale broke all previous records with zero late dispatch penalties and minimal returns.'
+  }
+];
+
 export const TESTIMONIAL_TOPICS = [
   {
     id: 'ecom',

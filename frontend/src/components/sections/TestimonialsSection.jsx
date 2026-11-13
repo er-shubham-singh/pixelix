@@ -1,189 +1,157 @@
 import React, { useState } from 'react';
-import Badge from '../common/Badge';
-import {
-  TESTIMONIAL_TOPICS,
-  TESTIMONIALS_DATA
-} from '../../data/testimonialsData';
-import { CONTACT_INFO } from '../../config/contact';
-import {
-  Star,
-  ShieldCheck,
-  Phone,
-  MessageCircle,
-  ArrowRight,
-  Store,
-  Code2,
-  Palette,
-  Bot,
-  TrendingUp,
-  Sparkles,
-  Award
-} from 'lucide-react';
+import { PRIMARY_INDIAN_REVIEWS } from '../../data/testimonialsData';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-const TOPIC_ICONS = {
-  Store,
-  Code2,
-  Palette,
-  Bot,
-  TrendingUp
+const AVATAR_COLOR_MAP = {
+  purple: 'bg-[#EDE9FE] text-[#7C3AED] border border-[#DDD6FE] dark:bg-[#2E1065]/70 dark:text-[#C4B5FD] dark:border-[#5B21B6]/50',
+  blue: 'bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE] dark:bg-[#172554]/70 dark:text-[#93C5FD] dark:border-[#1E40AF]/50',
+  green: 'bg-[#DCFCE7] text-[#16A34A] border border-[#BBF7D0] dark:bg-[#052E16]/70 dark:text-[#86EFAC] dark:border-[#166534]/50',
+  amber: 'bg-[#FEF3C7] text-[#D97706] border border-[#FDE68A] dark:bg-[#451A03]/70 dark:text-[#FCD34D] dark:border-[#92400E]/50',
+  rose: 'bg-[#FFE4E6] text-[#E11D48] border border-[#FECDD3] dark:bg-[#4C0519]/70 dark:text-[#FDA4AF] dark:border-[#9F1239]/50',
+  taupe: 'bg-[#EDE7DD] text-[#5C5046] border border-[#DDD4C7] dark:bg-white/10 dark:text-[#D5C9BD] dark:border-white/20'
 };
 
-export default function TestimonialsSection({ onOpenInquiry }) {
-  const [activeTopic, setActiveTopic] = useState('ecom');
+export default function TestimonialsSection() {
+  const reviews = PRIMARY_INDIAN_REVIEWS;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const currentTopicMeta = TESTIMONIAL_TOPICS.find((t) => t.id === activeTopic) || TESTIMONIAL_TOPICS[0];
-  const reviews = TESTIMONIALS_DATA[activeTopic] || TESTIMONIALS_DATA.ecom;
+  // Maximum starting index for 3 cards per view on large screens
+  const maxIndex = Math.max(0, reviews.length - 3);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
+  // Slice 3 visible reviews starting at currentIndex
+  const visibleReviews = [
+    reviews[currentIndex % reviews.length],
+    reviews[(currentIndex + 1) % reviews.length],
+    reviews[(currentIndex + 2) % reviews.length]
+  ];
 
   return (
-    <section id="reviews" className="py-16 sm:py-20 bg-[#F7F4EE]/60 dark:bg-darkbg-base border-t border-b border-[#D6CCC2]/60 dark:border-white/10 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Glow Container */}
-        <div className="p-6 sm:p-10 md:p-12 rounded-[2.5rem] bg-white dark:bg-[#1C1816] border border-[#D6CCC2]/70 dark:border-white/10 shadow-xl relative overflow-hidden transition-colors">
+    <section id="reviews" className="py-20 sm:py-24 bg-[#F7F4EE]/60 dark:bg-darkbg-base border-t border-b border-[#D6CCC2]/60 dark:border-white/10 transition-colors relative overflow-hidden">
+      {/* Ambient Silk & Taupe Lighting */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D8C8B4]/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#B29F8D]/15 rounded-full blur-[110px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Header - Ivory & Taupe Silk Theme */}
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Eyebrow Label */}
+          <div className="text-[#827060] dark:text-[#C7B9A4] text-xs sm:text-sm font-bold uppercase tracking-[0.22em] mb-2">
+            TESTIMONIALS
+          </div>
+
+          {/* Main Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#26211E] dark:text-white tracking-tight leading-tight font-display">
+            What Our Clients Say About Us
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-espresso-700/80 dark:text-cream-200/80 mt-2 font-normal max-w-xl mx-auto">
+            Connecting businesses with exponential digital growth.
+          </p>
+
+          {/* Warm Champagne Taupe Accent Line */}
+          <div className="w-14 h-1 bg-[#B29F8D] dark:bg-[#B29F8D] rounded-full mx-auto mt-3.5 mb-12 sm:mb-14" />
+        </div>
+
+        {/* Carousel Container */}
+        <div className="relative">
           
-          {/* Subtle Ambient Glow Orbs */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#D8C8B4]/15 rounded-full blur-[90px] pointer-events-none" />
-          <div className="absolute -bottom-24 right-10 w-80 h-48 bg-[#B29F8D]/15 rounded-full blur-[90px] pointer-events-none" />
+          {/* Previous Arrow Button */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous testimonials"
+            className="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-[#231F1C] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-white/10 items-center justify-center text-[#26211E] dark:text-white hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+          </button>
 
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EDE7DD] dark:bg-white/10 border border-[#DDD4C7] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[11px] font-bold uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5 text-[#B29F8D]" />
-              <span>Testimonials</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#26211E] dark:text-white font-display tracking-tight">
-              What Our Clients Say
-            </h2>
-
-            <p className="text-xs sm:text-sm text-espresso-700 dark:text-cream-200/80 max-w-2xl mx-auto leading-relaxed">
-              Discover how CoreCodeX has scaled businesses across India and beyond. Hear directly from verified founders about their measurable growth and transformation.
-            </p>
-
-            {/* Social Proof Rating Pill */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDE7DD] dark:bg-white/10 backdrop-blur-md text-xs font-bold text-[#26211E] dark:text-white border border-[#DDD4C7] dark:border-white/10 shadow-xs">
-                <div className="flex text-amber-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
-                </div>
-                <span>4.9 / 5.0 Star Rating</span>
-                <span className="text-[#827060]/40 dark:text-white/30">•</span>
-                <span className="text-[#827060] dark:text-[#D8C8B4] font-extrabold">85+ Verified Brands</span>
-              </div>
-            </div>
-          </div>
-
-          {/* 5 Domain Switcher Tabs */}
-          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar relative z-10">
-            {TESTIMONIAL_TOPICS.map((topic) => {
-              const Icon = TOPIC_ICONS[topic.icon] || Store;
-              const isActive = activeTopic === topic.id;
-              return (
-                <button
-                  key={topic.id}
-                  onClick={() => setActiveTopic(topic.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
-                    isActive
-                      ? 'bg-[#B29F8D] text-white shadow-xs scale-105'
-                      : 'bg-[#EDE7DD]/70 dark:bg-white/5 border border-[#DDD4C7] dark:border-white/10 text-espresso-800 dark:text-cream-200 hover:border-[#B29F8D] hover:bg-[#EDE7DD] dark:hover:bg-white/10'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{topic.shortLabel}</span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                      isActive ? 'bg-white/20 text-white' : 'bg-white/80 dark:bg-white/10 text-espresso-800 dark:text-cream-300'
-                    }`}
-                  >
-                    {topic.count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Reviews Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
-            {reviews.slice(0, 3).map((rev) => (
+          {/* 3 Review Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {visibleReviews.map((rev, idx) => (
               <div
-                key={rev.id}
-                className="p-6 rounded-3xl bg-[#FAF7F2]/90 dark:bg-white/[0.04] backdrop-blur-xl border border-[#D6CCC2]/60 dark:border-white/10 hover:border-[#B29F8D] hover:shadow-md transition-all flex flex-col justify-between group space-y-4"
+                key={`${rev.id}-${idx}`}
+                className="bg-white dark:bg-[#1C1815] rounded-3xl p-7 sm:p-8 border border-[#D6CCC2]/70 dark:border-white/10 shadow-[0_4px_25px_rgba(38,33,30,0.04)] hover:shadow-[0_12px_35px_rgba(38,33,30,0.08)] hover:border-[#B29F8D] transition-all flex flex-col justify-between min-h-[300px] group"
               >
-                <div className="space-y-3.5">
-                  {/* Highlight Quote */}
-                  <div className="text-base sm:text-lg font-bold text-[#26211E] dark:text-white font-display leading-snug">
-                    "<span className="text-[#827060] dark:text-[#D8C8B4] font-extrabold">{rev.company}</span>'s {rev.serviceUsed.toLowerCase()} transformation."
+                {/* Top Quote Icon - Champagne Taupe Double Quotes */}
+                <div>
+                  <div className="text-[#D8C8B4] dark:text-[#B29F8D]/60 select-none">
+                    <svg className="w-10 h-10 fill-current" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-xs sm:text-[13px] text-espresso-800 dark:text-cream-200/90 leading-relaxed italic">
-                    "{rev.review}"
+                  <p className="text-espresso-800 dark:text-cream-200/90 text-sm sm:text-[14px] leading-relaxed my-5 font-normal">
+                    {rev.review}
                   </p>
                 </div>
 
-                {/* Client Profile Footer */}
-                <div className="pt-4 border-t border-[#D6CCC2]/60 dark:border-white/10 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={rev.avatar}
-                      alt={rev.name}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                      className="w-10 h-10 rounded-full object-cover border border-[#D6CCC2] shrink-0 shadow-xs"
-                    />
-                    <div>
-                      <div className="text-xs font-extrabold text-[#26211E] dark:text-white flex items-center gap-1.5">
-                        <span>{rev.name}</span>
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#827060] dark:text-[#D8C8B4] shrink-0" />
-                      </div>
-                      <div className="text-[11px] text-espresso-600 dark:text-cream-300/80 leading-tight">
-                        {rev.role}, <strong className="text-[#26211E] dark:text-cream-100">{rev.company}</strong>
-                      </div>
+                {/* Author Block Footer - NO IMAGE, Letter Avatar Circle & ONLY NAME */}
+                <div className="flex items-center gap-3.5 pt-4 border-t border-[#D6CCC2]/60 dark:border-white/5">
+                  <div className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-base shrink-0 select-none shadow-xs ${AVATAR_COLOR_MAP[rev.color] || AVATAR_COLOR_MAP.purple}`}>
+                    {rev.initial || rev.name.charAt(0)}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-bold text-[#26211E] dark:text-white text-sm sm:text-base tracking-tight truncate">
+                      {rev.name}
                     </div>
                   </div>
-
-                  <span className="text-[11px] font-mono font-bold text-[#827060] dark:text-[#D8C8B4] bg-[#EDE7DD] dark:bg-white/10 px-2 py-0.5 rounded-full border border-[#DDD4C7] dark:border-white/10 shrink-0">
-                    {rev.metric}
-                  </span>
                 </div>
+
               </div>
             ))}
           </div>
 
-          {/* Bottom Callout & Founders Direct Connect inside Glow Container */}
-          <div className="mt-10 pt-8 border-t border-[#D6CCC2]/60 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left relative z-10">
-            <div>
-              <div className="text-sm font-extrabold text-[#26211E] dark:text-white flex items-center justify-center md:justify-start gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#827060] dark:text-[#D8C8B4]" />
-                <span>Ready for similar verified outcomes?</span>
-              </div>
-              <p className="text-xs text-espresso-600 dark:text-cream-200/70 mt-0.5">
-                Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat)
-              </p>
-            </div>
+          {/* Next Arrow Button on Right Edge */}
+          <button
+            onClick={handleNext}
+            aria-label="Next testimonials"
+            className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-[#231F1C] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-white/10 flex items-center justify-center text-[#26211E] dark:text-white hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+          </button>
 
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <a
-                href={CONTACT_INFO.founders[0].whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#26211E] hover:bg-[#3D332B] text-white font-bold text-xs shadow-xs transition-all hover:scale-105 active:scale-95"
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-[#D8C8B4]" />
-                <span>WhatsApp Founder</span>
-              </a>
+        </div>
 
+        {/* Bottom Pagination Dots & Live Activity Pill */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-10 sm:mt-12">
+          
+          <div className="hidden sm:block sm:w-28" />
+
+          {/* Centered Pagination Dots: Warm Charcoal / Cream Active Pill + Inactive Dots */}
+          <div className="flex items-center justify-center gap-2">
+            {reviews.map((_, idx) => (
               <button
-                onClick={() => onOpenInquiry && onOpenInquiry(currentTopicMeta.label)}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#EDE7DD] hover:bg-[#DDD4C7] text-[#26211E] border border-[#DDD4C7] dark:bg-white/10 dark:hover:bg-white/20 dark:border-white/20 dark:text-white font-bold text-xs transition-all cursor-pointer"
-              >
-                <span>Explore All {reviews.length} Reviews & Inquiry</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
+                key={idx}
+                onClick={() => setCurrentIndex(idx % (maxIndex + 1))}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`transition-all duration-300 cursor-pointer ${
+                  currentIndex === idx
+                    ? 'w-7 h-2 rounded-full bg-[#26211E] dark:bg-[#FAF7F2]'
+                    : 'w-2 h-2 rounded-full bg-[#D6CCC2] dark:bg-white/20 hover:bg-[#B29F8D]'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Live Activity Pill in Ivory & Taupe Styling */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-white dark:bg-[#1C1815] border border-[#D6CCC2] dark:border-white/10 shadow-xs text-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-bold uppercase text-[10px] tracking-wider text-[#827060] dark:text-[#D8C8B4]">
+              LIVE ACTIVITY
+            </span>
+            <span className="text-espresso-700 dark:text-cream-200 text-[11px] font-medium">
+              Sahil onboarded a new client from Vadodara.
+            </span>
           </div>
 
         </div>

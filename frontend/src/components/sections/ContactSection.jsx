@@ -13,7 +13,7 @@ export default function ContactSection() {
     phone: '',
     service: 'Website Development',
     businessName: '',
-    budget: '₹35,000 - ₹75,000',
+    budget: '₹4,000 - ₹10,000',
     timeline: 'Within 1 Month',
     message: ''
   });
@@ -41,7 +41,7 @@ export default function ContactSection() {
         phone: '',
         service: 'Website Development',
         businessName: '',
-        budget: '₹35,000 - ₹75,000',
+        budget: '₹4,000 - ₹10,000',
         timeline: 'Within 1 Month',
         message: ''
       });
@@ -260,10 +260,10 @@ export default function ContactSection() {
                       onChange={handleChange}
                       className="w-full px-3 py-2.5 rounded-xl border border-cream-300 dark:border-white/10 bg-cream-50/50 dark:bg-darkbg-card text-xs text-espresso-900 dark:text-white focus:outline-none focus:border-terracotta-500"
                     >
-                      <option value="₹15,000 - ₹35,000">₹15,000 - ₹35,000</option>
-                      <option value="₹35,000 - ₹75,000">₹35,000 - ₹75,000</option>
-                      <option value="₹75,000 - ₹1,50,000">₹75,000 - ₹1,50,000</option>
-                      <option value="₹1,50,000+ Enterprise">₹1,50,000+ Enterprise</option>
+                      <option value="₹4,000 - ₹10,000">₹4,000 - ₹10,000 (Landing Page / Listing / Social)</option>
+                      <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000 (E-Com Store + Admin / Bot)</option>
+                      <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000 (Complete Growth Retainer)</option>
+                      <option value="₹50,000+ Enterprise">₹50,000+ Enterprise Scale</option>
                     </select>
                   </div>
                   <div>
