@@ -17,7 +17,7 @@ import {
 
 export default function HeroSection({ onOpenInquiry }) {
   return (
-    <section id="top" className="relative pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 overflow-hidden bg-warm-mesh">
+    <section id="top" className="relative pt-28 xs:pt-32 sm:pt-36 md:pt-36 pb-12 sm:pb-16 overflow-hidden bg-warm-mesh">
       {/* Decorative ambient cashmere lighting beam (Ivory & Taupe Silk aesthetic) */}
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#D8C8B4]/25 via-[#B29F8D]/15 to-transparent blur-[120px] pointer-events-none -rotate-12" />
       <div className="absolute top-1/4 -left-16 w-80 h-80 bg-[#B29F8D]/15 dark:bg-[#B29F8D]/10 rounded-full blur-[90px] pointer-events-none" />
@@ -90,7 +90,7 @@ export default function HeroSection({ onOpenInquiry }) {
           </div>
 
           {/* Right Column: 3D Ecosystem Hub with Floating Animated Service Chips (5 cols) - Rendered 1st on mobile, 2nd on desktop */}
-          <div className="order-1 md:order-2 md:col-span-5 relative flex items-center justify-center py-2 sm:py-4">
+          <div className="order-1 md:order-2 md:col-span-5 relative flex items-center justify-center pt-6 pb-2 sm:py-4">
             <div className="relative w-full max-w-[320px] xs:max-w-[350px] sm:max-w-[380px] md:max-w-[420px] mx-auto">
 
               {/* Ambient radial glow */}
@@ -112,10 +112,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 1: Top-Left - Amazon & Flipkart */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Amazon, Meesho & Flipkart Listing')}
-                className="absolute top-0 left-2 sm:left-6 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-1 group whitespace-nowrap"
+                className="absolute top-0 left-1 sm:left-6 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-1 group whitespace-nowrap"
               >
-                <Store className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Store className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   Amazon & Flipkart
                 </span>
               </div>
@@ -123,10 +123,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 2: Upper-Right - 3D Web & Apps */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Website Development')}
-                className="absolute top-2 right-2 sm:right-4 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-2 group whitespace-nowrap"
+                className="absolute top-2 right-1 sm:right-4 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-2 group whitespace-nowrap"
               >
-                <Code2 className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Code2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   3D Web & Apps
                 </span>
               </div>
@@ -134,10 +134,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 3: Mid Left - 5 Vector Logos */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Brand Identity (5 Vector Logos)')}
-                className="absolute top-[30%] left-0 sm:left-1 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-3 group whitespace-nowrap"
+                className="absolute top-[30%] left-0 sm:left-1 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-3 group whitespace-nowrap"
               >
-                <Palette className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Palette className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   5 Vector Logos
                 </span>
               </div>
@@ -145,10 +145,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 4: Mid Right - AI Automations */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('AI Integration & Automation')}
-                className="absolute top-[44%] right-0 sm:right-2 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-4 group whitespace-nowrap"
+                className="absolute top-[44%] right-0 sm:right-2 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-4 group whitespace-nowrap"
               >
-                <Bot className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Bot className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   AI Automations
                 </span>
               </div>
@@ -156,10 +156,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 5: Lower-Mid Left - Order & Catalog */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Catalog & Order Management')}
-                className="absolute top-[62%] left-1 sm:left-3 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-1 group whitespace-nowrap"
+                className="absolute top-[62%] left-0.5 sm:left-3 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-1 group whitespace-nowrap"
               >
-                <Boxes className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Boxes className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   Order & Catalog
                 </span>
               </div>
@@ -167,10 +167,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 6: Lower-Right - Logistics & Dispatch */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Dispatch & Logistics Management')}
-                className="absolute top-[72%] right-1 sm:right-3 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-2 group whitespace-nowrap"
+                className="absolute top-[72%] right-0.5 sm:right-3 z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-2 group whitespace-nowrap"
               >
-                <PackageCheck className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <PackageCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   Logistics & Dispatch
                 </span>
               </div>
@@ -178,16 +178,16 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 7: Bottom Center - Social Creatives */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Campaigns (Screen & Print Collaterals)')}
-                className="absolute bottom-0 left-[16%] sm:left-[24%] z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-3 group whitespace-nowrap"
+                className="absolute bottom-0 left-[14%] sm:left-[24%] z-20 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 animate-float-3 group whitespace-nowrap"
               >
-                <Share2 className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-white">
+                <Share2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[10px] sm:text-xs font-medium sm:font-semibold text-white">
                   Social Creatives
                 </span>
               </div>
 
               {/* CHIP 8: Bottom-Right 3D Ecosystem Hub Pill */}
-              <div className="absolute bottom-2 right-1 sm:right-2 z-20 px-2.5 py-1 rounded-full bg-white/80 dark:bg-black/50 border border-[#D5C9BD] dark:border-white/20 text-[#5C534B] dark:text-[#D5C9BD] text-[10px] font-semibold flex items-center gap-1.5 shadow-xs whitespace-nowrap">
+              <div className="absolute bottom-1 right-0.5 sm:right-2 z-20 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/80 dark:bg-black/50 border border-[#D5C9BD] dark:border-white/20 text-[#5C534B] dark:text-[#D5C9BD] text-[9px] sm:text-[10px] font-semibold flex items-center gap-1 sm:gap-1.5 shadow-xs whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D] animate-ping" />
                 <span>3D Ecosystem Hub</span>
               </div>

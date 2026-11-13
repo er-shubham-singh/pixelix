@@ -50,45 +50,49 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
                 : 'From first idea to final asset, CoreCodeX helps you move forward. Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat).'}
             </p>
           </div>
-          <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
+          <div className="flex flex-col items-center lg:items-end gap-3.5 w-full lg:w-auto">
+            {/* Primary Button: Start a Conversation */}
             <button
               onClick={onOpenInquiry}
-              className="px-7 py-3.5 rounded-full font-bold text-sm text-[#181513] bg-[#FAF7F2] hover:bg-[#EAE2D7] shadow-md hover:scale-105 active:scale-95 transition-all text-center cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-sm text-[#181513] bg-[#FAF7F2] hover:bg-[#EAE2D7] shadow-md hover:scale-105 active:scale-95 transition-all text-center cursor-pointer"
             >
               {isHindi ? 'बातचीत शुरू करें' : 'Start a Conversation'}
             </button>
 
-            {/* Contact Us - Icon Only (No Text) */}
-            <button
-              onClick={() => handleNav('contact')}
-              title="Contact Us"
-              aria-label="Contact Us"
-              className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
-            >
-              <Mail className="w-5 h-5 text-[#FAF7F2]" />
-            </button>
+            {/* Below: Icon Buttons Row */}
+            <div className="flex items-center justify-center gap-3 w-full sm:w-auto">
+              {/* Contact Us - Icon Only (No Text) */}
+              <button
+                onClick={() => handleNav('contact')}
+                title="Contact Us"
+                aria-label="Contact Us"
+                className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
+              >
+                <Mail className="w-5 h-5 text-[#FAF7F2]" />
+              </button>
 
-            {/* Direct Phone Call - Icon Only (No Text) */}
-            <a
-              href={CONTACT_INFO.founders[0].telHref}
-              title={`Call ${CONTACT_INFO.founders[0].name} (${CONTACT_INFO.founders[0].phone})`}
-              aria-label={`Call ${CONTACT_INFO.founders[0].name}`}
-              className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
-            >
-              <Phone className="w-5 h-5 text-[#FAF7F2]" />
-            </a>
+              {/* Direct Phone Call - Icon Only (No Text) */}
+              <a
+                href={CONTACT_INFO.founders[0].telHref}
+                title={`Call ${CONTACT_INFO.founders[0].name} (${CONTACT_INFO.founders[0].phone})`}
+                aria-label={`Call ${CONTACT_INFO.founders[0].name}`}
+                className="w-12 h-12 rounded-full flex items-center justify-center text-[#FAF7F2] bg-white/10 hover:bg-white/20 border border-white/20 hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-xs shrink-0"
+              >
+                <Phone className="w-5 h-5 text-[#FAF7F2]" />
+              </a>
 
-            {/* WhatsApp - Icon Only (No Text) */}
-            <a
-              href={CONTACT_INFO.founders[0].whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              title="Chat on WhatsApp"
-              aria-label="Chat on WhatsApp"
-              className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-[#25D366] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-[0_4px_16px_rgba(37,211,102,0.35)] shrink-0"
-            >
-              <MessageCircle className="w-5 h-5 fill-current" />
-            </a>
+              {/* WhatsApp - Icon Only (No Text) */}
+              <a
+                href={CONTACT_INFO.founders[0].whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                title="Chat on WhatsApp"
+                aria-label="Chat on WhatsApp"
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white bg-[#25D366] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition-all cursor-pointer shadow-[0_4px_16px_rgba(37,211,102,0.35)] shrink-0"
+              >
+                <MessageCircle className="w-5 h-5 fill-current" />
+              </a>
+            </div>
           </div>
         </div>
 
