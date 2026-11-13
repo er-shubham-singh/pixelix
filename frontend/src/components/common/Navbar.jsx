@@ -46,8 +46,7 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
     { id: 'digital-advertising', label: 'Ads & Leads' },
     { id: 'deliverables', label: 'Deliverables' },
     { id: 'portfolio', label: 'Portfolio' },
-    { id: 'about', label: 'Why Pixelix' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'about', label: 'Why CoreCodeX' },
   ];
 
   const handleNavClick = (id) => {
@@ -62,13 +61,12 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'glass-nav py-3 shadow-soft' : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'glass-nav py-3 shadow-soft' : 'bg-transparent py-5'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            
+
             {/* Logo */}
             <button
               onClick={() => handleNavClick('home')}
@@ -83,11 +81,10 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
-                    activePage === link.id
+                  className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${activePage === link.id
                       ? 'bg-[#B29F8D] text-white shadow-xs'
                       : 'text-[#5C5046] dark:text-[#D5C9BD] hover:text-[#26211E] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </button>
@@ -108,15 +105,6 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
                 ) : (
                   <Moon className="w-4.5 h-4.5 text-[#827060]" />
                 )}
-              </button>
-
-              {/* Consultation CTA (Visible on sm and up) with Ivory & Taupe Charcoal styling */}
-              <button
-                onClick={onOpenInquiry}
-                className="hidden sm:flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-white bg-[#26211E] hover:bg-[#3D332B] shadow-[0_4px_16px_rgba(38,33,30,0.25)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-              >
-                <span>Start a Project</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
               </button>
 
               {/* Mobile/Tablet Menu Hamburger Button (Always visible on all screens < 1024px) */}
@@ -143,9 +131,8 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
 
       {/* Mobile/Tablet Fixed-Height Side Drawer (Opens Left-to-Right with iOS Frosted Glass) */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-[#FAF7F2]/95 dark:bg-[#1C1816]/95 backdrop-blur-2xl border-r border-[#D6CCC2]/60 dark:border-white/10 shadow-[0_20px_50px_rgba(28,25,23,0.35)] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-[#FAF7F2]/95 dark:bg-[#1C1816]/95 backdrop-blur-2xl border-r border-[#D6CCC2]/60 dark:border-white/10 shadow-[0_20px_50px_rgba(28,25,23,0.35)] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
+          }`}
         aria-label="Mobile Navigation Drawer"
       >
         {/* Drawer Header */}
@@ -169,17 +156,15 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
             <button
               key={link.id}
               onClick={() => handleNavClick(link.id)}
-              className={`w-full text-left px-3.5 py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${
-                activePage === link.id
+              className={`w-full text-left px-3.5 py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${activePage === link.id
                   ? 'bg-[#B29F8D] text-white shadow-xs'
                   : 'text-[#5C5046] dark:text-[#D5C9BD] hover:bg-black/5 dark:hover:bg-white/10'
-              }`}
+                }`}
             >
               <span>{link.label}</span>
               <ChevronRight
-                className={`w-4 h-4 transition-transform ${
-                  activePage === link.id ? 'translate-x-1 text-white' : 'text-[#827060]/70 dark:text-[#C7B9A4]/70'
-                }`}
+                className={`w-4 h-4 transition-transform ${activePage === link.id ? 'translate-x-1 text-white' : 'text-[#827060]/70 dark:text-[#C7B9A4]/70'
+                  }`}
               />
             </button>
           ))}
