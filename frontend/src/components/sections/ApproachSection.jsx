@@ -76,7 +76,7 @@ export default function ApproachSection({ onSelectCategory }) {
             <div className="inline-flex items-center gap-2">
               <Badge variant="terracotta" className="px-3 py-1 text-[10px] sm:text-xs">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>The Pixelix Standard</span>
+                <span>The CoreCodeX Standard</span>
               </Badge>
             </div>
             
@@ -173,3 +173,4 @@ export default function ApproachSection({ onSelectCategory }) {
     </section>
   );
 }
+

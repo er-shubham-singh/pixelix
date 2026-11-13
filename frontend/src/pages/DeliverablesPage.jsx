@@ -32,11 +32,11 @@ export default function DeliverablesPage({ onOpenInquiry }) {
             Need a custom deliverable kit tailored to your brand?
           </h3>
           <p className="text-sm text-cream-300 max-w-xl mx-auto">
-            Speak directly with Vikas Chauhan & Shubham Singh to finalize your identity and campaign specifications.
+            Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat) to finalize your identity and campaign specifications.
           </p>
           <button
             onClick={onOpenInquiry}
-            className="px-8 py-3.5 rounded-full font-extrabold text-sm text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_25px_rgba(245,212,133,0.35)] hover:shadow-[0_0_35px_rgba(245,212,133,0.55)] hover:scale-105 transition-transform inline-flex items-center gap-2 cursor-pointer"
+            className="px-8 py-3.5 rounded-full font-bold text-sm text-white bg-[#26211E] hover:bg-[#3D332B] shadow-md hover:scale-105 transition-transform inline-flex items-center gap-2 cursor-pointer"
           >
             <span>Request Custom Deliverable Scope</span>
             <ArrowRight className="w-4 h-4" />

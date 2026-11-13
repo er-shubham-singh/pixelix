@@ -174,7 +174,7 @@ export default function EmployeeDashboardPage({
         target: 'All Personnel',
         date: '2026-10-28',
         isPinned: true,
-        content: 'Pixelix is introducing monthly performance bonuses for error-free marketplace catalogs and rapid website milestone deliveries.'
+        content: 'CoreCodeX is introducing monthly performance bonuses for error-free marketplace catalogs and rapid website milestone deliveries.'
       },
       {
         id: 'ann-3',
@@ -1450,7 +1450,7 @@ export default function EmployeeDashboardPage({
                   National & Festival Reference Dates
                 </h4>
                 <p className="text-xs text-espresso-500 dark:text-cream-400">
-                  Pixelix operates daily 365 days/year with flexible 1 weekly off. Apply in advance to schedule your weekly off on festival dates.
+                  CoreCodeX operates daily 365 days/year with flexible 1 weekly off. Apply in advance to schedule your weekly off on festival dates.
                 </p>
               </div>
             </div>
@@ -1531,14 +1531,14 @@ export default function EmployeeDashboardPage({
               <div className="space-y-3 pt-2">
                 <div className="p-3 rounded-2xl bg-cream-50 dark:bg-darkbg-base border border-cream-200/60 dark:border-darkbg-border flex items-center justify-between">
                   <div>
-                    <div className="font-bold text-xs text-espresso-900 dark:text-cream-100">Vikas Chauhan</div>
-                    <div className="text-[10px] text-espresso-400">Co-Founder & Director</div>
+                    <div className="font-bold text-xs text-espresso-900 dark:text-cream-100">Sahil Prasad</div>
+                    <div className="text-[10px] text-espresso-400">Founder & Owner (Vadodara, Gujarat)</div>
                   </div>
                   <a
-                    href="tel:+917056063863"
+                    href="tel:+916354729042"
                     className="px-3 py-1 rounded-xl bg-terracotta-500 text-white text-xs font-bold"
                   >
-                    +91 7056063863
+                    +91 6354729042
                   </a>
                 </div>
 
@@ -1687,3 +1687,4 @@ export default function EmployeeDashboardPage({
     </div>
   );
 }
+

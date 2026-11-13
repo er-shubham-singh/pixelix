@@ -13,13 +13,13 @@ export default function AboutPage({ onOpenInquiry }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
           <Badge variant="terracotta" className="text-xs">
             <Sparkles className="w-3.5 h-3.5 text-terracotta-600 dark:text-terracotta-400" />
-            <span>About Pixelix</span>
+            <span>About CoreCodeX</span>
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
             Creative Partner & Business Growth Systems
           </h1>
           <p className="text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Pixelix bridges the gap between tactile, human-centered brand design and engineering-grade digital execution. Founded by Vikas Chauhan and Shubham Singh.
+            CoreCodeX bridges the gap between tactile, human-centered brand design and engineering-grade digital execution. Founded and led by Sahil Prasad in Vadodara, Gujarat.
           </p>
         </div>
       </section>

@@ -85,8 +85,8 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
                   onClick={() => handleNavClick(link.id)}
                   className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
                     activePage === link.id
-                      ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.35)]'
-                      : 'text-espresso-800 dark:text-cream-200 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-white/40 dark:hover:bg-white/10'
+                      ? 'bg-[#B29F8D] text-white shadow-xs'
+                      : 'text-[#5C5046] dark:text-[#D5C9BD] hover:text-[#26211E] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -99,21 +99,21 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               {/* Theme Mode Switch (Icon Only) */}
               <button
                 onClick={toggleTheme}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all border cursor-pointer shadow-sm bg-cream-200/90 hover:bg-cream-300 text-espresso-800 border-emerald-500/25 dark:bg-[#072418] dark:hover:bg-[#0A3323] dark:text-cream-100 dark:border-emerald-500/30"
-                title={isDark ? "Switch to Normal (Mint Cream) Mode" : "Switch to Dark Mode"}
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all border cursor-pointer shadow-sm bg-white/70 hover:bg-white text-[#26211E] border-[#D6CCC2] dark:bg-[#231F1C] dark:hover:bg-[#2A2421] dark:text-[#F7F4EE] dark:border-[#3E3630]"
+                title={isDark ? "Switch to Ivory & Taupe Light Mode" : "Switch to Obsidian Dark Mode"}
                 aria-label="Toggle Theme Mode"
               >
                 {isDark ? (
                   <Sun className="w-4.5 h-4.5 text-amber-400" />
                 ) : (
-                  <Moon className="w-4.5 h-4.5 text-emerald-600" />
+                  <Moon className="w-4.5 h-4.5 text-[#827060]" />
                 )}
               </button>
 
-              {/* Consultation CTA (Visible on sm and up) with generous luxury padding */}
+              {/* Consultation CTA (Visible on sm and up) with Ivory & Taupe Charcoal styling */}
               <button
                 onClick={onOpenInquiry}
-                className="hidden sm:flex items-center gap-2 px-7 py-2.5 sm:px-8 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-extrabold text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.35)] hover:shadow-[0_0_30px_rgba(245,212,133,0.55)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="hidden sm:flex items-center gap-2 px-6 py-2.5 sm:px-7 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-bold text-white bg-[#26211E] hover:bg-[#3D332B] shadow-[0_4px_16px_rgba(38,33,30,0.25)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <span>Start a Project</span>
                 <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
@@ -122,7 +122,7 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               {/* Mobile/Tablet Menu Hamburger Button (Always visible on all screens < 1024px) */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 rounded-xl text-espresso-800 dark:text-cream-100 hover:bg-cream-200/80 dark:hover:bg-espresso-800 border border-emerald-500/30 dark:border-emerald-500/20 transition-colors cursor-pointer flex items-center justify-center"
+                className="lg:hidden p-2 rounded-xl text-[#26211E] dark:text-[#F7F4EE] hover:bg-black/5 dark:hover:bg-white/10 border border-[#D6CCC2] dark:border-white/10 transition-colors cursor-pointer flex items-center justify-center"
                 aria-label="Open Navigation Menu"
               >
                 <Menu className="w-6 h-6" />
@@ -136,24 +136,24 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
       {/* Mobile/Tablet Drawer Backdrop */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-espresso-900/60 dark:bg-black/80 backdrop-blur-sm z-50 transition-opacity animate-in fade-in duration-300 lg:hidden"
+          className="fixed inset-0 bg-[#181513]/60 dark:bg-black/80 backdrop-blur-sm z-50 transition-opacity animate-in fade-in duration-300 lg:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile/Tablet Fixed-Height Side Drawer (Opens Left-to-Right with iOS Frosted Glass) */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-cream-50/92 dark:bg-darkbg-surface/92 backdrop-blur-2xl border-r border-white/50 dark:border-white/10 shadow-[0_20px_50px_rgba(28,25,23,0.35)] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 w-[82vw] max-w-[340px] h-full bg-[#FAF7F2]/95 dark:bg-[#1C1816]/95 backdrop-blur-2xl border-r border-[#D6CCC2]/60 dark:border-white/10 shadow-[0_20px_50px_rgba(28,25,23,0.35)] flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden ${
           mobileMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
         }`}
         aria-label="Mobile Navigation Drawer"
       >
         {/* Drawer Header */}
-        <div className="p-5 border-b border-cream-200 dark:border-white/10 flex items-center justify-between">
+        <div className="p-5 border-b border-[#D6CCC2]/60 dark:border-white/10 flex items-center justify-between">
           <PixelixLogo size="sm" variant={isDark ? 'white' : 'full'} />
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 rounded-xl text-espresso-700 dark:text-cream-300 hover:bg-cream-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-espresso-700 dark:text-cream-300 hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close Navigation Drawer"
           >
             <X className="w-5 h-5" />
@@ -162,7 +162,7 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
 
         {/* Navigation Links List */}
         <div className="p-5 overflow-y-auto flex-1 space-y-1.5">
-          <div className="text-[10px] uppercase font-bold tracking-widest text-espresso-500 dark:text-cream-400 mb-2 px-3">
+          <div className="text-[10px] uppercase font-bold tracking-widest text-[#827060] dark:text-[#C7B9A4] mb-2 px-3">
             Menu Navigation
           </div>
           {navLinks.map((link) => (
@@ -171,33 +171,33 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
               onClick={() => handleNavClick(link.id)}
               className={`w-full text-left px-3.5 py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-between cursor-pointer ${
                 activePage === link.id
-                  ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-[0_0_15px_rgba(16,185,129,0.35)]'
-                  : 'text-espresso-800 dark:text-cream-200 hover:bg-cream-200/70 dark:hover:bg-white/10'
+                  ? 'bg-[#B29F8D] text-white shadow-xs'
+                  : 'text-[#5C5046] dark:text-[#D5C9BD] hover:bg-black/5 dark:hover:bg-white/10'
               }`}
             >
               <span>{link.label}</span>
               <ChevronRight
                 className={`w-4 h-4 transition-transform ${
-                  activePage === link.id ? 'translate-x-1 text-white' : 'text-espresso-400 dark:text-cream-400'
+                  activePage === link.id ? 'translate-x-1 text-white' : 'text-[#827060]/70 dark:text-[#C7B9A4]/70'
                 }`}
               />
             </button>
           ))}
 
           {/* Theme Mode Toggle inside Drawer */}
-          <div className="pt-4 mt-3 border-t border-cream-200 dark:border-white/10">
-            <div className="text-[10px] uppercase font-bold tracking-widest text-espresso-500 dark:text-cream-400 mb-2 px-1">
+          <div className="pt-4 mt-3 border-t border-[#D6CCC2]/60 dark:border-white/10">
+            <div className="text-[10px] uppercase font-bold tracking-widest text-[#827060] dark:text-[#C7B9A4] mb-2 px-1">
               Display Mode
             </div>
             <button
               onClick={toggleTheme}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-white/10 text-xs font-bold text-espresso-800 dark:text-cream-100 cursor-pointer shadow-sm hover:border-emerald-400 transition-colors"
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-white/70 dark:bg-darkbg-card border border-[#D6CCC2] dark:border-white/10 text-xs font-bold text-espresso-800 dark:text-cream-100 cursor-pointer shadow-sm hover:border-[#B29F8D] transition-colors"
             >
               <span className="flex items-center gap-2">
-                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-emerald-600" />}
-                <span>{isDark ? 'Obsidian Emerald Dark (Active)' : 'Mint Cream Light (Active)'}</span>
+                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#827060]" />}
+                <span>{isDark ? 'Obsidian Espresso Dark (Active)' : 'Ivory & Taupe Light (Active)'}</span>
               </span>
-              <span className="text-[10px] px-2.5 py-1 rounded-full bg-cream-200 dark:bg-white/10 text-emerald-600 dark:text-emerald-400 font-semibold">
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#EDE7DD] dark:bg-white/10 text-[#5C5046] dark:text-[#D5C9BD] font-semibold">
                 Switch
               </span>
             </button>
@@ -205,13 +205,13 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
         </div>
 
         {/* Drawer Bottom Actions & Founders Contact */}
-        <div className="p-5 border-t border-cream-200 dark:border-white/10 bg-cream-100/70 dark:bg-darkbg-card space-y-3">
+        <div className="p-5 border-t border-[#D6CCC2]/60 dark:border-white/10 bg-[#EDE7DD]/60 dark:bg-darkbg-card space-y-3">
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               onOpenInquiry();
             }}
-            className="w-full py-3 rounded-xl font-bold text-xs text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.3)] hover:shadow-[0_0_25px_rgba(245,212,133,0.45)] text-center transition-all cursor-pointer flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-xl font-bold text-xs text-white bg-[#26211E] hover:bg-[#3D332B] shadow-md text-center transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -221,24 +221,24 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
           <div className="grid grid-cols-2 gap-2 text-center">
             <a
               href={`tel:${CONTACT_INFO.founders[0].phone}`}
-              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-cream-200 dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-terracotta-600 transition-colors flex items-center justify-center gap-1.5"
+              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-1.5"
             >
-              <PhoneCall className="w-3 h-3 text-terracotta-500" />
-              <span>Call Vikas</span>
+              <PhoneCall className="w-3 h-3 text-[#827060]" />
+              <span>Call Sahil</span>
             </a>
             <a
-              href={`https://wa.me/917056063863`}
+              href={CONTACT_INFO.founders[0].whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="p-2.5 rounded-xl bg-green-50 dark:bg-green-950/40 border border-green-200/50 dark:border-green-800/40 text-[11px] font-semibold text-green-700 dark:text-green-400 transition-colors flex items-center justify-center gap-1.5"
+              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-1.5"
             >
-              <MessageCircle className="w-3 h-3" />
+              <MessageCircle className="w-3 h-3 text-[#827060]" />
               <span>WhatsApp</span>
             </a>
           </div>
 
-          <div className="text-center text-[10px] text-espresso-500 dark:text-cream-400 pt-1">
-            Official Agency • {CONTACT_INFO.domain}
+          <div className="text-center text-[10px] text-[#827060] dark:text-[#C7B9A4] pt-1">
+            CoreCodeX • Vadodara, Gujarat • {CONTACT_INFO.domain}
           </div>
         </div>
       </aside>

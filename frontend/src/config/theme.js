@@ -1,53 +1,57 @@
 export const PIXELIX_THEME = {
-  name: 'Pixelix Luxury Obsidian Emerald & Champagne Gold',
+  name: 'Pixelix 10 Ivory & Taupe Luxury Aesthetic',
   colors: {
-    emerald: {
-      primary: '#059669',
-      vibrant: '#10B981',
-      neon: '#00FF87',
-      mint: '#00DF82',
-      deep: '#064E3B',
-      obsidian: '#02140D'
+    ivory: {
+      base: '#F7F4EE',
+      surface: '#FFFFFF',
+      warmMuted: '#EFEAE1',
+      darker: '#DDD3C3'
+    },
+    taupe: {
+      primary: '#B29F8D',
+      cashmere: '#A08E7E',
+      deep: '#827060',
+      charcoal: '#26211E',
+      dark: '#181513'
     },
     gold: {
-      champagne: '#F5D485',
-      light: '#FBE29D',
-      dark: '#D4A346',
-      sun: '#E9C46A'
-    },
-    cream: {
-      base: '#F2FAF5',
-      surface: '#FFFFFF',
-      warmMuted: '#E6F5EC',
-      darker: '#D1ECDD'
+      champagne: '#D8C8B4',
+      light: '#FAF4EC',
+      sun: '#C5A059',
+      dark: '#9E7E38'
     },
     espresso: {
-      black: '#04160F',
-      cardDark: '#082C1E',
-      bodyText: '#143527'
+      black: '#181513',
+      charcoal: '#26211E',
+      cardDark: '#2A2421',
+      bodyText: '#52453B'
     }
   },
   logoConcepts: [
     {
-      id: 'emerald-orbit',
-      title: 'Emerald Orbit',
-      description: 'A glossy 3D emerald sphere wrapped in champagne gold orbital rings with glowing digital satellites.',
+      id: 'ivory-taupe-pearl',
+      title: 'Ivory & Taupe Silk Pearl',
+      description: 'A glossy liquid champagne pearl sphere wrapped in polished brass orbital rings with charcoal-taupe digital satellites.',
       badge: 'Brand Identity Primary',
-      gradient: 'from-[#00DF82] via-[#059669] to-[#F5D485]'
+      gradient: 'from-[#F7F4EE] via-[#B29F8D] to-[#26211E]'
     },
     {
-      id: 'golden-horizon',
-      title: 'Golden Horizon',
-      description: 'Champagne gold gradient curves reflecting across deep obsidian emerald dark space.',
+      id: 'cashmere-horizon',
+      title: 'Cashmere Horizon',
+      description: 'Warm taupe and ivory silk curves reflecting across deep velvet charcoal-taupe space.',
       badge: 'Welcome Card',
-      gradient: 'from-[#FBE29D] to-[#D4A346]'
+      gradient: 'from-[#B29F8D] to-[#26211E]'
     },
     {
-      id: 'neon-mint-pulse',
-      title: 'Neon Mint Pulse',
-      description: 'Vibrant spring mint beacon with soft frosted glass reflections and dark obsidian depth.',
+      id: 'champagne-brass-orbit',
+      title: 'Champagne Brass Orbit',
+      description: 'Polished metallic brass and silk ivory beacons with soft frosted glass reflections.',
       badge: 'Digital Favicon',
-      gradient: 'from-[#00FF87] to-[#10B981]'
+      gradient: 'from-[#D8C8B4] to-[#827060]'
     }
   ]
 };
+
+export const CoreCodeX_THEME = PIXELIX_THEME;
+export const CORECODEX_THEME = PIXELIX_THEME;
+export default PIXELIX_THEME;

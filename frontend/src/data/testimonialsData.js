@@ -55,7 +55,7 @@ export const TESTIMONIALS_DATA = {
       metric: '+380% Monthly Orders',
       serviceUsed: 'Amazon & Meesho Retainer + Listing',
       review:
-        'Pixelix completely turned around our Amazon & Meesho accounts. Our cataloging was messy and returns were above 32%. Their operations team rebuilt our listings with A+ Content, optimized logistics via Shiprocket, and cut our RTO to 14%. Within 45 days, our daily dispatches jumped from 20 to 110+ orders.'
+        'CoreCodeX completely turned around our Amazon & Meesho accounts. Our cataloging was messy and returns were above 32%. Their operations team rebuilt our listings with A+ Content, optimized logistics via Shiprocket, and cut our RTO to 14%. Within 45 days, our daily dispatches jumped from 20 to 110+ orders.'
     },
     {
       id: 'ecom-2',
@@ -69,7 +69,7 @@ export const TESTIMONIALS_DATA = {
       metric: '₹38L Monthly GMV',
       serviceUsed: 'Cataloging & Returns Management',
       review:
-        'We struggled with Amazon category ungating and Safe-T claims for months. Vikas and his operations team resolved all compliance issues in one week and recovered ₹1.8 Lakhs in SPF claims. Truly the most reliable and hands-on e-commerce partner in India.'
+        'We struggled with Amazon category ungating and Safe-T claims for months. Sahil and his operations team resolved all compliance issues in one week and recovered ₹1.8 Lakhs in SPF claims. Truly the most reliable and hands-on e-commerce partner in India.'
     },
     {
       id: 'ecom-3',
@@ -83,7 +83,7 @@ export const TESTIMONIALS_DATA = {
       metric: '4.8★ Brand Store Rating',
       serviceUsed: 'Dispatch & Logistics + Multi-Channel',
       review:
-        'From parent-child SKU variations to Blinkit quick-commerce listing and Shiprocket multi-courier manifest, Pixelix runs our operations like clockwork. Our festival sale (BBD & GIF) broke all previous revenue records with zero late dispatch penalties.'
+        'From parent-child SKU variations to Blinkit quick-commerce listing and Shiprocket multi-courier manifest, CoreCodeX runs our operations like clockwork. Our festival sale (BBD & GIF) broke all previous revenue records with zero late dispatch penalties.'
     },
     {
       id: 'ecom-4',
@@ -111,7 +111,7 @@ export const TESTIMONIALS_DATA = {
       metric: '-42% Return RTO Rate',
       serviceUsed: 'Order Creation & RTO Reduction',
       review:
-        'Their automated NDR calling and address verification system stopped fraudulent COD orders right at checkout. Pixelix saved us lakhs of rupees in courier freight charges alone in just the first quarter.'
+        'Their automated NDR calling and address verification system stopped fraudulent COD orders right at checkout. CoreCodeX saved us lakhs of rupees in courier freight charges alone in just the first quarter.'
     }
   ],
 
@@ -128,7 +128,7 @@ export const TESTIMONIALS_DATA = {
       metric: '99.98% Uptime / 0.8s Load',
       serviceUsed: 'Full-Stack Web Dev & 3D Interactive',
       review:
-        'We needed a high-performance web dashboard with real-time analytics and interactive 3D elements. Pixelix engineered the entire platform using React, Node.js, and Three.js ahead of deadline. Code architecture is enterprise-grade, clean, and scalable.'
+        'We needed a high-performance web dashboard with real-time analytics and interactive 3D elements. CoreCodeX engineered the entire platform using React, Node.js, and Three.js ahead of deadline. Code architecture is enterprise-grade, clean, and scalable.'
     },
     {
       id: 'web-2',
@@ -142,7 +142,7 @@ export const TESTIMONIALS_DATA = {
       metric: '45,000+ App Downloads',
       serviceUsed: 'Cross-Platform Mobile App (iOS/Android)',
       review:
-        'Pixelix built both our iOS and Android telemedicine apps with secure doctor appointment booking, Razorpay integration, and automated WhatsApp patient reminders. Flawless execution and patient feedback has been overwhelming.'
+        'CoreCodeX built both our iOS and Android telemedicine apps with secure doctor appointment booking, Razorpay integration, and automated WhatsApp patient reminders. Flawless execution and patient feedback has been overwhelming.'
     },
     {
       id: 'web-3',
@@ -156,7 +156,7 @@ export const TESTIMONIALS_DATA = {
       metric: '+240% Lead Conversion',
       serviceUsed: 'Custom Web Portal & Speed Optimization',
       review:
-        'Our real estate portal was sluggish on mobile. The Pixelix dev team restructured our frontend, added 360-degree virtual tour widgets, and our conversion rate from property inquiries doubled in just 3 weeks.'
+        'Our real estate portal was sluggish on mobile. The CoreCodeX dev team restructured our frontend, added 360-degree virtual tour widgets, and our conversion rate from property inquiries doubled in just 3 weeks.'
     },
     {
       id: 'web-4',
@@ -201,7 +201,7 @@ export const TESTIMONIALS_DATA = {
       metric: '5 Full Vector Logos Delivered',
       serviceUsed: '5 Custom Vector Logos & Full Identity Kit',
       review:
-        'We were blown away by the 5 distinct logo concepts Pixelix presented. They gave us deep royal terracotta, gold, and monogram options with full vector SVG masters, print guidelines, and signage mockups. Pure art and precision.'
+        'We were blown away by the 5 distinct logo concepts CoreCodeX presented. They gave us deep royal terracotta, gold, and monogram options with full vector SVG masters, print guidelines, and signage mockups. Pure art and precision.'
     },
     {
       id: 'brand-2',
@@ -215,7 +215,7 @@ export const TESTIMONIALS_DATA = {
       metric: 'Complete Packaging in 10 Days',
       serviceUsed: 'Packaging Design & Brand Guidelines',
       review:
-        'Designing food packaging that complies with FSSAI standards while looking modern on retail shelves is tough. Pixelix nailed our pouches, bottles, and gift boxes. Our brand now commands premium pricing in organic supermarkets.'
+        'Designing food packaging that complies with FSSAI standards while looking modern on retail shelves is tough. CoreCodeX nailed our pouches, bottles, and gift boxes. Our brand now commands premium pricing in organic supermarkets.'
     },
     {
       id: 'brand-3',
@@ -229,7 +229,7 @@ export const TESTIMONIALS_DATA = {
       metric: '12 Cloud Outlets Branded',
       serviceUsed: 'Brand Identity & Print Collaterals',
       review:
-        'Pixelix delivered our logo, menu flyers, delivery box packaging, and social templates in less than 2 weeks. Consistent branding helped us open 12 cloud kitchen outlets in Hyderabad and Bengaluru effortlessly.'
+        'CoreCodeX delivered our logo, menu flyers, delivery box packaging, and social templates in less than 2 weeks. Consistent branding helped us open 12 cloud kitchen outlets in Hyderabad and Bengaluru effortlessly.'
     },
     {
       id: 'brand-4',
@@ -257,7 +257,7 @@ export const TESTIMONIALS_DATA = {
       metric: '100% Vector Scalability',
       serviceUsed: 'Corporate Identity & Vector System',
       review:
-        'Professional, authoritative, and clean corporate identity. From our letterheads to our office brass signboards, the vector files scaled flawlessly. Vikas Chauhan gave exceptional personal attention.'
+        'Professional, authoritative, and clean corporate identity. From our letterheads to our office brass signboards, the vector files scaled flawlessly. Sahil Prasad gave exceptional personal attention.'
     }
   ],
 
@@ -274,7 +274,7 @@ export const TESTIMONIALS_DATA = {
       metric: '82% Auto-Qualified Leads',
       serviceUsed: 'WhatsApp AI Agent & Lead Automation',
       review:
-        'Our counseling team was drowning in 600+ student queries daily. Pixelix deployed an intelligent WhatsApp AI agent trained on our courses and fee structure. It qualifies leads 24/7 and books counselor appointments automatically.'
+        'Our counseling team was drowning in 600+ student queries daily. CoreCodeX deployed an intelligent WhatsApp AI agent trained on our courses and fee structure. It qualifies leads 24/7 and books counselor appointments automatically.'
     },
     {
       id: 'ai-2',
@@ -316,7 +316,7 @@ export const TESTIMONIALS_DATA = {
       metric: '94% Query Resolution Rate',
       serviceUsed: 'Custom Enterprise AI Integration',
       review:
-        'Pixelix trained a custom internal AI agent on our company’s technical textile manuals and export standards. Our sales team gets instant answers on fabric specs during client negotiations.'
+        'CoreCodeX trained a custom internal AI agent on our company’s technical textile manuals and export standards. Our sales team gets instant answers on fabric specs during client negotiations.'
     },
     {
       id: 'ai-5',
@@ -347,7 +347,7 @@ export const TESTIMONIALS_DATA = {
       metric: '+520% Local Search Footfall',
       serviceUsed: 'Festive Omnichannel Campaign & Print',
       review:
-        'Pixelix handled our Diwali festive campaign across Google Ads, Instagram, and printed showroom flyers. We witnessed the highest showroom footfall in our 18-year family business history.'
+        'CoreCodeX handled our Diwali festive campaign across Google Ads, Instagram, and printed showroom flyers. We witnessed the highest showroom footfall in our 18-year family business history.'
     },
     {
       id: 'growth-2',
@@ -389,7 +389,7 @@ export const TESTIMONIALS_DATA = {
       metric: '4.5x Return on Ad Spend',
       serviceUsed: 'Ad Campaigns & Retainer Management',
       review:
-        'They don’t just post random graphics; they understand buyer psychology. Every creative has a strong hook, clear USP, and direct WhatsApp CTA. Vikas & Shubham are genuine growth partners.'
+        'They don’t just post random graphics; they understand buyer psychology. Every creative has a strong hook, clear USP, and direct WhatsApp CTA. Sahil Prasad and the CoreCodeX team are genuine growth partners.'
     },
     {
       id: 'growth-5',
@@ -403,7 +403,7 @@ export const TESTIMONIALS_DATA = {
       metric: '+185% Repeat Customer Rate',
       serviceUsed: 'Content Systems & Customer Retention',
       review:
-        'From social storytelling to email newsletters and packaging inserts, Pixelix built a loyal customer base for our organic snacks. Highly recommended for any consumer brand looking for real growth.'
+        'From social storytelling to email newsletters and packaging inserts, CoreCodeX built a loyal customer base for our organic snacks. Highly recommended for any consumer brand looking for real growth.'
     }
   ]
 };
@@ -438,4 +438,5 @@ export function getAllTestimonials() {
     ...TESTIMONIALS_DATA['growth-marketing']
   ];
 }
+
 

@@ -4,15 +4,15 @@
 
 @layer base {
   body {
-    background-color: #F2FAF5;
-    color: #04160F;
+    background-color: #F7F4EE;
+    color: #26211E;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   .dark body, body.dark, html.dark body {
-    background-color: #02140D;
-    color: #F2FAF5;
+    background-color: #181513;
+    color: #F7F4EE;
   }
 
   h1, h2, h3, h4, h5, h6 {

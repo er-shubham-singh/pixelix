@@ -8,86 +8,109 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Luxury Mint & Emerald (Matches Pixelix tech & creative brand)
+        // Luxury 10 Ivory & Taupe Palette
+        ivory: {
+          50: '#FAF8F5',
+          100: '#F7F4EE',
+          200: '#EFECE5',
+          300: '#E2DDD4',
+          400: '#CFBFA8',
+          500: '#B29F8D',
+          DEFAULT: '#F7F4EE'
+        },
+        taupe: {
+          50: '#F7F5F2',
+          100: '#EAE5E0',
+          200: '#D8CFC6',
+          300: '#BFAFA2',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D'
+        },
         terracotta: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          300: '#86EFAC',
-          400: '#4ADE80',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
-          950: '#022C22',
-          DEFAULT: '#10B981',
-          neon: '#00FF87',
-          mint: '#00DF82'
+          50: '#FAF8F5',
+          100: '#F5F1E9',
+          200: '#EAE5E0',
+          300: '#D8CFC6',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D',
+          neon: '#D8C8B4',
+          mint: '#C7B9A4'
         },
         emerald: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          300: '#86EFAC',
-          400: '#4ADE80',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
-          950: '#022C22',
-          DEFAULT: '#10B981',
-          neon: '#00FF87',
-          mint: '#00DF82'
+          50: '#FAF8F5',
+          100: '#F5F1E9',
+          200: '#EAE5E0',
+          300: '#D8CFC6',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D',
+          neon: '#D8C8B4',
+          mint: '#C7B9A4'
         },
-        // Champagne Gold (Matches buttons & orbital highlights from images)
+        // Champagne Gold & Brass
         gold: {
-          light: '#FDF6E2',
-          DEFAULT: '#F5D485',
-          dark: '#C89B3C',
-          sun: '#FBE29D',
-          champagne: '#F5D485',
-          deep: '#D4A346'
+          light: '#FAF4EC',
+          DEFAULT: '#C5A059',
+          dark: '#9E7E38',
+          sun: '#D4AF37',
+          champagne: '#D8C8B4',
+          deep: '#A68341'
         },
         sunset: {
-          light: '#BBF7D0',
-          DEFAULT: '#00DF82',
-          dark: '#059669',
-          glow: 'rgba(0, 223, 130, 0.35)'
+          light: '#EAE5E0',
+          DEFAULT: '#26211E',
+          dark: '#181513',
+          glow: 'rgba(38, 33, 30, 0.25)'
         },
         sage: {
-          light: '#E6F4EA',
-          DEFAULT: '#10B981',
-          dark: '#047857'
+          light: '#EFECE5',
+          DEFAULT: '#A08E7E',
+          dark: '#827060'
         },
-        // Soft Mint Cream for Light Mode
+        // Soft Silk Ivory Cream for Light Mode
         cream: {
-          50: '#F2FAF5',
-          100: '#E6F5EC',
-          200: '#D1ECDD',
-          300: '#B2DFC6',
-          400: '#8CCEA9',
-          DEFAULT: '#F2FAF5'
+          50: '#FAF8F5',
+          100: '#F7F4EE',
+          200: '#EFECE5',
+          300: '#E2DDD4',
+          400: '#CFBFA8',
+          DEFAULT: '#F7F4EE'
         },
-        // High Contrast Deep Forest for Text in Light Mode
+        // High Contrast Warm Charcoal Taupe / Espresso
         espresso: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          700: '#143527',
-          800: '#0B251A',
-          900: '#04160F',
-          950: '#020B07',
-          DEFAULT: '#04160F'
+          50: '#FAF8F5',
+          100: '#EAE5E0',
+          200: '#D8CFC6',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#26211E'
         },
-        // Luxury Obsidian Emerald Dark Mode (From reference screenshot)
+        // Luxury Velvet Espresso-Taupe Noir Dark Mode
         darkbg: {
-          base: '#02140D',     // deep obsidian emerald
-          surface: '#052015',  // dark emerald surface
-          card: '#082C1E',     // emerald glass card base
-          border: 'rgba(0, 223, 130, 0.16)', // subtle luminous green border
-          elevated: '#0D3827'  // elevated emerald section
+          base: '#181513',     // deep velvet taupe-charcoal
+          surface: '#231F1C',  // elevated dark taupe surface
+          card: '#2A2421',     // taupe glass card base
+          border: 'rgba(199, 185, 164, 0.16)', // subtle champagne silk border
+          elevated: '#342D28'  // elevated section
         }
       },
       fontFamily: {
@@ -95,16 +118,16 @@ export default {
         display: ['Outfit', 'sans-serif']
       },
       boxShadow: {
-        'sunset': '0 20px 40px -15px rgba(0, 223, 130, 0.25)',
-        'sunset-lg': '0 25px 50px -12px rgba(0, 223, 130, 0.35)',
-        'gold': '0 20px 40px -15px rgba(245, 212, 133, 0.3)',
-        'gold-lg': '0 25px 50px -12px rgba(245, 212, 133, 0.45)',
-        'glass': '0 8px 32px 0 rgba(0, 223, 130, 0.08)',
-        'soft': '0 10px 30px -5px rgba(2, 20, 13, 0.25)',
-        '3d': '0 30px 60px -15px rgba(0, 223, 130, 0.25), 0 0 25px rgba(245, 212, 133, 0.2)',
-        'glow-dark': '0 0 30px rgba(0, 223, 130, 0.25)',
-        'glow-emerald': '0 0 25px rgba(0, 223, 130, 0.35)',
-        'glow-gold': '0 0 25px rgba(245, 212, 133, 0.35)'
+        'sunset': '0 20px 40px -15px rgba(38, 33, 30, 0.25)',
+        'sunset-lg': '0 25px 50px -12px rgba(38, 33, 30, 0.35)',
+        'gold': '0 20px 40px -15px rgba(178, 159, 141, 0.25)',
+        'gold-lg': '0 25px 50px -12px rgba(178, 159, 141, 0.4)',
+        'glass': '0 8px 32px 0 rgba(38, 33, 30, 0.06)',
+        'soft': '0 10px 30px -5px rgba(38, 33, 30, 0.08)',
+        '3d': '0 30px 60px -15px rgba(38, 33, 30, 0.2), 0 0 25px rgba(216, 200, 180, 0.2)',
+        'glow-dark': '0 0 30px rgba(199, 185, 164, 0.2)',
+        'glow-emerald': '0 0 25px rgba(178, 159, 141, 0.3)',
+        'glow-gold': '0 0 25px rgba(216, 200, 180, 0.35)'
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',

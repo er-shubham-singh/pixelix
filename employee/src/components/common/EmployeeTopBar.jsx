@@ -39,7 +39,7 @@ export default function EmployeeTopBar({
     profile: { name: 'My Profile & Account', path: 'Company & Info / Personnel Details' }
   };
 
-  const currentTabInfo = tabTitles[activeTab] || { name: 'Employee Workspace', path: 'Pixelix Team' };
+  const currentTabInfo = tabTitles[activeTab] || { name: 'Employee Workspace', path: 'CoreCodeX Team' };
 
   return (
     <header className="sticky top-0 z-30 bg-white/80 dark:bg-darkbg-surface/80 backdrop-blur-md border-b border-cream-200 dark:border-darkbg-border h-16 transition-colors duration-300">
@@ -135,4 +135,5 @@ export default function EmployeeTopBar({
     </header>
   );
 }
+
 

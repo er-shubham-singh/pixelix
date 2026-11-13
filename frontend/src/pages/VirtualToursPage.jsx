@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Badge from '../components/common/Badge';
-import PixelixLoader from '../components/common/PixelixLoader';
+import CoreCodeXLoader from '../components/common/CoreCodeXLoader';
 import {
   Compass,
   Eye,
@@ -175,7 +175,7 @@ export default function VirtualToursPage() {
             Virtual 3D Site & Property Tours
           </h1>
           <p className="text-sm sm:text-base text-espresso-700 dark:text-cream-300 leading-relaxed max-w-2xl mx-auto">
-            Pixelix designs interactive 3D property walkthroughs, 360° model flat panoramas, and commercial architectural visualizations that accelerate pre-launch real estate sales.
+            CoreCodeX designs interactive 3D property walkthroughs, 360° model flat panoramas, and commercial architectural visualizations that accelerate pre-launch real estate sales.
           </p>
 
           {/* Category Filter Pills */}
@@ -344,10 +344,10 @@ export default function VirtualToursPage() {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center p-8">
-                  <PixelixLoader
+                  <CoreCodeXLoader
                     variant="card"
                     size="md"
-                    text="Connecting to Pixelix 3D Cloud Render"
+                    text="Connecting to CoreCodeX 3D Cloud Render"
                     subtext="Streaming high-fidelity real-time architectural environment..."
                   />
                 </div>
@@ -469,4 +469,5 @@ export default function VirtualToursPage() {
     </div>
   );
 }
+
 

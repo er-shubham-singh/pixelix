@@ -16,7 +16,7 @@ export async function submitInquiry(inquiryData) {
   // Graceful client simulation if backend is temporarily unreachable
   return {
     success: true,
-    message: 'Thank you! Your project request has been recorded. Vikas & Shubham will connect with you within 24 hours.'
+    message: 'Thank you! Your project request has been recorded. Sahil Prasad will connect with you within 24 hours.'
   };
 }
 
@@ -35,6 +35,6 @@ export async function subscribeNewsletter(email) {
 
   return {
     success: true,
-    message: 'Thank you! You have been subscribed to Pixelix growth updates.'
+    message: 'Thank you! You have been subscribed to CoreCodeX growth updates.'
   };
 }

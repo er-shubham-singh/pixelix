@@ -4,7 +4,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [themeMode, setThemeMode] = useState(() => {
-    return localStorage.getItem('pixelix_theme_mode') || 'dark';
+    return localStorage.getItem('pixelix_theme_mode') || 'normal';
   });
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }) => {
     // Synchronize Chrome browser tab favicon with active theme
     const favicon = document.querySelector("link[rel*='icon']");
     if (favicon) {
-      favicon.href = themeMode === 'dark' ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+      favicon.href = '/corecodexlogo.png';
     }
   }, [themeMode]);
 

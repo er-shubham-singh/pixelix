@@ -6,7 +6,7 @@ export const initialServices = [
     category: 'digital-products',
     shortDescription: 'High-performance, bespoke web platforms engineered for lightning speed, modern conversions, and brand elevation.',
     shortDescriptionHi: 'आपके बिज़नेस के लिए तेज़, रिस्पॉन्सिव और आधुनिक वेबसाइट।',
-    fullDescription: 'Pixelix designs and develops custom digital storefronts and web experiences that merge architectural precision with warm, tactile branding. Built on modern stacks like Vite, React, Next.js, and Node.js with responsive layouts, accessible UI, and peak performance.',
+    fullDescription: 'CoreCodeX designs and develops custom digital storefronts and web experiences that merge architectural precision with warm, tactile branding. Built on modern stacks like Vite, React, Next.js, and Node.js with responsive layouts, accessible UI, and peak performance.',
     badge: 'Core Service',
     iconName: 'Globe',
     deliverables: [
@@ -87,7 +87,7 @@ export const initialServices = [
     category: 'digital-products',
     shortDescription: 'Connect cutting-edge Large Language Models and intelligent workflow pipelines directly into your operational stack.',
     shortDescriptionHi: 'स्मार्ट AI मॉडल और ऑटोमेशन के साथ अपने बिज़नेस को आगे बढ़ाएं।',
-    fullDescription: 'Supercharge your daily operations with custom AI integrations. From semantic document processing and automatic catalog tag generation to predictive recommendations and customized internal knowledge agents, Pixelix makes AI practical, measurable, and reliable.',
+    fullDescription: 'Supercharge your daily operations with custom AI integrations. From semantic document processing and automatic catalog tag generation to predictive recommendations and customized internal knowledge agents, CoreCodeX makes AI practical, measurable, and reliable.',
     badge: 'Next-Gen',
     iconName: 'Cpu',
     deliverables: [
@@ -125,7 +125,7 @@ export const initialServices = [
     category: 'digital-products',
     shortDescription: '24/7 autonomous customer care, lead qualification, and WhatsApp / Web conversational assistants.',
     shortDescriptionHi: '24/7 ग्राहकों की मदद और लीड्स हासिल करने वाले स्मार्ट चैटबॉट।',
-    fullDescription: 'Never lose another midnight lead or support ticket. Pixelix builds conversational AI assistants that understand bilingual vernaculars, answer complex business questions accurately, book appointments, and hand off smoothly to human operators when needed.',
+    fullDescription: 'Never lose another midnight lead or support ticket. CoreCodeX builds conversational AI assistants that understand bilingual vernaculars, answer complex business questions accurately, book appointments, and hand off smoothly to human operators when needed.',
     badge: 'High Conversion',
     iconName: 'MessageSquareCode',
     deliverables: [
@@ -278,7 +278,7 @@ export const initialServices = [
     category: 'product-visuals',
     shortDescription: 'Background removal, clean cut-outs, color correction, high-resolution upscaling, lifestyle visuals, and packaging specs.',
     shortDescriptionHi: 'प्रोडक्ट को बेहतर दिखाने वाले एडिटेड इमेज, क्लीन कट-आउट और लाइफस्टाइल विजुअल्स।',
-    fullDescription: 'High-converting e-commerce starts with visuals that inspire trust. Pixelix provides studio-grade background removal, ultra-clean shadow generation, precise color matching, sharp callout infographics, and lifestyle 3D renders that showcase products in real-world environments.',
+    fullDescription: 'High-converting e-commerce starts with visuals that inspire trust. CoreCodeX provides studio-grade background removal, ultra-clean shadow generation, precise color matching, sharp callout infographics, and lifestyle 3D renders that showcase products in real-world environments.',
     badge: 'Studio Precision',
     iconName: 'Image',
     deliverables: [
@@ -354,7 +354,7 @@ export const initialServices = [
     category: 'content-systems',
     shortDescription: 'Social media posts, Facebook covers, profile graphics, and campaign creatives that keep your brand consistently active.',
     shortDescriptionHi: 'कंटेंट जो ब्रांड को एक्टिव रखे — सोशल मीडिया पोस्ट, फेसबुक कवर और प्रोफाइल ग्राफिक्स।',
-    fullDescription: 'Consistent presence is the key to digital dominance. Pixelix builds repeatable content engines: bespoke social post templates, dynamic carousel graphics, eye-catching profile covers, and campaign banners ready for weekly distribution.',
+    fullDescription: 'Consistent presence is the key to digital dominance. CoreCodeX builds repeatable content engines: bespoke social post templates, dynamic carousel graphics, eye-catching profile covers, and campaign banners ready for weekly distribution.',
     badge: '5 Social Creative PDFs Deliverable',
     iconName: 'Share2',
     deliverables: [
@@ -392,7 +392,7 @@ export const initialServices = [
     category: 'ecom-operations',
     shortDescription: 'High-speed multi-channel order capture, automated GST invoice generation, packaging slip printing, and SKU mapping across Amazon, Flipkart, Meesho & Shopify.',
     shortDescriptionHi: 'अमेज़न, फ्लिपकार्ट, मीशो और शॉपिफाई के लिए सटीक और तेज़ ऑर्डर प्रोसेसिंग।',
-    fullDescription: 'Pixelix manages your daily e-commerce order flow from the moment a customer clicks Buy to the final pack. We handle bulk order fetching, batch GST tax invoice generation, shipping label printing, SKU bundling, address validation, and marketplace status confirmation with zero fulfillment delays.',
+    fullDescription: 'CoreCodeX manages your daily e-commerce order flow from the moment a customer clicks Buy to the final pack. We handle bulk order fetching, batch GST tax invoice generation, shipping label printing, SKU bundling, address validation, and marketplace status confirmation with zero fulfillment delays.',
     badge: 'E-Com Core',
     iconName: 'PackageCheck',
     deliverables: [
@@ -478,7 +478,7 @@ export const initialServices = [
     category: 'ecom-operations',
     shortDescription: 'Warehouse packaging coordination, multi-courier partner allocation, manifest creation, SLA-driven pickup handover, and transit tracking.',
     shortDescriptionHi: 'समय पर सुरक्षित पैकिंग, कूरियर हैंडओवर और रियल-टाइम ट्रैकिंग।',
-    fullDescription: 'Pixelix ensures your packed orders leave the warehouse swiftly, securely, and strictly within marketplace shipping SLAs. We coordinate multi-courier partner allocations, automate manifest generation, monitor carrier pickup handoffs, and proactively track parcels to deliver stellar customer satisfaction and 99.8%+ on-time dispatch metrics.',
+    fullDescription: 'CoreCodeX ensures your packed orders leave the warehouse swiftly, securely, and strictly within marketplace shipping SLAs. We coordinate multi-courier partner allocations, automate manifest generation, monitor carrier pickup handoffs, and proactively track parcels to deliver stellar customer satisfaction and 99.8%+ on-time dispatch metrics.',
     badge: 'Operational SLA',
     iconName: 'Truck',
     deliverables: [
@@ -521,7 +521,7 @@ export const initialServices = [
     category: 'ecom-operations',
     shortDescription: 'Aggressive RTO reduction strategies, physical returns unboxing audit, and recovery of lost/damaged funds via Amazon Safe-T and Flipkart SPF claims.',
     shortDescriptionHi: 'RTO नुकसान कम करें और डैमेज पार्सल पर शत-प्रतिशत क्लेम रिकवरी पाएं।',
-    fullDescription: 'Unmonitored returns and RTOs (Return to Origin) drain e-commerce profitability. Pixelix deploys automated NDR IVR/WhatsApp customer verification to save in-transit deliveries, runs a meticulous return inspection audit with video/photo evidence upon arrival, and relentlessly files Safe-T claims and SPF claims to recover money for damaged or switched inventory.',
+    fullDescription: 'Unmonitored returns and RTOs (Return to Origin) drain e-commerce profitability. CoreCodeX deploys automated NDR IVR/WhatsApp customer verification to save in-transit deliveries, runs a meticulous return inspection audit with video/photo evidence upon arrival, and relentlessly files Safe-T claims and SPF claims to recover money for damaged or switched inventory.',
     badge: 'Profit Recovery',
     iconName: 'RotateCcw',
     deliverables: [
@@ -564,7 +564,7 @@ export const initialServices = [
     category: 'ecom-operations',
     shortDescription: 'Centralized multi-channel stock allocation across FBA, Flipkart Assured/Lite, Meesho, and self-ship warehouses to prevent stockouts and high cancel penalties.',
     shortDescriptionHi: 'मल्टी-प्लेटफ़ॉर्म स्टॉक सिंक, FBA इनबाउंडिंग और स्टॉकआउट रोकथाम।',
-    fullDescription: 'Stop overselling and out-of-stock cancellations. Pixelix synchronizes your inventory pool across Amazon, Flipkart, Meesho, Shopify, and local hubs in real time. We manage low-stock threshold alerts, forecast seasonal reorder quantities, create FBA/Fulfillment Center inbounds, and optimize stock velocity across all regional nodes.',
+    fullDescription: 'Stop overselling and out-of-stock cancellations. CoreCodeX synchronizes your inventory pool across Amazon, Flipkart, Meesho, Shopify, and local hubs in real time. We manage low-stock threshold alerts, forecast seasonal reorder quantities, create FBA/Fulfillment Center inbounds, and optimize stock velocity across all regional nodes.',
     badge: 'Stock Protection',
     iconName: 'Boxes',
     deliverables: [
@@ -607,7 +607,7 @@ export const initialServices = [
     category: 'marketplace-growth',
     shortDescription: 'Dedicated operational team managing daily seller central health, Buy Box retention, festival promotion campaigns, and aggressive sales growth.',
     shortDescriptionHi: 'अमेज़न, फ्लिपकार्ट और मीशो पर आपके ब्रांड का सम्पूर्ण दैनिक संचालन और ग्रोथ।',
-    fullDescription: 'Focus on manufacturing and product sourcing while Pixelix runs your complete e-commerce enterprise. From maintaining green account health metrics (ODR, LSR, VTR) and winning the Buy Box to managing festival mega-sales (Great Indian Festival, Big Billion Days) and running precision PPC ad campaigns, we are your dedicated digital commerce workforce.',
+    fullDescription: 'Focus on manufacturing and product sourcing while CoreCodeX runs your complete e-commerce enterprise. From maintaining green account health metrics (ODR, LSR, VTR) and winning the Buy Box to managing festival mega-sales (Great Indian Festival, Big Billion Days) and running precision PPC ad campaigns, we are your dedicated digital commerce workforce.',
     badge: 'Flagship Retainer',
     iconName: 'Store',
     deliverables: [
@@ -694,3 +694,4 @@ export const initialProjects = [
     featured: true
   }
 ];
+

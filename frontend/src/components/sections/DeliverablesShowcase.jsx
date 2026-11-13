@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import TerracottaOrbitCanvas from '../3d/TerracottaOrbitCanvas';
 import Floating3DCard from '../3d/Floating3DCard';
 import Badge from '../common/Badge';
-import { PIXELIX_THEME } from '../../config/theme';
+import { CoreCodeX_THEME } from '../../config/theme';
 import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function DeliverablesShowcase({ onOpenInquiry }) {
   const [selectedConcept, setSelectedConcept] = useState('sunset-pixel');
 
-  const activeThemeConcept = PIXELIX_THEME.logoConcepts.find(c => c.id === selectedConcept) || PIXELIX_THEME.logoConcepts[0];
+  const activeThemeConcept = CoreCodeX_THEME.logoConcepts.find(c => c.id === selectedConcept) || CoreCodeX_THEME.logoConcepts[0];
 
   const primaryDeliverables = [
     {
@@ -50,7 +50,7 @@ export default function DeliverablesShowcase({ onOpenInquiry }) {
             Clear, High-Resolution Deliverables You Own
           </h2>
           <p className="text-sm sm:text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Zero ambiguity. Pixelix provides concrete, production-ready vector assets, high-resolution PDFs, and marketplace kits.
+            Zero ambiguity. CoreCodeX provides concrete, production-ready vector assets, high-resolution PDFs, and marketplace kits.
           </p>
         </div>
 
@@ -116,11 +116,11 @@ export default function DeliverablesShowcase({ onOpenInquiry }) {
                 5 Distinct Visual Identifiers
               </h3>
               <p className="text-xs sm:text-sm text-espresso-700 dark:text-cream-300 leading-relaxed">
-                Explore the five curated brand identity directions defined in the Pixelix theme guide — from tactile terracotta sunsets to soft translucent glass.
+                Explore the five curated brand identity directions defined in the CoreCodeX theme guide — from tactile terracotta sunsets to soft translucent glass.
               </p>
 
               <div className="space-y-2 pt-2">
-                {PIXELIX_THEME.logoConcepts.map((concept) => (
+                {CoreCodeX_THEME.logoConcepts.map((concept) => (
                   <button
                     key={concept.id}
                     onClick={() => setSelectedConcept(concept.id)}
@@ -195,3 +195,4 @@ export default function DeliverablesShowcase({ onOpenInquiry }) {
     </section>
   );
 }
+

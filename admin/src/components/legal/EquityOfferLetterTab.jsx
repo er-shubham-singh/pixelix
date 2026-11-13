@@ -40,7 +40,7 @@ export default function EquityOfferLetterTab() {
 
   const handleCopyText = () => {
     const textToCopy = `
-PIXELIX
+CORECODEX
 CREATIVE PARTNER
 EQUITY PARTNERSHIP & STRATEGIC OWNERSHIP OFFER LETTER
 
@@ -52,15 +52,15 @@ ${recipientName}
 ${recipientAddress}
 ${recipientEmail}
 
-Subject: Formal Offer for 15% Equity Partnership in Pixelix
+Subject: Formal Offer for 15% Equity Partnership in CORECODEX
 
 Dear ${recipientName},
 
-On behalf of the founding team of Pixelix, we are pleased to formally offer you the opportunity to join our organization as a Strategic Equity Partner, with a proposed ownership interest of 15% in Pixelix, subject to definitive legal agreements.
+On behalf of the founding team of CORECODEX, we are pleased to formally offer you the opportunity to join our organization as a Strategic Equity Partner, with a proposed ownership interest of 15% in CORECODEX, subject to definitive legal agreements.
 
 PROPOSED OWNERSHIP: 15% (Fifteen Percent) of Fully Diluted Post-Issue Equity Share Capital.
 FOUNDERS / PROMOTERS:
-1. Vikas Chauhan (Founder) - Business vision & leadership
+1. Sahil Prasad (Founder) - Business vision & leadership
 2. Shubham Singh (Co-Founder) - Technology architecture & operations
 
 Proposed Vesting Framework: ${vestingSchedule}
@@ -68,8 +68,8 @@ Acceptance Deadline: ${deadlineDate}
 
 For full details, please refer to the attached formal offer instrument.
 
-Authorized Signatories for Pixelix:
-1. Vikas Chauhan (Founder)
+Authorized Signatories for CORECODEX:
+1. Sahil Prasad (Founder)
 2. Shubham Singh (Co-Founder)
     `.trim();
 
@@ -240,7 +240,7 @@ Authorized Signatories for Pixelix:
           <div className="flex flex-col gap-1">
             <img
               src="/light-mode-logo.png"
-              alt="Pixelix Logo"
+              alt="CORECODEX Logo"
               className="h-12 w-auto object-contain self-start"
             />
             <span className="text-[10px] font-black uppercase tracking-[0.25em] text-terracotta-600">
@@ -248,9 +248,9 @@ Authorized Signatories for Pixelix:
             </span>
           </div>
           <div className="text-left sm:text-right text-[11px] text-espresso-600 leading-tight space-y-0.5">
-            <div className="font-bold text-espresso-950">PIXELIX TECHNOLOGIES & CREATIVE AGENCY</div>
-            <div>Web: <strong className="text-espresso-900">pixelix.co.in</strong></div>
-            <div>Founders: Vikas (+91 7056063863) & Shubham (+91 95595 06650)</div>
+            <div className="font-bold text-espresso-950">CORECODEX TECHNOLOGIES & CREATIVE AGENCY</div>
+            <div>Web: <strong className="text-espresso-900">CORECODEX.co.in</strong></div>
+            <div>Founders: Sahil (+91 6354729042) & Shubham (+91 95595 06650)</div>
             <div className="text-espresso-500">Brand Identity • Web & AI • Marketplace Growth</div>
           </div>
         </div>
@@ -300,17 +300,17 @@ Authorized Signatories for Pixelix:
         {/* Subject & Salutation */}
         <div className="space-y-3 pt-2 text-xs leading-relaxed text-espresso-900">
           <p className="font-bold text-sm">
-            Subject: Formal Offer for 15% Equity Partnership in Pixelix
+            Subject: Formal Offer for 15% Equity Partnership in CORECODEX
           </p>
 
           <p>Dear {recipientName},</p>
 
           <p>
-            On behalf of the founding team of <strong>Pixelix</strong>, we are pleased to formally offer you the opportunity to join our organization as a <strong>Strategic Equity Partner</strong>, with a proposed ownership interest of <strong>15% in Pixelix</strong>, subject to the terms, conditions, corporate approvals and definitive legal agreements described in this letter.
+            On behalf of the founding team of <strong>CORECODEX</strong>, we are pleased to formally offer you the opportunity to join our organization as a <strong>Strategic Equity Partner</strong>, with a proposed ownership interest of <strong>15% in CORECODEX</strong>, subject to the terms, conditions, corporate approvals and definitive legal agreements described in this letter.
           </p>
 
           <p>
-            We believe that your skills, commitment, professional contribution and vision can play an important role in the long-term growth and development of Pixelix.
+            We believe that your skills, commitment, professional contribution and vision can play an important role in the long-term growth and development of CORECODEX.
           </p>
 
           <p>
@@ -342,10 +342,10 @@ Authorized Signatories for Pixelix:
         <div className="space-y-2 pt-2">
           <h3 className="font-black text-sm uppercase tracking-wide text-espresso-950 pb-1 border-b border-cream-300 flex items-center gap-1.5">
             <span className="w-5 h-5 rounded-md bg-terracotta-100 text-terracotta-700 font-mono text-xs flex items-center justify-center">1</span>
-            About Pixelix
+            About CORECODEX
           </h3>
           <p className="text-xs text-espresso-800 leading-relaxed">
-            Pixelix is a creative and digital solutions company focused on helping businesses establish their brand identity, strengthen their digital presence, improve business operations and achieve sustainable growth.
+            CORECODEX is a creative and digital solutions company focused on helping businesses establish their brand identity, strengthen their digital presence, improve business operations and achieve sustainable growth.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-espresso-700 pl-4 list-disc">
             <div>• Brand Identity & Creative Design</div>
@@ -369,7 +369,7 @@ Authorized Signatories for Pixelix:
           </h3>
           <div className="p-4 rounded-xl bg-cream-50 border border-cream-300 space-y-2 text-xs">
             <div>
-              <strong className="text-terracotta-700">Founder / Promoter 1: Vikas Chauhan</strong> — <em>Founder</em><br />
+              <strong className="text-terracotta-700">Founder / Promoter 1: Sahil Prasad</strong> — <em>Founder</em><br />
               <span className="text-espresso-600 text-[11px]">Responsibilities: Business vision, strategic planning, leadership, business development and organizational growth.</span>
             </div>
             <div>
@@ -433,7 +433,7 @@ Authorized Signatories for Pixelix:
           <div className="p-4 rounded-xl bg-cream-50 border border-cream-300 space-y-1.5">
             <h4 className="font-bold text-xs uppercase text-terracotta-700">8. Confidentiality & IP</h4>
             <p className="text-[11px] text-espresso-700 leading-relaxed">
-              Strict fiduciary duty regarding client data, source code, strategies, and trade secrets. All intellectual property vests exclusively in Pixelix.
+              Strict fiduciary duty regarding client data, source code, strategies, and trade secrets. All intellectual property vests exclusively in CORECODEX.
             </p>
           </div>
 
@@ -476,15 +476,15 @@ Authorized Signatories for Pixelix:
         {/* Signatures Block */}
         <div className="pt-6 border-t-2 border-espresso-900 space-y-4">
           <div className="text-[11px] font-bold uppercase tracking-wider text-espresso-600">
-            Authorized Signatories — For and on behalf of PIXELIX
+            Authorized Signatories — For and on behalf of CORECODEX
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Founder 1 */}
             <div className="p-4 rounded-xl bg-cream-50/80 border border-cream-300 space-y-2">
               <span className="text-[10px] font-black uppercase text-terracotta-600 block">Founder / Promoter 1</span>
-              <div className="font-black text-sm text-espresso-950">Vikas Chauhan</div>
-              <div className="text-[11px] text-espresso-500">Founder & Director, Pixelix</div>
+              <div className="font-black text-sm text-espresso-950">Sahil Prasad</div>
+              <div className="text-[11px] text-espresso-500">Founder & Director, CORECODEX</div>
               <div className="h-10 border-b border-dashed border-espresso-400"></div>
               <div className="text-[10px] text-espresso-600 flex justify-between">
                 <span>Signature</span>
@@ -496,7 +496,7 @@ Authorized Signatories for Pixelix:
             <div className="p-4 rounded-xl bg-cream-50/80 border border-cream-300 space-y-2">
               <span className="text-[10px] font-black uppercase text-terracotta-600 block">Co-Founder / Promoter 2</span>
               <div className="font-black text-sm text-espresso-950">Shubham Singh</div>
-              <div className="text-[11px] text-espresso-500">Co-Founder & Director, Pixelix</div>
+              <div className="text-[11px] text-espresso-500">Co-Founder & Director, CORECODEX</div>
               <div className="h-10 border-b border-dashed border-espresso-400"></div>
               <div className="text-[10px] text-espresso-600 flex justify-between">
                 <span>Signature</span>
@@ -538,7 +538,7 @@ Authorized Signatories for Pixelix:
         {/* Document Footer */}
         <div className="pt-4 border-t border-cream-300 flex items-center justify-between text-[10px] text-espresso-500">
           <div>
-            <strong>PIXELIX • CREATIVE PARTNER</strong> — Building Brands. Creating Opportunities. Growing Businesses.
+            <strong>CORECODEX • CREATIVE PARTNER</strong> — Building Brands. Creating Opportunities. Growing Businesses.
           </div>
           <div>
             Ref: {refNumber} • Private & Confidential
@@ -549,4 +549,5 @@ Authorized Signatories for Pixelix:
     </div>
   );
 }
+
 

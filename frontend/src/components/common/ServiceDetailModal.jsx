@@ -31,7 +31,7 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onBookSer
       isOpen={isOpen}
       onClose={onClose}
       title={service.title}
-      subtitle={service.badge || `${topicMeta.label} · Pixelix Production Suite`}
+      subtitle={service.badge || `${topicMeta.label} · CoreCodeX Production Suite`}
       maxWidth="max-w-4xl"
     >
       <div className="space-y-6 max-h-[78vh] overflow-y-auto pr-1 sm:pr-2">
@@ -171,30 +171,23 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onBookSer
             <div>
               <div className="text-xs font-bold text-espresso-900 dark:text-white flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-terracotta-500" />
-                <span>Speak Directly with Founders Vikas & Shubham</span>
+                <span>Speak Directly with Founder Sahil Prasad</span>
               </div>
               <p className="text-[11px] text-espresso-600 dark:text-cream-300 mt-0.5">
-                Zero sales pressure. Direct execution consultation for {service.title}.
+                Zero sales pressure. Direct execution consultation for {service.title} (Vadodara, Gujarat).
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 shrink-0">
               <a
                 href={CONTACT_INFO.founders[0].telHref}
-                className="px-3 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-1.5 shadow-2xs"
+                className="px-3.5 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-1.5 shadow-2xs"
               >
                 <Phone className="w-3.5 h-3.5 text-terracotta-500" />
-                <span>Vikas</span>
+                <span>Call Sahil</span>
               </a>
               <a
-                href={CONTACT_INFO.founders[1].telHref}
-                className="px-3 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-1.5 shadow-2xs"
-              >
-                <Phone className="w-3.5 h-3.5 text-terracotta-500" />
-                <span>Shubham</span>
-              </a>
-              <a
-                href={`https://wa.me/917056063863?text=Hi%20Pixelix,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`}
+                href={CONTACT_INFO.founders[0].whatsappHref}
                 target="_blank"
                 rel="noreferrer"
                 className="px-3.5 py-1.5 rounded-full bg-green-500 hover:bg-green-600 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs"
@@ -207,7 +200,7 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onBookSer
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
             <span className="text-xs text-espresso-500 dark:text-cream-400">
-              Deliverables backed by Pixelix 100% milestone guarantee.
+              Deliverables backed by CoreCodeX 100% milestone guarantee.
             </span>
 
             <button

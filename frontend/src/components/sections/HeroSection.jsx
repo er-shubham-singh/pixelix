@@ -20,56 +20,60 @@ import {
 export default function HeroSection({ onOpenInquiry }) {
   return (
     <section id="top" className="relative pt-16 sm:pt-20 md:pt-24 pb-6 sm:pb-8 overflow-hidden bg-warm-mesh">
-      {/* Decorative ambient emerald lighting beam (Inspired by reference visual) */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-emerald-500/25 via-teal-500/15 to-transparent blur-[120px] pointer-events-none -rotate-12" />
-      <div className="absolute top-1/4 -left-16 w-80 h-80 bg-emerald-600/15 dark:bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none" />
+      {/* Decorative ambient cashmere lighting beam (Ivory & Taupe Silk aesthetic) */}
+      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-gradient-to-bl from-[#D8C8B4]/25 via-[#B29F8D]/15 to-transparent blur-[120px] pointer-events-none -rotate-12" />
+      <div className="absolute top-1/4 -left-16 w-80 h-80 bg-[#B29F8D]/15 dark:bg-[#B29F8D]/10 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-10 items-center">
 
-          {/* Left Column: Clean, Spacious Typography & Primary CTAs (7 cols) */}
-          <div className="md:col-span-7 space-y-5 text-center md:text-left">
+          {/* Left Column: Clean, Spacious Typography & Primary CTAs (7 cols) - Rendered 2nd on mobile, 1st on desktop */}
+          <div className="order-2 md:order-1 md:col-span-7 space-y-5 text-center md:text-left">
 
             {/* Single Elegant Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full ios-glass-pill border border-emerald-500/20 shadow-xs">
-              <div className="flex text-amber-400">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full ios-glass-pill border border-[#D6CCC2]/70 dark:border-white/10 shadow-xs">
+              <div className="flex text-amber-500">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="text-[11px] font-bold text-espresso-900 dark:text-white">
+              <span className="text-[11px] font-bold text-espresso-900 dark:text-cream-100">
                 4.9 / 5.0 Rated · 85+ Brands Scaled
               </span>
-              <span className="w-1 h-1 rounded-full bg-emerald-400" />
-              <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
+              <span className="w-1 h-1 rounded-full bg-[#B29F8D]" />
+              <span className="text-[11px] text-[#827060] dark:text-[#C7B9A4] font-semibold">
                 Growth Partner
               </span>
             </div>
 
             {/* Main Heading with Balanced Line Heights */}
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-espresso-900 dark:text-white tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#26211E] dark:text-white tracking-tight leading-[1.15]">
               Creative & Digital Solutions <br className="hidden sm:inline" />
-              for <span className="text-gradient-sunset">Growing Businesses.</span>
+              for <span className="text-[#26211E] dark:text-cream-100">Growing Businesses.</span>
             </h1>
 
             {/* Concise, Scannable Subheading */}
-            <p className="text-sm sm:text-base lg:text-lg text-espresso-700/90 dark:text-cream-200/90 max-w-xl font-normal leading-relaxed mx-auto md:mx-0">
+            <p className="text-sm sm:text-base lg:text-lg text-espresso-800/90 dark:text-cream-200/90 max-w-xl font-normal leading-relaxed mx-auto md:mx-0">
               One creative partner for brand identity, high-converting marketplaces (Amazon, Flipkart, Meesho), and modern web & AI engineering — all under one roof.
             </p>
 
             {/* Clean Horizontal Proof Points */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs font-semibold text-espresso-800 dark:text-cream-200">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5 text-xs font-semibold text-espresso-800 dark:text-cream-200 max-w-lg mx-auto md:mx-0">
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
                 <span>5 Vector Logo Themes & Brand Kit</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
                 <span>Amazon, Flipkart & Meesho Operations</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
                 <span>Modern 3D Web & Mobile Apps</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <CheckCircle2 className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4] shrink-0" />
+                <span>AI Automation & Integrations</span>
               </div>
             </div>
 
@@ -77,7 +81,7 @@ export default function HeroSection({ onOpenInquiry }) {
             <div className="pt-1 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3.5">
               <button
                 onClick={onOpenInquiry}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-sm text-[#0A2016] bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_20px_rgba(245,212,133,0.3)] hover:shadow-[0_0_30px_rgba(245,212,133,0.5)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold text-sm text-white bg-[#26211E] hover:bg-[#3D332B] shadow-[0_4px_16px_rgba(38,33,30,0.25)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Start a Conversation Today</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -85,9 +89,9 @@ export default function HeroSection({ onOpenInquiry }) {
 
               <a
                 href="#services"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-sm text-espresso-800 dark:text-cream-100 ios-glass border border-emerald-500/30 hover:border-emerald-400/60 hover:bg-emerald-950/40 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-soft"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-sm text-[#26211E] dark:text-[#F7F4EE] bg-white/70 dark:bg-white/5 border border-[#D6CCC2] dark:border-white/15 hover:border-[#B29F8D] hover:bg-white dark:hover:bg-white/10 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
               >
-                <Compass className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
+                <Compass className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4]" />
                 <span>Explore All 16 Services</span>
               </a>
             </div>
@@ -96,69 +100,62 @@ export default function HeroSection({ onOpenInquiry }) {
             <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5">
               <a
                 href="#estimator"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#EDE7DD] dark:bg-darkbg-card text-[#5C5046] dark:text-[#D5C9BD] border border-[#DDD4C7] dark:border-white/10 hover:border-[#B29F8D] transition-colors"
               >
-                <Calculator className="w-3.5 h-3.5" />
+                <Calculator className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
                 <span>House Cost & Material Calculator (Bricks, Cement, Steel)</span>
               </a>
               <a
                 href="#virtual-tours"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-cream-100 dark:bg-darkbg-card text-espresso-700 dark:text-cream-300 border border-cream-200 dark:border-white/10 hover:border-emerald-400 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold bg-[#EDE7DD] dark:bg-darkbg-card text-[#5C5046] dark:text-[#D5C9BD] border border-[#DDD4C7] dark:border-white/10 hover:border-[#B29F8D] transition-colors"
               >
-                <Compass className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+                <Compass className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
                 <span>3D Virtual Tours & Walkthroughs</span>
               </a>
             </div>
 
             {/* Minimalist Founder Involvement Trust Link */}
-            <div className="flex items-center justify-center md:justify-start gap-2 text-xs text-espresso-600 dark:text-cream-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-espresso-700 dark:text-cream-400">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
               <span>Direct founder involvement:</span>
               <a
                 href={CONTACT_INFO.founders[0].telHref}
-                className="text-espresso-800 dark:text-cream-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold underline underline-offset-2"
+                className="text-espresso-900 dark:text-cream-200 hover:text-[#827060] dark:hover:text-[#D5C9BD] font-semibold underline underline-offset-2"
               >
-                Vikas Chauhan
+                Sahil Prasad
               </a>
-              <span>&</span>
-              <a
-                href={CONTACT_INFO.founders[1].telHref}
-                className="text-espresso-800 dark:text-cream-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold underline underline-offset-2"
-              >
-                Shubham Singh
-              </a>
+              <span className="text-[#827060] dark:text-[#C7B9A4]">({CONTACT_INFO.founders[0].phone} · Vadodara, Gujarat)</span>
             </div>
 
           </div>
 
-          {/* Right Column: 3D Ecosystem Hub with Floating Animated Service Chips (5 cols) */}
-          <div className="md:col-span-5 relative flex items-center justify-center py-2 sm:py-4">
+          {/* Right Column: 3D Ecosystem Hub with Floating Animated Service Chips (5 cols) - Rendered 1st on mobile, 2nd on desktop */}
+          <div className="order-1 md:order-2 md:col-span-5 relative flex items-center justify-center py-2 sm:py-4">
             <div className="relative w-full max-w-[320px] xs:max-w-[350px] sm:max-w-[380px] md:max-w-[420px] mx-auto">
 
               {/* Ambient radial glow */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/25 via-gold/15 to-transparent blur-3xl pointer-events-none" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#D8C8B4]/25 via-[#B29F8D]/15 to-transparent blur-3xl pointer-events-none" />
 
               {/* Connector lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40 dark:opacity-60 -z-5" viewBox="0 0 400 400" fill="none">
-                <line x1="80" y1="40" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="320" y1="50" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="30" y1="140" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="370" y1="180" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="40" y1="260" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="360" y1="290" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
-                <line x1="160" y1="370" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-emerald-400/40" />
+                <line x1="80" y1="40" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="320" y1="50" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="30" y1="140" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="370" y1="180" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="40" y1="260" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="360" y1="290" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
+                <line x1="160" y1="370" x2="200" y2="200" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" className="text-[#B29F8D]/40" />
               </svg>
 
-              {/* ORBITAL SERVICE CHIPS - Clamped within bounds for mobile & desktop mode */}
+              {/* ORBITAL SERVICE CHIPS - "10 Ivory & Taupe" Charcoal capsules with white text */}
 
               {/* CHIP 1: Top-Left - Amazon & Flipkart */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Amazon, Meesho & Flipkart Listing')}
-                className="absolute top-0 left-2 sm:left-6 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-1 group whitespace-nowrap"
+                className="absolute top-0 left-2 sm:left-6 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-1 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Store className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Store className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   Amazon & Flipkart
                 </span>
               </div>
@@ -166,11 +163,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 2: Upper-Right - 3D Web & Apps */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Website Development')}
-                className="absolute top-2 right-2 sm:right-4 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-2 group whitespace-nowrap"
+                className="absolute top-2 right-2 sm:right-4 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-2 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Code2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Code2 className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   3D Web & Apps
                 </span>
               </div>
@@ -178,11 +174,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 3: Mid Left - 5 Vector Logos */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Brand Identity (5 Vector Logos)')}
-                className="absolute top-[30%] left-0 sm:left-1 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-3 group whitespace-nowrap"
+                className="absolute top-[30%] left-0 sm:left-1 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-3 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-terracotta-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Palette className="w-3.5 h-3.5 text-terracotta-600 dark:text-terracotta-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Palette className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   5 Vector Logos
                 </span>
               </div>
@@ -190,11 +185,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 4: Mid Right - AI Automations */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('AI Integration & Automation')}
-                className="absolute top-[44%] right-0 sm:right-2 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-4 group whitespace-nowrap"
+                className="absolute top-[44%] right-0 sm:right-2 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-4 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Bot className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Bot className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   AI Automations
                 </span>
               </div>
@@ -202,11 +196,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 5: Lower-Mid Left - Order & Catalog */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Catalog & Order Management')}
-                className="absolute top-[62%] left-1 sm:left-3 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-1 group whitespace-nowrap"
+                className="absolute top-[62%] left-1 sm:left-3 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-1 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Boxes className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Boxes className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   Order & Catalog
                 </span>
               </div>
@@ -214,11 +207,10 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 6: Lower-Right - Logistics & Dispatch */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Dispatch & Logistics Management')}
-                className="absolute top-[72%] right-1 sm:right-3 z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-2 group whitespace-nowrap"
+                className="absolute top-[72%] right-1 sm:right-3 z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-2 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <PackageCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <PackageCheck className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   Logistics & Dispatch
                 </span>
               </div>
@@ -226,13 +218,18 @@ export default function HeroSection({ onOpenInquiry }) {
               {/* CHIP 7: Bottom Center - Social Creatives */}
               <div
                 onClick={() => onOpenInquiry && onOpenInquiry('Campaigns (Screen & Print Collaterals)')}
-                className="absolute bottom-0 left-[16%] sm:left-[24%] z-20 px-2.5 py-1 rounded-full ios-glass-card hover:border-terracotta-400/60 hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-soft animate-float-3 group whitespace-nowrap"
+                className="absolute bottom-0 left-[16%] sm:left-[24%] z-20 px-3 py-1.5 rounded-full bg-[#26211E] text-white border border-[#443B34] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 animate-float-3 group whitespace-nowrap"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 group-hover:scale-125 transition-transform" />
-                <Share2 className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0" />
-                <span className="text-[11px] sm:text-xs font-semibold text-espresso-900 dark:text-cream-100">
+                <Share2 className="w-3.5 h-3.5 text-[#D8C8B4] shrink-0" />
+                <span className="text-[11px] sm:text-xs font-semibold text-white">
                   Social Creatives
                 </span>
+              </div>
+
+              {/* CHIP 8: Bottom-Right 3D Ecosystem Hub Pill */}
+              <div className="absolute bottom-2 right-1 sm:right-2 z-20 px-2.5 py-1 rounded-full bg-white/80 dark:bg-black/50 border border-[#D5C9BD] dark:border-white/20 text-[#5C534B] dark:text-[#D5C9BD] text-[10px] font-semibold flex items-center gap-1.5 shadow-xs whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D] animate-ping" />
+                <span>3D Ecosystem Hub</span>
               </div>
 
               {/* Three.js Interactive Ecosystem Hub */}
@@ -243,9 +240,9 @@ export default function HeroSection({ onOpenInquiry }) {
         </div>
 
         {/* Bottom Metrics Bar with iOS Frosted Glass */}
-        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-emerald-500/20 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
+        <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#D6CCC2]/60 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
           <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-emerald-500 dark:text-emerald-400">16+</div>
+            <div className="font-display text-2xl sm:text-3xl font-extrabold text-[#827060] dark:text-[#C7B9A4]">16+</div>
             <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Full-Spectrum Capabilities</div>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
@@ -253,7 +250,7 @@ export default function HeroSection({ onOpenInquiry }) {
             <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Vector Logos & Brand Identity</div>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">
-            <div className="font-display text-2xl sm:text-3xl font-extrabold text-gold dark:text-gold">Marketplaces</div>
+            <div className="font-display text-2xl sm:text-3xl font-extrabold text-[#A08E7E] dark:text-[#D8C8B4]">Marketplaces</div>
             <div className="text-xs font-semibold text-espresso-800 dark:text-cream-200 mt-0.5">Amazon, Flipkart, Meesho, Shopify</div>
           </div>
           <div className="p-3.5 sm:p-4 rounded-2xl ios-glass-card">

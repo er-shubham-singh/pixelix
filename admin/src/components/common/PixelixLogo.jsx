@@ -24,15 +24,21 @@ export default function PixelixLogo({ size = 'md', variant = 'full', className =
   };
 
   const chosenHeight = sizeClasses[size] || sizeClasses.md;
-  const logoSrc = isDarkMode ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+  const logoSrc = '/corecodexlogo.png';
 
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <img
         src={logoSrc}
-        alt="Pixelix"
+        alt="CoreCodeX"
         className={`${chosenHeight} w-auto object-contain transition-opacity duration-200 hover:opacity-90`}
         draggable={false}
+        onError={(e) => {
+          if (!e.target.dataset.tried) {
+            e.target.dataset.tried = 'true';
+            e.target.src = isDarkMode ? '/dark-mode-logo.png' : '/light-mode-logo.png';
+          }
+        }}
       />
     </div>
   );

@@ -194,7 +194,7 @@ export default function AdminSidebar({
             {!isCollapsed && (
               <div className="flex flex-col">
                 <span className="font-extrabold text-xs uppercase tracking-wider text-espresso-900 dark:text-cream-100 font-serif leading-tight">
-                  Pixelix HQ
+                  CoreCodeX HQ
                 </span>
                 <span className="text-[10px] font-semibold text-terracotta-600 dark:text-terracotta-400">
                   Admin Console
@@ -334,4 +334,5 @@ export default function AdminSidebar({
     </>
   );
 }
+
 

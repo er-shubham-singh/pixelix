@@ -182,7 +182,7 @@ export default function RealEstateConstructionCalculator({ onRequestQuote }) {
   // WhatsApp Contact Direct Link
   const handleWhatsAppContact = () => {
     const phone = '919876543210';
-    const msg = `Hello Pixelix Team!
+    const msg = `Hello CoreCodeX Team!
 I calculated a construction estimate on your website:
 • Plot Area: ${calculation.rawPlot} ${unit === 'sq_yd' ? 'Sq Yards' : 'Sq Feet'}
 • Estimated Built-up Area: ${calculation.builtUpArea.toLocaleString('en-IN')} Sq Ft (${calculation.effectiveFloors} Floors)
@@ -677,7 +677,7 @@ Please share a detailed architectural quotation for my project.`;
                   Request Official Quotation
                 </h3>
                 <p className="text-xs text-espresso-500 dark:text-cream-400">
-                  Pixelix Real Estate & Engineering Division
+                  CoreCodeX Real Estate & Engineering Division
                 </p>
               </div>
               <button
@@ -800,4 +800,5 @@ Please share a detailed architectural quotation for my project.`;
     </div>
   );
 }
+
 

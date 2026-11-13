@@ -42,7 +42,7 @@ export default function AdminTopBar({
     settings: { name: 'Portal Security & Config', path: 'System / Organization Settings' }
   };
 
-  const currentTabInfo = tabTitles[activeTab] || { name: 'Admin Console', path: 'Pixelix HQ' };
+  const currentTabInfo = tabTitles[activeTab] || { name: 'Admin Console', path: 'CoreCodeX HQ' };
 
   return (
     <header className="sticky top-0 z-30 bg-white/80 dark:bg-darkbg-surface/80 backdrop-blur-md border-b border-cream-200 dark:border-darkbg-border h-16 transition-colors duration-300">
@@ -123,4 +123,5 @@ export default function AdminTopBar({
     </header>
   );
 }
+
 

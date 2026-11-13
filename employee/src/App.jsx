@@ -21,7 +21,7 @@ function EmployeeAppContent() {
       <div className="min-h-screen flex items-center justify-center bg-cream-100 dark:bg-darkbg-base">
         <PixelixLoader
           size="lg"
-          text="Pixelix Employee Portal"
+          text="CoreCodeX Employee Portal"
           subtext="Loading your personal workforce workspace..."
         />
       </div>
@@ -36,7 +36,7 @@ function EmployeeAppContent() {
           <EmployeeLoginPage />
         </main>
         <footer className="py-4 border-t border-cream-200 dark:border-darkbg-border text-center text-xs text-espresso-500 dark:text-cream-300/60">
-          &copy; {new Date().getFullYear()} Pixelix Creative & Digital Systems • Internal Staff Operations
+          &copy; {new Date().getFullYear()} CoreCodeX Creative & Digital Systems • Internal Staff Operations
         </footer>
       </div>
     );
@@ -83,7 +83,7 @@ function EmployeeAppContent() {
         </main>
 
         <footer className="py-4 border-t border-cream-200 dark:border-darkbg-border text-center text-xs text-espresso-500 dark:text-cream-300/60 bg-white/40 dark:bg-darkbg-surface/40">
-          &copy; {new Date().getFullYear()} Pixelix Creative & Digital Systems • Staff Workspace
+          &copy; {new Date().getFullYear()} CoreCodeX Creative & Digital Systems • Staff Workspace
         </footer>
       </div>
     </div>
@@ -99,3 +99,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+

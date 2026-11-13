@@ -167,7 +167,7 @@ export default function AttendanceCalendarGrid({
         return cell.dateStr >= l.startDate && cell.dateStr <= l.endDate;
       });
 
-      // Determine state (Pixelix operates 7 days a week; every day is active unless on approved leave)
+      // Determine state (CoreCodeX operates 7 days a week; every day is active unless on approved leave)
       let state = 'future';
       let stateLabel = 'Working Day';
       let hoursWorked = 0;
@@ -490,7 +490,7 @@ export default function AttendanceCalendarGrid({
         <div className="flex items-start sm:items-center gap-2.5 text-xs text-espresso-800 dark:text-cream-100">
           <Sparkles className="w-4 h-4 text-terracotta-500 flex-shrink-0 mt-0.5 sm:mt-0" />
           <span>
-            <strong>Pixelix 7-Day Company Operations:</strong> Our services run daily with no fixed weekend closures. Every employee is permitted <strong>1 flexible leave per week</strong>. Submit your leave application for any day; once approved by management, your date turns to an <strong>Official Approved Leave (Violet)</strong>.
+            <strong>CoreCodeX 7-Day Company Operations:</strong> Our services run daily with no fixed weekend closures. Every employee is permitted <strong>1 flexible leave per week</strong>. Submit your leave application for any day; once approved by management, your date turns to an <strong>Official Approved Leave (Violet)</strong>.
           </span>
         </div>
         {onRequestLeaveDate && (
@@ -842,3 +842,4 @@ export default function AttendanceCalendarGrid({
     </div>
   );
 }
+

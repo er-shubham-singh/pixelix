@@ -12,13 +12,13 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
           <Badge variant="terracotta" className="text-xs">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Connect with Pixelix Leadership</span>
+            <span>Connect with CoreCodeX Leadership</span>
           </Badge>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
             Start a Conversation Today
           </h1>
           <p className="text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Direct communication with co-founders Vikas Chauhan ({CONTACT_INFO.founders[0].phone}) & Shubham Singh ({CONTACT_INFO.founders[1].phone}). We respond to every inquiry within 24 hours.
+            Direct communication with founder Sahil Prasad ({CONTACT_INFO.founders[0].phone} · Vadodara, Gujarat). We respond to every inquiry within 24 hours.
           </p>
         </div>
       </section>

@@ -27,21 +27,21 @@ export async function loginUser(req, res) {
       console.error('Database query error in loginUser:', dbError.message);
 
       // Resilient fallback for Owner if DB is momentarily unreachable or reconnecting
-      if (normalizedEmail === 'owner@pixelix.co.in' && password === 'PixelixOwner@2026') {
+      if ((normalizedEmail === 'owner@pixelix.co.in' || normalizedEmail === 'owner@corecodex.com') && password === 'PixelixOwner@2026') {
         const fallbackId = '660000000000000000000001';
         const token = generateToken(fallbackId);
         return res.json({
           success: true,
-          message: 'Welcome back, Pixelix Director (Resilient Recovery Session)',
+          message: 'Welcome back, Sahil Prasad (CoreCodeX Owner & Director)',
           token,
           user: {
             _id: fallbackId,
-            name: 'Pixelix Director',
-            email: 'owner@pixelix.co.in',
+            name: 'Sahil Prasad',
+            email: normalizedEmail,
             role: 'owner',
             domain: 'Owner / Management',
-            employeeId: 'PX-DIR-001',
-            phone: '+91 98765 43210',
+            employeeId: 'CCX-DIR-001',
+            phone: '+91 6354729042',
             status: 'active',
             joinedDate: new Date().toISOString()
           }
@@ -117,12 +117,12 @@ export async function getCurrentUser(req, res) {
         success: true,
         user: {
           _id: '660000000000000000000001',
-          name: 'Pixelix Director',
+          name: 'Sahil Prasad',
           email: 'owner@pixelix.co.in',
           role: 'owner',
           domain: 'Owner / Management',
-          employeeId: 'PX-DIR-001',
-          phone: '+91 98765 43210',
+          employeeId: 'CCX-DIR-001',
+          phone: '+91 6354729042',
           status: 'active',
           joinedDate: new Date().toISOString()
         }

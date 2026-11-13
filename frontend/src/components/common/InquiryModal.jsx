@@ -129,7 +129,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
               Consultation Request Received!
             </h4>
             <p className="text-sm text-espresso-700 dark:text-cream-300 max-w-md mx-auto">
-              {resultMsg || 'Founders Vikas Chauhan and Shubham Singh will personally review your requirements and reach out within 4 business hours.'}
+              {resultMsg || 'Founder Sahil Prasad will personally review your requirements and reach out within 4 business hours.'}
             </p>
           </div>
 
@@ -137,15 +137,11 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
           <div className="p-4 rounded-2xl bg-cream-100 dark:bg-darkbg-card border border-terracotta-200/60 dark:border-white/10 max-w-md mx-auto space-y-2">
             <div className="text-xs font-bold text-espresso-900 dark:text-white flex items-center justify-center gap-1.5">
               <PhoneCall className="w-3.5 h-3.5 text-terracotta-500" />
-              <span>Need Immediate Discussion? Call Founders Directly:</span>
+              <span>Need Immediate Discussion? Call Founder Directly:</span>
             </div>
             <div className="flex items-center justify-center gap-3 text-xs font-semibold">
-              <a href="tel:+917056063863" className="text-terracotta-600 hover:underline">
-                Vikas: +91 7056063863
-              </a>
-              <span className="text-cream-400">•</span>
-              <a href="tel:+919559506650" className="text-terracotta-600 hover:underline">
-                Shubham: +91 95595 06650
+              <a href="tel:+916354729042" className="text-terracotta-600 hover:underline">
+                Sahil Prasad: +91 6354729042 · Vadodara, Gujarat
               </a>
             </div>
           </div>
@@ -323,12 +319,12 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                 Ready to Get Similar Results for Your Brand?
               </h4>
               <p className="text-xs text-espresso-600 dark:text-cream-300 max-w-lg mx-auto">
-                No middleman or junior sales pitch. You speak directly with agency founders Vikas Chauhan & Shubham Singh.
+                No middleman or junior sales pitch. You speak directly with agency founder Sahil Prasad.
               </p>
             </div>
 
             {/* Direct Quick Contact Buttons (Call & WhatsApp) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-md mx-auto">
               <a
                 href={CONTACT_INFO.founders[0].telHref}
                 className="p-3 rounded-2xl bg-white dark:bg-darkbg-card border border-terracotta-200/70 dark:border-white/10 hover:border-terracotta-400 shadow-soft flex items-center justify-center gap-2 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 transition-all cursor-pointer group"
@@ -336,27 +332,17 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                 <div className="w-7 h-7 rounded-full bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span>Call Vikas ({CONTACT_INFO.founders[0].phone})</span>
+                <span>Call Sahil ({CONTACT_INFO.founders[0].phone})</span>
               </a>
 
               <a
-                href={CONTACT_INFO.founders[1].telHref}
-                className="p-3 rounded-2xl bg-white dark:bg-darkbg-card border border-terracotta-200/70 dark:border-white/10 hover:border-terracotta-400 shadow-soft flex items-center justify-center gap-2 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 transition-all cursor-pointer group"
-              >
-                <div className="w-7 h-7 rounded-full bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                <span>Call Shubham ({CONTACT_INFO.founders[1].phone})</span>
-              </a>
-
-              <a
-                href="https://wa.me/917056063863?text=Hi%20Pixelix%20Team,%20I%20reviewed%20your%20client%20case%20studies%20and%20would%20like%20to%20discuss%20my%20project%20scope."
+                href={CONTACT_INFO.founders[0].whatsappHref}
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-2xl bg-green-500 hover:bg-green-600 text-white shadow-soft flex items-center justify-center gap-2 text-xs font-bold transition-all cursor-pointer hover:scale-105 active:scale-95"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Founders Directly</span>
+                <span>WhatsApp Directly</span>
               </a>
             </div>
 

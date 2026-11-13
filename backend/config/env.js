@@ -19,10 +19,10 @@ export const ENV = {
   SMTP_PORT: parseInt(process.env.SMTP_PORT || '587', 10),
   SMTP_USER: process.env.SMTP_USER || 'shubham.singh7985@gmail.com',
   SMTP_PASS: process.env.SMTP_PASS || 'rwtuvmxvhssnaoyr',
-  EMAIL_FROM: process.env.EMAIL_FROM || '"Pixelix Creative & Digital Systems" <shubham.singh7985@gmail.com>',
+  EMAIL_FROM: process.env.EMAIL_FROM || '"CoreCodeX Creative & Digital Systems" <shubham.singh7985@gmail.com>',
   // AI & WhatsApp Integration
   AI_PROVIDER: process.env.AI_PROVIDER || 'none',
   GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
-  WHATSAPP_DEFAULT_NUMBER: process.env.WHATSAPP_DEFAULT_NUMBER || '917056063863'
+  WHATSAPP_DEFAULT_NUMBER: process.env.WHATSAPP_DEFAULT_NUMBER || '916354729042'
 };

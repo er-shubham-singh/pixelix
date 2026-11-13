@@ -8,81 +8,104 @@ export default {
   theme: {
     extend: {
       colors: {
+        ivory: {
+          50: '#FAF8F5',
+          100: '#F7F4EE',
+          200: '#EFECE5',
+          300: '#E2DDD4',
+          400: '#CFBFA8',
+          500: '#B29F8D',
+          DEFAULT: '#F7F4EE'
+        },
+        taupe: {
+          50: '#F7F5F2',
+          100: '#EAE5E0',
+          200: '#D8CFC6',
+          300: '#BFAFA2',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D'
+        },
         cream: {
-          50: '#F2FAF5',
-          100: '#E6F5EC',
-          200: '#D1ECDD',
-          300: '#B2DFC6',
-          400: '#8CCEA9',
-          DEFAULT: '#F2FAF5'
+          50: '#FAF8F5',
+          100: '#F7F4EE',
+          200: '#EFECE5',
+          300: '#E2DDD4',
+          400: '#CFBFA8',
+          DEFAULT: '#F7F4EE'
         },
         terracotta: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          300: '#86EFAC',
-          400: '#4ADE80',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
-          950: '#022C22',
-          DEFAULT: '#10B981',
-          neon: '#00FF87',
-          mint: '#00DF82'
+          50: '#FAF8F5',
+          100: '#F5F1E9',
+          200: '#EAE5E0',
+          300: '#D8CFC6',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D',
+          neon: '#D8C8B4',
+          mint: '#C7B9A4'
         },
         emerald: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          300: '#86EFAC',
-          400: '#4ADE80',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
-          950: '#022C22',
-          DEFAULT: '#10B981',
-          neon: '#00FF87',
-          mint: '#00DF82'
+          50: '#FAF8F5',
+          100: '#F5F1E9',
+          200: '#EAE5E0',
+          300: '#D8CFC6',
+          400: '#A08E7E',
+          500: '#B29F8D',
+          600: '#827060',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#B29F8D',
+          neon: '#D8C8B4',
+          mint: '#C7B9A4'
         },
         sunset: {
-          light: '#BBF7D0',
-          DEFAULT: '#00DF82',
-          dark: '#059669',
-          glow: 'rgba(0, 223, 130, 0.35)'
+          light: '#EAE5E0',
+          DEFAULT: '#26211E',
+          dark: '#181513',
+          glow: 'rgba(38, 33, 30, 0.25)'
         },
         gold: {
-          light: '#FDF6E2',
-          DEFAULT: '#F5D485',
-          dark: '#C89B3C',
-          sun: '#FBE29D',
-          champagne: '#F5D485',
-          deep: '#D4A346'
+          light: '#FAF4EC',
+          DEFAULT: '#C5A059',
+          dark: '#9E7E38',
+          sun: '#D4AF37',
+          champagne: '#D8C8B4',
+          deep: '#A68341'
         },
         sage: {
-          light: '#E6F4EA',
-          DEFAULT: '#10B981',
-          dark: '#047857'
+          light: '#EFECE5',
+          DEFAULT: '#A08E7E',
+          dark: '#827060'
         },
         espresso: {
-          50: '#F0FDF4',
-          100: '#DCFCE7',
-          200: '#BBF7D0',
-          700: '#143527',
-          800: '#0B251A',
-          900: '#04160F',
-          950: '#020B07',
-          DEFAULT: '#04160F'
+          50: '#FAF8F5',
+          100: '#EAE5E0',
+          200: '#D8CFC6',
+          700: '#52453B',
+          800: '#3D332B',
+          900: '#26211E',
+          950: '#181513',
+          DEFAULT: '#26211E'
         },
         darkbg: {
-          base: '#02140D',
-          surface: '#052015',
-          card: '#082C1E',
-          border: 'rgba(0, 223, 130, 0.16)',
-          elevated: '#0D3827'
+          base: '#181513',
+          surface: '#231F1C',
+          card: '#2A2421',
+          border: 'rgba(199, 185, 164, 0.16)',
+          elevated: '#342D28'
         }
       },
       fontFamily: {

@@ -1642,13 +1642,14 @@ export default function AdminDashboardPage({
             <div className="p-6 rounded-3xl bg-white dark:bg-darkbg-card border border-cream-200 dark:border-darkbg-border shadow-xs space-y-4">
               <h4 className="font-bold text-sm text-espresso-900 dark:text-cream-100 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-terracotta-500" />
-                Pixelix Creative & Digital Systems
+                CoreCodeX Creative & Digital Systems
               </h4>
               <div className="space-y-2 text-xs text-espresso-700 dark:text-cream-300">
-                <div><strong>Primary Brand:</strong> Pixelix (pixelix.co.in)</div>
-                <div><strong>Co-Founders:</strong> Vikas Chauhan & Shubham Singh</div>
-                <div><strong>Executive Hotline:</strong> +91 7056063863 / +91 95595 06650</div>
-                <div><strong>Support & Communications:</strong> support@pixelix.co.in</div>
+                <div><strong>Primary Brand:</strong> CoreCodeX (corecodex.com)</div>
+                <div><strong>Founder & Owner:</strong> Sahil Prasad</div>
+                <div><strong>Headquarters:</strong> Vadodara, Gujarat</div>
+                <div><strong>Executive Hotline:</strong> +91 6354729042</div>
+                <div><strong>Support & Communications:</strong> support@corecodex.com</div>
                 <div><strong>Edition:</strong> Enterprise Agency Suite v2.4</div>
               </div>
             </div>

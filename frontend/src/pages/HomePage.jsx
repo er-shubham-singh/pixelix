@@ -56,7 +56,7 @@ export default function HomePage({
               EXPLORE MORE PAGES
             </span>
             <h2 className="text-3xl font-extrabold text-espresso-900 dark:text-white font-display">
-              Dive Deeper into Pixelix Systems
+              Dive Deeper into CoreCodeX Systems
             </h2>
           </div>
 
@@ -166,12 +166,12 @@ export default function HomePage({
               Ready to Build What's Next?
             </h2>
             <p className="text-sm text-espresso-700 dark:text-cream-300 max-w-xl mx-auto leading-relaxed">
-              Connect directly with Vikas Chauhan (+91 7056063863) & Shubham Singh (+91 95595 06650) to start your project.
+              Connect directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat) to start your project.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={() => onOpenInquiry()}
-                className="px-8 py-3.5 rounded-full font-extrabold text-xs sm:text-sm text-espresso-950 bg-gradient-to-r from-[#FBE29D] via-[#F5D485] to-[#D4A346] shadow-[0_0_25px_rgba(245,212,133,0.35)] hover:shadow-[0_0_35px_rgba(245,212,133,0.55)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-full font-bold text-xs sm:text-sm text-white bg-[#26211E] hover:bg-[#3D332B] shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 Start Your Project Consultation
               </button>

@@ -93,7 +93,8 @@ npm run dev
 
 ## 📞 Leadership & Contact Coordinates
 
-- **Domain**: `pixelix.co.in`
-- **Vikas Chauhan**: `+91 7056063863`
-- **Shubham Singh**: `+91 95595 06650`
+- **Brand**: `CoreCodeX`
+- **Domain**: `corecodex.com`
+- **Founder & Owner**: **Sahil Prasad** (`+91 6354729042`)
+- **Location**: Vadodara, Gujarat, India
 - **Tagline**: *"Creative & Digital Solutions for Growing Businesses · बढ़ते व्यवसायों के लिए क्रिएटिव और डिजिटल समाधान"*

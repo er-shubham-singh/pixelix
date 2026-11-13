@@ -71,7 +71,7 @@ export default function DigitalAdvertisingPage() {
 
   const handleWhatsAppAds = () => {
     const phone = '919876543210';
-    const msg = `Hello Pixelix Performance Team!
+    const msg = `Hello CoreCodeX Performance Team!
 I am interested in running Meta / Google Lead Generation Ads for my business / real estate project.
 Please share campaign packages, verified case studies, and introductory consultation availability.`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -130,12 +130,12 @@ Please share campaign packages, verified case studies, and introductory consulta
 
   const faqs = [
     {
-      q: 'How does Pixelix verify that leads are genuine property buyers?',
+      q: 'How does CoreCodeX verify that leads are genuine property buyers?',
       a: 'We implement multi-step OTP verification or high-intent qualifying questions (budget qualification, purchase timeframe, and location preference) directly inside Meta & Google instant lead forms, keeping junk inquiries under 8%.'
     },
     {
       q: 'Do you provide the ad creative designs and 3D renders?',
-      a: 'Yes! As an end-to-end creative and technology studio, Pixelix crafts high-resolution 3D walkthrough snippets, cinematic aerial composites, and persuasive regional Hindi/English ad copy tailored to your target audience.'
+      a: 'Yes! As an end-to-end creative and technology studio, CoreCodeX crafts high-resolution 3D walkthrough snippets, cinematic aerial composites, and persuasive regional Hindi/English ad copy tailored to your target audience.'
     },
     {
       q: 'How fast can our campaigns go live?',
@@ -340,7 +340,7 @@ Please share campaign packages, verified case studies, and introductory consulta
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="p-4 rounded-2xl bg-cream-100/70 dark:bg-darkbg-card border border-cream-300 dark:border-white/10 text-xs text-espresso-600 dark:text-cream-400 text-center leading-relaxed">
           <strong>Advertising Disclosure: </strong>
-          Ad performance, Cost Per Lead (CPL), and inquiry volumes depend on market demand, location pricing, project tier, media budget, and client telecalling response speed. Pixelix optimizes for authentic high-intent inquiries and does not guarantee speculative secondary sales returns.
+          Ad performance, Cost Per Lead (CPL), and inquiry volumes depend on market demand, location pricing, project tier, media budget, and client telecalling response speed. CoreCodeX optimizes for authentic high-intent inquiries and does not guarantee speculative secondary sales returns.
         </div>
       </section>
 
@@ -459,4 +459,5 @@ Please share campaign packages, verified case studies, and introductory consulta
     </div>
   );
 }
+
 

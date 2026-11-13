@@ -95,9 +95,9 @@ export default function LeadsCRMAdmin() {
 
   const handleWhatsAppLead = (lead) => {
     const cleanPhone = (lead.phone || '').replace(/[^\d]/g, '');
-    let msg = `Hello ${lead.name || 'there'}! This is Pixelix Creative & Digital Systems following up on your inquiry.`;
+    let msg = `Hello ${lead.name || 'there'}! This is CoreCodeX Creative & Digital Systems following up on your inquiry.`;
     if (lead.calculatorData?.totalCost) {
-      msg = `Hello ${lead.name}! This is Pixelix regarding your house construction estimate of ₹${lead.calculatorData.totalCost.toLocaleString('en-IN')} for ${lead.calculatorData.builtUpArea} sq ft. How can we assist you with drawings or architectural execution?`;
+      msg = `Hello ${lead.name}! This is CoreCodeX regarding your house construction estimate of ₹${lead.calculatorData.totalCost.toLocaleString('en-IN')} for ${lead.calculatorData.builtUpArea} sq ft. How can we assist you with drawings or architectural execution?`;
     }
     window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
   };
@@ -423,4 +423,5 @@ export default function LeadsCRMAdmin() {
     </div>
   );
 }
+
 

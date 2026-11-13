@@ -5,19 +5,23 @@ import { getLocalDateString } from '../controllers/employeeController.js';
 export async function ensureDefaultAccounts() {
   try {
     // Check if owner exists
-    const ownerExists = await User.findOne({ role: 'owner' });
-    if (!ownerExists) {
-      const owner = await User.create({
-        name: 'Pixelix Director',
+    let owner = await User.findOne({ role: 'owner' });
+    if (!owner) {
+      owner = await User.create({
+        name: 'Sahil Prasad',
         email: 'owner@pixelix.co.in',
         password: 'PixelixOwner@2026',
         role: 'owner',
         domain: 'Owner / Management',
-        employeeId: 'PX-DIR-001',
-        phone: '+91 98765 43210',
+        employeeId: 'CCX-DIR-001',
+        phone: '+91 6354729042',
         status: 'active'
       });
-      console.log('👑 Default Owner Account created: owner@pixelix.co.in / PixelixOwner@2026');
+      console.log('👑 Default Owner Account created: Sahil Prasad (owner@pixelix.co.in / PixelixOwner@2026)');
+    } else {
+      owner.name = 'Sahil Prasad';
+      owner.phone = '+91 6354729042';
+      await owner.save();
     }
 
     // Check if we have demo employees

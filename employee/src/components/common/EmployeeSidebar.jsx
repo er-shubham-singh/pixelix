@@ -135,7 +135,7 @@ export default function EmployeeSidebar({
             {!isCollapsed && (
               <div className="flex flex-col">
                 <span className="font-extrabold text-xs uppercase tracking-wider text-espresso-900 dark:text-cream-100 font-serif leading-tight">
-                  Pixelix Team
+                  CoreCodeX Team
                 </span>
                 <span className="text-[10px] font-semibold text-terracotta-600 dark:text-terracotta-400">
                   Staff Workspace
@@ -220,7 +220,7 @@ export default function EmployeeSidebar({
             >
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                Pixelix Public Site
+                CoreCodeX Public Site
               </span>
               <ExternalLink className="w-3 h-3" />
             </a>
@@ -259,4 +259,5 @@ export default function EmployeeSidebar({
     </>
   );
 }
+
 

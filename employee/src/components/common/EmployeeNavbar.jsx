@@ -31,7 +31,7 @@ export default function EmployeeNavbar() {
             rel="noreferrer"
             className="hidden md:flex items-center gap-1.5 text-xs font-semibold text-espresso-600 dark:text-cream-300 hover:text-terracotta-600 dark:hover:text-terracotta-400 px-3 py-1.5 rounded-xl hover:bg-cream-100 dark:hover:bg-darkbg-elevated transition-colors"
           >
-            <span>Pixelix Agency</span>
+            <span>CoreCodeX Agency</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
 
@@ -70,4 +70,5 @@ export default function EmployeeNavbar() {
     </header>
   );
 }
+
 

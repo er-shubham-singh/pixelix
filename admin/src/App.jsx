@@ -27,7 +27,7 @@ function AdminAppContent() {
       <div className="min-h-screen flex items-center justify-center bg-cream-100 dark:bg-darkbg-base">
         <PixelixLoader
           size="lg"
-          text="Pixelix Master Control"
+          text="CoreCodeX Master Control"
           subtext="Initializing secure executive session..."
         />
       </div>
@@ -42,7 +42,7 @@ function AdminAppContent() {
           <AdminLoginPage />
         </main>
         <footer className="py-4 border-t border-cream-200 dark:border-darkbg-border text-center text-xs text-espresso-500 dark:text-cream-300/60">
-          &copy; {new Date().getFullYear()} Pixelix Creative & Digital Systems • Owner Master Control
+          &copy; {new Date().getFullYear()} CoreCodeX Creative & Digital Systems • Owner Master Control
         </footer>
       </div>
     );
@@ -90,7 +90,7 @@ function AdminAppContent() {
         </main>
 
         <footer className="py-4 border-t border-cream-200 dark:border-darkbg-border text-center text-xs text-espresso-500 dark:text-cream-300/60 bg-white/40 dark:bg-darkbg-surface/40">
-          &copy; {new Date().getFullYear()} Pixelix Creative & Digital Systems • Owner Master Control Console
+          &copy; {new Date().getFullYear()} CoreCodeX Creative & Digital Systems • Owner Master Control Console
         </footer>
       </div>
     </div>
@@ -106,3 +106,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+

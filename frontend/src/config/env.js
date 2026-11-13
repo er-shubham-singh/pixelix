@@ -53,7 +53,7 @@ const rawApiUrl = import.meta.env.VITE_API_URL || 'https://pixelix.onrender.com/
 
 export const ENV = {
   API_URL: sanitizeApiUrl(rawApiUrl),
-  SITE_NAME: import.meta.env.VITE_SITE_NAME || 'Pixelix',
-  SITE_URL: import.meta.env.VITE_SITE_URL || 'https://pixelix.co.in',
+  SITE_NAME: import.meta.env.VITE_SITE_NAME || 'CoreCodeX',
+  SITE_URL: import.meta.env.VITE_SITE_URL || 'https://corecodex.com',
   IS_PRODUCTION: import.meta.env.PROD,
 };

@@ -66,9 +66,9 @@ function getLogoAttachment() {
   for (const p of possiblePaths) {
     if (fs.existsSync(p)) {
       return {
-        filename: 'pixelix-logo.png',
+        filename: 'CoreCodeX-logo.png',
         path: p,
-        cid: 'pixelix-logo'
+        cid: 'CoreCodeX-logo'
       };
     }
   }
@@ -77,12 +77,12 @@ function getLogoAttachment() {
 
 function getFromAddress() {
   if (ENV.SMTP_HOST && ENV.SMTP_HOST.includes('gmail.com') && ENV.SMTP_USER) {
-    return `"Pixelix Creative & Digital Systems" <${ENV.SMTP_USER.trim()}>`;
+    return `"CoreCodeX Creative & Digital Systems" <${ENV.SMTP_USER.trim()}>`;
   }
   if (ENV.EMAIL_FROM && ENV.EMAIL_FROM.trim().length > 0) {
     return ENV.EMAIL_FROM;
   }
-  return `"Pixelix Systems" <${ENV.SMTP_USER || 'no-reply@pixelix.co.in'}>`;
+  return `"CoreCodeX Systems" <${ENV.SMTP_USER || 'no-reply@corecodex.com'}>`;
 }
 
 /**
@@ -98,7 +98,7 @@ export async function verifyMailConnection() {
 
   if (!user || !pass) {
     console.warn(`\n⚠️  [NODEMAILER STATUS]: SMTP credentials (SMTP_USER / SMTP_PASS) not configured in environment.`);
-    console.warn(`ℹ️  [NODEMAILER NOTICE]: Pixelix Backend will run in Email Simulation Mode (emails logged to terminal only).\n`);
+    console.warn(`ℹ️  [NODEMAILER NOTICE]: CoreCodeX Backend will run in Email Simulation Mode (emails logged to terminal only).\n`);
     mailStatus.connected = false;
     mailStatus.error = 'SMTP credentials not provided';
     return { success: false, status: mailStatus };
@@ -162,7 +162,7 @@ export async function sendEmployeeCredentialsEmail({
   employeeId,
   employmentType = 'full_time',
   shiftHours = 8,
-  portalUrl = ENV.EMPLOYEE_URL || 'https://employee.pixelix.co.in'
+  portalUrl = ENV.EMPLOYEE_URL || 'https://employee.CoreCodeX.co.in'
 }) {
   const mailTransporter = getTransporter();
   const logoAttachment = getLogoAttachment();
@@ -187,7 +187,7 @@ export async function sendEmployeeCredentialsEmail({
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to Pixelix - Your Portal Credentials</title>
+      <title>Welcome to CoreCodeX - Your Portal Credentials</title>
       <style>
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -362,22 +362,22 @@ export async function sendEmployeeCredentialsEmail({
         <div class="logo-header">
           ${
             logoAttachment
-              ? `<img src="cid:pixelix-logo" alt="Pixelix Logo" style="max-height: 52px; max-width: 230px; height: auto; width: auto; display: inline-block; vertical-align: middle;" />`
-              : `<div style="font-size: 26px; font-weight: 900; letter-spacing: -0.5px; color: #C84523;">PIXELIX</div>`
+              ? `<img src="cid:CoreCodeX-logo" alt="CoreCodeX Logo" style="max-height: 52px; max-width: 230px; height: auto; width: auto; display: inline-block; vertical-align: middle;" />`
+              : `<div style="font-size: 26px; font-weight: 900; letter-spacing: -0.5px; color: #C84523;">CoreCodeX</div>`
           }
         </div>
 
         <!-- 2. Hero Title Banner -->
         <div class="brand-banner">
           <h1>Official Employee Onboarding</h1>
-          <p>Pixelix Creative & Digital Systems • Internal Workforce Systems</p>
+          <p>CoreCodeX Creative & Digital Systems • Internal Workforce Systems</p>
         </div>
 
         <!-- 3. Main Content -->
         <div class="content">
           <p class="welcome-lead">Hello <strong>${name}</strong>,</p>
           <p class="welcome-lead">
-            Welcome to the <strong>Pixelix</strong> team! Your corporate employee profile has been officially registered and provisioned on our internal systems.
+            Welcome to the <strong>CoreCodeX</strong> team! Your corporate employee profile has been officially registered and provisioned on our internal systems.
           </p>
           <p class="welcome-lead">
             You can now log into your dedicated <strong>Employee Portal</strong> to track daily attendance, clock in/out, record your daily work deliverables summary, and manage your weekly off and leave requests.
@@ -434,7 +434,7 @@ export async function sendEmployeeCredentialsEmail({
             <ul>
               <li><strong>Daily Punch-In & Checkout:</strong> Remember to clock in each morning upon starting your shift and punch out in the evening with your daily deliverables summary.</li>
               <li><strong>Active-Day Locking Policy:</strong> Work summaries must be logged on the active calendar date. Past unlogged dates are permanently locked.</li>
-              <li><strong>7-Day Operations & Weekly Off:</strong> Pixelix operates 7 days a week. You are entitled to <strong>1 flexible leave per week</strong>—apply in advance via the Leave Applications tab to schedule your weekly off.</li>
+              <li><strong>7-Day Operations & Weekly Off:</strong> CoreCodeX operates 7 days a week. You are entitled to <strong>1 flexible leave per week</strong>—apply in advance via the Leave Applications tab to schedule your weekly off.</li>
               <li><strong>Security:</strong> Please keep these credentials confidential and update your password after your first login.</li>
             </ul>
           </div>
@@ -443,16 +443,16 @@ export async function sendEmployeeCredentialsEmail({
           <div class="signature">
             Warm regards,<br>
             <strong>The Executive Management & HR Operations</strong><br>
-            Pixelix Creative & Digital Systems<br>
+            CoreCodeX Creative & Digital Systems<br>
             <span style="font-size: 12px; color: #8E7A70;">
-              🌐 <a href="https://pixelix.co.in" style="color: #C84523; text-decoration: none;">https://pixelix.co.in</a> &nbsp;|&nbsp; 📧 contact@pixelix.co.in &nbsp;|&nbsp; 📞 +91 70560 63863
+              🌐 <a href="https://CoreCodeX.co.in" style="color: #C84523; text-decoration: none;">https://CoreCodeX.co.in</a> &nbsp;|&nbsp; 📧 contact@CoreCodeX.co.in &nbsp;|&nbsp; 📞 +91 63547 29042 (Vadodara, Gujarat)
             </span>
           </div>
         </div>
 
         <!-- 8. Footer -->
         <div class="footer">
-          &copy; ${new Date().getFullYear()} Pixelix Creative & Digital Systems. All rights reserved.<br>
+          &copy; ${new Date().getFullYear()} CoreCodeX Creative & Digital Systems. All rights reserved.<br>
           This is an automated administrative notification dispatched to provision corporate credentials.
         </div>
       </div>
@@ -471,9 +471,9 @@ export async function sendEmployeeCredentialsEmail({
   try {
     const info = await mailTransporter.sendMail({
       from: getFromAddress(),
-      replyTo: 'contact@pixelix.co.in',
+      replyTo: 'contact@CoreCodeX.co.in',
       to,
-      subject: `Welcome to Pixelix - Your Portal Login Credentials [${domain}]`,
+      subject: `Welcome to CoreCodeX - Your Portal Login Credentials [${domain}]`,
       html,
       attachments
     });
@@ -626,13 +626,13 @@ export async function sendLeaveStatusEmail({
         <div class="logo-header">
           ${
             logoAttachment
-              ? `<img src="cid:pixelix-logo" alt="Pixelix Logo" style="max-height: 48px; max-width: 220px; height: auto; width: auto; display: inline-block;" />`
-              : `<div style="font-size: 24px; font-weight: 900; color: #C84523;">PIXELIX</div>`
+              ? `<img src="cid:CoreCodeX-logo" alt="CoreCodeX Logo" style="max-height: 48px; max-width: 220px; height: auto; width: auto; display: inline-block;" />`
+              : `<div style="font-size: 24px; font-weight: 900; color: #C84523;">CoreCodeX</div>`
           }
         </div>
         <div class="header">
           <h1>Leave Application Status Update</h1>
-          <p>Pixelix Creative & Digital Systems • Internal HR Review</p>
+          <p>CoreCodeX Creative & Digital Systems • Internal HR Review</p>
         </div>
         <div class="content">
           <p style="font-size: 15px; margin: 0 0 16px;">Hello <strong>${name}</strong>,</p>
@@ -664,11 +664,11 @@ export async function sendLeaveStatusEmail({
           </div>
 
           <p style="font-size: 12px; color: #8E7A70; margin-top: 20px; line-height: 1.5;">
-            You can view your updated calendar anytime in the <a href="${ENV.EMPLOYEE_URL || 'https://employee.pixelix.co.in'}" style="color: #C84523; font-weight: 600;">Pixelix Employee Portal</a>.
+            You can view your updated calendar anytime in the <a href="${ENV.EMPLOYEE_URL || 'https://employee.CoreCodeX.co.in'}" style="color: #C84523; font-weight: 600;">CoreCodeX Employee Portal</a>.
           </p>
         </div>
         <div class="footer">
-          &copy; ${new Date().getFullYear()} Pixelix Creative & Digital Systems. All rights reserved.
+          &copy; ${new Date().getFullYear()} CoreCodeX Creative & Digital Systems. All rights reserved.
         </div>
       </div>
     </body>
@@ -684,7 +684,7 @@ export async function sendLeaveStatusEmail({
   try {
     const info = await mailTransporter.sendMail({
       from: getFromAddress(),
-      replyTo: 'contact@pixelix.co.in',
+      replyTo: 'contact@CoreCodeX.co.in',
       to,
       subject: `Leave Application Status: ${badgeText} [${startDate} - ${endDate}]`,
       html,
@@ -726,14 +726,14 @@ export async function sendTestEmail(targetEmail) {
   try {
     const info = await mailTransporter.sendMail({
       from: getFromAddress(),
-      replyTo: 'contact@pixelix.co.in',
+      replyTo: 'contact@CoreCodeX.co.in',
       to: recipient,
-      subject: 'Pixelix Nodemailer Test — SMTP Gateway Verified',
+      subject: 'CoreCodeX Nodemailer Test — SMTP Gateway Verified',
       html: `
         <div style="font-family: sans-serif; padding: 24px; background: #FAF6EE; color: #2A2421;">
           <div style="max-width: 500px; margin: 0 auto; background: #fff; padding: 24px; border-radius: 14px; border: 1px solid #EADCC8; text-align: center;">
             <div style="margin-bottom: 16px;">
-              ${logoAttachment ? '<img src="cid:pixelix-logo" alt="Pixelix Logo" style="max-height: 44px;" />' : '<h2 style="color: #C84523;">PIXELIX</h2>'}
+              ${logoAttachment ? '<img src="cid:CoreCodeX-logo" alt="CoreCodeX Logo" style="max-height: 44px;" />' : '<h2 style="color: #C84523;">CoreCodeX</h2>'}
             </div>
             <h3 style="color: #10B981; margin: 0 0 10px;">✅ Nodemailer Connection Verified</h3>
             <p style="font-size: 14px; color: #5A4E47; line-height: 1.6;">
@@ -762,3 +762,4 @@ export async function sendTestEmail(targetEmail) {
     return { success: false, error: err.message, code: err.code };
   }
 }
+

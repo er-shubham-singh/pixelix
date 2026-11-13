@@ -67,7 +67,7 @@ export default function EmployeeLoginPage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@pixelix.co.in"
+                  placeholder="name@corecodex.com"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-cream-300 dark:border-darkbg-border bg-cream-50 dark:bg-darkbg-base text-sm text-espresso-900 dark:text-cream-100 placeholder-espresso-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500 transition-all"
                   required
                 />
@@ -111,3 +111,4 @@ export default function EmployeeLoginPage() {
     </div>
   );
 }
+

@@ -19,7 +19,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
     {
       id: 'msg-welcome',
       sender: 'bot',
-      text: 'Namaste! Welcome to Pixelix. I can help you calculate house construction costs, explore 3D virtual property walkthroughs, or plan high-ROI digital ad campaigns. How can I assist you today?'
+      text: 'Namaste! Welcome to CoreCodeX. I can help you calculate house construction costs, explore 3D virtual property walkthroughs, or plan high-ROI digital ad campaigns. How can I assist you today?'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -30,7 +30,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
     'How do I calculate building construction costs & bricks?',
     'What is included in a 3D Virtual Property Tour?',
     'How do Meta Lead Ads work for real estate?',
-    'Connect directly with Pixelix Team on WhatsApp'
+    'Connect directly with CoreCodeX Team on WhatsApp'
   ];
 
   const scrollToBottom = () => {
@@ -83,9 +83,9 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
         {
           id: `bot-${Date.now()}`,
           sender: 'bot',
-          text: 'Thank you for your question! We specialize in house construction cost calculation, 3D architectural virtual tours, and performance digital lead generation. Would you like to connect directly on WhatsApp with our team?',
+          text: 'Thank you for your question! We specialize in house construction cost calculation, 3D architectural virtual tours, and performance digital lead generation. Would you like to connect directly on WhatsApp with our team in Vadodara, Gujarat?',
           whatsappHandoff: true,
-          whatsappNumber: '919876543210'
+          whatsappNumber: '916354729042'
         }
       ]);
     } finally {
@@ -93,8 +93,8 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
     }
   };
 
-  const handleWhatsAppHandoff = (number = '919876543210') => {
-    const msg = 'Hello Pixelix! I was chatting with your AI Advisor on the website and would like to speak directly with your strategic team.';
+  const handleWhatsAppHandoff = (number = '916354729042') => {
+    const msg = 'Hello CoreCodeX! I was chatting with your AI Advisor on the website and would like to speak directly with Sahil Prasad.';
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -110,7 +110,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
               ? 'bg-espresso-900 hover:bg-espresso-800'
               : 'bg-gradient-to-r from-terracotta-600 to-terracotta-500 hover:from-terracotta-500 hover:to-terracotta-600 hover:scale-105 active:scale-95'
           }`}
-          aria-label="Toggle Pixelix AI Assistant"
+          aria-label="Toggle CoreCodeX AI Assistant"
         >
           {isOpen ? (
             <>
@@ -120,7 +120,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
           ) : (
             <>
               <Bot className="w-5 h-5 text-cream-200" />
-              <span className="hidden sm:inline">Pixelix AI Advisor</span>
+              <span className="hidden sm:inline">CoreCodeX AI Advisor</span>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             </>
           )}
@@ -138,7 +138,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
                 <Bot className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm leading-tight">Pixelix AI Advisor</h4>
+                <h4 className="font-bold text-sm leading-tight">CoreCodeX AI Advisor</h4>
                 <p className="text-[10px] text-cream-300/80 flex items-center gap-1.5 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   Active • Smart Concierge

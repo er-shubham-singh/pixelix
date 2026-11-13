@@ -59,7 +59,7 @@ export default function ContactSection() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
           <Badge variant="terracotta" className="text-xs">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Pixelix · Next Step</span>
+            <span>CoreCodeX · Next Step</span>
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
             Let's Build What's Next
@@ -177,7 +177,7 @@ export default function ContactSection() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Vikas Chauhan"
+                      placeholder="e.g. Sahil Prasad"
                       className="w-full px-4 py-2.5 rounded-xl border border-cream-300 dark:border-white/10 bg-cream-50/50 dark:bg-darkbg-card text-xs sm:text-sm text-espresso-900 dark:text-white focus:outline-none focus:border-terracotta-500"
                     />
                   </div>
@@ -190,7 +190,7 @@ export default function ContactSection() {
                       name="businessName"
                       value={formData.businessName}
                       onChange={handleChange}
-                      placeholder="e.g. Pixelix Labs"
+                      placeholder="e.g. CoreCodeX Technologies"
                       className="w-full px-4 py-2.5 rounded-xl border border-cream-300 dark:border-white/10 bg-cream-50/50 dark:bg-darkbg-card text-xs sm:text-sm text-espresso-900 dark:text-white focus:outline-none focus:border-terracotta-500"
                     />
                   </div>
@@ -221,7 +221,7 @@ export default function ContactSection() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 7056063863"
+                      placeholder="+91 6354729042"
                       className="w-full px-4 py-2.5 rounded-xl border border-cream-300 dark:border-white/10 bg-cream-50/50 dark:bg-darkbg-card text-xs sm:text-sm text-espresso-900 dark:text-white focus:outline-none focus:border-terracotta-500"
                     />
                   </div>

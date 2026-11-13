@@ -458,15 +458,15 @@ export async function ensureDefaultModulesSeed() {
     if (!botConfigExists) {
       await ChatbotConfig.create({
         isActive: true,
-        botName: 'Pixelix AI Assistant',
-        welcomeMessage: 'Hello! Welcome to Pixelix. I can help you calculate construction costs, explore 3D virtual property tours, launch digital ad campaigns, or connect directly with our founders.',
-        whatsappNumber: '917056063863',
+        botName: 'CoreCodeX AI Assistant',
+        welcomeMessage: 'Hello! Welcome to CoreCodeX. I can help you calculate construction costs, explore 3D virtual property tours, launch digital ad campaigns, or connect directly with our founder Sahil Prasad in Vadodara, Gujarat.',
+        whatsappNumber: '916354729042',
         whatsappMessages: {
-          calculator: 'Hello Pixelix Team, I just calculated a construction estimate on your website and would like a detailed architectural quotation.',
-          virtual_tours: 'Hello Pixelix Team, I am interested in creating interactive 3D Virtual Property Walkthroughs for my real estate project.',
-          digital_advertising: 'Hello Pixelix Team, I want to discuss Digital Advertising and Real Estate Lead Generation campaigns for my business.',
-          lead_generation: 'Hello Pixelix Team, I want to generate verified buyer inquiries for my real estate/business projects.',
-          general: 'Hello Pixelix Team, I reviewed your website and would like to speak directly with the founders.'
+          calculator: 'Hello CoreCodeX Team, I just calculated a construction estimate on your website and would like a detailed architectural quotation.',
+          virtual_tours: 'Hello CoreCodeX Team, I am interested in creating interactive 3D Virtual Property Walkthroughs for my real estate project.',
+          digital_advertising: 'Hello CoreCodeX Team, I want to discuss Digital Advertising and Real Estate Lead Generation campaigns for my business.',
+          lead_generation: 'Hello CoreCodeX Team, I want to generate verified buyer inquiries for my real estate/business projects.',
+          general: 'Hello CoreCodeX Team, I reviewed your website and would like to speak directly with founder Sahil Prasad.'
         },
         suggestedQuestions: [
           'How do I calculate house construction cost?',
@@ -485,13 +485,13 @@ export async function ensureDefaultModulesSeed() {
           {
             topic: '3D Property Tours',
             keywords: ['3d', 'virtual tour', 'walkthrough', '360', 'panorama', 'property', 'flat', 'villa', 'apartment'],
-            question: 'What types of 3D property tours does Pixelix build?',
+            question: 'What types of 3D property tours does CoreCodeX build?',
             answer: 'We design photorealistic 3D house walkthroughs, 360-degree interactive apartment tours, exterior & interior architectural elevations, and drone site showcases that allow prospective buyers to virtually inspect every room from anywhere in the world.'
           },
           {
             topic: 'Digital Advertising',
             keywords: ['ads', 'meta', 'facebook', 'instagram', 'google', 'marketing', 'ppc', 'lead gen', 'advertising'],
-            question: 'What advertising services does Pixelix provide?',
+            question: 'What advertising services does CoreCodeX provide?',
             answer: 'We engineer high-ROI Meta (Facebook & Instagram) ads and Google Search/Display/Maps campaigns with custom ad creatives, hyper-local audience targeting, and real-time WhatsApp lead delivery.'
           },
           {
@@ -502,9 +502,9 @@ export async function ensureDefaultModulesSeed() {
           },
           {
             topic: 'Founders & Agency',
-            keywords: ['founder', 'vikas', 'shubham', 'contact', 'call', 'office', 'phone', 'whatsapp'],
-            question: 'How can I speak directly with Pixelix founders?',
-            answer: 'You can connect directly with our founders: Vikas Chauhan (+91 7056063863) for business strategy & growth, and Shubham Singh (+91 95595 06650) for technology and 3D dev. You can also click the WhatsApp button anytime!'
+            keywords: ['founder', 'sahil', 'sahil prasad', 'owner', 'contact', 'call', 'office', 'phone', 'whatsapp', 'vadodara', 'gujarat'],
+            question: 'How can I speak directly with CoreCodeX founder?',
+            answer: 'You can connect directly with our founder Sahil Prasad (+91 6354729042) in Vadodara, Gujarat for business strategy, development & growth. You can also click the WhatsApp button anytime!'
           }
         ],
         aiProvider: 'none',
