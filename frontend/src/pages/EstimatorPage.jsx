@@ -16,7 +16,7 @@ export default function EstimatorPage({ onBookWithEstimator }) {
           Plan Your Project Scope & Investment
         </h1>
         <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#827060] dark:text-[#D1C7BD] leading-relaxed">
-          Select the exact services your business needs to get an instant cost and delivery timeline breakdown. Direct founder-led execution by Sahil Prasad.
+          Select the exact services your business needs to get an instant cost and delivery timeline breakdown. Direct founder-led execution by Sahil Prasad & Shubham Singh.
         </p>
       </section>
 
@@ -35,7 +35,7 @@ export default function EstimatorPage({ onBookWithEstimator }) {
             <span>100% Transparent Indian SMB Pricing • Milestone Deliveries • Direct WhatsApp Support</span>
           </div>
           <p className="text-xs text-espresso-600 dark:text-cream-400">
-            Estimates provide clear execution baselines. Need a bespoke multi-platform architecture or continuous growth retainer? Connect directly with Sahil Prasad (+91 6354729042 · Vadodara, Gujarat).
+            Estimates provide clear execution baselines. Need a bespoke multi-platform architecture or continuous growth retainer? Connect directly with Founders Sahil Prasad (+91 6354729042 · Vadodara) & Shubham Singh (+91 9559506650 · Haridwar).
           </p>
         </div>
       </section>

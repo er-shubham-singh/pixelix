@@ -19,7 +19,7 @@ export default function AboutPage({ onOpenInquiry }) {
             Creative Partner & Business Growth Systems
           </h1>
           <p className="text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            CoreCodeX bridges the gap between tactile, human-centered brand design and engineering-grade digital execution. Founded and led by Sahil Prasad in Vadodara, Gujarat.
+            CoreCodeX was started by two friends, Sahil Prasad and Shubham Singh, bridging the gap between tactile, human-centered brand design and engineering-grade digital execution.
           </p>
         </div>
       </section>
@@ -33,9 +33,27 @@ export default function AboutPage({ onOpenInquiry }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {CONTACT_INFO.founders.map((f, idx) => (
-              <div key={idx} className="p-8 rounded-3xl bg-cream-50 dark:bg-darkbg-card border border-cream-200 dark:border-white/10 space-y-4 hover:border-terracotta-400 transition-all">
-                <div className="w-16 h-16 rounded-2xl bg-sunset-gradient text-white flex items-center justify-center font-display font-bold text-xl shadow-sunset">
-                  {f.name.split(' ').map(n => n[0]).join('')}
+              <div key={idx} className="p-7 sm:p-8 rounded-3xl bg-cream-50 dark:bg-darkbg-card border border-cream-200 dark:border-white/10 space-y-4 hover:border-terracotta-400 transition-all shadow-sm hover:shadow-sunset/20">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="relative">
+                    {f.image ? (
+                      <img
+                        src={f.image}
+                        alt={f.name}
+                        className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-[#B29F8D]/40 dark:border-white/10 shadow-md"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-sunset-gradient text-white flex items-center justify-center font-display font-bold text-xl shadow-sunset">
+                        {f.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                    )}
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-darkbg-card flex items-center justify-center text-[9px] text-white font-black" title="Verified Founder">
+                      ✓
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full bg-cream-200/80 dark:bg-darkbg-surface text-espresso-800 dark:text-cream-200 border border-cream-300/60 dark:border-white/10">
+                    {f.address}
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-espresso-900 dark:text-white font-display">{f.name}</h3>
@@ -44,10 +62,18 @@ export default function AboutPage({ onOpenInquiry }) {
                 <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed">
                   Dedicated to delivering high-impact business outcomes with complete transparency and hands-on execution.
                 </p>
-                <div className="pt-2 border-t border-cream-200 dark:border-white/10">
+                <div className="pt-2 border-t border-cream-200 dark:border-white/10 flex items-center justify-between">
                   <a href={f.telHref} className="text-xs font-bold text-espresso-900 dark:text-cream-200 hover:text-terracotta-600 dark:hover:text-terracotta-400 flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-terracotta-500" />
                     <span>{f.phone}</span>
+                  </a>
+                  <a
+                    href={f.whatsappHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+                  >
+                    WhatsApp →
                   </a>
                 </div>
               </div>

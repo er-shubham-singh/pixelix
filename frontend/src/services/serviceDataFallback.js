@@ -648,62 +648,66 @@ export const FALLBACK_SERVICES = [
 export const FALLBACK_PROJECTS = [
   {
     id: 1,
-    title: 'Mastermail — Visual Identity System',
-    client: 'Mastermail Enterprise',
-    category: 'brand-identity',
-    tagline: 'Complete brand identity system, 5 vector logo themes, and tactile stationery',
-    description: 'Created a complete brand identity — from strategy and positioning to a scalable visual system designed for consistency, recognition, and enterprise growth.',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
-    tags: ['Branding', 'Strategy', '5 Vector Logos', 'PDF Identity Kit'],
+    title: 'PaxTechs — Corporate & Financial Tech Management',
+    client: 'PaxTechs',
+    liveUrl: 'https://paxtechs.com',
+    category: 'digital-products',
+    tagline: 'High-performance custom engines, secure billing frameworks & algorithmic trading',
+    description: 'Engineered a modern corporate & financial technology platform featuring algorithmic trading engine integrations, enterprise billing frameworks, and ultra-low latency architecture.',
+    image: '/portfolio-paxtechs.png',
+    tags: ['FinTech Platform', 'Algorithmic Trading', 'Cloud Billing', 'React & Node.js'],
     metrics: [
-      { label: 'Brand Recall', value: '+280%' },
-      { label: 'Asset Delivery', value: '10 Days' },
-      { label: 'Vector Scalability', value: '100%' }
+      { label: 'Latency', value: '0.12ms' },
+      { label: 'Uptime SLA', value: '99.99%' },
+      { label: 'Architecture', value: 'Enterprise' }
     ]
   },
   {
     id: 2,
-    title: 'VedaKriti Artisan Marketplace Growth',
-    client: 'VedaKriti Ethnic Wear',
+    title: 'Fluteon — Modern D2C Fashion & Apparel Store',
+    client: 'Fluteon',
+    liveUrl: 'https://fluteon.com',
     category: 'ecom-operations',
-    tagline: 'Amazon FBA, Flipkart Assured & Meesho catalog with automated logistics',
-    description: 'Overhauled 450+ parent-child SKU listings with A+ Content, recovered ₹1.8L in Safe-T claims, and optimized Shiprocket dispatch workflows to scale daily volume.',
-    image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
-    tags: ['Amazon FBA', 'Flipkart Assured', 'Meesho Listing', 'Dispatch SLA'],
+    tagline: 'Full-featured women\'s fashion catalog, instant search & partner onboarding',
+    description: 'Designed and built a sleek, modern D2C women\'s fashion storefront with category-based filtering (Bottom wear, Shirts, Blazers, Skirts, Tops), seamless cart workflows, and partner onboarding.',
+    image: '/portfolio-fluteon.png',
+    tags: ['D2C E-Commerce', 'Fashion Store', 'Cart & Checkout', 'Mobile First'],
     metrics: [
-      { label: 'Order Lift', value: '+380%' },
-      { label: 'Monthly GMV', value: '₹38L' },
-      { label: 'RTO Drop', value: '-42%' }
+      { label: 'Page Speed', value: '98/100' },
+      { label: 'Checkout', value: '< 60s' },
+      { label: 'Categories', value: 'Multi-SKU' }
     ]
   },
   {
     id: 3,
-    title: 'Roundie Living — 3D Motion & D2C Store',
-    client: 'Roundie Home Living',
+    title: 'StayByHour (N Hotels) — Hourly & Daily Hotel Booking',
+    client: 'StayByHour / N Hotels',
+    liveUrl: 'https://nhotels.in',
     category: 'digital-products',
-    tagline: 'High-speed React storefront with interactive 3D product visualizer',
-    description: 'Engineered a modern architectural shopping platform with Three.js product orbit view, dynamic cart animation, and sub-second load times on mobile.',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80',
-    tags: ['Web Dev', 'Three.js 3D', 'Mobile App', 'Page Speed 99'],
+    tagline: 'Flexible hourly & day/night hotel room booking across top Indian metropolitan cities',
+    description: 'Developed an on-demand hotel booking platform supporting hourly stay and full-day stay reservations across Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Kolkata, Pune, and Lucknow.',
+    image: '/portfolio-nhotels.png',
+    tags: ['Hotel Booking Engine', 'Hourly Stay', 'Multi-City Platform', 'Fast Search'],
     metrics: [
-      { label: 'Conversion Lift', value: '+142%' },
-      { label: 'Load Time', value: '0.8s' },
-      { label: 'Order Growth', value: '3.4x' }
+      { label: 'Search Speed', value: '< 200ms' },
+      { label: 'Major Cities', value: '8+ Metros' },
+      { label: 'Booking Flow', value: 'Instant' }
     ]
   },
   {
     id: 4,
-    title: 'Sato Salon & Gourmet Omnichannel Launch',
-    client: 'Sato Hospitality',
+    title: 'Great Popular Band — Wedding Baraat & Event Platform',
+    client: 'Great Popular Band',
+    liveUrl: 'https://www.greatpopularband.com',
     category: 'campaigns',
-    tagline: 'Dual screen and print campaign with 5 vector logos and offline menus',
-    description: 'Crafted the entire visual identity kit, digital ID cards, QR smart menus, and outdoor advertising that drove packed tables from opening week.',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
-    tags: ['Brand Identity', '5 Logo Vector Kit', '5 Print Flyers', 'Social PDFs'],
+    tagline: 'Premier brass band, wedding processions, Dhol, DJ on wheels & royal event bookings',
+    description: 'Crafted the digital booking & inquiry portal for India\'s premier wedding band with 35+ years of legacy, showcase galleries, package customizers, and direct WhatsApp lead conversion.',
+    image: '/portfolio-greatpopularband.png',
+    tags: ['Event Booking', 'Wedding Entertainment', 'WhatsApp Conversion', 'SEO Optimized'],
     metrics: [
-      { label: 'Footfall Increase', value: '+210%' },
-      { label: 'Social Reach', value: '180K+' },
-      { label: 'Design Assets', value: '15 Masters' }
+      { label: 'Google Rating', value: '4.9 ★' },
+      { label: 'Legacy', value: '35+ Yrs' },
+      { label: 'Weddings', value: '5000+' }
     ]
   }
 ];

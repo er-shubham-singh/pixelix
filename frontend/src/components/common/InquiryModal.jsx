@@ -129,7 +129,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
               Consultation Request Received!
             </h4>
             <p className="text-sm text-espresso-700 dark:text-cream-300 max-w-md mx-auto">
-              {resultMsg || 'Founder Sahil Prasad will personally review your requirements and reach out within 4 business hours.'}
+              {resultMsg || 'Founders Sahil Prasad and Shubham Singh will personally review your requirements and reach out within 4 business hours.'}
             </p>
           </div>
 
@@ -137,11 +137,17 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
           <div className="p-4 rounded-2xl bg-cream-100 dark:bg-darkbg-card border border-terracotta-200/60 dark:border-white/10 max-w-md mx-auto space-y-2">
             <div className="text-xs font-bold text-espresso-900 dark:text-white flex items-center justify-center gap-1.5">
               <PhoneCall className="w-3.5 h-3.5 text-terracotta-500" />
-              <span>Need Immediate Discussion? Call Founder Directly:</span>
+              <span>Need Immediate Discussion? Call Founders Directly:</span>
             </div>
-            <div className="flex items-center justify-center gap-3 text-xs font-semibold">
-              <a href="tel:+916354729042" className="text-terracotta-600 hover:underline">
-                Sahil Prasad: +91 6354729042 · Vadodara, Gujarat
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-xs font-semibold">
+              <a href={CONTACT_INFO.founders[0].telHref} className="flex items-center gap-1.5 text-terracotta-600 hover:underline">
+                <img src="/sahil.png" alt="Sahil" className="w-5 h-5 rounded-full object-cover object-top border border-terracotta-300" />
+                <span>Sahil: {CONTACT_INFO.founders[0].phone} (Vadodara)</span>
+              </a>
+              <span className="hidden sm:inline text-espresso-400">•</span>
+              <a href={CONTACT_INFO.founders[1]?.telHref || 'tel:+919559506650'} className="flex items-center gap-1.5 text-terracotta-600 hover:underline">
+                <img src="/shubham.png" alt="Shubham" className="w-5 h-5 rounded-full object-cover object-top border border-terracotta-300" />
+                <span>Shubham: {CONTACT_INFO.founders[1]?.phone || '+91 9559506650'} (Haridwar)</span>
               </a>
             </div>
           </div>
@@ -308,7 +314,7 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
                 Ready to Get Similar Results for Your Brand?
               </h4>
               <p className="text-xs text-espresso-600 dark:text-cream-300 max-w-lg mx-auto">
-                No middleman or junior sales pitch. You speak directly with agency founder Sahil Prasad.
+                No middleman or junior sales pitch. You speak directly with agency founders Sahil Prasad and Shubham Singh.
               </p>
             </div>
 
@@ -316,22 +322,26 @@ export default function InquiryModal({ isOpen, onClose, preselectedService = '' 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-md mx-auto">
               <a
                 href={CONTACT_INFO.founders[0].telHref}
-                className="p-3 rounded-2xl bg-white dark:bg-darkbg-card border border-terracotta-200/70 dark:border-white/10 hover:border-terracotta-400 shadow-soft flex items-center justify-center gap-2 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 transition-all cursor-pointer group"
+                className="p-3 rounded-2xl bg-white dark:bg-darkbg-card border border-terracotta-200/70 dark:border-white/10 hover:border-terracotta-400 shadow-soft flex items-center justify-center gap-2.5 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 transition-all cursor-pointer group"
               >
-                <div className="w-7 h-7 rounded-full bg-terracotta-50 dark:bg-terracotta-900/40 text-terracotta-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
+                <img
+                  src="/sahil.png"
+                  alt="Sahil Prasad"
+                  className="w-7 h-7 rounded-full object-cover object-top border border-[#B29F8D] shrink-0 group-hover:scale-105 transition-transform"
+                />
                 <span>Call Sahil ({CONTACT_INFO.founders[0].phone})</span>
               </a>
 
               <a
-                href={CONTACT_INFO.founders[0].whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-2xl bg-green-500 hover:bg-green-600 text-white shadow-soft flex items-center justify-center gap-2 text-xs font-bold transition-all cursor-pointer hover:scale-105 active:scale-95"
+                href={CONTACT_INFO.founders[1]?.telHref || 'tel:+919559506650'}
+                className="p-3 rounded-2xl bg-white dark:bg-darkbg-card border border-terracotta-200/70 dark:border-white/10 hover:border-terracotta-400 shadow-soft flex items-center justify-center gap-2.5 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 transition-all cursor-pointer group"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Directly</span>
+                <img
+                  src="/shubham.png"
+                  alt="Shubham Singh"
+                  className="w-7 h-7 rounded-full object-cover object-top border border-[#B29F8D] shrink-0 group-hover:scale-105 transition-transform"
+                />
+                <span>Call Shubham ({CONTACT_INFO.founders[1]?.phone || '+91 9559506650'})</span>
               </a>
             </div>
 

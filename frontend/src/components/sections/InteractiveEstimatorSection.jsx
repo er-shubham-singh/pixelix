@@ -129,7 +129,7 @@ export default function InteractiveEstimatorSection({ onBookWithEstimator }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-terracotta-500 shrink-0" />
-                  <span>Direct founder collaboration (Sahil Prasad · Vadodara, Gujarat)</span>
+                  <span>Direct founder collaboration (Sahil Prasad · Vadodara & Shubham Singh · Haridwar)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-terracotta-500 shrink-0" />

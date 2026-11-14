@@ -20,10 +20,10 @@ export default function TerracottaOrbitCanvas({ className = "w-48 h-48" }) {
     const group = new THREE.Group();
     scene.add(group);
 
-    // Emerald C-shaped / Torus Orbit
+    // Taupe Silk Torus Orbit
     const orbitGeometry = new THREE.TorusGeometry(1.4, 0.35, 24, 60, Math.PI * 1.7);
     const orbitMaterial = new THREE.MeshPhysicalMaterial({
-      color: 0x059669,
+      color: 0xB29F8D,
       roughness: 0.22,
       metalness: 0.2,
       clearcoat: 0.8,

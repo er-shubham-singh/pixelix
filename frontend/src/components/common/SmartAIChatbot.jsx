@@ -83,7 +83,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
         {
           id: `bot-${Date.now()}`,
           sender: 'bot',
-          text: 'Thank you for your question! We specialize in modern web development, e-commerce stores, product listings, 3D interactive web experiences, and digital lead generation. Would you like to connect directly on WhatsApp with Sahil Prasad in Vadodara, Gujarat?',
+          text: 'Thank you for your question! We specialize in modern web development, e-commerce stores, product listings, 3D interactive web experiences, and digital lead generation. Would you like to connect directly on WhatsApp with founders Sahil Prasad (Vadodara) or Shubham Singh (Haridwar)?',
           whatsappHandoff: true,
           whatsappNumber: '916354729042'
         }
@@ -94,7 +94,7 @@ export default function SmartAIChatbot({ activePage = 'home' }) {
   };
 
   const handleWhatsAppHandoff = (number = '916354729042') => {
-    const msg = 'Hello CoreCodeX! I was chatting with your AI Advisor on the website and would like to speak directly with Sahil Prasad.';
+    const msg = 'Hello CoreCodeX! I was chatting with your AI Advisor on the website and would like to speak directly with Founders Sahil Prasad & Shubham Singh.';
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 

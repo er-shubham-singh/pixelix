@@ -206,24 +206,22 @@ export default function Navbar({ onOpenInquiry, activePage = 'home', setActivePa
           <div className="grid grid-cols-2 gap-2 text-center">
             <a
               href={`tel:${CONTACT_INFO.founders[0].phone}`}
-              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-1.5"
+              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-2"
             >
-              <PhoneCall className="w-3 h-3 text-[#827060]" />
+              <img src="/sahil.png" alt="Sahil" className="w-5 h-5 rounded-full object-cover object-top border border-[#B29F8D]" />
               <span>Call Sahil</span>
             </a>
             <a
-              href={CONTACT_INFO.founders[0].whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-1.5"
+              href={`tel:${CONTACT_INFO.founders[1]?.phone || '+919559506650'}`}
+              className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-[#D6CCC2] dark:border-white/10 text-[11px] font-semibold text-espresso-800 dark:text-cream-200 hover:text-[#827060] transition-colors flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-3 h-3 text-[#827060]" />
-              <span>WhatsApp</span>
+              <img src="/shubham.png" alt="Shubham" className="w-5 h-5 rounded-full object-cover object-top border border-[#B29F8D]" />
+              <span>Call Shubham</span>
             </a>
           </div>
 
           <div className="text-center text-[10px] text-[#827060] dark:text-[#C7B9A4] pt-1">
-            CoreCodeX • Vadodara, Gujarat • {CONTACT_INFO.domain}
+            CoreCodeX • Vadodara & Haridwar • {CONTACT_INFO.domain}
           </div>
         </div>
       </aside>

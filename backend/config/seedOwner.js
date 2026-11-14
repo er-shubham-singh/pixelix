@@ -24,6 +24,26 @@ export async function ensureDefaultAccounts() {
       await owner.save();
     }
 
+    // Check if co-owner Shubham Singh exists
+    let coOwner = await User.findOne({ email: 'shubham@corecodex.com' });
+    if (!coOwner) {
+      coOwner = await User.create({
+        name: 'Shubham Singh',
+        email: 'shubham@corecodex.com',
+        password: 'PixelixOwner@2026',
+        role: 'owner',
+        domain: 'Co-Founder & Tech Lead',
+        employeeId: 'CCX-DIR-002',
+        phone: '+91 9559506650',
+        status: 'active'
+      });
+      console.log('👑 Default Co-Owner Account created: Shubham Singh (+91 9559506650)');
+    } else {
+      coOwner.name = 'Shubham Singh';
+      coOwner.phone = '+91 9559506650';
+      await coOwner.save();
+    }
+
     // Check if we have demo employees
     const empCount = await User.countDocuments({ role: 'employee' });
     if (empCount === 0) {

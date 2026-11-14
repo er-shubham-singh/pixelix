@@ -47,7 +47,7 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
             <p className="text-[#D5C9BD] text-sm sm:text-base leading-relaxed">
               {isHindi
                 ? 'आज ही बातचीत शुरू करें। पहले आइडिया से अंतिम एसेट तक, CoreCodeX आपके बिज़नेस को आगे बढ़ाने में मदद करता है।'
-                : 'From first idea to final asset, CoreCodeX helps you move forward. Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat).'}
+                : 'From first idea to final asset, CoreCodeX helps you move forward. Speak directly with Founders Sahil Prasad (+91 6354729042 · Vadodara) & Shubham Singh (+91 9559506650 · Haridwar).'}
             </p>
           </div>
           <div className="flex flex-col items-center lg:items-end gap-3.5 w-full lg:w-auto">
@@ -144,29 +144,40 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
               <Phone className="w-4 h-4 text-[#B29F8D]" />
               <span>{isHindi ? 'सीधा संपर्क' : 'Contact & Headquarters'}</span>
             </h4>
-            <div className="space-y-3 text-xs text-[#C7B9A4]">
-              <div className="p-3.5 rounded-2xl bg-[#231F1C] border border-[#3E3630] shadow-xs space-y-2.5">
-                <div>
-                  <div className="font-bold text-white text-xs">{CONTACT_INFO.founders[0].name}</div>
-                  <div className="text-[11px] text-[#B29F8D]">{CONTACT_INFO.founders[0].role}</div>
-                </div>
-                <div className="space-y-2 pt-2 border-t border-[#3E3630]/60">
-                  <a href={CONTACT_INFO.founders[0].telHref} className="hover:underline flex items-center gap-2 text-[#FAF7F2] font-semibold">
-                    <Phone className="w-3.5 h-3.5 text-[#B29F8D]" />
-                    <span>{CONTACT_INFO.founders[0].phone}</span>
-                  </a>
-                  <div className="flex items-center gap-2 text-[#C7B9A4]">
-                    <MapPin className="w-3.5 h-3.5 text-[#B29F8D]" />
-                    <span>Vadodara, Gujarat, India</span>
+            <div className="space-y-2.5 text-xs text-[#C7B9A4]">
+              {CONTACT_INFO.founders.map((founder, fIdx) => (
+                <div key={fIdx} className="p-3 rounded-2xl bg-[#231F1C] border border-[#3E3630] shadow-xs space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    {founder.image && (
+                      <img
+                        src={founder.image}
+                        alt={founder.name}
+                        className="w-9 h-9 rounded-xl object-cover object-top border border-[#B29F8D]/40 shrink-0"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-white text-xs truncate">{founder.name}</span>
+                        <span className="text-[10px] text-[#B29F8D]">{founder.address}</span>
+                      </div>
+                      <div className="text-[11px] text-[#B29F8D]">{founder.role}</div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[#C7B9A4]">
-                    <Globe className="w-3.5 h-3.5 text-[#D8C8B4]" />
-                    <span>{CONTACT_INFO.domain}</span>
+                  <div className="pt-1.5 border-t border-[#3E3630]/60 flex items-center justify-between">
+                    <a href={founder.telHref} className="hover:underline flex items-center gap-1.5 text-[#FAF7F2] font-semibold text-[11px]">
+                      <Phone className="w-3 h-3 text-[#B29F8D]" />
+                      <span>{founder.phone}</span>
+                    </a>
+                    <a href={founder.whatsappHref} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline text-[11px] font-semibold">
+                      WhatsApp →
+                    </a>
                   </div>
                 </div>
+              ))}
+              <div className="pt-1">
                 <button
                   onClick={() => handleNav('contact')}
-                  className="w-full mt-2 py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 text-[#FAF7F2] font-bold text-[11px] border border-white/15 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                  className="w-full py-2 px-3 rounded-xl bg-white/10 hover:bg-white/15 text-[#FAF7F2] font-bold text-[11px] border border-white/15 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                 >
                   <span>Open Contact & Inquiry Page</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#B29F8D]" />

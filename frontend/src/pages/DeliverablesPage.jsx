@@ -32,7 +32,7 @@ export default function DeliverablesPage({ onOpenInquiry }) {
             Need a custom deliverable kit tailored to your brand?
           </h3>
           <p className="text-sm text-cream-300 max-w-xl mx-auto">
-            Speak directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat) to finalize your identity and campaign specifications.
+            Speak directly with Founders Sahil Prasad (+91 6354729042 · Vadodara) & Shubham Singh (+91 9559506650 · Haridwar) to finalize your identity and campaign specifications.
           </p>
           <button
             onClick={onOpenInquiry}

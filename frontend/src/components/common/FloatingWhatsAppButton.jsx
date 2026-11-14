@@ -15,7 +15,7 @@ export default function FloatingWhatsAppButton({ activePage = 'home' }) {
       case 'services':
         return 'Hello CoreCodeX! I was browsing your services and would like to inquire about project scope and timelines.';
       default:
-        return 'Hello CoreCodeX! I visited your website and would like to discuss a project with Sahil Prasad.';
+        return 'Hello CoreCodeX! I visited your website and would like to discuss a project with Sahil Prasad & Shubham Singh.';
     }
   };
 

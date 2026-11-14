@@ -160,29 +160,27 @@ export default function ServiceDetailModal({ service, isOpen, onClose, onBookSer
             <div>
               <div className="text-xs font-bold text-espresso-900 dark:text-white flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-terracotta-500" />
-                <span>Speak Directly with Founder Sahil Prasad</span>
+                <span>Speak Directly with Founders</span>
               </div>
               <p className="text-[11px] text-espresso-600 dark:text-cream-300 mt-0.5">
-                Zero sales pressure. Direct execution consultation for {service.title} (Vadodara, Gujarat).
+                Sahil Prasad (+91 6354729042 · Vadodara) & Shubham Singh (+91 9559506650 · Haridwar)
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 shrink-0">
               <a
                 href={CONTACT_INFO.founders[0].telHref}
-                className="px-3.5 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-1.5 shadow-2xs"
+                className="px-3 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-2 shadow-2xs group"
               >
-                <Phone className="w-3.5 h-3.5 text-terracotta-500" />
+                <img src="/sahil.png" alt="Sahil" className="w-5 h-5 rounded-full object-cover object-top border border-[#B29F8D]" />
                 <span>Call Sahil</span>
               </a>
               <a
-                href={CONTACT_INFO.founders[0].whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="px-3.5 py-1.5 rounded-full bg-green-500 hover:bg-green-600 text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs"
+                href={CONTACT_INFO.founders[1]?.telHref || 'tel:+919559506650'}
+                className="px-3 py-1.5 rounded-full bg-white dark:bg-darkbg-card border border-terracotta-200 dark:border-white/10 text-xs font-bold text-espresso-900 dark:text-white hover:text-terracotta-600 flex items-center gap-2 shadow-2xs group"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>WhatsApp</span>
+                <img src="/shubham.png" alt="Shubham" className="w-5 h-5 rounded-full object-cover object-top border border-[#B29F8D]" />
+                <span>Call Shubham</span>
               </a>
             </div>
           </div>

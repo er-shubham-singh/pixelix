@@ -459,14 +459,14 @@ export async function ensureDefaultModulesSeed() {
       await ChatbotConfig.create({
         isActive: true,
         botName: 'CoreCodeX AI Assistant',
-        welcomeMessage: 'Hello! Welcome to CoreCodeX. I can help you estimate website & e-commerce project scope, explore 3D web experiences, launch digital ad campaigns, or connect directly with our founder Sahil Prasad in Vadodara, Gujarat.',
+        welcomeMessage: 'Hello! Welcome to CoreCodeX. I can help you estimate website & e-commerce project scope, explore 3D web experiences, launch digital ad campaigns, or connect directly with our founders Sahil Prasad (Vadodara) and Shubham Singh (Haridwar).',
         whatsappNumber: '916354729042',
         whatsappMessages: {
           calculator: 'Hello CoreCodeX Team, I just calculated a project scope estimate on your website and would like to discuss next steps.',
           virtual_tours: 'Hello CoreCodeX Team, I am interested in creating interactive 3D Virtual Property Walkthroughs for my real estate project.',
           digital_advertising: 'Hello CoreCodeX Team, I want to discuss Digital Advertising and Lead Generation campaigns for my business.',
           lead_generation: 'Hello CoreCodeX Team, I want to generate verified buyer inquiries for my business.',
-          general: 'Hello CoreCodeX Team, I reviewed your website and would like to speak directly with founder Sahil Prasad.'
+          general: 'Hello CoreCodeX Team, I reviewed your website and would like to speak directly with founders Sahil Prasad & Shubham Singh.'
         },
         suggestedQuestions: [
           'How much does a website or e-commerce store cost?',

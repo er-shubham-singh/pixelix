@@ -76,15 +76,37 @@ export default function HeroSection({ onOpenInquiry }) {
 
             {/* Minimalist Founder Involvement Trust Link */}
             <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs text-espresso-700 dark:text-cream-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
-              <span>Direct founder involvement:</span>
-              <a
-                href={CONTACT_INFO.founders[0].telHref}
-                className="text-espresso-900 dark:text-cream-200 hover:text-[#827060] dark:hover:text-[#D5C9BD] font-semibold underline underline-offset-2"
-              >
-                Sahil Prasad
-              </a>
-              <span className="text-[#827060] dark:text-[#C7B9A4]">({CONTACT_INFO.founders[0].phone} · Vadodara, Gujarat)</span>
+              <div className="flex items-center -space-x-2 shrink-0">
+                <img
+                  src="/sahil.png"
+                  alt="Sahil Prasad"
+                  className="w-7 h-7 rounded-full object-cover object-top border-2 border-white dark:border-[#181513] shadow-xs"
+                />
+                <img
+                  src="/shubham.png"
+                  alt="Shubham Singh"
+                  className="w-7 h-7 rounded-full object-cover object-top border-2 border-white dark:border-[#181513] shadow-xs"
+                />
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#827060] dark:text-[#C7B9A4]" />
+                <span>Direct founders:</span>
+                <a
+                  href={CONTACT_INFO.founders[0].telHref}
+                  className="text-espresso-900 dark:text-cream-200 hover:text-[#827060] dark:hover:text-[#D5C9BD] font-semibold underline underline-offset-2"
+                >
+                  Sahil
+                </a>
+                <span className="text-[#827060] dark:text-[#C7B9A4]">({CONTACT_INFO.founders[0].phone})</span>
+                <span>&</span>
+                <a
+                  href={CONTACT_INFO.founders[1]?.telHref || 'tel:+919559506650'}
+                  className="text-espresso-900 dark:text-cream-200 hover:text-[#827060] dark:hover:text-[#D5C9BD] font-semibold underline underline-offset-2"
+                >
+                  Shubham
+                </a>
+                <span className="text-[#827060] dark:text-[#C7B9A4]">({CONTACT_INFO.founders[1]?.phone || '+91 9559506650'})</span>
+              </div>
             </div>
 
           </div>

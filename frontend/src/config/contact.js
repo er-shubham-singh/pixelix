@@ -2,9 +2,9 @@ export const CONTACT_INFO = {
   name: 'CoreCodeX',
   domain: 'corecodex.com',
   websiteUrl: 'https://corecodex.com',
-  address: 'Vadodara, Gujarat, India',
-  city: 'Vadodara',
-  state: 'Gujarat',
+  address: 'Vadodara (Gujarat) & Haridwar (Uttarakhand), India',
+  city: 'Vadodara & Haridwar',
+  state: 'Gujarat & Uttarakhand',
   country: 'India',
   taglineEn: 'Creative & Digital Solutions for Growing Businesses',
   taglineHi: 'बढ़ते व्यवसायों के लिए क्रिएटिव और डिजिटल समाधान',
@@ -13,19 +13,21 @@ export const CONTACT_INFO = {
   founders: [
     {
       name: 'Sahil Prasad',
-      role: 'Founder & Owner',
+      role: 'Co-Founder & Operations Lead',
+      image: '/sahil.png',
       phone: '+91 6354729042',
       telHref: 'tel:+916354729042',
       whatsappHref: 'https://wa.me/916354729042?text=Hi%20Sahil,%20I%20am%20interested%20in%20CoreCodeX%20services',
       address: 'Vadodara, Gujarat'
     },
     {
-      name: 'Sahil Prasad',
-      role: 'Executive & Managing Lead',
-      phone: '+91 6354729042',
-      telHref: 'tel:+916354729042',
-      whatsappHref: 'https://wa.me/916354729042?text=Hi%20CoreCodeX,%20I%20am%20interested%20in%20your%20services',
-      address: 'Vadodara, Gujarat'
+      name: 'Shubham Singh',
+      role: 'Co-Founder & Technical Lead',
+      image: '/shubham.png',
+      phone: '+91 9559506650',
+      telHref: 'tel:+919559506650',
+      whatsappHref: 'https://wa.me/919559506650?text=Hi%20Shubham,%20I%20am%20interested%20in%20CoreCodeX%20services',
+      address: 'Haridwar, Uttarakhand'
     }
   ],
   pillars: [

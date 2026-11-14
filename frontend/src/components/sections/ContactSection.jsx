@@ -92,10 +92,23 @@ export default function ContactSection() {
               <div className="space-y-4">
                 {CONTACT_INFO.founders.map((founder, idx) => (
                   <div key={idx} className="p-4 rounded-2xl bg-white dark:bg-darkbg-card border border-cream-200/90 dark:border-white/10 shadow-sm flex items-center justify-between gap-4 group hover:border-terracotta-400 transition-all">
-                    <div>
-                      <div className="font-bold text-sm text-espresso-900 dark:text-white">{founder.name}</div>
-                      <div className="text-xs text-terracotta-600 dark:text-terracotta-400 font-medium">{founder.role}</div>
-                      <div className="text-xs text-espresso-700 dark:text-cream-300 mt-1 font-semibold">{founder.phone}</div>
+                    <div className="flex items-center gap-3.5">
+                      {founder.image && (
+                        <img
+                          src={founder.image}
+                          alt={founder.name}
+                          className="w-14 h-14 rounded-2xl object-cover object-top border-2 border-[#B29F8D]/40 dark:border-white/10 shrink-0 shadow-xs"
+                        />
+                      )}
+                      <div>
+                        <div className="font-bold text-sm text-espresso-900 dark:text-white">{founder.name}</div>
+                        <div className="text-xs text-terracotta-600 dark:text-terracotta-400 font-medium">{founder.role}</div>
+                        <div className="text-xs text-espresso-700 dark:text-cream-300 mt-0.5 font-semibold">{founder.phone}</div>
+                        <div className="text-[11px] text-espresso-600 dark:text-cream-400 flex items-center gap-1 mt-0.5">
+                          <MapPin className="w-3 h-3 text-terracotta-500" />
+                          <span>{founder.address}</span>
+                        </div>
+                      </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <a

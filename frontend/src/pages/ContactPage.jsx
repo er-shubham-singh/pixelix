@@ -18,7 +18,7 @@ export default function ContactPage() {
             Start a Conversation Today
           </h1>
           <p className="text-base text-espresso-700 dark:text-cream-300 leading-relaxed">
-            Direct communication with founder Sahil Prasad ({CONTACT_INFO.founders[0].phone} · Vadodara, Gujarat). We respond to every inquiry within 24 hours.
+            Direct communication with founders Sahil Prasad (+91 6354729042 · Vadodara) and Shubham Singh (+91 9559506650 · Haridwar). We respond to every inquiry within 24 hours.
           </p>
         </div>
       </section>

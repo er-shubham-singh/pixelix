@@ -157,8 +157,8 @@ export default function HomePage({
       {/* 6. Quick Consultation Banner */}
       <section className="py-16 bg-cream-100/60 dark:bg-darkbg-base transition-colors border-t border-cream-200 dark:border-white/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2.5rem] p-8 sm:p-12 text-center space-y-5 bg-white/95 dark:bg-gradient-to-r dark:from-[#02140D] dark:via-[#052015] dark:to-[#02140D] border border-emerald-500/20 dark:border-emerald-500/30 shadow-xl dark:shadow-[0_0_60px_-15px_rgba(16,185,129,0.25)] transition-colors">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+          <div className="rounded-[2.5rem] p-8 sm:p-12 text-center space-y-5 bg-white/95 dark:bg-gradient-to-r dark:from-[#231F1C] dark:via-[#2A2421] dark:to-[#181513] border border-[#B29F8D]/20 dark:border-[#B29F8D]/30 shadow-xl dark:shadow-[0_0_60px_-15px_rgba(178,159,141,0.25)] transition-colors">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B29F8D]/10 border border-[#B29F8D]/30 text-[#827060] dark:text-[#D1C7BD] text-xs font-bold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Direct Founder Access</span>
             </div>
@@ -166,7 +166,7 @@ export default function HomePage({
               Ready to Build What's Next?
             </h2>
             <p className="text-sm text-espresso-700 dark:text-cream-300 max-w-xl mx-auto leading-relaxed">
-              Connect directly with Founder Sahil Prasad (+91 6354729042 · Vadodara, Gujarat) to start your project.
+              Connect directly with Founders Sahil Prasad (+91 6354729042 · Vadodara) & Shubham Singh (+91 9559506650 · Haridwar) to start your project.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
