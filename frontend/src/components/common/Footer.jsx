@@ -28,7 +28,7 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
   };
 
   return (
-    <footer className="relative bg-[#181513] text-[#FAF7F2] overflow-hidden pt-16 sm:pt-20 pb-12 border-t border-[#3E3630]/70 shadow-[0_-20px_50px_-20px_rgba(24,21,19,0.5)]">
+    <footer className="relative bg-[#0E0C0A] dark:bg-[#0E0C0A] text-[#FAF7F2] overflow-hidden pt-16 sm:pt-20 pb-12 border-t-2 border-[#3E3630] shadow-[0_-20px_50px_-20px_rgba(0,0,0,0.8)]">
       {/* Background ambient lighting in champagne & taupe tones */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D8C8B4]/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#B29F8D]/10 rounded-full blur-[110px] pointer-events-none" />
@@ -36,7 +36,7 @@ export default function Footer({ onOpenInquiry, onNavigatePage }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Banner Box with Direct Contact Options */}
-        <div className="rounded-[2.5rem] p-8 md:p-12 mb-16 bg-[#231F1C] border border-[#3E3630] shadow-[0_10px_40px_rgba(0,0,0,0.35)] flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="rounded-[2.5rem] p-8 md:p-12 mb-16 bg-[#1C1714] dark:bg-[#1C1714] border border-[#3E3630] shadow-[0_10px_40px_rgba(0,0,0,0.5)] flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center lg:text-left">
             <span className="text-xs uppercase tracking-widest font-bold text-[#B29F8D]">
               {isHindi ? 'अगला कदम' : 'CoreCodeX · Contact & Next Step'}

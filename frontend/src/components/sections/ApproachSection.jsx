@@ -67,16 +67,16 @@ export default function ApproachSection({ onSelectCategory }) {
   ];
 
   return (
-    <section id="approach" className="py-16 sm:py-20 bg-white dark:bg-[#1E1A17] relative overflow-hidden transition-colors border-t-2 border-[#E8DFD3] dark:border-white/10 shadow-[0_-1px_0_0_rgba(178,159,141,0.15)]">
+    <section id="approach" className="py-16 sm:py-20 bg-white dark:bg-[#251E19] relative overflow-hidden transition-colors border-t-2 border-[#E8DFD3] dark:border-[#524438] shadow-[0_-1px_0_0_rgba(178,159,141,0.15)] dark:shadow-[0_-4px_25px_rgba(0,0,0,0.4)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Mobile Section Index Ribbon */}
         <div className="flex items-center gap-2 mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-white/10 border border-[#D6CCC2] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#342921] border border-[#D6CCC2] dark:border-[#B29F8D]/40 text-[#827060] dark:text-[#E8DFD3] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs dark:shadow-[0_0_15px_rgba(178,159,141,0.15)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D] animate-pulse" />
             <span>01 · STRATEGIC PILLARS</span>
           </div>
-          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-white/10" />
+          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-[#B29F8D]/50" />
         </div>
 
         {/* Section Header */}
@@ -98,7 +98,7 @@ export default function ApproachSection({ onSelectCategory }) {
             </p>
           </div>
 
-          <div className="text-xs font-semibold text-espresso-600 dark:text-cream-400 max-w-xs self-start lg:self-auto bg-[#FAF7F2] dark:bg-white/5 p-3 rounded-2xl border border-[#D6CCC2] dark:border-white/10 shadow-xs">
+          <div className="text-xs font-semibold text-espresso-600 dark:text-cream-400 max-w-xs self-start lg:self-auto bg-[#FAF7F2] dark:bg-[#1C1714] p-3 rounded-2xl border border-[#D6CCC2] dark:border-[#524438] shadow-xs">
             You don't need everything — just what works. Explore our 6 core pillars below.
           </div>
         </div>
@@ -126,10 +126,10 @@ export default function ApproachSection({ onSelectCategory }) {
               arrowStyles = 'bg-white/10 text-cream-100 group-hover:bg-terracotta-500 group-hover:text-white shadow-sm';
               badgeStyles = 'bg-terracotta-900/60 text-terracotta-300 border-terracotta-500/30 backdrop-blur-md';
             } else {
-              cardStyles = 'bg-[#FAF7F2] dark:bg-[#25201C] text-espresso-900 dark:text-white border border-[#E5DDD2] dark:border-white/10 hover:border-[#B29F8D] hover:scale-[1.02] shadow-xs hover:shadow-md';
+              cardStyles = 'bg-[#FAF7F2] dark:bg-[#1A1512] text-espresso-900 dark:text-white border border-[#E5DDD2] dark:border-[#42352B] hover:border-[#B29F8D] dark:hover:border-[#B29F8D] hover:scale-[1.02] shadow-xs dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-md';
               textStyles = 'text-espresso-700 dark:text-cream-300';
-              arrowStyles = 'bg-[#EDE7DD] dark:bg-white/10 text-espresso-800 dark:text-cream-100 group-hover:bg-[#26211E] group-hover:text-white shadow-sm';
-              badgeStyles = 'bg-white dark:bg-white/5 text-[#827060] dark:text-[#D5C9BD] border-[#D6CCC2] dark:border-white/10 backdrop-blur-md';
+              arrowStyles = 'bg-[#EDE7DD] dark:bg-[#2A221C] text-espresso-800 dark:text-[#E8DFD3] group-hover:bg-[#26211E] group-hover:text-white shadow-sm';
+              badgeStyles = 'bg-white dark:bg-[#251E19] text-[#827060] dark:text-[#D5C9BD] border-[#D6CCC2] dark:border-[#524438] backdrop-blur-md';
             }
 
             return (

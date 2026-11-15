@@ -40,25 +40,25 @@ export default function WhyPixelixSection({ onOpenInquiry }) {
   ];
 
   return (
-    <section id="why-pixelix" className="py-16 sm:py-20 bg-[#ECE5D8] dark:bg-[#151210] relative overflow-hidden transition-colors border-t-2 border-[#D9CFC0] dark:border-white/10 shadow-[0_-1px_0_0_rgba(178,159,141,0.2)]">
+    <section id="why-pixelix" className="py-16 sm:py-20 bg-[#ECE5D8] dark:bg-[#2E241D] relative overflow-hidden transition-colors border-t-2 border-[#D9CFC0] dark:border-[#635041] shadow-[0_-1px_0_0_rgba(178,159,141,0.2)] dark:shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
       {/* Background ambient luxury cashmere & taupe glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D8C8B4]/25 dark:bg-[#B29F8D]/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute -top-24 right-1/4 w-80 h-60 bg-[#B29F8D]/20 dark:bg-[#D8C8B4]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D8C8B4]/25 dark:bg-[#B29F8D]/15 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute -top-24 right-1/4 w-80 h-60 bg-[#B29F8D]/20 dark:bg-[#D8C8B4]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Mobile Section Index Ribbon */}
         <div className="flex items-center gap-2 mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-white/10 border border-[#D9CFC0] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#3E3026] border border-[#D9CFC0] dark:border-[#B29F8D]/50 text-[#827060] dark:text-[#FAF7F2] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs dark:shadow-[0_0_15px_rgba(178,159,141,0.2)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D] animate-pulse" />
             <span>04 · THE 3-STEP METHOD</span>
           </div>
-          <div className="h-px flex-1 bg-gradient-to-r from-[#D9CFC0] to-transparent dark:from-white/10" />
+          <div className="h-px flex-1 bg-gradient-to-r from-[#D9CFC0] to-transparent dark:from-[#B29F8D]/60" />
         </div>
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-white/10 border border-[#DDD4C7] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[11px] font-bold uppercase tracking-widest shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white dark:bg-[#3E3026] border border-[#DDD4C7] dark:border-[#635041] text-[#827060] dark:text-[#D5C9BD] text-[11px] font-bold uppercase tracking-widest shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#B29F8D]" />
             <span>{isHindi ? 'द कोरकोडेक्स डिफ़रेंस' : 'THE CORECODEX DIFFERENCE'}</span>
           </div>
@@ -80,13 +80,13 @@ export default function WhyPixelixSection({ onOpenInquiry }) {
             const Icon = step.icon;
             return (
               <Floating3DCard key={idx} intensity={10} className="h-full">
-                <div className="h-full bg-white dark:bg-[#201C19] p-7 sm:p-8 rounded-3xl border-2 border-[#DDD3C4] dark:border-white/10 hover:border-[#B29F8D] dark:hover:border-[#B29F8D] shadow-[0_4px_20px_rgba(38,33,30,0.06)] hover:shadow-[0_10px_30px_rgba(38,33,30,0.12)] transition-all flex flex-col justify-between group">
+                <div className="h-full bg-white dark:bg-[#181310] p-7 sm:p-8 rounded-3xl border-2 border-[#DDD3C4] dark:border-[#524133] hover:border-[#B29F8D] dark:hover:border-[#B29F8D] shadow-[0_4px_20px_rgba(38,33,30,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_10px_30px_rgba(38,33,30,0.12)] transition-all flex flex-col justify-between group">
                   <div className="space-y-5">
                     <div className="flex items-center justify-between">
-                      <div className="w-14 h-14 rounded-2xl bg-[#EDE7DD] dark:bg-white/10 border border-[#DDD4C7] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#26211E] group-hover:text-white transition-all duration-300 shadow-xs">
+                      <div className="w-14 h-14 rounded-2xl bg-[#EDE7DD] dark:bg-[#2A211A] border border-[#DDD4C7] dark:border-[#524133] text-[#827060] dark:text-[#E8DFD3] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#26211E] group-hover:text-white transition-all duration-300 shadow-xs">
                         <Icon className="w-7 h-7" />
                       </div>
-                      <span className="font-display text-4xl font-extrabold text-espresso-900/15 dark:text-white/10 group-hover:text-[#B29F8D]/40 transition-colors">
+                      <span className="font-display text-4xl font-extrabold text-espresso-900/15 dark:text-white/20 group-hover:text-[#B29F8D]/60 transition-colors">
                         {step.num}
                       </span>
                     </div>
@@ -105,7 +105,7 @@ export default function WhyPixelixSection({ onOpenInquiry }) {
                     </p>
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-[#D6CCC2]/60 dark:border-white/10 flex items-center justify-between text-xs text-[#827060] dark:text-[#C7B9A4]">
+                  <div className="mt-8 pt-4 border-t border-[#D6CCC2]/60 dark:border-[#524133] flex items-center justify-between text-xs text-[#827060] dark:text-[#C7B9A4]">
                     <span>Phase 0{idx + 1} Execution</span>
                     <HeartHandshake className="w-4 h-4 text-[#827060] dark:text-[#C7B9A4]" />
                   </div>

@@ -34,20 +34,20 @@ export default function TestimonialsSection() {
   const currentMobileReview = reviews[currentIndex % reviews.length];
 
   return (
-    <section id="reviews" className="py-20 sm:py-24 bg-white dark:bg-[#1E1A17] border-t-2 border-[#E5DDD2] dark:border-white/10 transition-colors relative overflow-hidden shadow-[0_-1px_0_0_rgba(178,159,141,0.15)]">
+    <section id="reviews" className="py-20 sm:py-24 bg-white dark:bg-[#251E19] border-t-2 border-[#E5DDD2] dark:border-[#524438] transition-colors relative overflow-hidden shadow-[0_-1px_0_0_rgba(178,159,141,0.15)] dark:shadow-[0_-4px_25px_rgba(0,0,0,0.4)]">
       {/* Ambient Silk & Taupe Lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D8C8B4]/15 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#B29F8D]/15 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D8C8B4]/15 dark:bg-[#B29F8D]/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#B29F8D]/15 dark:bg-emerald-900/10 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Mobile Section Index Ribbon */}
         <div className="flex items-center gap-2 mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-white/10 border border-[#D6CCC2] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#342921] border border-[#D6CCC2] dark:border-[#B29F8D]/40 text-[#827060] dark:text-[#E8DFD3] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs dark:shadow-[0_0_15px_rgba(16,185,129,0.2)]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>03 · CLIENT TESTIMONIALS</span>
           </div>
-          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-white/10" />
+          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-[#B29F8D]/50" />
         </div>
 
         {/* Header - Ivory & Taupe Silk Theme */}
@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
           <button
             onClick={handlePrev}
             aria-label="Previous testimonial"
-            className="flex absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#FAF7F2] dark:bg-[#231F1C] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-white/10 items-center justify-center text-[#26211E] dark:text-white hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="flex absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#FAF7F2] dark:bg-[#342921] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-[#524438] items-center justify-center text-[#26211E] dark:text-[#FAF7F2] hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
           </button>
@@ -87,7 +87,7 @@ export default function TestimonialsSection() {
           <div className="block md:hidden px-3">
             <div
               key={currentMobileReview.id}
-              className="bg-[#FAF7F2] dark:bg-[#181513] rounded-3xl p-6 xs:p-7 border-2 border-[#E0D5C7] dark:border-white/15 shadow-[0_8px_30px_rgba(38,33,30,0.06)] min-h-[290px] flex flex-col justify-between transition-all"
+              className="bg-[#FAF7F2] dark:bg-[#171310] rounded-3xl p-6 xs:p-7 border-2 border-[#E0D5C7] dark:border-[#4E3E33] shadow-[0_8px_30px_rgba(38,33,30,0.06)] dark:shadow-[0_10px_35px_rgba(0,0,0,0.6)] min-h-[290px] flex flex-col justify-between transition-all"
             >
               <div>
                 <div className="text-[#D8C8B4] dark:text-[#B29F8D]/60 select-none">
@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
             {visibleReviews.map((rev, idx) => (
               <div
                 key={`${rev.id}-${idx}`}
-                className="bg-white dark:bg-[#1C1815] rounded-3xl p-7 sm:p-8 border border-[#D6CCC2]/70 dark:border-white/10 shadow-[0_4px_25px_rgba(38,33,30,0.04)] hover:shadow-[0_12px_35px_rgba(38,33,30,0.08)] hover:border-[#B29F8D] transition-all flex flex-col justify-between min-h-[300px] group"
+                className="bg-white dark:bg-[#171310] rounded-3xl p-7 sm:p-8 border border-[#D6CCC2]/70 dark:border-[#4E3E33] shadow-[0_4px_25px_rgba(38,33,30,0.04)] dark:shadow-[0_4px_25px_rgba(0,0,0,0.5)] hover:shadow-[0_12px_35px_rgba(38,33,30,0.08)] hover:border-[#B29F8D] dark:hover:border-[#B29F8D] transition-all flex flex-col justify-between min-h-[300px] group"
               >
                 {/* Top Quote Icon - Champagne Taupe Double Quotes */}
                 <div>
