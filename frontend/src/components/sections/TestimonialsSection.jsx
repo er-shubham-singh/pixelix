@@ -34,18 +34,27 @@ export default function TestimonialsSection() {
   const currentMobileReview = reviews[currentIndex % reviews.length];
 
   return (
-    <section id="reviews" className="py-20 sm:py-24 bg-[#F7F4EE]/60 dark:bg-darkbg-base border-t border-b border-[#D6CCC2]/60 dark:border-white/10 transition-colors relative overflow-hidden">
+    <section id="reviews" className="py-20 sm:py-24 bg-white dark:bg-[#1E1A17] border-t-2 border-[#E5DDD2] dark:border-white/10 transition-colors relative overflow-hidden shadow-[0_-1px_0_0_rgba(178,159,141,0.15)]">
       {/* Ambient Silk & Taupe Lighting */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D8C8B4]/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#B29F8D]/15 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
+        {/* Mobile Section Index Ribbon */}
+        <div className="flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-white/10 border border-[#D6CCC2] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>03 · CLIENT TESTIMONIALS</span>
+          </div>
+          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-white/10" />
+        </div>
+
         {/* Header - Ivory & Taupe Silk Theme */}
         <div className="text-center max-w-3xl mx-auto">
           {/* Eyebrow Label */}
           <div className="text-[#827060] dark:text-[#C7B9A4] text-xs sm:text-sm font-bold uppercase tracking-[0.22em] mb-2">
-            TESTIMONIALS
+            CLIENT EXPERIENCES & TRUST
           </div>
 
           {/* Main Title */}
@@ -69,7 +78,7 @@ export default function TestimonialsSection() {
           <button
             onClick={handlePrev}
             aria-label="Previous testimonial"
-            className="flex absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white dark:bg-[#231F1C] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-white/10 items-center justify-center text-[#26211E] dark:text-white hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="flex absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#FAF7F2] dark:bg-[#231F1C] shadow-[0_4px_20px_rgba(38,33,30,0.12)] border border-[#D6CCC2] dark:border-white/10 items-center justify-center text-[#26211E] dark:text-white hover:text-[#827060] dark:hover:text-[#D8C8B4] hover:scale-105 active:scale-95 transition-all cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
           </button>
@@ -78,7 +87,7 @@ export default function TestimonialsSection() {
           <div className="block md:hidden px-3">
             <div
               key={currentMobileReview.id}
-              className="bg-white dark:bg-[#1C1815] rounded-3xl p-6 xs:p-7 border border-[#D6CCC2]/70 dark:border-white/10 shadow-[0_4px_25px_rgba(38,33,30,0.04)] min-h-[290px] flex flex-col justify-between transition-all"
+              className="bg-[#FAF7F2] dark:bg-[#181513] rounded-3xl p-6 xs:p-7 border-2 border-[#E0D5C7] dark:border-white/15 shadow-[0_8px_30px_rgba(38,33,30,0.06)] min-h-[290px] flex flex-col justify-between transition-all"
             >
               <div>
                 <div className="text-[#D8C8B4] dark:text-[#B29F8D]/60 select-none">

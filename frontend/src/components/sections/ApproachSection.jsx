@@ -67,10 +67,19 @@ export default function ApproachSection({ onSelectCategory }) {
   ];
 
   return (
-    <section id="approach" className="py-16 sm:py-20 bg-cream-100/70 dark:bg-darkbg-base relative overflow-hidden transition-colors border-t border-cream-200/80 dark:border-white/10">
+    <section id="approach" className="py-16 sm:py-20 bg-white dark:bg-[#1E1A17] relative overflow-hidden transition-colors border-t-2 border-[#E8DFD3] dark:border-white/10 shadow-[0_-1px_0_0_rgba(178,159,141,0.15)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Inspired by Image 2: "How we build high-performing brands") */}
+        {/* Mobile Section Index Ribbon */}
+        <div className="flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-white/10 border border-[#D6CCC2] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B29F8D]" />
+            <span>01 · STRATEGIC PILLARS</span>
+          </div>
+          <div className="h-px flex-1 bg-gradient-to-r from-[#D6CCC2]/70 to-transparent dark:from-white/10" />
+        </div>
+
+        {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2">
@@ -80,8 +89,8 @@ export default function ApproachSection({ onSelectCategory }) {
               </Badge>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
-              How We Build <span className="text-gradient-sunset">High-Performing Brands.</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#26211E] dark:text-white tracking-tight font-display">
+              The 6 Core Pillars of <span className="text-gradient-sunset">Brand Scaling.</span>
             </h2>
             
             <p className="text-xs sm:text-sm text-espresso-700/90 dark:text-cream-300 leading-relaxed">
@@ -89,7 +98,7 @@ export default function ApproachSection({ onSelectCategory }) {
             </p>
           </div>
 
-          <div className="text-xs font-semibold text-espresso-600 dark:text-cream-400 max-w-xs self-start lg:self-auto bg-white/70 dark:bg-white/5 p-3 rounded-2xl border border-terracotta-200/50 dark:border-white/10">
+          <div className="text-xs font-semibold text-espresso-600 dark:text-cream-400 max-w-xs self-start lg:self-auto bg-[#FAF7F2] dark:bg-white/5 p-3 rounded-2xl border border-[#D6CCC2] dark:border-white/10 shadow-xs">
             You don't need everything — just what works. Explore our 6 core pillars below.
           </div>
         </div>
@@ -117,10 +126,10 @@ export default function ApproachSection({ onSelectCategory }) {
               arrowStyles = 'bg-white/10 text-cream-100 group-hover:bg-terracotta-500 group-hover:text-white shadow-sm';
               badgeStyles = 'bg-terracotta-900/60 text-terracotta-300 border-terracotta-500/30 backdrop-blur-md';
             } else {
-              cardStyles = 'ios-glass-card text-espresso-900 dark:text-white border border-cream-300/80 dark:border-white/10 hover:border-terracotta-400/60 hover:scale-[1.02]';
+              cardStyles = 'bg-[#FAF7F2] dark:bg-[#25201C] text-espresso-900 dark:text-white border border-[#E5DDD2] dark:border-white/10 hover:border-[#B29F8D] hover:scale-[1.02] shadow-xs hover:shadow-md';
               textStyles = 'text-espresso-700 dark:text-cream-300';
-              arrowStyles = 'bg-cream-200/80 dark:bg-white/10 text-espresso-800 dark:text-cream-100 group-hover:bg-sunset-gradient group-hover:text-white shadow-sm';
-              badgeStyles = 'bg-cream-100 dark:bg-white/5 text-terracotta-600 dark:text-terracotta-400 border-terracotta-200/60 dark:border-white/10 backdrop-blur-md';
+              arrowStyles = 'bg-[#EDE7DD] dark:bg-white/10 text-espresso-800 dark:text-cream-100 group-hover:bg-[#26211E] group-hover:text-white shadow-sm';
+              badgeStyles = 'bg-white dark:bg-white/5 text-[#827060] dark:text-[#D5C9BD] border-[#D6CCC2] dark:border-white/10 backdrop-blur-md';
             }
 
             return (

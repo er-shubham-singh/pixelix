@@ -88,23 +88,34 @@ export default function ServicesSection({
   }, [services, selectedCategory, searchQuery, isFeaturedOnly, maxDisplay]);
 
   return (
-    <section id="services" className={`py-14 sm:py-16 relative transition-colors ${isFeaturedOnly ? 'bg-cream-100/60 dark:bg-darkbg-base' : 'bg-cream-50 dark:bg-darkbg-surface'}`}>
+    <section id="services" className={`py-14 sm:py-16 relative transition-colors border-t-2 border-[#DDD2C4] dark:border-white/10 ${isFeaturedOnly ? 'bg-[#F2ECE1] dark:bg-[#151210] shadow-[0_-1px_0_0_rgba(178,159,141,0.2)]' : 'bg-[#FAF7F2] dark:bg-darkbg-surface'}`}>
       {/* Decorative ambient lights */}
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-terracotta-400/10 dark:bg-terracotta-600/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-80 h-80 bg-gold/15 dark:bg-gold/5 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header (Inspired by Image 2: "How we build high-performing brands") */}
+        {/* Mobile Section Index Ribbon */}
+        {isFeaturedOnly && (
+          <div className="flex items-center gap-2 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-white/10 border border-[#DDD2C4] dark:border-white/10 text-[#827060] dark:text-[#D5C9BD] text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+              <span>02 · FEATURED CAPABILITIES</span>
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#DDD2C4] to-transparent dark:from-white/10" />
+          </div>
+        )}
+
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-terracotta-600 dark:text-terracotta-400">
-              {isFeaturedOnly ? 'HOW WE BUILD' : 'COMPREHENSIVE CAPABILITIES (10 SERVICES)'}
+            <span className="text-xs font-bold uppercase tracking-widest text-[#827060] dark:text-[#D5C9BD]">
+              {isFeaturedOnly ? 'CORE CAPABILITIES' : 'COMPREHENSIVE CAPABILITIES (10 SERVICES)'}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-espresso-900 dark:text-white tracking-tight font-display">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#26211E] dark:text-white tracking-tight font-display">
               {isFeaturedOnly ? (
                 <>
-                  How We Build <span className="text-gradient-sunset">High-Performing Brands.</span>
+                  High-Impact Services <span className="text-gradient-sunset">Engineered to Scale.</span>
                 </>
               ) : (
                 'Complete Digital, Branding & Marketplace Suite'
@@ -170,29 +181,29 @@ export default function ServicesSection({
             {/* TOP ROW: 3 Pillars (Cream, Terracotta Solid, Cream) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               
-              {/* CARD 1: Cream - Visual Identity */}
+              {/* CARD 1: Cream/White - Visual Identity */}
               <div
                 onClick={() => {
                   const match = services.find(s => s.title.toLowerCase().includes('brand') || s.slug?.includes('brand')) || services[0];
                   onViewServiceDetail(match);
                 }}
-                className="p-5 sm:p-6 rounded-3xl bg-cream-50 dark:bg-darkbg-card border border-cream-300/80 dark:border-white/10 hover:border-terracotta-400/60 shadow-soft hover:shadow-sunset/20 transition-all cursor-pointer flex flex-col justify-between group min-h-[195px]"
+                className="p-5 sm:p-6 rounded-3xl bg-white dark:bg-[#1E1A17] border border-[#DDD2C4] dark:border-white/10 hover:border-[#B29F8D] shadow-[0_4px_20px_rgba(38,33,30,0.06)] hover:shadow-[0_8px_30px_rgba(38,33,30,0.12)] transition-all cursor-pointer flex flex-col justify-between group min-h-[195px]"
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-xl sm:text-2xl font-extrabold text-espresso-900 dark:text-cream-100 font-display">
+                  <span className="text-xl sm:text-2xl font-extrabold text-[#26211E] dark:text-[#FAF7F2] font-display">
                     Visual<br />identity
                   </span>
-                  <div className="w-9 h-9 rounded-full bg-espresso-900 text-cream-100 dark:bg-white dark:text-espresso-900 flex items-center justify-center group-hover:bg-terracotta-500 group-hover:text-white transition-all shadow-sm">
+                  <div className="w-9 h-9 rounded-full bg-[#26211E] text-white dark:bg-white dark:text-[#26211E] flex items-center justify-center group-hover:bg-[#827060] group-hover:text-white transition-all shadow-sm">
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
                 <div className="space-y-2 mt-3">
-                  <p className="text-xs text-espresso-600 dark:text-cream-300 leading-relaxed line-clamp-2">
+                  <p className="text-xs text-espresso-700 dark:text-cream-300 leading-relaxed line-clamp-2">
                     We design visual systems that feel right, stand out, and stay relevant over time. Includes 5 Vector Logo PDF suites and complete brand kit.
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-0.5">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cream-200 dark:bg-darkbg-base text-espresso-800 dark:text-cream-200">5 Vector Logos</span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cream-200 dark:bg-darkbg-base text-espresso-800 dark:text-cream-200">Brand Kit</span>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#FAF7F2] dark:bg-darkbg-base text-[#5C5046] dark:text-[#FAF7F2] border border-[#DDD2C4]">5 Vector Logos</span>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#FAF7F2] dark:bg-darkbg-base text-[#5C5046] dark:text-[#FAF7F2] border border-[#DDD2C4]">Brand Kit</span>
                   </div>
                 </div>
               </div>
